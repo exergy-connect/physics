@@ -20,7 +20,7 @@
 
 ### Prerequisites
 
-Since this is a standard web-based application, you simply need a modern browser (Chrome, Firefox, Safari, or Edge).
+Since this is a standard web-based application, all you need is a modern browser (Chrome, Firefox, Safari, or Edge): https://exergy-connect.github.io/physics/
 
 ### Running Locally
 
