@@ -851,19 +851,44 @@
 
             _searchSubstringRecursive(node, currentWord, searchTerm, results, seenNodes) {
                 // Check if current word contains the search term
-                if (node.isEndOfWord && currentWord.includes(searchTerm)) {
-                    // Add all nodes associated with this word
-                    node.nodes.forEach(treeNode => {
-                        if (!seenNodes.has(treeNode.name)) {
-                            seenNodes.add(treeNode.name);
-                            results.push(treeNode);
-                        }
-                    });
+                // Check at every node, not just end of word, to allow matching substrings
+                if (currentWord.includes(searchTerm)) {
+                    // If this is an end of word node, add all associated nodes
+                    if (node.isEndOfWord && node.nodes) {
+                        node.nodes.forEach(treeNode => {
+                            if (!seenNodes.has(treeNode.name)) {
+                                seenNodes.add(treeNode.name);
+                                results.push(treeNode);
+                            }
+                        });
+                    }
+                    // Also collect all end-of-word nodes in the subtree that contain the search term
+                    // This ensures we match even if the search term appears in the middle of a longer word
+                    this._collectMatchingNodes(node, currentWord, results, seenNodes, searchTerm);
                 }
                 
                 // Continue searching children
                 for (let [char, childNode] of node.children) {
                     this._searchSubstringRecursive(childNode, currentWord + char, searchTerm, results, seenNodes);
+                }
+            }
+            
+            // Helper to collect all matching nodes from a subtree
+            _collectMatchingNodes(node, prefix, results, seenNodes, searchTerm) {
+                if (node.isEndOfWord && node.nodes) {
+                    // Only add if the full word contains the search term
+                    if (prefix.includes(searchTerm)) {
+                        node.nodes.forEach(treeNode => {
+                            if (!seenNodes.has(treeNode.name)) {
+                                seenNodes.add(treeNode.name);
+                                results.push(treeNode);
+                            }
+                        });
+                    }
+                }
+                
+                for (let [char, childNode] of node.children) {
+                    this._collectMatchingNodes(childNode, prefix + char, results, seenNodes, searchTerm);
                 }
             }
 
@@ -1163,8 +1188,6 @@
                     // Add tooltip to the content div for better positioning
                     content.classList.add('tree-tooltip');
                     content.setAttribute('data-tooltip', node.summary);
-                    // Also add title attribute as fallback
-                    label.setAttribute('title', node.summary);
                 }
             } else {
                 // Parent nodes should also look clickable
