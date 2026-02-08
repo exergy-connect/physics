@@ -215,6 +215,7 @@ const physicsData = {
           "year": 1918,
           "children": [
             {"name": "Gauge Symmetry", "year": 1918, "summary": "Symmetry principle underlying the fundamental forces, describing invariance under local transformations.", "people": ["Hermann Weyl"]},
+            {"name": "Gauge Fixing", "year": 1950, "summary": "Procedure in gauge theories to remove redundant degrees of freedom by choosing a specific gauge condition. Essential for quantizing gauge fields and making calculations well-defined. Common gauges include Lorenz gauge, Coulomb gauge, and axial gauge.", "people": ["Julian Schwinger", "Richard Feynman", "Sin-Itiro Tomonaga"]},
             {"name": "CP Violation", "year": 1964, "summary": "Violation of the combined symmetry of charge conjugation and parity, explaining matter-antimatter asymmetry.", "people": ["James Cronin", "Val Fitch"]},
             {"name": "Supersymmetry", "year": 1971, "summary": "Theoretical symmetry relating fermions and bosons, proposing a partner particle for each known particle.", "people": ["Yuri Golfand", "Evgeny Likhtman"]},
             {"name": "String Theory", "year": 1970, "summary": "Theoretical framework proposing that fundamental particles are one-dimensional vibrating strings rather than point particles.", "people": ["Yoichiro Nambu", "Holger Bech Nielsen", "Leonard Susskind"]}
