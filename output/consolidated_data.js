@@ -2,7 +2,7 @@
 const consolidatedData = {
   "model": {
     "name": "Physics Theory Model",
-    "version": "26.02.10.1",
+    "version": "26.02.12.1",
     "author": "Exergy ∞ LLC",
     "include_x_fields": false,
     "max_name_underscores": 2,
@@ -606,8 +606,8 @@ const consolidatedData = {
         "assumptions": [
           {
             "assumption_id": "ms-assumption-1",
-            "statement": "Spacetime is a four-dimensional flat manifold with Minkowski (hyperbolic/Lorentzian) geometry",
-            "rationale": "The Minkowski metric uses hyperbolic geometry with signature (-, +, +, +), fundamentally different from Euclidean geometry. The spacetime interval is ds² = -c²dt² + dx² + dy² + dz². The hyperbolic structure is a property of the entire spacetime, not just the time dimension, arising from the mixed signature that enables light cones and causality.",
+            "statement": "Spacetime is a four-dimensional flat manifold with zero Riemann curvature and Minkowski (hyperbolic/Lorentzian) geometry",
+            "rationale": "The Minkowski metric uses hyperbolic geometry with signature (-, +, +, +), fundamentally different from Euclidean geometry. The spacetime interval is ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning the manifold has no intrinsic curvature - it is globally flat. The hyperbolic structure is a property of the entire spacetime, not just the time dimension, arising from the mixed signature that enables light cones and causality.",
             "c": 1,
             "v": 1
           },
@@ -1140,8 +1140,8 @@ const consolidatedData = {
         "assumptions": [
           {
             "assumption_id": "sr-assumption-1",
-            "statement": "Spacetime is flat and uses Minkowski geometry (hyperbolic/Lorentzian geometry) with metric signature (-, +, +, +)",
-            "rationale": "Special relativity assumes flat spacetime with hyperbolic geometry, where the spacetime interval ds² = -c²dt² + dx² + dy² + dz². The hyperbolic nature is a property of the entire 4D spacetime manifold (not just the time dimension), arising from the mixed signature that distinguishes time from space. This is fundamentally different from Euclidean geometry used in classical mechanics.",
+            "statement": "Spacetime is flat with zero Riemann curvature and uses Minkowski geometry (hyperbolic/Lorentzian geometry) with metric signature (-, +, +, +)",
+            "rationale": "Special relativity assumes flat spacetime with hyperbolic geometry, where the spacetime interval ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning spacetime has no intrinsic curvature. The hyperbolic nature is a property of the entire 4D spacetime manifold (not just the time dimension), arising from the mixed signature that distinguishes time from space. This is fundamentally different from Euclidean geometry used in classical mechanics.",
             "c": 1,
             "v": 1
           },

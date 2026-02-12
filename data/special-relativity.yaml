@@ -17,8 +17,8 @@ theory:
       - "time"
     assumptions:
       - assumption_id: "sr-assumption-1"
-        statement: "Spacetime is flat and uses Minkowski geometry (hyperbolic/Lorentzian geometry) with metric signature (-, +, +, +)"
-        rationale: "Special relativity assumes flat spacetime with hyperbolic geometry, where the spacetime interval ds² = -c²dt² + dx² + dy² + dz². The hyperbolic nature is a property of the entire 4D spacetime manifold (not just the time dimension), arising from the mixed signature that distinguishes time from space. This is fundamentally different from Euclidean geometry used in classical mechanics."
+        statement: "Spacetime is flat with zero Riemann curvature and uses Minkowski geometry (hyperbolic/Lorentzian geometry) with metric signature (-, +, +, +)"
+        rationale: "Special relativity assumes flat spacetime with hyperbolic geometry, where the spacetime interval ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning spacetime has no intrinsic curvature. The hyperbolic nature is a property of the entire 4D spacetime manifold (not just the time dimension), arising from the mixed signature that distinguishes time from space. This is fundamentally different from Euclidean geometry used in classical mechanics."
       - assumption_id: "sr-assumption-2"
         statement: "The laws of physics are the same in all inertial reference frames (principle of relativity)"
         rationale: "No preferred inertial frame exists; physics is the same for all observers moving at constant velocity relative to each other"
@@ -75,8 +75,8 @@ theory:
           - "time"
         assumptions:
           - assumption_id: "ms-assumption-1"
-            statement: "Spacetime is a four-dimensional flat manifold with Minkowski (hyperbolic/Lorentzian) geometry"
-            rationale: "The Minkowski metric uses hyperbolic geometry with signature (-, +, +, +), fundamentally different from Euclidean geometry. The spacetime interval is ds² = -c²dt² + dx² + dy² + dz². The hyperbolic structure is a property of the entire spacetime, not just the time dimension, arising from the mixed signature that enables light cones and causality."
+            statement: "Spacetime is a four-dimensional flat manifold with zero Riemann curvature and Minkowski (hyperbolic/Lorentzian) geometry"
+            rationale: "The Minkowski metric uses hyperbolic geometry with signature (-, +, +, +), fundamentally different from Euclidean geometry. The spacetime interval is ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning the manifold has no intrinsic curvature - it is globally flat. The hyperbolic structure is a property of the entire spacetime, not just the time dimension, arising from the mixed signature that enables light cones and causality."
           - assumption_id: "ms-assumption-2"
             statement: "Time and space are unified into a single four-dimensional continuum"
             rationale: "Time is treated as a dimension on equal footing with spatial dimensions, but with opposite sign in the metric"
