@@ -1736,7 +1736,7 @@ const consolidatedData = {
       },
       "feynman-1948-path-integral": {
         "paper_id": "feynman-1948-path-integral",
-        "title": "Space-Time Approach to Non-Relativistic Quantum Mechanics",
+        "title": "A Relativistic Cut-Off for Classical Electrodynamics",
         "year": 1948,
         "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.74.939",
         "authors": [
