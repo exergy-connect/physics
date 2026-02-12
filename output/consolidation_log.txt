@@ -1,32 +1,32 @@
-2026-02-12 00:15:19 [INFO] Logging to: /home/jeroen/Projects/physics/output/consolidation_log.txt
-2026-02-12 00:15:19 [INFO] Step 1: Consolidating models from: /home/jeroen/Projects/physics/model
-2026-02-12 00:15:19 [WARNING] Could not load existing model from /home/jeroen/Projects/physics/output/consolidated_model.js: Invalid JSON in schema file /home/jeroen/Projects/physics/output/consolidated_model.js: Expecting value: line 1 column 1 (char 0)
-2026-02-12 00:15:19 [WARNING] Could not add change records to model file: Invalid JSON in schema file /home/jeroen/Projects/physics/output/consolidated_model.js: Expecting value: line 1 column 1 (char 0)
-2026-02-12 00:15:19 [INFO] ✓ Consolidated model written to: /home/jeroen/Projects/physics/output/consolidated_model.js
-2026-02-12 00:15:19 [INFO] Model consolidation completed successfully (exit code: 0)
-2026-02-12 00:15:19 [INFO] Step 2: Consolidating data from: /home/jeroen/Projects/physics/data
-2026-02-12 00:15:19 [INFO] Loading data files from: /home/jeroen/Projects/physics/data
-2026-02-12 00:15:19 [INFO] Loaded data from 5 files (bulk validation)
-2026-02-12 00:15:19 [INFO] ============================================================
-2026-02-12 00:15:19 [INFO] Validation Summary Report
-2026-02-12 00:15:19 [INFO] ============================================================
-2026-02-12 00:15:19 [INFO] Total entities validated: 206
-2026-02-12 00:15:19 [INFO] Entities validated by type:
-2026-02-12 00:15:19 [INFO]   - assumption: 40
-2026-02-12 00:15:19 [INFO]   - claim: 34
-2026-02-12 00:15:19 [INFO]   - paper: 13
-2026-02-12 00:15:19 [INFO]   - person: 49
-2026-02-12 00:15:19 [INFO]   - postulate: 14
-2026-02-12 00:15:19 [INFO]   - prediction: 1
-2026-02-12 00:15:19 [INFO]   - prize: 5
-2026-02-12 00:15:19 [INFO]   - prize_award: 15
-2026-02-12 00:15:19 [INFO]   - tag: 4
-2026-02-12 00:15:19 [INFO]   - theory: 31
-2026-02-12 00:15:19 [INFO] ✓ No validation errors - all entities validated successfully
-2026-02-12 00:15:19 [INFO] ============================================================
-2026-02-12 00:15:19 [WARNING] Could not load existing data from /home/jeroen/Projects/physics/output/consolidated_data.js: Expecting value: line 1 column 1 (char 0)
-2026-02-12 00:15:19 [INFO] Calculating computed fields
-2026-02-12 00:15:19 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/output/consolidated_data.js (117 entities across 10 entity types)
-2026-02-12 00:15:19 [INFO] ✓ Successfully consolidated data into /home/jeroen/Projects/physics/output/consolidated_data.js
-2026-02-12 00:15:19 [INFO] Data consolidation completed successfully (exit code: 0)
-2026-02-12 00:15:19 [INFO] Consolidation completed successfully (exit code: 0)
+2026-02-12 00:38:30 [INFO] Logging to: /home/jeroen/Projects/physics/output/consolidation_log.txt
+2026-02-12 00:38:30 [INFO] Step 1: Consolidating models from: /home/jeroen/Projects/physics/model/
+2026-02-12 00:38:30 [WARNING] Could not load existing model from /home/jeroen/Projects/physics/output/consolidated_model.js: Invalid JSON in schema file /home/jeroen/Projects/physics/output/consolidated_model.js: Expecting value: line 1 column 1 (char 0)
+2026-02-12 00:38:30 [WARNING] Could not add change records to model file: Invalid JSON in schema file /home/jeroen/Projects/physics/output/consolidated_model.js: Expecting value: line 1 column 1 (char 0)
+2026-02-12 00:38:30 [INFO] ✓ Consolidated model written to: /home/jeroen/Projects/physics/output/consolidated_model.js
+2026-02-12 00:38:30 [INFO] Model consolidation completed successfully (exit code: 0)
+2026-02-12 00:38:30 [INFO] Step 2: Consolidating data from: /home/jeroen/Projects/physics/data/
+2026-02-12 00:38:31 [INFO] Loading data files from: /home/jeroen/Projects/physics/data/
+2026-02-12 00:38:31 [INFO] Loaded data from 5 files (bulk validation)
+2026-02-12 00:38:31 [INFO] ============================================================
+2026-02-12 00:38:31 [INFO] Validation Summary Report
+2026-02-12 00:38:31 [INFO] ============================================================
+2026-02-12 00:38:31 [INFO] Total entities validated: 206
+2026-02-12 00:38:31 [INFO] Entities validated by type:
+2026-02-12 00:38:31 [INFO]   - assumption: 40
+2026-02-12 00:38:31 [INFO]   - claim: 34
+2026-02-12 00:38:31 [INFO]   - paper: 13
+2026-02-12 00:38:31 [INFO]   - person: 49
+2026-02-12 00:38:31 [INFO]   - postulate: 14
+2026-02-12 00:38:31 [INFO]   - prediction: 1
+2026-02-12 00:38:31 [INFO]   - prize: 5
+2026-02-12 00:38:31 [INFO]   - prize_award: 15
+2026-02-12 00:38:31 [INFO]   - tag: 4
+2026-02-12 00:38:31 [INFO]   - theory: 31
+2026-02-12 00:38:31 [INFO] ✓ No validation errors - all entities validated successfully
+2026-02-12 00:38:31 [INFO] ============================================================
+2026-02-12 00:38:31 [WARNING] Could not load existing data from /home/jeroen/Projects/physics/output/consolidated_data.js: Expecting value: line 1 column 1 (char 0)
+2026-02-12 00:38:31 [INFO] Calculating computed fields
+2026-02-12 00:38:31 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/output/consolidated_data.js (117 entities across 10 entity types)
+2026-02-12 00:38:31 [INFO] ✓ Successfully consolidated data into /home/jeroen/Projects/physics/output/consolidated_data.js
+2026-02-12 00:38:31 [INFO] Data consolidation completed successfully (exit code: 0)
+2026-02-12 00:38:31 [INFO] Consolidation completed successfully (exit code: 0)
