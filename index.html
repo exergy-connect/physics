@@ -281,13 +281,13 @@
             z-index: 10000;
             border: 1px solid rgba(120, 119, 198, 0.4);
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-            max-width: 300px;
+            max-width: 400px;
             min-width: 200px;
-            white-space: normal;
+            white-space: pre-line;
             text-align: left;
             visibility: hidden;
             word-wrap: break-word;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         .tree-tooltip:hover::after {
@@ -760,7 +760,7 @@
         </div>
 
         <div class="copyright">
-            © 2026 Exergy ∞ LLC | Version 2026-02-10.1 | <a href="index_v1.html" style="color: rgba(120, 119, 198, 0.8); text-decoration: none;">v1</a>
+            © 2026 Exergy ∞ LLC | Version 2026-02-12.1 | <a href="index_v1.html" style="color: rgba(120, 119, 198, 0.8); text-decoration: none;">v1</a>
         </div>
     </div>
 
@@ -826,6 +826,7 @@
                     tags: theory.tags || [],
                     papers: theory.papers || [],
                     nobel: theory.nobel_year,
+                    theory_id: theory.theory_id,  // Store theory_id for prize lookup
                     children: []
                 };
 
@@ -843,7 +844,8 @@
                             name: `Assumption: ${assumption.statement.substring(0, 50)}...`,
                             year: theory.year,
                             summary: assumption.statement,
-                            rationale: assumption.rationale
+                            rationale: assumption.rationale,
+                            parentTheory: node  // Store reference to parent theory
                         });
                     });
                 }
@@ -853,7 +855,8 @@
                         node.children.push({
                             name: `Postulate: ${postulate.statement.substring(0, 50)}...`,
                             year: postulate.formulation_year || theory.year,
-                            summary: postulate.statement
+                            summary: postulate.statement,
+                            parentTheory: node  // Store reference to parent theory
                         });
                     });
                 }
@@ -864,7 +867,24 @@
                             name: `Claim: ${claim.statement.substring(0, 50)}...`,
                             year: claim.verification_year || theory.year,
                             summary: claim.statement,
-                            status: claim.status
+                            status: claim.status,
+                            parentTheory: node  // Store reference to parent theory
+                        });
+                    });
+                }
+
+                // Add nested predictions as children
+                if (theory.predictions && theory.predictions.length > 0) {
+                    theory.predictions.forEach(prediction => {
+                        node.children.push({
+                            name: `Prediction: ${prediction.statement.substring(0, 50)}...`,
+                            year: prediction.prediction_year || theory.year,
+                            summary: prediction.statement,
+                            prediction_year: prediction.prediction_year,
+                            verification_year: prediction.verification_year,
+                            verification_method: prediction.verification_method,
+                            status: prediction.status,
+                            parentTheory: node  // Store reference to parent theory
                         });
                     });
                 }
@@ -1050,6 +1070,17 @@
         function buildTrie(node, trie) {
             // Insert node name
             trie.insert(node.name, node);
+            
+            // For predictions, also insert the full statement for better searchability
+            if (node.name.startsWith('Prediction:') && node.summary) {
+                // Insert key terms from the prediction statement
+                const words = node.summary.toLowerCase().split(/\s+/);
+                words.forEach(word => {
+                    if (word.length > 3) { // Only index words longer than 3 characters
+                        trie.insert(word, node);
+                    }
+                });
+            }
             
             // Insert people names associated with this node
             if (node.people && Array.isArray(node.people)) {
@@ -1303,8 +1334,27 @@
                 if (hasChildren) {
                     toggleNode(node.name);
                 } else {
-                    // Leaf node - open context modal
-                    openContextModal(node);
+                    // Leaf node - check if it's an assumption, postulate, claim, or prediction
+                    // If so, open the parent theory modal instead
+                    if (node.name.startsWith('Assumption:') || 
+                        node.name.startsWith('Postulate:') || 
+                        node.name.startsWith('Claim:') ||
+                        node.name.startsWith('Prediction:')) {
+                        if (node.parentTheory) {
+                            openContextModal(node.parentTheory);
+                        } else {
+                            // Fallback: try to find parent in hierarchy
+                            const parentNode = findParentTheory(node, sampleHierarchy);
+                            if (parentNode) {
+                                openContextModal(parentNode);
+                            } else {
+                                openContextModal(node);
+                            }
+                        }
+                    } else {
+                        // Regular leaf node - open context modal
+                        openContextModal(node);
+                    }
                 }
             };
             
@@ -1321,9 +1371,33 @@
                 
                 // Add tooltip for leaf nodes with summaries
                 if (node.summary) {
+                    let tooltipText = node.summary;
+                    
+                    // For predictions, add verification details to tooltip
+                    if (node.name.startsWith('Prediction:')) {
+                        const details = [];
+                        if (node.prediction_year) {
+                            details.push(`Predicted: ${node.prediction_year}`);
+                        }
+                        if (node.verification_year) {
+                            details.push(`Verified: ${node.verification_year}`);
+                        }
+                        if (node.verification_method) {
+                            details.push(`Method: ${node.verification_method}`);
+                        }
+                        if (node.status) {
+                            details.push(`Status: ${node.status}`);
+                        }
+                        if (details.length > 0) {
+                            // Format tooltip with verification details
+                            // CSS content doesn't support newlines, so use a readable separator
+                            tooltipText = `${node.summary}\n━━━━━━━━━━━━━━━━━━━━\n${details.join('\n')}`;
+                        }
+                    }
+                    
                     // Add tooltip to the content div for better positioning
                     content.classList.add('tree-tooltip');
-                    content.setAttribute('data-tooltip', node.summary);
+                    content.setAttribute('data-tooltip', tooltipText);
                 }
             } else {
                 // Parent nodes should also look clickable
@@ -1703,6 +1777,28 @@
         // Context Modal Functions
         let currentModalNode = null;
 
+        // Helper function to find parent theory of an assumption/postulate/claim
+        function findParentTheory(childNode, rootNode) {
+            if (!rootNode || !rootNode.children) {
+                return null;
+            }
+            
+            // Check if any child is the target node
+            for (const child of rootNode.children) {
+                if (child === childNode || (child.name && childNode.name && child.name === childNode.name)) {
+                    // Found the child, return the root as parent
+                    return rootNode;
+                }
+                // Recursively search in children
+                const found = findParentTheory(childNode, child);
+                if (found) {
+                    return found;
+                }
+            }
+            
+            return null;
+        }
+
         // Helper function to find a node by name in the hierarchy
         function findNodeByName(node, name) {
             if (node.name === name) {
@@ -1859,153 +1955,126 @@
                 papersContainer.style.display = 'none';
             }
 
-            // Display Prize information (Nobel, Kyoto, etc.)
+            // Display Prize information from consolidated data
             nobelContainer.innerHTML = '';
             let hasPrizeInfo = false;
 
-            // Helper function to display prize information
-            function displayPrizeInfo(prizeType, prizeLabel, prizeData, peopleData, topicField, prizeIcon = '🏆') {
-                let hasInfo = false;
-                
-                // Check if topic won this prize
-                if (nodeToUse[topicField] && typeof nodeToUse[topicField] === 'number' && prizeData && prizeData[nodeToUse[topicField]]) {
-                    hasInfo = true;
+            // Get prize data from consolidated data
+            if (typeof consolidatedData !== 'undefined' && consolidatedData.data) {
+                const prizes = consolidatedData.data.prize || {};
+                const prizeAwards = consolidatedData.data.prize_award || {};
+                const people = consolidatedData.data.person || {};
+
+                // Get theory_id from the node (stored during hierarchy building)
+                const theoryId = nodeToUse.theory_id;
+
+                // Find all prize awards related to this theory or people
+                const relevantAwards = [];
+                Object.values(prizeAwards).forEach(award => {
+                    // Check if award is for this theory
+                    if (theoryId && award.theory_id === theoryId) {
+                        relevantAwards.push(award);
+                    }
+                    // Check if award is for any of the people
+                    if (nodeToUse.people && Array.isArray(nodeToUse.people)) {
+                        // nodeToUse.people contains person_ids (from consolidated data)
+                        nodeToUse.people.forEach(personId => {
+                            if (award.people && award.people.includes(personId)) {
+                                if (!relevantAwards.find(a => a.award_id === award.award_id)) {
+                                    relevantAwards.push(award);
+                                }
+                            }
+                        });
+                    }
+                });
+
+                // Group awards by prize
+                const awardsByPrize = {};
+                relevantAwards.forEach(award => {
+                    const prizeId = award.prize_id;
+                    if (!awardsByPrize[prizeId]) {
+                        awardsByPrize[prizeId] = [];
+                    }
+                    awardsByPrize[prizeId].push(award);
+                });
+
+                // Display prizes
+                Object.keys(awardsByPrize).forEach(prizeId => {
+                    const prize = prizes[prizeId];
+                    if (!prize) return;
+
+                    const awards = awardsByPrize[prizeId];
+                    const prizeIcon = prize.category === 'Kyoto Prize in Basic Sciences' ? '🏅' : 
+                                    prize.category.includes('Chemistry') ? '🧪' :
+                                    prize.category.includes('Medicine') ? '⚕️' :
+                                    prize.category.includes('Economic') ? '💰' : '🏆';
+
+                    hasPrizeInfo = true;
+
+                    // Prize label
                     const label = document.createElement('div');
                     label.className = 'context-modal-nobel-label';
-                    label.innerHTML = `${prizeIcon} ${prizeLabel}`;
+                    label.innerHTML = `${prizeIcon} ${prize.name}`;
                     nobelContainer.appendChild(label);
 
-                    const topicDiv = document.createElement('div');
-                    topicDiv.className = 'context-modal-nobel-topic';
-                    
-                    const yearDiv = document.createElement('div');
-                    yearDiv.className = 'context-modal-nobel-topic-year';
-                    yearDiv.textContent = `${nodeToUse[topicField]}`;
-                    topicDiv.appendChild(yearDiv);
+                    // Display each award
+                    awards.forEach(award => {
+                        const awardDiv = document.createElement('div');
+                        awardDiv.className = 'context-modal-nobel-topic';
 
-                    const descDiv = document.createElement('div');
-                    descDiv.className = 'context-modal-nobel-topic-description';
-                    descDiv.textContent = prizeData[nodeToUse[topicField]];
-                    topicDiv.appendChild(descDiv);
+                        const yearDiv = document.createElement('div');
+                        yearDiv.className = 'context-modal-nobel-topic-year';
+                        yearDiv.textContent = `${award.year}`;
+                        awardDiv.appendChild(yearDiv);
 
-                    nobelContainer.appendChild(topicDiv);
-                }
+                        const descDiv = document.createElement('div');
+                        descDiv.className = 'context-modal-nobel-topic-description';
+                        descDiv.textContent = award.description;
+                        awardDiv.appendChild(descDiv);
 
-                // Check if people won this prize
-                if (nodeToUse.people && Array.isArray(nodeToUse.people) && peopleData) {
-                    const peopleWithPrize = [];
-                    nodeToUse.people.forEach(personName => {
-                        if (peopleData[personName] && Array.isArray(peopleData[personName]) && peopleData[personName].length > 0) {
-                            peopleWithPrize.push({
-                                name: personName,
-                                years: peopleData[personName]
+                        // Display people who received this award
+                        if (award.people && award.people.length > 0) {
+                            const peopleDiv = document.createElement('div');
+                            peopleDiv.className = 'context-modal-nobel-people';
+                            peopleDiv.style.marginTop = '10px';
+
+                            const peopleLabel = document.createElement('div');
+                            peopleLabel.className = 'context-modal-nobel-people-label';
+                            peopleLabel.textContent = 'Awarded to:';
+                            peopleDiv.appendChild(peopleLabel);
+
+                            const peopleList = document.createElement('div');
+                            peopleList.className = 'context-modal-nobel-people-list';
+
+                            award.people.forEach(personId => {
+                                const person = people[personId];
+                                if (person) {
+                                    const personElement = document.createElement('a');
+                                    personElement.className = 'context-modal-nobel-person';
+                                    personElement.textContent = person.name;
+                                    personElement.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(person.name)}`;
+                                    personElement.target = '_blank';
+                                    personElement.rel = 'noopener noreferrer';
+                                    personElement.style.cursor = 'pointer';
+                                    personElement.style.textDecoration = 'underline';
+                                    personElement.style.textDecorationColor = 'rgba(255, 215, 0, 0.5)';
+
+                                    const yearElement = document.createElement('span');
+                                    yearElement.className = 'context-modal-nobel-person-year';
+                                    yearElement.textContent = ` (${award.year})`;
+                                    personElement.appendChild(yearElement);
+
+                                    peopleList.appendChild(personElement);
+                                }
                             });
+
+                            peopleDiv.appendChild(peopleList);
+                            awardDiv.appendChild(peopleDiv);
                         }
+
+                        nobelContainer.appendChild(awardDiv);
                     });
-
-                    if (peopleWithPrize.length > 0) {
-                        hasInfo = true;
-                        
-                        // Add label if not already added (check if label with this text exists)
-                        let labelExists = false;
-                        const existingLabels = nobelContainer.querySelectorAll('.context-modal-nobel-label');
-                        existingLabels.forEach(label => {
-                            if (label.textContent.includes(prizeLabel)) {
-                                labelExists = true;
-                            }
-                        });
-                        if (!labelExists) {
-                            const label = document.createElement('div');
-                            label.className = 'context-modal-nobel-label';
-                            label.innerHTML = `${prizeIcon} ${prizeLabel}`;
-                            nobelContainer.appendChild(label);
-                        }
-
-                        const peopleDiv = document.createElement('div');
-                        peopleDiv.className = 'context-modal-nobel-people';
-
-                        const peopleLabel = document.createElement('div');
-                        peopleLabel.className = 'context-modal-nobel-people-label';
-                        peopleLabel.textContent = 'Awarded to:';
-                        peopleDiv.appendChild(peopleLabel);
-
-                        const peopleList = document.createElement('div');
-                        peopleList.className = 'context-modal-nobel-people-list';
-
-                        peopleWithPrize.forEach(person => {
-                            const personElement = document.createElement('span');
-                            personElement.className = 'context-modal-nobel-person';
-                            personElement.textContent = person.name;
-                            
-                            const yearElement = document.createElement('span');
-                            yearElement.className = 'context-modal-nobel-person-year';
-                            yearElement.textContent = `(${person.years.join(', ')})`;
-                            personElement.appendChild(yearElement);
-
-                            // Add tooltip with prize descriptions
-                            if (prizeData) {
-                                const tooltip = document.createElement('div');
-                                tooltip.className = 'context-modal-nobel-person-tooltip';
-                                
-                                person.years.forEach((year) => {
-                                    if (prizeData[year]) {
-                                        const yearDiv = document.createElement('div');
-                                        yearDiv.className = 'context-modal-nobel-person-tooltip-year';
-                                        yearDiv.textContent = `${year}:`;
-                                        tooltip.appendChild(yearDiv);
-                                        
-                                        const descDiv = document.createElement('div');
-                                        descDiv.className = 'context-modal-nobel-person-tooltip-description';
-                                        descDiv.textContent = prizeData[year];
-                                        tooltip.appendChild(descDiv);
-                                    }
-                                });
-                                
-                                personElement.appendChild(tooltip);
-                            }
-
-                            peopleList.appendChild(personElement);
-                        });
-
-                        peopleDiv.appendChild(peopleList);
-                        nobelContainer.appendChild(peopleDiv);
-                    }
-                }
-                
-                return hasInfo;
-            }
-
-            // Display Nobel Prize in Physics
-            if (displayPrizeInfo('nobel', 'Nobel Prize in Physics', nobelPrizes, peopleNobel, 'nobel', '🏆')) {
-                hasPrizeInfo = true;
-            }
-
-            // Display Kyoto Prize
-            if (typeof kyotoPrizes !== 'undefined' && typeof peopleKyoto !== 'undefined') {
-                if (displayPrizeInfo('kyoto', 'Kyoto Prize in Basic Sciences', kyotoPrizes, peopleKyoto, 'kyoto', '🏅')) {
-                    hasPrizeInfo = true;
-                }
-            }
-
-            // Display Nobel Prize in Chemistry
-            if (typeof nobelPrizesChemistry !== 'undefined' && typeof peopleNobelChemistry !== 'undefined') {
-                if (displayPrizeInfo('nobelChemistry', 'Nobel Prize in Chemistry', nobelPrizesChemistry, peopleNobelChemistry, 'nobelChemistry', '🧪')) {
-                    hasPrizeInfo = true;
-                }
-            }
-
-            // Display Nobel Prize in Medicine
-            if (typeof nobelPrizesMedicine !== 'undefined' && typeof peopleNobelMedicine !== 'undefined') {
-                if (displayPrizeInfo('nobelMedicine', 'Nobel Prize in Physiology or Medicine', nobelPrizesMedicine, peopleNobelMedicine, 'nobelMedicine', '⚕️')) {
-                    hasPrizeInfo = true;
-                }
-            }
-
-            // Display Nobel Prize in Economic Sciences
-            if (typeof nobelPrizesEconomics !== 'undefined' && typeof peopleNobelEconomics !== 'undefined') {
-                if (displayPrizeInfo('nobelEconomics', 'Nobel Prize in Economic Sciences', nobelPrizesEconomics, peopleNobelEconomics, 'nobelEconomics', '💰')) {
-                    hasPrizeInfo = true;
-                }
+                });
             }
 
             if (hasPrizeInfo) {

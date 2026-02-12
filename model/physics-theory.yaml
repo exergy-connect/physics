@@ -1,5 +1,5 @@
 name: "Physics Theory Model"
-version: "26.02.10.1"
+version: "26.02.12.1"
 author: "Exergy ∞ LLC"
 
 entities:
@@ -64,7 +64,13 @@ entities:
         required: false
         item_type:
           entity: claim
-        description: "List of claims or predictions made by this theory (nested children)"
+        description: "List of claims or consequences made by this theory (nested children)"
+      - name: predictions
+        type: array
+        required: false
+        item_type:
+          entity: prediction
+        description: "List of testable predictions made by this theory (nested children)"
       - name: papers
         type: array
         required: false
@@ -172,11 +178,12 @@ entities:
         description: "Year when this postulate was formulated (may differ from theory year, as some postulates may predate the full theory)"
 
   - name: claim
-    brief: "A claim or prediction made by a theory"
+    brief: "A claim or consequence of a theory"
     description: |
-      Represents a claim, prediction, or consequence derived from a physics theory.
-      Claims are testable statements or theoretical consequences that follow from the
-      theory's assumptions and postulates.
+      Represents a claim or consequence derived from a physics theory. Claims are
+      theoretical statements or consequences that follow from the theory's assumptions
+      and postulates. Unlike predictions, claims may be more general theoretical
+      consequences that are not necessarily testable in isolation.
     primary_key: [claim_id]
     parents:
       - child_fk: theory_id
@@ -197,7 +204,7 @@ entities:
       - name: statement
         type: string
         required: true
-        description: "The claim or prediction statement"
+        description: "The claim or consequence statement"
       - name: status
         type: string
         required: false
@@ -211,6 +218,74 @@ entities:
         type: integer
         required: false
         description: "Year when the claim was verified or falsified (if applicable)"
+
+  - name: prediction
+    brief: "A testable prediction made by a theory"
+    description: |
+      Represents a specific, testable prediction made by a physics theory. Predictions
+      are concrete, falsifiable statements that can be experimentally verified or
+      falsified. They are distinct from claims in that they are explicitly testable
+      and have both a prediction year (when the prediction was made) and potentially
+      a verification year (when it was tested). Predictions are the bridge between
+      theory and experiment.
+    primary_key: [prediction_id]
+    parents:
+      - child_fk: theory_id
+        parent_array: predictions
+    fields:
+      - name: prediction_id
+        type: string
+        primaryKey: true
+        required: true
+        description: "Unique identifier for the prediction"
+      - name: theory_id
+        type: string
+        required: true
+        foreignKey:
+          entity: theory
+          field: theory_id
+        description: "Reference to the parent theory"
+      - name: statement
+        type: string
+        required: true
+        description: "The testable prediction statement (e.g., 'Moving clocks run slower than stationary clocks', 'Light rays are bent by gravitational fields')"
+      - name: prediction_year
+        type: integer
+        required: true
+        description: "Year when this prediction was made or published"
+      - name: status
+        type: string
+        required: false
+        enum:
+          - pending
+          - verified
+          - falsified
+          - partially_verified
+        description: "Status of the prediction: pending (not yet tested), verified (confirmed by experiment), falsified (contradicted by evidence), partially_verified (some aspects confirmed)"
+      - name: verification_year
+        type: integer
+        required: false
+        description: "Year when the prediction was experimentally verified or falsified (if applicable)"
+      - name: verification_method
+        type: string
+        required: false
+        description: "Description of how the prediction was verified or tested (e.g., 'Hafele-Keating experiment with atomic clocks', 'Gravitational lensing observation')"
+      - name: people
+        type: array
+        required: false
+        item_type: string
+        foreignKey:
+          entity: person
+          field: person_id
+        description: "Array of person_ids who made this prediction or were involved in its verification"
+      - name: papers
+        type: array
+        required: false
+        item_type: string
+        foreignKey:
+          entity: paper
+          field: paper_id
+        description: "Array of paper_ids related to this prediction (prediction papers, verification papers, etc.)"
 
   - name: paper
     brief: "A scientific paper or publication"

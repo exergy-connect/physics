@@ -322,6 +322,41 @@ const consolidatedData = {
           }
         ]
       },
+      "feynman-diagrams": {
+        "theory_id": "feynman-diagrams",
+        "name": "Feynman Diagrams",
+        "year": 1949,
+        "summary": "Graphical representation of particle interactions in quantum field theory. Lines represent particles, vertices represent interactions, and diagrams encode the mathematical expressions for scattering amplitudes.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-electrodynamics",
+        "people": [
+          "richard-feynman"
+        ],
+        "papers": [
+          "feynman-1949-space-time"
+        ],
+        "c": 1,
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "fd-assumption-1",
+            "statement": "Particle interactions can be represented as diagrams with lines and vertices",
+            "rationale": "Feynman diagrams provide a visual and computational tool for calculating scattering amplitudes",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "fd-claim-1",
+            "statement": "Feynman diagrams simplify calculations of quantum field theory amplitudes",
+            "status": "verified",
+            "verification_year": 1949,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
       "flrw-metric": {
         "theory_id": "flrw-metric",
         "name": "FLRW Metric",
@@ -724,6 +759,210 @@ const consolidatedData = {
           }
         ]
       },
+      "path-integral-formulation": {
+        "theory_id": "path-integral-formulation",
+        "name": "Path Integral Formulation",
+        "year": 1948,
+        "summary": "Alternative formulation of quantum mechanics that describes the probability amplitude for a particle to travel between two points as a sum over all possible paths. Each path contributes with a phase proportional to the action along that path. Equivalent to the Schrödinger equation but provides intuitive insights into quantum behavior.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "people": [
+          "richard-feynman"
+        ],
+        "papers": [
+          "feynman-1948-path-integral"
+        ],
+        "tags": [
+          "time"
+        ],
+        "c": 1,
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "pif-assumption-1",
+            "statement": "All possible paths between two points contribute to the quantum amplitude",
+            "rationale": "The path integral sums over all possible paths, weighted by the action, to compute quantum amplitudes",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "pif-assumption-2",
+            "statement": "Time is absolute in the path integral formulation (though paths can vary in time)",
+            "rationale": "The path integral integrates over paths in spacetime, treating time as a parameter",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "pif-claim-1",
+            "statement": "The path integral formulation is equivalent to the Schrödinger equation",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "pif-claim-2",
+            "statement": "Path integrals provide intuitive visualization of quantum interference",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "quantum-computing": {
+        "theory_id": "quantum-computing",
+        "name": "Quantum Computing",
+        "year": 1982,
+        "summary": "Computing paradigm that uses quantum mechanical phenomena like superposition and entanglement to perform computations. Feynman proposed using quantum systems to simulate quantum physics.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "people": [
+          "richard-feynman",
+          "paul-benioff",
+          "yuri-manin"
+        ],
+        "papers": [
+          "feynman-1982-simulating"
+        ],
+        "c": 1,
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "qc-assumption-1",
+            "statement": "Quantum systems can be used to perform computations more efficiently than classical computers for certain problems",
+            "rationale": "Quantum superposition and entanglement provide computational advantages for specific algorithms",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "qc-claim-1",
+            "statement": "Quantum computers can simulate quantum systems efficiently",
+            "status": "verified",
+            "verification_year": 2019,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "quantum-electrodynamics": {
+        "theory_id": "quantum-electrodynamics",
+        "name": "Quantum Electrodynamics",
+        "year": 1948,
+        "summary": "Quantum field theory of electromagnetism describing interactions of light and matter. The most precisely tested theory in physics, with predictions verified to extraordinary accuracy.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "nobel_year": 1965,
+        "people": [
+          "richard-feynman",
+          "julian-schwinger",
+          "sin-itiro-tomonaga"
+        ],
+        "papers": [
+          "feynman-1949-space-time",
+          "feynman-1949-positron"
+        ],
+        "tags": [
+          "force"
+        ],
+        "c": 1,
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "qed-assumption-1",
+            "statement": "Electromagnetic field is quantized and interacts with charged particles",
+            "rationale": "QED treats the electromagnetic field as a quantum field with photons as quanta",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "qed-assumption-2",
+            "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
+            "rationale": "QED operates in flat Minkowski spacetime consistent with special relativity",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "qed-claim-1",
+            "statement": "QED predicts the anomalous magnetic moment of the electron with extraordinary precision",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "qed-claim-2",
+            "statement": "Feynman diagrams provide a visual representation of particle interactions",
+            "status": "verified",
+            "verification_year": 1949,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "qed-postulate-1",
+            "statement": "The interaction between charged particles and photons is described by the QED Lagrangian",
+            "formulation_year": 1948,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "quantum-field-theory": {
+        "theory_id": "quantum-field-theory",
+        "name": "Quantum Field Theory",
+        "year": 1927,
+        "summary": "Theoretical framework combining quantum mechanics with special relativity to describe how fields and particles interact. Provides the foundation for understanding fundamental forces and particles.",
+        "category": "Quantum Physics",
+        "people": [
+          "paul-dirac",
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "qft-assumption-1",
+            "statement": "Fields are the fundamental entities, and particles are excitations of these fields",
+            "rationale": "Quantum field theory treats particles as quantized excitations of underlying fields rather than point particles",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "qft-assumption-2",
+            "statement": "Spacetime uses Minkowski (hyperbolic) geometry from special relativity",
+            "rationale": "QFT operates in flat Minkowski spacetime, requiring the hyperbolic geometry structure",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "qft-claim-1",
+            "statement": "Quantum field theory successfully describes particle creation and annihilation",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "qft-postulate-1",
+            "statement": "Fields obey quantum mechanical principles and special relativity",
+            "formulation_year": 1927,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
       "relativistic-dynamics": {
         "theory_id": "relativistic-dynamics",
         "name": "Relativistic Dynamics",
@@ -780,6 +1019,44 @@ const consolidatedData = {
         ],
         "c": 1,
         "v": 1
+      },
+      "renormalization": {
+        "theory_id": "renormalization",
+        "name": "Renormalization",
+        "year": 1947,
+        "summary": "Mathematical procedure to remove infinities from quantum field theory calculations by redefining physical parameters. Essential for making QED and other quantum field theories produce finite, meaningful predictions.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "people": [
+          "richard-feynman",
+          "julian-schwinger",
+          "sin-itiro-tomonaga",
+          "freeman-dyson"
+        ],
+        "papers": [
+          "feynman-1949-space-time"
+        ],
+        "c": 1,
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "ren-assumption-1",
+            "statement": "Divergent integrals in quantum field theory can be systematically removed",
+            "rationale": "Renormalization provides a procedure to absorb infinities into redefinition of physical parameters",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "ren-claim-1",
+            "statement": "Renormalization makes QED predictions finite and accurate",
+            "status": "verified",
+            "verification_year": 1947,
+            "c": 1,
+            "v": 1
+          }
+        ]
       },
       "ricci-curvature": {
         "theory_id": "ricci-curvature",
@@ -892,14 +1169,6 @@ const consolidatedData = {
         ],
         "claims": [
           {
-            "claim_id": "sr-claim-1",
-            "statement": "Time dilation: Moving clocks run slower than stationary clocks",
-            "status": "verified",
-            "verification_year": 1971,
-            "c": 1,
-            "v": 1
-          },
-          {
             "claim_id": "sr-claim-2",
             "statement": "Length contraction: Objects in motion appear shorter in the direction of motion",
             "status": "verified",
@@ -936,6 +1205,26 @@ const consolidatedData = {
             "postulate_id": "sr-postulate-2",
             "statement": "The constancy of the speed of light: The speed of light in vacuum is the same for all observers, regardless of the motion of the light source or observer",
             "formulation_year": 1905,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "predictions": [
+          {
+            "prediction_id": "sr-prediction-1",
+            "statement": "Time dilation: Moving clocks run slower than stationary clocks",
+            "prediction_year": 1905,
+            "status": "verified",
+            "verification_year": 1971,
+            "verification_method": "Hafele-Keating experiment with atomic clocks on airplanes",
+            "people": [
+              "albert-einstein",
+              "joseph-hafele",
+              "richard-keating"
+            ],
+            "papers": [
+              "einstein-1905-relativity"
+            ],
             "c": 1,
             "v": 1
           }
@@ -1014,6 +1303,14 @@ const consolidatedData = {
       }
     },
     "person": {
+      "abdus-salam": {
+        "person_id": "abdus-salam",
+        "name": "Abdus Salam",
+        "birth_year": 1926,
+        "death_year": 1996,
+        "c": 1,
+        "v": 1
+      },
       "albert-einstein": {
         "person_id": "albert-einstein",
         "name": "Albert Einstein",
@@ -1030,11 +1327,25 @@ const consolidatedData = {
         "c": 1,
         "v": 1
       },
+      "andrea-ghez": {
+        "person_id": "andrea-ghez",
+        "name": "Andrea Ghez",
+        "birth_year": 1965,
+        "c": 1,
+        "v": 1
+      },
       "arthur-walker": {
         "person_id": "arthur-walker",
         "name": "Arthur Geoffrey Walker",
         "birth_year": 1909,
         "death_year": 2001,
+        "c": 1,
+        "v": 1
+      },
+      "barry-barish": {
+        "person_id": "barry-barish",
+        "name": "Barry Barish",
+        "birth_year": 1936,
         "c": 1,
         "v": 1
       },
@@ -1051,6 +1362,30 @@ const consolidatedData = {
         "name": "Emmy Noether",
         "birth_year": 1882,
         "death_year": 1935,
+        "c": 1,
+        "v": 1
+      },
+      "erwin-schrodinger": {
+        "person_id": "erwin-schrodinger",
+        "name": "Erwin Schrödinger",
+        "birth_year": 1887,
+        "death_year": 1961,
+        "c": 1,
+        "v": 1
+      },
+      "francis-crick": {
+        "person_id": "francis-crick",
+        "name": "Francis Harry Compton Crick",
+        "birth_year": 1916,
+        "death_year": 2004,
+        "c": 1,
+        "v": 1
+      },
+      "freeman-dyson": {
+        "person_id": "freeman-dyson",
+        "name": "Freeman Dyson",
+        "birth_year": 1923,
+        "death_year": 2020,
         "c": 1,
         "v": 1
       },
@@ -1110,11 +1445,34 @@ const consolidatedData = {
         "c": 1,
         "v": 1
       },
+      "james-watson": {
+        "person_id": "james-watson",
+        "name": "James Watson",
+        "birth_year": 1928,
+        "c": 1,
+        "v": 1
+      },
+      "joseph-hafele": {
+        "person_id": "joseph-hafele",
+        "name": "Joseph Hafele",
+        "birth_year": 1933,
+        "death_year": 2014,
+        "c": 1,
+        "v": 1
+      },
       "joseph-lagrange": {
         "person_id": "joseph-lagrange",
         "name": "Joseph-Louis Lagrange",
         "birth_year": 1736,
         "death_year": 1813,
+        "c": 1,
+        "v": 1
+      },
+      "julian-schwinger": {
+        "person_id": "julian-schwinger",
+        "name": "Julian Schwinger",
+        "birth_year": 1918,
+        "death_year": 1994,
         "c": 1,
         "v": 1
       },
@@ -1134,11 +1492,74 @@ const consolidatedData = {
         "c": 1,
         "v": 1
       },
+      "kip-thorne": {
+        "person_id": "kip-thorne",
+        "name": "Kip Thorne",
+        "birth_year": 1940,
+        "c": 1,
+        "v": 1
+      },
+      "louis-de-broglie": {
+        "person_id": "louis-de-broglie",
+        "name": "Louis de Broglie",
+        "birth_year": 1892,
+        "death_year": 1987,
+        "c": 1,
+        "v": 1
+      },
       "luigi-bianchi": {
         "person_id": "luigi-bianchi",
         "name": "Luigi Bianchi",
         "birth_year": 1856,
         "death_year": 1928,
+        "c": 1,
+        "v": 1
+      },
+      "marie-curie": {
+        "person_id": "marie-curie",
+        "name": "Marie Curie",
+        "birth_year": 1867,
+        "death_year": 1934,
+        "c": 1,
+        "v": 1
+      },
+      "maurice-wilkins": {
+        "person_id": "maurice-wilkins",
+        "name": "Maurice Wilkins",
+        "birth_year": 1916,
+        "death_year": 2004,
+        "c": 1,
+        "v": 1
+      },
+      "max-planck": {
+        "person_id": "max-planck",
+        "name": "Max Planck",
+        "birth_year": 1858,
+        "death_year": 1947,
+        "c": 1,
+        "v": 1
+      },
+      "niels-bohr": {
+        "person_id": "niels-bohr",
+        "name": "Niels Bohr",
+        "birth_year": 1885,
+        "death_year": 1962,
+        "c": 1,
+        "v": 1
+      },
+      "paul-benioff": {
+        "person_id": "paul-benioff",
+        "name": "Paul Benioff",
+        "birth_year": 1930,
+        "death_year": 2022,
+        "c": 1,
+        "v": 1
+      },
+      "paul-dirac": {
+        "person_id": "paul-dirac",
+        "name": "Paul Dirac",
+        "birth_year": 1902,
+        "death_year": 1984,
         "c": 1,
         "v": 1
       },
@@ -1158,6 +1579,28 @@ const consolidatedData = {
         "c": 1,
         "v": 1
       },
+      "pieter-zeeman": {
+        "person_id": "pieter-zeeman",
+        "name": "Pieter Zeeman",
+        "birth_year": 1865,
+        "death_year": 1943,
+        "c": 1,
+        "v": 1
+      },
+      "rainer-weiss": {
+        "person_id": "rainer-weiss",
+        "name": "Rainer Weiss",
+        "birth_year": 1932,
+        "c": 1,
+        "v": 1
+      },
+      "reinhard-genzel": {
+        "person_id": "reinhard-genzel",
+        "name": "Reinhard Genzel",
+        "birth_year": 1952,
+        "c": 1,
+        "v": 1
+      },
       "rene-descartes": {
         "person_id": "rene-descartes",
         "name": "René Descartes",
@@ -1166,11 +1609,81 @@ const consolidatedData = {
         "c": 1,
         "v": 1
       },
+      "richard-feynman": {
+        "person_id": "richard-feynman",
+        "name": "Richard Feynman",
+        "birth_year": 1918,
+        "death_year": 1988,
+        "c": 1,
+        "v": 1
+      },
+      "richard-keating": {
+        "person_id": "richard-keating",
+        "name": "Richard Keating",
+        "birth_year": 1937,
+        "death_year": 2012,
+        "c": 1,
+        "v": 1
+      },
+      "roger-penrose": {
+        "person_id": "roger-penrose",
+        "name": "Roger Penrose",
+        "birth_year": 1931,
+        "c": 1,
+        "v": 1
+      },
+      "sheldon-glashow": {
+        "person_id": "sheldon-glashow",
+        "name": "Sheldon Glashow",
+        "birth_year": 1932,
+        "c": 1,
+        "v": 1
+      },
+      "sin-itiro-tomonaga": {
+        "person_id": "sin-itiro-tomonaga",
+        "name": "Sin-Itiro Tomonaga",
+        "birth_year": 1906,
+        "death_year": 1979,
+        "c": 1,
+        "v": 1
+      },
+      "steven-weinberg": {
+        "person_id": "steven-weinberg",
+        "name": "Steven Weinberg",
+        "birth_year": 1933,
+        "death_year": 2021,
+        "c": 1,
+        "v": 1
+      },
+      "werner-heisenberg": {
+        "person_id": "werner-heisenberg",
+        "name": "Werner Heisenberg",
+        "birth_year": 1901,
+        "death_year": 1976,
+        "c": 1,
+        "v": 1
+      },
+      "wilhelm-conrad-rontgen": {
+        "person_id": "wilhelm-conrad-rontgen",
+        "name": "Wilhelm Conrad Röntgen",
+        "birth_year": 1845,
+        "death_year": 1923,
+        "c": 1,
+        "v": 1
+      },
       "william-hamilton": {
         "person_id": "william-hamilton",
         "name": "William Rowan Hamilton",
         "birth_year": 1805,
         "death_year": 1865,
+        "c": 1,
+        "v": 1
+      },
+      "yuri-manin": {
+        "person_id": "yuri-manin",
+        "name": "Yuri Manin",
+        "birth_year": 1937,
+        "death_year": 2023,
         "c": 1,
         "v": 1
       }
@@ -1217,6 +1730,50 @@ const consolidatedData = {
         "link": "https://en.wikipedia.org/wiki/General_relativity",
         "authors": [
           "albert-einstein"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1948-path-integral": {
+        "paper_id": "feynman-1948-path-integral",
+        "title": "Space-Time Approach to Non-Relativistic Quantum Mechanics",
+        "year": 1948,
+        "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.769",
+        "authors": [
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1949-positron": {
+        "paper_id": "feynman-1949-positron",
+        "title": "The Theory of Positrons",
+        "year": 1949,
+        "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.749",
+        "authors": [
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1949-space-time": {
+        "paper_id": "feynman-1949-space-time",
+        "title": "Space-Time Approach to Quantum Electrodynamics",
+        "year": 1949,
+        "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.769",
+        "authors": [
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1982-simulating": {
+        "paper_id": "feynman-1982-simulating",
+        "title": "Simulating Physics with Computers",
+        "year": 1982,
+        "link": "https://link.springer.com/article/10.1007/BF02650179",
+        "authors": [
+          "richard-feynman"
         ],
         "c": 1,
         "v": 1
@@ -1306,6 +1863,231 @@ const consolidatedData = {
         "tag_id": "time",
         "name": "time",
         "explanation": "Concepts related to time, time evolution, and temporal dynamics",
+        "c": 1,
+        "v": 1
+      }
+    },
+    "prediction": {},
+    "prize": {
+      "kyoto-basic-sciences": {
+        "prize_id": "kyoto-basic-sciences",
+        "name": "Kyoto Prize in Basic Sciences",
+        "category": "Kyoto Prize in Basic Sciences",
+        "description": "Awarded annually by the Inamori Foundation for outstanding contributions to basic sciences",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-chemistry": {
+        "prize_id": "nobel-chemistry",
+        "name": "Nobel Prize in Chemistry",
+        "category": "Nobel Prize in Chemistry",
+        "description": "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to chemistry",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-economics": {
+        "prize_id": "nobel-economics",
+        "name": "Nobel Prize in Economic Sciences",
+        "category": "Nobel Prize in Economic Sciences",
+        "description": "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to economic sciences",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-medicine": {
+        "prize_id": "nobel-medicine",
+        "name": "Nobel Prize in Physiology or Medicine",
+        "category": "Nobel Prize in Physiology or Medicine",
+        "description": "Awarded annually by the Nobel Assembly at Karolinska Institutet for outstanding contributions to physiology or medicine",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics": {
+        "prize_id": "nobel-physics",
+        "name": "Nobel Prize in Physics",
+        "category": "Nobel Prize in Physics",
+        "description": "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to physics",
+        "c": 1,
+        "v": 1
+      }
+    },
+    "prize_award": {
+      "kyoto-1985": {
+        "award_id": "kyoto-1985",
+        "prize_id": "kyoto-basic-sciences",
+        "year": 1985,
+        "description": "For contributions to information theory",
+        "people": [
+          "claude-shannon"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-chemistry-1911": {
+        "award_id": "nobel-chemistry-1911",
+        "prize_id": "nobel-chemistry",
+        "year": 1911,
+        "description": "For the discovery of the elements radium and polonium",
+        "people": [
+          "marie-curie"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-medicine-1962": {
+        "award_id": "nobel-medicine-1962",
+        "prize_id": "nobel-medicine",
+        "year": 1962,
+        "description": "For their discoveries concerning the molecular structure of nucleic acids and its significance for information transfer in living material",
+        "people": [
+          "francis-crick",
+          "james-watson",
+          "maurice-wilkins"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1901": {
+        "award_id": "nobel-physics-1901",
+        "prize_id": "nobel-physics",
+        "year": 1901,
+        "description": "Discovery of X-rays",
+        "people": [
+          "wilhelm-conrad-rontgen"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1902": {
+        "award_id": "nobel-physics-1902",
+        "prize_id": "nobel-physics",
+        "year": 1902,
+        "description": "Influence of magnetism upon radiation phenomena",
+        "people": [
+          "hendrik-lorentz",
+          "pieter-zeeman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1918": {
+        "award_id": "nobel-physics-1918",
+        "prize_id": "nobel-physics",
+        "year": 1918,
+        "description": "For the services he rendered to the advancement of Physics by his discovery of energy quanta",
+        "people": [
+          "max-planck"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1921": {
+        "award_id": "nobel-physics-1921",
+        "prize_id": "nobel-physics",
+        "year": 1921,
+        "description": "For his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect",
+        "people": [
+          "albert-einstein"
+        ],
+        "theory_id": "special-relativity",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1922": {
+        "award_id": "nobel-physics-1922",
+        "prize_id": "nobel-physics",
+        "year": 1922,
+        "description": "For his services in the investigation of the structure of atoms and of the radiation emanating from them",
+        "people": [
+          "niels-bohr"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1929": {
+        "award_id": "nobel-physics-1929",
+        "prize_id": "nobel-physics",
+        "year": 1929,
+        "description": "For his discovery of the wave nature of electrons",
+        "people": [
+          "louis-de-broglie"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1932": {
+        "award_id": "nobel-physics-1932",
+        "prize_id": "nobel-physics",
+        "year": 1932,
+        "description": "For the creation of quantum mechanics",
+        "people": [
+          "werner-heisenberg"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1933": {
+        "award_id": "nobel-physics-1933",
+        "prize_id": "nobel-physics",
+        "year": 1933,
+        "description": "For the discovery of new productive forms of atomic theory",
+        "people": [
+          "erwin-schrodinger",
+          "paul-dirac"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1965": {
+        "award_id": "nobel-physics-1965",
+        "prize_id": "nobel-physics",
+        "year": 1965,
+        "description": "Fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles",
+        "people": [
+          "sin-itiro-tomonaga",
+          "julian-schwinger",
+          "richard-feynman"
+        ],
+        "theory_id": "quantum-electrodynamics",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1979": {
+        "award_id": "nobel-physics-1979",
+        "prize_id": "nobel-physics",
+        "year": 1979,
+        "description": "For their contributions to the theory of the unified weak and electromagnetic interaction between elementary particles",
+        "people": [
+          "sheldon-glashow",
+          "abdus-salam",
+          "steven-weinberg"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-2017": {
+        "award_id": "nobel-physics-2017",
+        "prize_id": "nobel-physics",
+        "year": 2017,
+        "description": "For decisive contributions to the LIGO detector and the observation of gravitational waves",
+        "people": [
+          "rainer-weiss",
+          "barry-barish",
+          "kip-thorne"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-2020": {
+        "award_id": "nobel-physics-2020",
+        "prize_id": "nobel-physics",
+        "year": 2020,
+        "description": "For the discovery that black hole formation is a robust prediction of the general theory of relativity",
+        "people": [
+          "roger-penrose",
+          "reinhard-genzel",
+          "andrea-ghez"
+        ],
+        "theory_id": "black-holes",
         "c": 1,
         "v": 1
       }

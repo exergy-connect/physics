@@ -1,0 +1,246 @@
+# Prize Data
+# This file contains scientific prizes and awards, including Nobel Prizes and Kyoto Prizes
+
+prize:
+  - prize_id: "nobel-physics"
+    name: "Nobel Prize in Physics"
+    category: "Nobel Prize in Physics"
+    description: "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to physics"
+
+  - prize_id: "nobel-chemistry"
+    name: "Nobel Prize in Chemistry"
+    category: "Nobel Prize in Chemistry"
+    description: "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to chemistry"
+
+  - prize_id: "nobel-medicine"
+    name: "Nobel Prize in Physiology or Medicine"
+    category: "Nobel Prize in Physiology or Medicine"
+    description: "Awarded annually by the Nobel Assembly at Karolinska Institutet for outstanding contributions to physiology or medicine"
+
+  - prize_id: "nobel-economics"
+    name: "Nobel Prize in Economic Sciences"
+    category: "Nobel Prize in Economic Sciences"
+    description: "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to economic sciences"
+
+  - prize_id: "kyoto-basic-sciences"
+    name: "Kyoto Prize in Basic Sciences"
+    category: "Kyoto Prize in Basic Sciences"
+    description: "Awarded annually by the Inamori Foundation for outstanding contributions to basic sciences"
+
+prize_award:
+  # Nobel Prize in Physics
+  - award_id: "nobel-physics-1901"
+    prize_id: "nobel-physics"
+    year: 1901
+    description: "Discovery of X-rays"
+    people:
+      - "wilhelm-conrad-rontgen"
+
+  - award_id: "nobel-physics-1902"
+    prize_id: "nobel-physics"
+    year: 1902
+    description: "Influence of magnetism upon radiation phenomena"
+    people:
+      - "hendrik-lorentz"
+      - "pieter-zeeman"
+
+  # Nobel Prize in Chemistry
+  - award_id: "nobel-chemistry-1911"
+    prize_id: "nobel-chemistry"
+    year: 1911
+    description: "For the discovery of the elements radium and polonium"
+    people:
+      - "marie-curie"
+
+  - award_id: "nobel-physics-1918"
+    prize_id: "nobel-physics"
+    year: 1918
+    description: "For the services he rendered to the advancement of Physics by his discovery of energy quanta"
+    people:
+      - "max-planck"
+
+  - award_id: "nobel-physics-1921"
+    prize_id: "nobel-physics"
+    year: 1921
+    description: "For his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect"
+    people:
+      - "albert-einstein"
+    theory_id: "special-relativity"
+
+  - award_id: "nobel-physics-1922"
+    prize_id: "nobel-physics"
+    year: 1922
+    description: "For his services in the investigation of the structure of atoms and of the radiation emanating from them"
+    people:
+      - "niels-bohr"
+
+  - award_id: "nobel-physics-1929"
+    prize_id: "nobel-physics"
+    year: 1929
+    description: "For his discovery of the wave nature of electrons"
+    people:
+      - "louis-de-broglie"
+
+  - award_id: "nobel-physics-1932"
+    prize_id: "nobel-physics"
+    year: 1932
+    description: "For the creation of quantum mechanics"
+    people:
+      - "werner-heisenberg"
+
+  - award_id: "nobel-physics-1933"
+    prize_id: "nobel-physics"
+    year: 1933
+    description: "For the discovery of new productive forms of atomic theory"
+    people:
+      - "erwin-schrodinger"
+      - "paul-dirac"
+
+  # Nobel Prize in Physiology or Medicine
+  - award_id: "nobel-medicine-1962"
+    prize_id: "nobel-medicine"
+    year: 1962
+    description: "For their discoveries concerning the molecular structure of nucleic acids and its significance for information transfer in living material"
+    people:
+      - "francis-crick"
+      - "james-watson"
+      - "maurice-wilkins"
+
+  - award_id: "nobel-physics-1965"
+    prize_id: "nobel-physics"
+    year: 1965
+    description: "Fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles"
+    people:
+      - "sin-itiro-tomonaga"
+      - "julian-schwinger"
+      - "richard-feynman"
+    theory_id: "quantum-electrodynamics"
+
+  - award_id: "nobel-physics-1979"
+    prize_id: "nobel-physics"
+    year: 1979
+    description: "For their contributions to the theory of the unified weak and electromagnetic interaction between elementary particles"
+    people:
+      - "sheldon-glashow"
+      - "abdus-salam"
+      - "steven-weinberg"
+
+  # Kyoto Prize in Basic Sciences
+  - award_id: "kyoto-1985"
+    prize_id: "kyoto-basic-sciences"
+    year: 1985
+    description: "For contributions to information theory"
+    people:
+      - "claude-shannon"
+
+  - award_id: "nobel-physics-2017"
+    prize_id: "nobel-physics"
+    year: 2017
+    description: "For decisive contributions to the LIGO detector and the observation of gravitational waves"
+    people:
+      - "rainer-weiss"
+      - "barry-barish"
+      - "kip-thorne"
+
+  - award_id: "nobel-physics-2020"
+    prize_id: "nobel-physics"
+    year: 2020
+    description: "For the discovery that black hole formation is a robust prediction of the general theory of relativity"
+    people:
+      - "roger-penrose"
+      - "reinhard-genzel"
+      - "andrea-ghez"
+    theory_id: "black-holes"
+
+person:
+  - person_id: "wilhelm-conrad-rontgen"
+    name: "Wilhelm Conrad Röntgen"
+    birth_year: 1845
+    death_year: 1923
+
+  - person_id: "pieter-zeeman"
+    name: "Pieter Zeeman"
+    birth_year: 1865
+    death_year: 1943
+
+  - person_id: "marie-curie"
+    name: "Marie Curie"
+    birth_year: 1867
+    death_year: 1934
+
+  - person_id: "francis-crick"
+    name: "Francis Harry Compton Crick"
+    birth_year: 1916
+    death_year: 2004
+
+  - person_id: "james-watson"
+    name: "James Watson"
+    birth_year: 1928
+
+  - person_id: "maurice-wilkins"
+    name: "Maurice Wilkins"
+    birth_year: 1916
+    death_year: 2004
+
+  - person_id: "sheldon-glashow"
+    name: "Sheldon Glashow"
+    birth_year: 1932
+
+  - person_id: "abdus-salam"
+    name: "Abdus Salam"
+    birth_year: 1926
+    death_year: 1996
+
+  - person_id: "steven-weinberg"
+    name: "Steven Weinberg"
+    birth_year: 1933
+    death_year: 2021
+
+  - person_id: "rainer-weiss"
+    name: "Rainer Weiss"
+    birth_year: 1932
+
+  - person_id: "barry-barish"
+    name: "Barry Barish"
+    birth_year: 1936
+
+  - person_id: "kip-thorne"
+    name: "Kip Thorne"
+    birth_year: 1940
+
+  - person_id: "roger-penrose"
+    name: "Roger Penrose"
+    birth_year: 1931
+
+  - person_id: "reinhard-genzel"
+    name: "Reinhard Genzel"
+    birth_year: 1952
+
+  - person_id: "andrea-ghez"
+    name: "Andrea Ghez"
+    birth_year: 1965
+
+  - person_id: "max-planck"
+    name: "Max Planck"
+    birth_year: 1858
+    death_year: 1947
+
+  - person_id: "niels-bohr"
+    name: "Niels Bohr"
+    birth_year: 1885
+    death_year: 1962
+
+  - person_id: "werner-heisenberg"
+    name: "Werner Heisenberg"
+    birth_year: 1901
+    death_year: 1976
+
+  - person_id: "erwin-schrodinger"
+    name: "Erwin Schrödinger"
+    birth_year: 1887
+    death_year: 1961
+
+  - person_id: "louis-de-broglie"
+    name: "Louis de Broglie"
+    birth_year: 1892
+    death_year: 1987

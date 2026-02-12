@@ -45,7 +45,7 @@ const consolidatedModel = {
         },
         "statement": {
           "type": "string",
-          "description": "The claim or prediction statement"
+          "description": "The claim or consequence statement"
         },
         "status": {
           "type": "string",
@@ -166,6 +166,141 @@ const consolidatedModel = {
       "x-created": 1,
       "x-version": 1
     },
+    "prediction": {
+      "type": "object",
+      "properties": {
+        "prediction_id": {
+          "type": "string",
+          "description": "Unique identifier for the prediction"
+        },
+        "theory_id": {
+          "type": "string",
+          "description": "Reference to the parent theory"
+        },
+        "statement": {
+          "type": "string",
+          "description": "The testable prediction statement (e.g., 'Moving clocks run slower than stationary clocks', 'Light rays are bent by gravitational fields')"
+        },
+        "prediction_year": {
+          "type": "integer",
+          "description": "Year when this prediction was made or published"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the prediction: pending (not yet tested), verified (confirmed by experiment), falsified (contradicted by evidence), partially_verified (some aspects confirmed)",
+          "enum": [
+            "pending",
+            "verified",
+            "falsified",
+            "partially_verified"
+          ]
+        },
+        "verification_year": {
+          "type": "integer",
+          "description": "Year when the prediction was experimentally verified or falsified (if applicable)"
+        },
+        "verification_method": {
+          "type": "string",
+          "description": "Description of how the prediction was verified or tested (e.g., 'Hafele-Keating experiment with atomic clocks', 'Gravitational lensing observation')"
+        },
+        "people": {
+          "type": "array",
+          "description": "Array of person_ids who made this prediction or were involved in its verification",
+          "items": {
+            "type": "string"
+          }
+        },
+        "papers": {
+          "type": "array",
+          "description": "Array of paper_ids related to this prediction (prediction papers, verification papers, etc.)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "prediction_id",
+        "theory_id",
+        "statement",
+        "prediction_year"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "prize": {
+      "type": "object",
+      "properties": {
+        "prize_id": {
+          "type": "string",
+          "description": "Unique identifier for the prize (e.g., 'nobel-physics', 'kyoto-basic-sciences')"
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name of the prize (e.g., 'Nobel Prize in Physics', 'Kyoto Prize in Basic Sciences')"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category or type of prize",
+          "enum": [
+            "Nobel Prize in Physics",
+            "Nobel Prize in Chemistry",
+            "Nobel Prize in Physiology or Medicine",
+            "Nobel Prize in Economic Sciences",
+            "Kyoto Prize in Basic Sciences",
+            "Other"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of what the prize recognizes"
+        }
+      },
+      "required": [
+        "prize_id",
+        "name"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "prize_award": {
+      "type": "object",
+      "properties": {
+        "award_id": {
+          "type": "string",
+          "description": "Unique identifier for the award (e.g., 'nobel-physics-1965')"
+        },
+        "prize_id": {
+          "type": "string",
+          "description": "Reference to the prize being awarded"
+        },
+        "year": {
+          "type": "integer",
+          "description": "Year when the prize was awarded"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of why the prize was awarded (e.g., citation text)"
+        },
+        "people": {
+          "type": "array",
+          "description": "Array of person_ids who received this award",
+          "items": {
+            "type": "string"
+          }
+        },
+        "theory_id": {
+          "type": "string",
+          "description": "Reference to theory for which the prize was awarded (if applicable)"
+        }
+      },
+      "required": [
+        "award_id",
+        "prize_id",
+        "year"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
     "tag": {
       "type": "object",
       "properties": {
@@ -240,9 +375,16 @@ const consolidatedModel = {
         },
         "claims": {
           "type": "array",
-          "description": "List of claims or predictions made by this theory (nested children)",
+          "description": "List of claims or consequences made by this theory (nested children)",
           "items": {
             "$ref": "#/$defs/claim"
+          }
+        },
+        "predictions": {
+          "type": "array",
+          "description": "List of testable predictions made by this theory (nested children)",
+          "items": {
+            "$ref": "#/$defs/prediction"
           }
         },
         "papers": {
@@ -317,6 +459,24 @@ const consolidatedModel = {
       "type": "array",
       "items": {
         "$ref": "#/$defs/postulate"
+      }
+    },
+    "prediction": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/prediction"
+      }
+    },
+    "prize": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/prize"
+      }
+    },
+    "prize_award": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/prize_award"
       }
     },
     "tag": {

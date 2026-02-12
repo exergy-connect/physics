@@ -35,11 +35,20 @@ theory:
       - postulate_id: "sr-postulate-2"
         statement: "The constancy of the speed of light: The speed of light in vacuum is the same for all observers, regardless of the motion of the light source or observer"
         formulation_year: 1905
-    claims:
-      - claim_id: "sr-claim-1"
+    predictions:
+      - prediction_id: "sr-prediction-1"
         statement: "Time dilation: Moving clocks run slower than stationary clocks"
+        prediction_year: 1905
         status: "verified"
         verification_year: 1971
+        verification_method: "Hafele-Keating experiment with atomic clocks on airplanes"
+        people:
+          - "albert-einstein"
+          - "joseph-hafele"
+          - "richard-keating"
+        papers:
+          - "einstein-1905-relativity"
+    claims:
       - claim_id: "sr-claim-2"
         statement: "Length contraction: Objects in motion appear shorter in the direction of motion"
         status: "verified"
@@ -166,6 +175,14 @@ person:
     name: "Paul Langevin"
     birth_year: 1872
     death_year: 1946
+  - person_id: "joseph-hafele"
+    name: "Joseph Hafele"
+    birth_year: 1933
+    death_year: 2014
+  - person_id: "richard-keating"
+    name: "Richard Keating"
+    birth_year: 1937
+    death_year: 2012
 
 paper:
   - paper_id: "einstein-1905-relativity"

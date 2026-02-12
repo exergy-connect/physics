@@ -1,0 +1,212 @@
+# Quantum Field Theory Data
+# This file represents Quantum Field Theory and related theories with Feynman's contributions
+
+theory:
+  - theory_id: "quantum-field-theory"
+    name: "Quantum Field Theory"
+    year: 1927
+    summary: "Theoretical framework combining quantum mechanics with special relativity to describe how fields and particles interact. Provides the foundation for understanding fundamental forces and particles."
+    category: "Quantum Physics"
+    people:
+      - "paul-dirac"
+      - "richard-feynman"
+    assumptions:
+      - assumption_id: "qft-assumption-1"
+        statement: "Fields are the fundamental entities, and particles are excitations of these fields"
+        rationale: "Quantum field theory treats particles as quantized excitations of underlying fields rather than point particles"
+      - assumption_id: "qft-assumption-2"
+        statement: "Spacetime uses Minkowski (hyperbolic) geometry from special relativity"
+        rationale: "QFT operates in flat Minkowski spacetime, requiring the hyperbolic geometry structure"
+    postulates:
+      - postulate_id: "qft-postulate-1"
+        statement: "Fields obey quantum mechanical principles and special relativity"
+        formulation_year: 1927
+    claims:
+      - claim_id: "qft-claim-1"
+        statement: "Quantum field theory successfully describes particle creation and annihilation"
+        status: "verified"
+        verification_year: 1948
+    children:
+      - theory_id: "path-integral-formulation"
+        name: "Path Integral Formulation"
+        year: 1948
+        summary: "Alternative formulation of quantum mechanics that describes the probability amplitude for a particle to travel between two points as a sum over all possible paths. Each path contributes with a phase proportional to the action along that path. Equivalent to the Schrödinger equation but provides intuitive insights into quantum behavior."
+        category: "Quantum Physics"
+        parent_theory_id: "quantum-field-theory"
+        people:
+          - "richard-feynman"
+        papers:
+          - "feynman-1948-path-integral"
+        tags:
+          - "time"
+        assumptions:
+          - assumption_id: "pif-assumption-1"
+            statement: "All possible paths between two points contribute to the quantum amplitude"
+            rationale: "The path integral sums over all possible paths, weighted by the action, to compute quantum amplitudes"
+          - assumption_id: "pif-assumption-2"
+            statement: "Time is absolute in the path integral formulation (though paths can vary in time)"
+            rationale: "The path integral integrates over paths in spacetime, treating time as a parameter"
+        claims:
+          - claim_id: "pif-claim-1"
+            statement: "The path integral formulation is equivalent to the Schrödinger equation"
+            status: "verified"
+            verification_year: 1948
+          - claim_id: "pif-claim-2"
+            statement: "Path integrals provide intuitive visualization of quantum interference"
+            status: "verified"
+            verification_year: 1948
+      - theory_id: "quantum-electrodynamics"
+        name: "Quantum Electrodynamics"
+        year: 1948
+        summary: "Quantum field theory of electromagnetism describing interactions of light and matter. The most precisely tested theory in physics, with predictions verified to extraordinary accuracy."
+        category: "Quantum Physics"
+        parent_theory_id: "quantum-field-theory"
+        nobel_year: 1965
+        people:
+          - "richard-feynman"
+          - "julian-schwinger"
+          - "sin-itiro-tomonaga"
+        papers:
+          - "feynman-1949-space-time"
+          - "feynman-1949-positron"
+        tags:
+          - "force"
+        assumptions:
+          - assumption_id: "qed-assumption-1"
+            statement: "Electromagnetic field is quantized and interacts with charged particles"
+            rationale: "QED treats the electromagnetic field as a quantum field with photons as quanta"
+          - assumption_id: "qed-assumption-2"
+            statement: "Spacetime uses Minkowski (hyperbolic) geometry"
+            rationale: "QED operates in flat Minkowski spacetime consistent with special relativity"
+        postulates:
+          - postulate_id: "qed-postulate-1"
+            statement: "The interaction between charged particles and photons is described by the QED Lagrangian"
+            formulation_year: 1948
+        claims:
+          - claim_id: "qed-claim-1"
+            statement: "QED predicts the anomalous magnetic moment of the electron with extraordinary precision"
+            status: "verified"
+            verification_year: 1948
+          - claim_id: "qed-claim-2"
+            statement: "Feynman diagrams provide a visual representation of particle interactions"
+            status: "verified"
+            verification_year: 1949
+        children:
+          - theory_id: "feynman-diagrams"
+            name: "Feynman Diagrams"
+            year: 1949
+            summary: "Graphical representation of particle interactions in quantum field theory. Lines represent particles, vertices represent interactions, and diagrams encode the mathematical expressions for scattering amplitudes."
+            category: "Quantum Physics"
+            parent_theory_id: "quantum-electrodynamics"
+            people:
+              - "richard-feynman"
+            papers:
+              - "feynman-1949-space-time"
+            assumptions:
+              - assumption_id: "fd-assumption-1"
+                statement: "Particle interactions can be represented as diagrams with lines and vertices"
+                rationale: "Feynman diagrams provide a visual and computational tool for calculating scattering amplitudes"
+            claims:
+              - claim_id: "fd-claim-1"
+                statement: "Feynman diagrams simplify calculations of quantum field theory amplitudes"
+                status: "verified"
+                verification_year: 1949
+      - theory_id: "renormalization"
+        name: "Renormalization"
+        year: 1947
+        summary: "Mathematical procedure to remove infinities from quantum field theory calculations by redefining physical parameters. Essential for making QED and other quantum field theories produce finite, meaningful predictions."
+        category: "Quantum Physics"
+        parent_theory_id: "quantum-field-theory"
+        people:
+          - "richard-feynman"
+          - "julian-schwinger"
+          - "sin-itiro-tomonaga"
+          - "freeman-dyson"
+        papers:
+          - "feynman-1949-space-time"
+        assumptions:
+          - assumption_id: "ren-assumption-1"
+            statement: "Divergent integrals in quantum field theory can be systematically removed"
+            rationale: "Renormalization provides a procedure to absorb infinities into redefinition of physical parameters"
+        claims:
+          - claim_id: "ren-claim-1"
+            statement: "Renormalization makes QED predictions finite and accurate"
+            status: "verified"
+            verification_year: 1947
+      - theory_id: "quantum-computing"
+        name: "Quantum Computing"
+        year: 1982
+        summary: "Computing paradigm that uses quantum mechanical phenomena like superposition and entanglement to perform computations. Feynman proposed using quantum systems to simulate quantum physics."
+        category: "Quantum Physics"
+        parent_theory_id: "quantum-field-theory"
+        people:
+          - "richard-feynman"
+          - "paul-benioff"
+          - "yuri-manin"
+        papers:
+          - "feynman-1982-simulating"
+        assumptions:
+          - assumption_id: "qc-assumption-1"
+            statement: "Quantum systems can be used to perform computations more efficiently than classical computers for certain problems"
+            rationale: "Quantum superposition and entanglement provide computational advantages for specific algorithms"
+        claims:
+          - claim_id: "qc-claim-1"
+            statement: "Quantum computers can simulate quantum systems efficiently"
+            status: "verified"
+            verification_year: 2019
+
+person:
+  - person_id: "richard-feynman"
+    name: "Richard Feynman"
+    birth_year: 1918
+    death_year: 1988
+  - person_id: "paul-dirac"
+    name: "Paul Dirac"
+    birth_year: 1902
+    death_year: 1984
+  - person_id: "julian-schwinger"
+    name: "Julian Schwinger"
+    birth_year: 1918
+    death_year: 1994
+  - person_id: "sin-itiro-tomonaga"
+    name: "Sin-Itiro Tomonaga"
+    birth_year: 1906
+    death_year: 1979
+  - person_id: "freeman-dyson"
+    name: "Freeman Dyson"
+    birth_year: 1923
+    death_year: 2020
+  - person_id: "paul-benioff"
+    name: "Paul Benioff"
+    birth_year: 1930
+    death_year: 2022
+  - person_id: "yuri-manin"
+    name: "Yuri Manin"
+    birth_year: 1937
+    death_year: 2023
+
+paper:
+  - paper_id: "feynman-1948-path-integral"
+    title: "Space-Time Approach to Non-Relativistic Quantum Mechanics"
+    year: 1948
+    link: "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.769"
+    authors:
+      - "richard-feynman"
+  - paper_id: "feynman-1949-space-time"
+    title: "Space-Time Approach to Quantum Electrodynamics"
+    year: 1949
+    link: "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.769"
+    authors:
+      - "richard-feynman"
+  - paper_id: "feynman-1949-positron"
+    title: "The Theory of Positrons"
+    year: 1949
+    link: "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.749"
+    authors:
+      - "richard-feynman"
+  - paper_id: "feynman-1982-simulating"
+    title: "Simulating Physics with Computers"
+    year: 1982
+    link: "https://link.springer.com/article/10.1007/BF02650179"
+    authors:
+      - "richard-feynman"
