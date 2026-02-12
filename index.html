@@ -871,6 +871,29 @@
         let sampleHierarchy = null;
         let currentView = 'concepts'; // 'concepts', 'people', 'tags', 'papers'
         let consolidatedDataGlobal = null; // Store consolidated data for view switching
+        
+        // Load consolidated data asynchronously
+        async function loadConsolidatedData() {
+            try {
+                if (typeof getConsolidatedData === 'undefined') {
+                    throw new Error('getConsolidatedData function not found. Make sure output/consolidated_data.js is loaded.');
+                }
+                const data = await getConsolidatedData();
+                return data;
+            } catch (error) {
+                console.error('Error loading consolidated data:', error);
+                // Fallback to sync version if available
+                if (typeof getConsolidatedDataSync !== 'undefined') {
+                    try {
+                        return getConsolidatedDataSync();
+                    } catch (syncError) {
+                        console.error('Error loading consolidated data (sync fallback):', syncError);
+                        throw syncError;
+                    }
+                }
+                throw error;
+            }
+        }
 
         // Convert consolidated data format to hierarchical format expected by UI
         function convertConsolidatedDataToHierarchy(consolidatedData) {
@@ -1706,9 +1729,19 @@
         }
 
         // Initialize data from script-loaded consolidated_data.js
-        function initializeData() {
-            if (typeof consolidatedData === 'undefined') {
-                console.error('consolidatedData is not defined. Make sure output/consolidated_data.js is loaded.');
+        async function initializeData() {
+            let consolidatedData;
+            try {
+                consolidatedData = await loadConsolidatedData();
+            } catch (error) {
+                console.error('Failed to load consolidated data:', error);
+                document.getElementById('treeRoot').innerHTML = 
+                    '<div class="no-results">Error: Failed to load consolidated_data.js. Please ensure output/consolidated_data.js is available.</div>';
+                return;
+            }
+
+            if (!consolidatedData) {
+                console.error('consolidatedData is null or undefined.');
                 document.getElementById('treeRoot').innerHTML = 
                     '<div class="no-results">Error: consolidated_data.js not loaded. Please ensure output/consolidated_data.js is available.</div>';
                 return;
@@ -2858,8 +2891,8 @@
             papersContainer.innerHTML = '';
             if (nodeToUse.papers && Array.isArray(nodeToUse.papers) && nodeToUse.papers.length > 0) {
                 // Get papers from consolidated data (papers array contains paper IDs)
-                const papers = typeof consolidatedData !== 'undefined' && consolidatedData.data 
-                    ? consolidatedData.data.paper || {} 
+                const papers = consolidatedDataGlobal && consolidatedDataGlobal.data 
+                    ? consolidatedDataGlobal.data.paper || {} 
                     : {};
                 
                 // Resolve paper IDs to paper objects
@@ -2910,10 +2943,10 @@
             let hasPrizeInfo = false;
 
             // Get prize data from consolidated data
-            if (typeof consolidatedData !== 'undefined' && consolidatedData.data) {
-                const prizes = consolidatedData.data.prize || {};
-                const prizeAwards = consolidatedData.data.prize_award || {};
-                const people = consolidatedData.data.person || {};
+            if (consolidatedDataGlobal && consolidatedDataGlobal.data) {
+                const prizes = consolidatedDataGlobal.data.prize || {};
+                const prizeAwards = consolidatedDataGlobal.data.prize_award || {};
+                const people = consolidatedDataGlobal.data.person || {};
 
                 // Get theory_id from the node (stored during hierarchy building)
                 const theoryId = nodeToUse.theory_id;
@@ -3087,7 +3120,10 @@
         });
 
         // Initialize data on startup (data.js is loaded via script tag)
-        initializeData();
+        // Use async IIFE to handle async initialization
+        (async () => {
+            await initializeData();
+        })();
     </script>
 </body>
 </html>

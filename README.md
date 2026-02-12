@@ -65,6 +65,19 @@ The physics knowledge base, including concept summaries, historical dates, and k
 
 The data structure, hierarchical organization, and summaries were all generated with AI assistance to create a comprehensive and navigable representation of physics knowledge.
 
+## 🔬 Current Status & Future Work
+
+**First Pass Complete**: This initial version represents a first-pass implementation of the physics knowledge browser, establishing the foundational structure, data model, and visualization framework.
+
+**Next Phase**: We will now apply the model to analyze specific physics papers in detail. This detailed paper analysis will be used to:
+- Refine and update the data model structure
+- Enhance the accuracy and depth of content entries
+- Expand the knowledge base with detailed insights from primary sources
+- Improve the relationships between theories, assumptions, claims, and predictions
+- Add anomaly tracking and their relationships to violated assumptions and claims
+
+This iterative approach ensures that the knowledge base evolves from a high-level overview to a detailed, paper-grounded representation of physics knowledge.
+
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.

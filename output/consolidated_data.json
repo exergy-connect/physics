@@ -1,0 +1,2356 @@
+{
+  "model": {
+    "name": "Anomaly Model",
+    "version": "26.02.12.1",
+    "author": "Exergy ∞ LLC",
+    "include_x_fields": false,
+    "max_name_underscores": 2,
+    "exclude": null
+  },
+  "data": {
+    "assumption": {},
+    "postulate": {},
+    "claim": {},
+    "theory": {
+      "action-principle": {
+        "theory_id": "action-principle",
+        "name": "Action Principle",
+        "year": 1744,
+        "summary": "Physical systems follow paths that minimize or maximize the action integral",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "analytical-mechanics",
+        "people": [
+          "pierre-maupertuis"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "ap-assumption-1",
+            "statement": "Time is absolute and provides the integration variable for the action",
+            "rationale": "The action S = ∫L dt integrates over absolute time",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "analytical-mechanics": {
+        "theory_id": "analytical-mechanics",
+        "name": "Analytical Mechanics",
+        "year": 1788,
+        "summary": "Reformulation of mechanics using variational principles and energy-based approaches",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "classical-mechanics",
+        "people": [
+          "joseph-lagrange",
+          "william-hamilton"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "am-assumption-1",
+            "statement": "Time is absolute and global",
+            "rationale": "Analytical mechanics still operates within the framework of absolute time",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "black-holes": {
+        "theory_id": "black-holes",
+        "name": "Black Holes",
+        "year": 1916,
+        "summary": "Regions of spacetime where gravity is so strong that nothing can escape",
+        "category": "Relativity",
+        "parent_theory_id": "general-relativity",
+        "nobel_year": 2020,
+        "people": [
+          "karl-schwarzschild",
+          "albert-einstein"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "bh-assumption-1",
+            "statement": "Matter can collapse to a point where the escape velocity exceeds the speed of light",
+            "rationale": "This follows from the Schwarzschild solution of the Einstein field equations",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "bh-claim-1",
+            "statement": "Black holes have an event horizon beyond which nothing can escape",
+            "status": "verified",
+            "verification_year": 2019,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "bh-claim-2",
+            "statement": "Black holes emit Hawking radiation and can evaporate over time",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "classical-mechanics": {
+        "theory_id": "classical-mechanics",
+        "name": "Classical Mechanics",
+        "year": 1687,
+        "summary": "Branch of physics that describes the motion of macroscopic objects under the influence of forces. Based on Newton's laws of motion and the assumption of absolute space and time.",
+        "category": "Classical Mechanics",
+        "people": [
+          "isaac-newton"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "cm-assumption-1",
+            "statement": "Time is absolute and global - it flows uniformly and identically for all observers, regardless of their motion or position",
+            "rationale": "This fundamental assumption distinguishes classical mechanics from relativity, where time is relative. In classical mechanics, there is a universal 'now' that all observers share.",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "cm-assumption-2",
+            "statement": "Space is absolute - it exists as a fixed, unchanging background independent of matter and energy",
+            "rationale": "Space is treated as a three-dimensional Euclidean space that provides the stage for physical events, but is not affected by them",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "cm-assumption-3",
+            "statement": "Objects have definite positions and velocities that can be measured simultaneously with arbitrary precision",
+            "rationale": "Unlike quantum mechanics, classical mechanics assumes no fundamental uncertainty in position and momentum measurements",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "cm-claim-1",
+            "statement": "The laws of motion accurately describe the behavior of macroscopic objects at everyday speeds",
+            "status": "verified",
+            "verification_year": 1687,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "cm-claim-2",
+            "statement": "Classical mechanics breaks down at very high speeds (approaching the speed of light) and for very small objects (atomic scale)",
+            "status": "verified",
+            "verification_year": 1905,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "cm-postulate-1",
+            "statement": "Newton's First Law: An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an external force",
+            "formulation_year": 1687,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "cm-postulate-2",
+            "statement": "Newton's Second Law: The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass (F = ma)",
+            "formulation_year": 1687,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "cm-postulate-3",
+            "statement": "Newton's Third Law: For every action, there is an equal and opposite reaction",
+            "formulation_year": 1687,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "conservation-of-energy": {
+        "theory_id": "conservation-of-energy",
+        "name": "Conservation of Energy",
+        "year": 1847,
+        "summary": "Energy cannot be created or destroyed, only transformed from one form to another",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "newtonian-mechanics",
+        "people": [
+          "julius-mayer",
+          "james-joule"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "coe-assumption-1",
+            "statement": "Time is absolute and flows uniformly",
+            "rationale": "Energy conservation requires a consistent time coordinate across all observers",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "coe-claim-1",
+            "statement": "Total energy in an isolated system remains constant over time",
+            "status": "verified",
+            "verification_year": 1847,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "conservation-of-momentum": {
+        "theory_id": "conservation-of-momentum",
+        "name": "Conservation of Momentum",
+        "year": 1644,
+        "summary": "Total momentum of a closed system remains constant in the absence of external forces",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "newtonian-mechanics",
+        "people": [
+          "rene-descartes"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "com-assumption-1",
+            "statement": "Time is absolute and uniform",
+            "rationale": "Required for momentum conservation to hold consistently across all reference frames",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "com-claim-1",
+            "statement": "Momentum is conserved in all closed systems",
+            "status": "verified",
+            "verification_year": 1644,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "contracted-bianchi-identities": {
+        "theory_id": "contracted-bianchi-identities",
+        "name": "Contracted Bianchi Identities",
+        "year": 1915,
+        "summary": "Fundamental differential identities in general relativity that ensure the Einstein tensor is divergence-free",
+        "category": "Relativity",
+        "parent_theory_id": "general-relativity",
+        "people": [
+          "luigi-bianchi",
+          "albert-einstein"
+        ],
+        "papers": [
+          "bianchi-identity"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "claims": [
+          {
+            "claim_id": "bianchi-claim-1",
+            "statement": "The Einstein field equations automatically satisfy energy-momentum conservation without requiring it as a separate postulate",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "bianchi-postulate-1",
+            "statement": "The contracted Bianchi identities yield ∇_μ G^μν = 0, ensuring energy-momentum conservation",
+            "formulation_year": 1915,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "einstein-field-equations": {
+        "theory_id": "einstein-field-equations",
+        "name": "Einstein Field Equations",
+        "year": 1915,
+        "summary": "Set of equations describing how matter and energy curve spacetime",
+        "category": "Relativity",
+        "parent_theory_id": "general-relativity",
+        "people": [
+          "albert-einstein"
+        ],
+        "papers": [
+          "einstein-1915-field-equations"
+        ],
+        "tags": [
+          "force"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "efe-assumption-1",
+            "statement": "The Einstein tensor G_μν is proportional to the stress-energy tensor T_μν",
+            "rationale": "This relates the geometry of spacetime (left side) to the matter-energy content (right side)",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "efe-claim-1",
+            "statement": "The field equations reduce to Newton's law of gravitation in the weak-field, low-velocity limit",
+            "status": "verified",
+            "verification_year": 1915,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "efe-postulate-1",
+            "statement": "The contracted Bianchi identities ensure energy-momentum conservation: ∇_μ G^μν = 0",
+            "formulation_year": 1915,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "feynman-diagrams": {
+        "theory_id": "feynman-diagrams",
+        "name": "Feynman Diagrams",
+        "year": 1949,
+        "summary": "Graphical representation of particle interactions in quantum field theory. Lines represent particles, vertices represent interactions, and diagrams encode the mathematical expressions for scattering amplitudes.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-electrodynamics",
+        "people": [
+          "richard-feynman"
+        ],
+        "papers": [
+          "feynman-1949-space-time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "fd-assumption-1",
+            "statement": "Particle interactions can be represented as diagrams with lines and vertices",
+            "rationale": "Feynman diagrams provide a visual and computational tool for calculating scattering amplitudes",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "fd-claim-1",
+            "statement": "Feynman diagrams simplify calculations of quantum field theory amplitudes",
+            "status": "verified",
+            "verification_year": 1949,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "flrw-metric": {
+        "theory_id": "flrw-metric",
+        "name": "FLRW Metric",
+        "year": 1935,
+        "summary": "Friedmann-Lemaître-Robertson-Walker metric describing a homogeneous, isotropic, expanding or contracting universe",
+        "category": "Relativity",
+        "parent_theory_id": "general-relativity",
+        "people": [
+          "alexander-friedmann",
+          "georges-lemaitre",
+          "howard-robertson",
+          "arthur-walker"
+        ],
+        "papers": [
+          "flrw-metric"
+        ],
+        "tags": [
+          "time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "flrw-assumption-1",
+            "statement": "The universe is homogeneous (uniform in space) and isotropic (looks the same in all directions)",
+            "rationale": "This cosmological principle simplifies the description of the large-scale universe",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "flrw-claim-1",
+            "statement": "The universe can be described by a scale factor a(t) that evolves over time",
+            "status": "verified",
+            "verification_year": 1929,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "general-relativity": {
+        "theory_id": "general-relativity",
+        "name": "General Relativity",
+        "year": 1915,
+        "summary": "Theory of gravitation that describes gravity as the curvature of spacetime caused by matter and energy. Replaces Newton's law of universal gravitation and provides a geometric description of gravity.",
+        "category": "Relativity",
+        "nobel_year": 1921,
+        "people": [
+          "albert-einstein"
+        ],
+        "papers": [
+          "einstein-1915-field-equations",
+          "einstein-1915-foundation"
+        ],
+        "tags": [
+          "force",
+          "spacetime",
+          "gravity"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "gr-assumption-1",
+            "statement": "Spacetime is a four-dimensional manifold that can be curved by the presence of matter and energy",
+            "rationale": "This geometric view of spacetime allows gravity to be described as curvature rather than a force",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "gr-assumption-2",
+            "statement": "The laws of physics are the same in all inertial reference frames (principle of relativity)",
+            "rationale": "Extends special relativity to include accelerated frames and gravitational fields",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "gr-assumption-3",
+            "statement": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
+            "rationale": "Carried over from special relativity as a fundamental constant of nature",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "gr-claim-1",
+            "statement": "Light rays are bent by gravitational fields",
+            "status": "verified",
+            "verification_year": 1919,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "gr-claim-2",
+            "statement": "Time passes more slowly in stronger gravitational fields (gravitational time dilation)",
+            "status": "verified",
+            "verification_year": 1971,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "gr-claim-3",
+            "statement": "Gravitational waves exist and propagate at the speed of light",
+            "status": "verified",
+            "verification_year": 2016,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "gr-claim-4",
+            "statement": "Black holes can form when matter collapses beyond its Schwarzschild radius",
+            "status": "verified",
+            "verification_year": 2019,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "gr-claim-5",
+            "statement": "The universe can be described by cosmological models with a scale factor that evolves over time",
+            "status": "verified",
+            "verification_year": 1929,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "gr-postulate-1",
+            "statement": "The equivalence principle: The effects of gravity are locally indistinguishable from the effects of acceleration",
+            "formulation_year": 1907,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "gr-postulate-2",
+            "statement": "Spacetime curvature is determined by the distribution of matter and energy through the Einstein field equations: G_μν = 8πG/c⁴ T_μν",
+            "formulation_year": 1915,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "gr-postulate-3",
+            "statement": "Free-falling objects follow geodesics (the shortest paths) in curved spacetime",
+            "formulation_year": 1915,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "hamiltonian-formulation": {
+        "theory_id": "hamiltonian-formulation",
+        "name": "Hamiltonian Formulation",
+        "year": 1834,
+        "summary": "Mechanics expressed in terms of position and momentum coordinates",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "analytical-mechanics",
+        "people": [
+          "william-hamilton"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "hf-assumption-1",
+            "statement": "Time is absolute and global",
+            "rationale": "Hamilton's equations describe evolution with respect to absolute time",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "lagrangian-formulation": {
+        "theory_id": "lagrangian-formulation",
+        "name": "Lagrangian Formulation",
+        "year": 1788,
+        "summary": "Mechanics reformulated using kinetic and potential energy in a single function",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "analytical-mechanics",
+        "people": [
+          "joseph-lagrange"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "lf-assumption-1",
+            "statement": "Time is absolute and flows uniformly",
+            "rationale": "The Lagrangian L(q, q̇, t) explicitly depends on time as an absolute parameter",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "lorentz-transformations": {
+        "theory_id": "lorentz-transformations",
+        "name": "Lorentz Transformations",
+        "year": 1904,
+        "summary": "Mathematical transformations that relate space and time coordinates between different inertial reference frames",
+        "category": "Relativity",
+        "parent_theory_id": "special-relativity",
+        "people": [
+          "hendrik-lorentz"
+        ],
+        "tags": [
+          "time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "lt-assumption-1",
+            "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
+            "rationale": "Lorentz transformations preserve the Minkowski metric and are the isometries of hyperbolic spacetime",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "lt-claim-1",
+            "statement": "Lorentz transformations preserve the spacetime interval and the speed of light",
+            "status": "verified",
+            "verification_year": 1904,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "minkowski-spacetime": {
+        "theory_id": "minkowski-spacetime",
+        "name": "Minkowski Spacetime",
+        "year": 1908,
+        "summary": "Four-dimensional mathematical model combining three-dimensional space with time into a single continuum using hyperbolic geometry",
+        "category": "Relativity",
+        "parent_theory_id": "special-relativity",
+        "people": [
+          "hermann-minkowski"
+        ],
+        "tags": [
+          "spacetime",
+          "time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "ms-assumption-1",
+            "statement": "Spacetime is a four-dimensional flat manifold with zero Riemann curvature and Minkowski (hyperbolic/Lorentzian) geometry",
+            "rationale": "The Minkowski metric uses hyperbolic geometry with signature (-, +, +, +), fundamentally different from Euclidean geometry. The spacetime interval is ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning the manifold has no intrinsic curvature - it is globally flat. The hyperbolic structure is a property of the entire spacetime, not just the time dimension, arising from the mixed signature that enables light cones and causality.",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "ms-assumption-2",
+            "statement": "Time and space are unified into a single four-dimensional continuum",
+            "rationale": "Time is treated as a dimension on equal footing with spatial dimensions, but with opposite sign in the metric",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "ms-claim-1",
+            "statement": "The Minkowski metric provides the geometric foundation for special relativity",
+            "status": "verified",
+            "verification_year": 1908,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "newtonian-mechanics": {
+        "theory_id": "newtonian-mechanics",
+        "name": "Newtonian Mechanics",
+        "year": 1687,
+        "summary": "Mechanics based on Newton's three laws of motion and universal gravitation",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "classical-mechanics",
+        "people": [
+          "isaac-newton"
+        ],
+        "papers": [
+          "newton-principia"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "nm-assumption-1",
+            "statement": "Time is absolute and flows uniformly for all observers",
+            "rationale": "Fundamental to Newtonian mechanics - there is a universal time coordinate",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "nm-assumption-2",
+            "statement": "Space is Euclidean and absolute",
+            "rationale": "Three-dimensional space follows Euclidean geometry and is independent of matter",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "nm-claim-1",
+            "statement": "Newton's laws accurately predict planetary motion and everyday mechanical phenomena",
+            "status": "verified",
+            "verification_year": 1687,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "nm-postulate-1",
+            "statement": "Newton's Laws of Motion govern the motion of all objects",
+            "formulation_year": 1687,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "nm-postulate-2",
+            "statement": "Universal Gravitation: Every particle attracts every other particle with a force proportional to their masses and inversely proportional to the square of the distance between them",
+            "formulation_year": 1687,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "newtons-laws-of-motion": {
+        "theory_id": "newtons-laws-of-motion",
+        "name": "Newton's Laws of Motion",
+        "year": 1687,
+        "summary": "Three fundamental laws describing the relationship between motion and forces",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "newtonian-mechanics",
+        "people": [
+          "isaac-newton"
+        ],
+        "papers": [
+          "newton-principia"
+        ],
+        "tags": [
+          "force"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "nlm-assumption-1",
+            "statement": "Time is absolute and global - all observers measure the same time",
+            "rationale": "Essential for defining velocity and acceleration consistently across all reference frames",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "noethers-theorem": {
+        "theory_id": "noethers-theorem",
+        "name": "Noether's Theorem",
+        "year": 1918,
+        "summary": "Fundamental theorem connecting symmetries to conservation laws. States that every differentiable symmetry of the action of a physical system corresponds to a conservation law.",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "newtonian-mechanics",
+        "people": [
+          "emmy-noether"
+        ],
+        "papers": [
+          "noether-invariante"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "nt-assumption-1",
+            "statement": "Physical systems can be described by an action principle",
+            "rationale": "The theorem applies to systems with well-defined Lagrangians and actions",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "nt-claim-1",
+            "statement": "Time translation symmetry implies conservation of energy",
+            "status": "verified",
+            "verification_year": 1918,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "nt-claim-2",
+            "statement": "Spatial translation symmetry implies conservation of momentum",
+            "status": "verified",
+            "verification_year": 1918,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "path-integral-formulation": {
+        "theory_id": "path-integral-formulation",
+        "name": "Path Integral Formulation",
+        "year": 1948,
+        "summary": "Alternative formulation of quantum mechanics that describes the probability amplitude for a particle to travel between two points as a sum over all possible paths. Each path contributes with a phase proportional to the action along that path. Equivalent to the Schrödinger equation but provides intuitive insights into quantum behavior.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "people": [
+          "richard-feynman"
+        ],
+        "papers": [
+          "feynman-1948-path-integral"
+        ],
+        "tags": [
+          "time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "pif-assumption-1",
+            "statement": "All possible paths between two points contribute to the quantum amplitude",
+            "rationale": "The path integral sums over all possible paths, weighted by the action, to compute quantum amplitudes",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "pif-assumption-2",
+            "statement": "Time is absolute in the path integral formulation (though paths can vary in time)",
+            "rationale": "The path integral integrates over paths in spacetime, treating time as a parameter",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "pif-claim-1",
+            "statement": "The path integral formulation is equivalent to the Schrödinger equation",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "pif-claim-2",
+            "statement": "Path integrals provide intuitive visualization of quantum interference",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "quantum-computing": {
+        "theory_id": "quantum-computing",
+        "name": "Quantum Computing",
+        "year": 1982,
+        "summary": "Computing paradigm that uses quantum mechanical phenomena like superposition and entanglement to perform computations. Feynman proposed using quantum systems to simulate quantum physics.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "people": [
+          "richard-feynman",
+          "paul-benioff",
+          "yuri-manin"
+        ],
+        "papers": [
+          "feynman-1982-simulating"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "qc-assumption-1",
+            "statement": "Quantum systems can be used to perform computations more efficiently than classical computers for certain problems",
+            "rationale": "Quantum superposition and entanglement provide computational advantages for specific algorithms",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "qc-claim-1",
+            "statement": "Quantum computers can simulate quantum systems efficiently",
+            "status": "verified",
+            "verification_year": 2019,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "quantum-electrodynamics": {
+        "theory_id": "quantum-electrodynamics",
+        "name": "Quantum Electrodynamics",
+        "year": 1948,
+        "summary": "Quantum field theory of electromagnetism describing interactions of light and matter. The most precisely tested theory in physics, with predictions verified to extraordinary accuracy.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "nobel_year": 1965,
+        "people": [
+          "richard-feynman",
+          "julian-schwinger",
+          "sin-itiro-tomonaga"
+        ],
+        "papers": [
+          "feynman-1949-space-time",
+          "feynman-1949-positron"
+        ],
+        "tags": [
+          "force"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "qed-assumption-1",
+            "statement": "Electromagnetic field is quantized and interacts with charged particles",
+            "rationale": "QED treats the electromagnetic field as a quantum field with photons as quanta",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "qed-assumption-2",
+            "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
+            "rationale": "QED operates in flat Minkowski spacetime consistent with special relativity",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "qed-claim-1",
+            "statement": "QED predicts the anomalous magnetic moment of the electron with extraordinary precision",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "qed-claim-2",
+            "statement": "Feynman diagrams provide a visual representation of particle interactions",
+            "status": "verified",
+            "verification_year": 1949,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "qed-postulate-1",
+            "statement": "The interaction between charged particles and photons is described by the QED Lagrangian",
+            "formulation_year": 1948,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "quantum-field-theory": {
+        "theory_id": "quantum-field-theory",
+        "name": "Quantum Field Theory",
+        "year": 1927,
+        "summary": "Theoretical framework combining quantum mechanics with special relativity to describe how fields and particles interact. Provides the foundation for understanding fundamental forces and particles.",
+        "category": "Quantum Physics",
+        "people": [
+          "paul-dirac",
+          "richard-feynman"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "qft-assumption-1",
+            "statement": "Fields are the fundamental entities, and particles are excitations of these fields",
+            "rationale": "Quantum field theory treats particles as quantized excitations of underlying fields rather than point particles",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "qft-assumption-2",
+            "statement": "Spacetime uses Minkowski (hyperbolic) geometry from special relativity",
+            "rationale": "QFT operates in flat Minkowski spacetime, requiring the hyperbolic geometry structure",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "qft-claim-1",
+            "statement": "Quantum field theory successfully describes particle creation and annihilation",
+            "status": "verified",
+            "verification_year": 1948,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "qft-postulate-1",
+            "statement": "Fields obey quantum mechanical principles and special relativity",
+            "formulation_year": 1927,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "relativistic-dynamics": {
+        "theory_id": "relativistic-dynamics",
+        "name": "Relativistic Dynamics",
+        "year": 1905,
+        "summary": "Study of motion under the influence of forces, incorporating relativistic corrections",
+        "category": "Relativity",
+        "parent_theory_id": "relativistic-mechanics",
+        "people": [
+          "albert-einstein"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "rd-assumption-1",
+            "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
+            "rationale": "Relativistic dynamics requires the hyperbolic metric structure of Minkowski spacetime",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "relativistic-kinematics": {
+        "theory_id": "relativistic-kinematics",
+        "name": "Relativistic Kinematics",
+        "year": 1905,
+        "summary": "Study of motion in the absence of forces, accounting for relativistic effects",
+        "category": "Relativity",
+        "parent_theory_id": "relativistic-mechanics",
+        "people": [
+          "albert-einstein"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "rk-assumption-1",
+            "statement": "Spacetime follows Minkowski (hyperbolic) geometry",
+            "rationale": "Relativistic kinematics is based on the hyperbolic geometry of Minkowski spacetime",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "relativistic-mechanics": {
+        "theory_id": "relativistic-mechanics",
+        "name": "Relativistic Mechanics",
+        "year": 1905,
+        "summary": "Mechanics reformulated to account for relativistic effects at high velocities",
+        "category": "Relativity",
+        "parent_theory_id": "special-relativity",
+        "people": [
+          "albert-einstein"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "renormalization": {
+        "theory_id": "renormalization",
+        "name": "Renormalization",
+        "year": 1947,
+        "summary": "Mathematical procedure to remove infinities from quantum field theory calculations by redefining physical parameters. Essential for making QED and other quantum field theories produce finite, meaningful predictions.",
+        "category": "Quantum Physics",
+        "parent_theory_id": "quantum-field-theory",
+        "people": [
+          "richard-feynman",
+          "julian-schwinger",
+          "sin-itiro-tomonaga",
+          "freeman-dyson"
+        ],
+        "papers": [
+          "feynman-1949-space-time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "ren-assumption-1",
+            "statement": "Divergent integrals in quantum field theory can be systematically removed",
+            "rationale": "Renormalization provides a procedure to absorb infinities into redefinition of physical parameters",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "ren-claim-1",
+            "statement": "Renormalization makes QED predictions finite and accurate",
+            "status": "verified",
+            "verification_year": 1947,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "ricci-curvature": {
+        "theory_id": "ricci-curvature",
+        "name": "Ricci Curvature",
+        "year": 1904,
+        "summary": "Mathematical tensor that measures the degree to which the geometry of a space differs from that of flat Euclidean space",
+        "category": "Relativity",
+        "parent_theory_id": "general-relativity",
+        "people": [
+          "gregorio-ricci-curbastro",
+          "albert-einstein"
+        ],
+        "papers": [
+          "ricci-1904-absolute-calculus"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "claims": [
+          {
+            "claim_id": "ricci-claim-1",
+            "statement": "The Ricci tensor is a contraction of the Riemann curvature tensor",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "riemann-curvature-tensor": {
+        "theory_id": "riemann-curvature-tensor",
+        "name": "Riemann Curvature Tensor",
+        "year": 1854,
+        "summary": "Fundamental tensor in differential geometry that completely characterizes the intrinsic curvature of a manifold",
+        "category": "Relativity",
+        "parent_theory_id": "general-relativity",
+        "people": [
+          "bernhard-riemann"
+        ],
+        "papers": [
+          "riemann-1854-geometry"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "riemann-assumption-1",
+            "statement": "Space can be described as a differentiable manifold with a metric tensor",
+            "rationale": "This allows the application of differential geometry to describe curved spaces",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "riemann-claim-1",
+            "statement": "The Riemann tensor measures the failure of parallel transport to be path-independent",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "special-relativity": {
+        "theory_id": "special-relativity",
+        "name": "Special Relativity",
+        "year": 1905,
+        "summary": "Theory of physics that describes the relationship between space and time in inertial reference frames. Based on the constancy of the speed of light and the principle of relativity.",
+        "category": "Relativity",
+        "nobel_year": 1921,
+        "people": [
+          "albert-einstein"
+        ],
+        "papers": [
+          "einstein-1905-relativity"
+        ],
+        "tags": [
+          "spacetime",
+          "time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "sr-assumption-1",
+            "statement": "Spacetime is flat with zero Riemann curvature and uses Minkowski geometry (hyperbolic/Lorentzian geometry) with metric signature (-, +, +, +)",
+            "rationale": "Special relativity assumes flat spacetime with hyperbolic geometry, where the spacetime interval ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning spacetime has no intrinsic curvature. The hyperbolic nature is a property of the entire 4D spacetime manifold (not just the time dimension), arising from the mixed signature that distinguishes time from space. This is fundamentally different from Euclidean geometry used in classical mechanics.",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "sr-assumption-2",
+            "statement": "The laws of physics are the same in all inertial reference frames (principle of relativity)",
+            "rationale": "No preferred inertial frame exists; physics is the same for all observers moving at constant velocity relative to each other",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "sr-assumption-3",
+            "statement": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
+            "rationale": "This fundamental postulate leads to time dilation, length contraction, and the relativity of simultaneity",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "sr-assumption-4",
+            "statement": "Time is relative - there is no absolute, global time. Simultaneity is relative to the observer's reference frame",
+            "rationale": "In contrast to classical mechanics, special relativity shows that time flows differently for observers in relative motion",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "sr-claim-2",
+            "statement": "Length contraction: Objects in motion appear shorter in the direction of motion",
+            "status": "verified",
+            "verification_year": 1905,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "sr-claim-3",
+            "statement": "Relativity of simultaneity: Events that are simultaneous in one frame are not simultaneous in another frame moving relative to the first",
+            "status": "verified",
+            "verification_year": 1905,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "sr-claim-4",
+            "statement": "Mass-energy equivalence: E = mc²",
+            "status": "verified",
+            "verification_year": 1905,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "sr-postulate-1",
+            "statement": "The principle of relativity: The laws of physics are identical in all inertial frames of reference",
+            "formulation_year": 1905,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "sr-postulate-2",
+            "statement": "The constancy of the speed of light: The speed of light in vacuum is the same for all observers, regardless of the motion of the light source or observer",
+            "formulation_year": 1905,
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "predictions": [
+          {
+            "prediction_id": "sr-prediction-1",
+            "statement": "Time dilation: Moving clocks run slower than stationary clocks",
+            "prediction_year": 1905,
+            "status": "verified",
+            "verification_year": 1971,
+            "verification_method": "Hafele-Keating experiment with atomic clocks on airplanes",
+            "people": [
+              "albert-einstein",
+              "joseph-hafele",
+              "richard-keating"
+            ],
+            "papers": [
+              "einstein-1905-relativity"
+            ],
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "twin-paradox": {
+        "theory_id": "twin-paradox",
+        "name": "Twin Paradox",
+        "year": 1911,
+        "summary": "Thought experiment demonstrating time dilation where a traveling twin ages slower than a stationary twin",
+        "category": "Relativity",
+        "parent_theory_id": "special-relativity",
+        "people": [
+          "albert-einstein",
+          "paul-langevin"
+        ],
+        "tags": [
+          "time"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "tp-assumption-1",
+            "statement": "Time is relative and spacetime uses Minkowski (hyperbolic) geometry",
+            "rationale": "The twin paradox demonstrates the non-Euclidean nature of time in Minkowski spacetime",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "tp-claim-1",
+            "statement": "A traveling twin will age less than a stationary twin due to time dilation",
+            "status": "verified",
+            "verification_year": 1971,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "universal-gravitation": {
+        "theory_id": "universal-gravitation",
+        "name": "Universal Gravitation",
+        "year": 1687,
+        "summary": "Every particle attracts every other particle with a force proportional to their masses",
+        "category": "Classical Mechanics",
+        "parent_theory_id": "newtonian-mechanics",
+        "people": [
+          "isaac-newton"
+        ],
+        "tags": [
+          "force"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "assumptions": [
+          {
+            "assumption_id": "ug-assumption-1",
+            "statement": "Gravitational force acts instantaneously across any distance",
+            "rationale": "Assumes action at a distance without propagation delay, in contrast to general relativity where gravity propagates at the speed of light",
+            "c": 1,
+            "v": 1
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "ug-claim-1",
+            "statement": "Gravitational force follows an inverse-square law: F = G(m₁m₂)/r²",
+            "status": "verified",
+            "verification_year": 1687,
+            "c": 1,
+            "v": 1
+          }
+        ]
+      }
+    },
+    "person": {
+      "abdus-salam": {
+        "person_id": "abdus-salam",
+        "name": "Abdus Salam",
+        "birth_year": 1926,
+        "death_year": 1996,
+        "c": 1,
+        "v": 1
+      },
+      "albert-einstein": {
+        "person_id": "albert-einstein",
+        "name": "Albert Einstein",
+        "birth_year": 1879,
+        "death_year": 1955,
+        "c": 1,
+        "v": 1
+      },
+      "alexander-friedmann": {
+        "person_id": "alexander-friedmann",
+        "name": "Alexander Friedmann",
+        "birth_year": 1888,
+        "death_year": 1925,
+        "c": 1,
+        "v": 1
+      },
+      "andrea-ghez": {
+        "person_id": "andrea-ghez",
+        "name": "Andrea Ghez",
+        "birth_year": 1965,
+        "c": 1,
+        "v": 1
+      },
+      "arthur-walker": {
+        "person_id": "arthur-walker",
+        "name": "Arthur Geoffrey Walker",
+        "birth_year": 1909,
+        "death_year": 2001,
+        "c": 1,
+        "v": 1
+      },
+      "barry-barish": {
+        "person_id": "barry-barish",
+        "name": "Barry Barish",
+        "birth_year": 1936,
+        "c": 1,
+        "v": 1
+      },
+      "bernhard-riemann": {
+        "person_id": "bernhard-riemann",
+        "name": "Bernhard Riemann",
+        "birth_year": 1826,
+        "death_year": 1866,
+        "c": 1,
+        "v": 1
+      },
+      "emmy-noether": {
+        "person_id": "emmy-noether",
+        "name": "Emmy Noether",
+        "birth_year": 1882,
+        "death_year": 1935,
+        "c": 1,
+        "v": 1
+      },
+      "erwin-schrodinger": {
+        "person_id": "erwin-schrodinger",
+        "name": "Erwin Schrödinger",
+        "birth_year": 1887,
+        "death_year": 1961,
+        "c": 1,
+        "v": 1
+      },
+      "francis-crick": {
+        "person_id": "francis-crick",
+        "name": "Francis Harry Compton Crick",
+        "birth_year": 1916,
+        "death_year": 2004,
+        "c": 1,
+        "v": 1
+      },
+      "freeman-dyson": {
+        "person_id": "freeman-dyson",
+        "name": "Freeman Dyson",
+        "birth_year": 1923,
+        "death_year": 2020,
+        "c": 1,
+        "v": 1
+      },
+      "georges-lemaitre": {
+        "person_id": "georges-lemaitre",
+        "name": "Georges Lemaître",
+        "birth_year": 1894,
+        "death_year": 1966,
+        "c": 1,
+        "v": 1
+      },
+      "gregorio-ricci-curbastro": {
+        "person_id": "gregorio-ricci-curbastro",
+        "name": "Gregorio Ricci-Curbastro",
+        "birth_year": 1853,
+        "death_year": 1925,
+        "c": 1,
+        "v": 1
+      },
+      "hendrik-lorentz": {
+        "person_id": "hendrik-lorentz",
+        "name": "Hendrik Lorentz",
+        "birth_year": 1853,
+        "death_year": 1928,
+        "c": 1,
+        "v": 1
+      },
+      "hermann-minkowski": {
+        "person_id": "hermann-minkowski",
+        "name": "Hermann Minkowski",
+        "birth_year": 1864,
+        "death_year": 1909,
+        "c": 1,
+        "v": 1
+      },
+      "howard-robertson": {
+        "person_id": "howard-robertson",
+        "name": "Howard P. Robertson",
+        "birth_year": 1903,
+        "death_year": 1961,
+        "c": 1,
+        "v": 1
+      },
+      "isaac-newton": {
+        "person_id": "isaac-newton",
+        "name": "Isaac Newton",
+        "birth_year": 1643,
+        "death_year": 1727,
+        "c": 1,
+        "v": 1
+      },
+      "james-joule": {
+        "person_id": "james-joule",
+        "name": "James Prescott Joule",
+        "birth_year": 1818,
+        "death_year": 1889,
+        "c": 1,
+        "v": 1
+      },
+      "james-watson": {
+        "person_id": "james-watson",
+        "name": "James Watson",
+        "birth_year": 1928,
+        "c": 1,
+        "v": 1
+      },
+      "joseph-hafele": {
+        "person_id": "joseph-hafele",
+        "name": "Joseph Hafele",
+        "birth_year": 1933,
+        "death_year": 2014,
+        "c": 1,
+        "v": 1
+      },
+      "joseph-lagrange": {
+        "person_id": "joseph-lagrange",
+        "name": "Joseph-Louis Lagrange",
+        "birth_year": 1736,
+        "death_year": 1813,
+        "c": 1,
+        "v": 1
+      },
+      "julian-schwinger": {
+        "person_id": "julian-schwinger",
+        "name": "Julian Schwinger",
+        "birth_year": 1918,
+        "death_year": 1994,
+        "c": 1,
+        "v": 1
+      },
+      "julius-mayer": {
+        "person_id": "julius-mayer",
+        "name": "Julius Robert von Mayer",
+        "birth_year": 1814,
+        "death_year": 1878,
+        "c": 1,
+        "v": 1
+      },
+      "karl-schwarzschild": {
+        "person_id": "karl-schwarzschild",
+        "name": "Karl Schwarzschild",
+        "birth_year": 1873,
+        "death_year": 1916,
+        "c": 1,
+        "v": 1
+      },
+      "kip-thorne": {
+        "person_id": "kip-thorne",
+        "name": "Kip Thorne",
+        "birth_year": 1940,
+        "c": 1,
+        "v": 1
+      },
+      "louis-de-broglie": {
+        "person_id": "louis-de-broglie",
+        "name": "Louis de Broglie",
+        "birth_year": 1892,
+        "death_year": 1987,
+        "c": 1,
+        "v": 1
+      },
+      "luigi-bianchi": {
+        "person_id": "luigi-bianchi",
+        "name": "Luigi Bianchi",
+        "birth_year": 1856,
+        "death_year": 1928,
+        "c": 1,
+        "v": 1
+      },
+      "marie-curie": {
+        "person_id": "marie-curie",
+        "name": "Marie Curie",
+        "birth_year": 1867,
+        "death_year": 1934,
+        "c": 1,
+        "v": 1
+      },
+      "maurice-wilkins": {
+        "person_id": "maurice-wilkins",
+        "name": "Maurice Wilkins",
+        "birth_year": 1916,
+        "death_year": 2004,
+        "c": 1,
+        "v": 1
+      },
+      "max-planck": {
+        "person_id": "max-planck",
+        "name": "Max Planck",
+        "birth_year": 1858,
+        "death_year": 1947,
+        "c": 1,
+        "v": 1
+      },
+      "niels-bohr": {
+        "person_id": "niels-bohr",
+        "name": "Niels Bohr",
+        "birth_year": 1885,
+        "death_year": 1962,
+        "c": 1,
+        "v": 1
+      },
+      "paul-benioff": {
+        "person_id": "paul-benioff",
+        "name": "Paul Benioff",
+        "birth_year": 1930,
+        "death_year": 2022,
+        "c": 1,
+        "v": 1
+      },
+      "paul-dirac": {
+        "person_id": "paul-dirac",
+        "name": "Paul Dirac",
+        "birth_year": 1902,
+        "death_year": 1984,
+        "c": 1,
+        "v": 1
+      },
+      "paul-langevin": {
+        "person_id": "paul-langevin",
+        "name": "Paul Langevin",
+        "birth_year": 1872,
+        "death_year": 1946,
+        "c": 1,
+        "v": 1
+      },
+      "pierre-maupertuis": {
+        "person_id": "pierre-maupertuis",
+        "name": "Pierre Louis Maupertuis",
+        "birth_year": 1698,
+        "death_year": 1759,
+        "c": 1,
+        "v": 1
+      },
+      "pieter-zeeman": {
+        "person_id": "pieter-zeeman",
+        "name": "Pieter Zeeman",
+        "birth_year": 1865,
+        "death_year": 1943,
+        "c": 1,
+        "v": 1
+      },
+      "rainer-weiss": {
+        "person_id": "rainer-weiss",
+        "name": "Rainer Weiss",
+        "birth_year": 1932,
+        "c": 1,
+        "v": 1
+      },
+      "reinhard-genzel": {
+        "person_id": "reinhard-genzel",
+        "name": "Reinhard Genzel",
+        "birth_year": 1952,
+        "c": 1,
+        "v": 1
+      },
+      "rene-descartes": {
+        "person_id": "rene-descartes",
+        "name": "René Descartes",
+        "birth_year": 1596,
+        "death_year": 1650,
+        "c": 1,
+        "v": 1
+      },
+      "richard-feynman": {
+        "person_id": "richard-feynman",
+        "name": "Richard Feynman",
+        "birth_year": 1918,
+        "death_year": 1988,
+        "c": 1,
+        "v": 1
+      },
+      "richard-keating": {
+        "person_id": "richard-keating",
+        "name": "Richard Keating",
+        "birth_year": 1937,
+        "death_year": 2012,
+        "c": 1,
+        "v": 1
+      },
+      "roger-penrose": {
+        "person_id": "roger-penrose",
+        "name": "Roger Penrose",
+        "birth_year": 1931,
+        "c": 1,
+        "v": 1
+      },
+      "sheldon-glashow": {
+        "person_id": "sheldon-glashow",
+        "name": "Sheldon Glashow",
+        "birth_year": 1932,
+        "c": 1,
+        "v": 1
+      },
+      "sin-itiro-tomonaga": {
+        "person_id": "sin-itiro-tomonaga",
+        "name": "Sin-Itiro Tomonaga",
+        "birth_year": 1906,
+        "death_year": 1979,
+        "c": 1,
+        "v": 1
+      },
+      "steven-weinberg": {
+        "person_id": "steven-weinberg",
+        "name": "Steven Weinberg",
+        "birth_year": 1933,
+        "death_year": 2021,
+        "c": 1,
+        "v": 1
+      },
+      "werner-heisenberg": {
+        "person_id": "werner-heisenberg",
+        "name": "Werner Heisenberg",
+        "birth_year": 1901,
+        "death_year": 1976,
+        "c": 1,
+        "v": 1
+      },
+      "wilhelm-conrad-rontgen": {
+        "person_id": "wilhelm-conrad-rontgen",
+        "name": "Wilhelm Conrad Röntgen",
+        "birth_year": 1845,
+        "death_year": 1923,
+        "c": 1,
+        "v": 1
+      },
+      "william-hamilton": {
+        "person_id": "william-hamilton",
+        "name": "William Rowan Hamilton",
+        "birth_year": 1805,
+        "death_year": 1865,
+        "c": 1,
+        "v": 1
+      },
+      "yuri-manin": {
+        "person_id": "yuri-manin",
+        "name": "Yuri Manin",
+        "birth_year": 1937,
+        "death_year": 2023,
+        "c": 1,
+        "v": 1
+      }
+    },
+    "paper": {
+      "bianchi-identity": {
+        "paper_id": "bianchi-identity",
+        "title": "Bianchi identity",
+        "year": 1915,
+        "link": "https://en.wikipedia.org/wiki/Bianchi_identity",
+        "authors": [
+          "luigi-bianchi",
+          "albert-einstein"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "einstein-1905-relativity": {
+        "paper_id": "einstein-1905-relativity",
+        "title": "On the Electrodynamics of Moving Bodies",
+        "year": 1905,
+        "link": "https://en.wikipedia.org/wiki/Annus_Mirabilis_papers",
+        "authors": [
+          "albert-einstein"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "einstein-1915-field-equations": {
+        "paper_id": "einstein-1915-field-equations",
+        "title": "The Field Equations of Gravitation",
+        "year": 1915,
+        "link": "https://en.wikipedia.org/wiki/Einstein_field_equations",
+        "authors": [
+          "albert-einstein"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "einstein-1915-foundation": {
+        "paper_id": "einstein-1915-foundation",
+        "title": "On the General Theory of Relativity",
+        "year": 1915,
+        "link": "https://en.wikipedia.org/wiki/General_relativity",
+        "authors": [
+          "albert-einstein"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1948-path-integral": {
+        "paper_id": "feynman-1948-path-integral",
+        "title": "A Relativistic Cut-Off for Classical Electrodynamics",
+        "year": 1948,
+        "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.74.939",
+        "authors": [
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1949-positron": {
+        "paper_id": "feynman-1949-positron",
+        "title": "The Theory of Positrons",
+        "year": 1949,
+        "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.749",
+        "authors": [
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1949-space-time": {
+        "paper_id": "feynman-1949-space-time",
+        "title": "Space-Time Approach to Quantum Electrodynamics",
+        "year": 1949,
+        "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.769",
+        "authors": [
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "feynman-1982-simulating": {
+        "paper_id": "feynman-1982-simulating",
+        "title": "Simulating Physics with Computers",
+        "year": 1982,
+        "link": "https://link.springer.com/article/10.1007/BF02650179",
+        "authors": [
+          "richard-feynman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "flrw-metric": {
+        "paper_id": "flrw-metric",
+        "title": "FLRW metric",
+        "year": 1935,
+        "link": "https://en.wikipedia.org/wiki/Friedmann%E2%80%93Lema%C3%AEtre%E2%80%93Robertson%E2%80%93Walker_metric",
+        "authors": [
+          "alexander-friedmann",
+          "georges-lemaitre",
+          "howard-robertson",
+          "arthur-walker"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "newton-principia": {
+        "paper_id": "newton-principia",
+        "title": "Philosophiæ Naturalis Principia Mathematica",
+        "year": 1687,
+        "link": "https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica",
+        "authors": [
+          "isaac-newton"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "noether-invariante": {
+        "paper_id": "noether-invariante",
+        "title": "Invariante Variationsprobleme",
+        "year": 1918,
+        "link": "https://en.wikipedia.org/wiki/Noether%27s_theorem",
+        "authors": [
+          "emmy-noether"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "ricci-1904-absolute-calculus": {
+        "paper_id": "ricci-1904-absolute-calculus",
+        "title": "Méthodes de calcul différentiel absolu et leurs applications",
+        "year": 1904,
+        "link": "https://en.wikipedia.org/wiki/Ricci_curvature",
+        "authors": [
+          "gregorio-ricci-curbastro"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "riemann-1854-geometry": {
+        "paper_id": "riemann-1854-geometry",
+        "title": "On the Hypotheses Which Lie at the Bases of Geometry",
+        "year": 1854,
+        "link": "https://en.wikipedia.org/wiki/Riemann_curvature_tensor",
+        "authors": [
+          "bernhard-riemann"
+        ],
+        "c": 1,
+        "v": 1
+      }
+    },
+    "tag": {
+      "force": {
+        "tag_id": "force",
+        "name": "force",
+        "explanation": "Theories and concepts related to forces, including gravitational, electromagnetic, and nuclear forces",
+        "c": 1,
+        "v": 1
+      },
+      "gravity": {
+        "tag_id": "gravity",
+        "name": "gravity",
+        "explanation": "Theories and phenomena related to gravitational interactions",
+        "c": 1,
+        "v": 1
+      },
+      "spacetime": {
+        "tag_id": "spacetime",
+        "name": "spacetime",
+        "explanation": "Concepts related to the four-dimensional fabric of space and time",
+        "c": 1,
+        "v": 1
+      },
+      "time": {
+        "tag_id": "time",
+        "name": "time",
+        "explanation": "Concepts related to time, time evolution, and temporal dynamics",
+        "c": 1,
+        "v": 1
+      }
+    },
+    "violated_assumption": {},
+    "anomaly": {
+      "cosmic-blueshift": {
+        "anomaly_id": "cosmic-blueshift",
+        "name": "Cosmic Blueshift Anomaly",
+        "description": "While most distant galaxies show redshift due to cosmic expansion (Hubble's law),\nsome observations have reported unexpected blueshifts or anomalous redshift patterns\nthat cannot be explained by simple Hubble flow. These include local blueshifts in\ncertain galaxy clusters, anomalous redshift quantization, and discrepancies between\npredicted and observed redshifts. This challenges the assumption of uniform cosmic\nexpansion and the FLRW cosmological model.\n",
+        "theory_id": "flrw-metric",
+        "discovery_year": 1976,
+        "explanation": "Most blueshift observations are explained by local peculiar velocities (galaxies moving\nwithin clusters) rather than cosmic expansion. However, some anomalous redshift patterns\nremain unexplained and may indicate large-scale structure effects, modified gravity,\nor systematic measurement errors. The redshift quantization claims remain controversial\nand unverified by mainstream cosmology.\n",
+        "violated_claims": [
+          "flrw-claim-1"
+        ],
+        "people": [],
+        "papers": [],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "violated_assumptions": [
+          {
+            "violated_assumption_id": "blueshift-violated-assumption-1",
+            "assumption_id": "flrw-assumption-1",
+            "violation_description": "The FLRW metric assumes uniform cosmic expansion, but blueshift observations and anomalous redshift patterns suggest possible local deviations, large-scale structure effects, or violations of the cosmological principle",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "hubble-tension": {
+        "anomaly_id": "hubble-tension",
+        "name": "Hubble Tension",
+        "description": "A significant discrepancy between measurements of the Hubble constant (H₀) from early\nuniverse observations (cosmic microwave background, CMB) and late universe observations\n(Type Ia supernovae, Cepheid variables). Early universe measurements suggest H₀ ≈ 67 km/s/Mpc,\nwhile late universe measurements suggest H₀ ≈ 73 km/s/Mpc. This ~5-10% tension challenges\nthe standard ΛCDM cosmological model and suggests possible new physics or systematic errors.\n",
+        "theory_id": "flrw-metric",
+        "discovery_year": 2016,
+        "violated_claims": [
+          "flrw-claim-1"
+        ],
+        "people": [],
+        "papers": [],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "violated_assumptions": [
+          {
+            "violated_assumption_id": "hubble-tension-violated-assumption-1",
+            "assumption_id": "flrw-assumption-1",
+            "violation_description": "The FLRW metric assumes a homogeneous and isotropic universe, but the Hubble tension suggests possible spatial variations, evolution of dark energy, or new physics that breaks the cosmological principle",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "mercury-perihelion-precession": {
+        "anomaly_id": "mercury-perihelion-precession",
+        "name": "Mercury's Perihelion Precession",
+        "description": "The observed precession of Mercury's perihelion (the point of closest approach to the Sun)\nwas approximately 43 arcseconds per century more than could be explained by Newtonian\nmechanics, even accounting for perturbations from other planets. This anomaly challenged\nNewton's theory of gravitation and was one of the key pieces of evidence that led to\nthe development of general relativity.\n",
+        "theory_id": "newtonian-mechanics",
+        "status": "explained",
+        "discovery_year": 1859,
+        "explanation_theory_id": "general-relativity",
+        "violated_claims": [
+          "nm-claim-1"
+        ],
+        "people": [
+          "albert-einstein"
+        ],
+        "papers": [
+          "einstein-1915-field-equations"
+        ],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "violated_assumptions": [
+          {
+            "violated_assumption_id": "mercury-violated-assumption-1",
+            "assumption_id": "ug-assumption-1",
+            "violation_description": "Newtonian mechanics assumes gravitational force acts instantaneously and follows an exact inverse square law, but Mercury's orbit shows additional precession that cannot be explained by this assumption alone",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "michelson-morley-null-result": {
+        "anomaly_id": "michelson-morley-null-result",
+        "name": "Michelson-Morley Null Result",
+        "description": "The Michelson-Morley experiment attempted to detect the motion of Earth through the\nhypothetical luminiferous ether by measuring the speed of light in different directions.\nThe experiment found no difference in the speed of light regardless of direction,\ncontradicting the ether theory and leading to the development of special relativity.\n",
+        "theory_id": "classical-mechanics",
+        "status": "explained",
+        "discovery_year": 1887,
+        "explanation_theory_id": "special-relativity",
+        "violated_claims": [
+          "cm-claim-1"
+        ],
+        "people": [
+          "albert-einstein"
+        ],
+        "papers": [],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "violated_assumptions": [
+          {
+            "violated_assumption_id": "michelson-violated-assumption-1",
+            "assumption_id": "cm-assumption-1",
+            "violation_description": "Classical mechanics assumes time is absolute, but the Michelson-Morley experiment's null result showed that the speed of light is constant in all directions, contradicting the assumption of absolute time and space",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "pioneer-anomaly": {
+        "anomaly_id": "pioneer-anomaly",
+        "name": "Pioneer Anomaly",
+        "description": "The Pioneer 10 and Pioneer 11 spacecraft exhibited an unexplained constant acceleration\ntowards the Sun of approximately 8.74 × 10⁻¹⁰ m/s². This anomalous acceleration was\nobserved over decades of tracking data and could not be explained by known forces,\nincluding solar radiation pressure, general relativity effects, or spacecraft systematics.\nThe anomaly challenged our understanding of gravity in the outer solar system.\n",
+        "theory_id": "general-relativity",
+        "discovery_year": 1998,
+        "explanation": "Year: 2012. The anomaly was largely resolved through detailed analysis showing that\nanisotropic thermal radiation from the spacecraft's radioisotope thermoelectric generators\nand electrical systems provided the missing acceleration. However, some residual\nunexplained acceleration may still exist, suggesting possible new physics or incomplete\nunderstanding of thermal effects.\n",
+        "violated_claims": [],
+        "people": [],
+        "papers": [],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "violated_assumptions": [
+          {
+            "violated_assumption_id": "pioneer-violated-assumption-1",
+            "assumption_id": "gr-assumption-1",
+            "violation_description": "General relativity assumes that all accelerations can be explained by spacetime curvature and known forces, but the Pioneer anomaly suggested an unexplained acceleration that might indicate new physics or incomplete understanding of gravity at large distances",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      },
+      "ultraviolet-catastrophe": {
+        "anomaly_id": "ultraviolet-catastrophe",
+        "name": "Ultraviolet Catastrophe",
+        "description": "Classical statistical mechanics predicted that a blackbody should emit infinite energy\nat high frequencies (ultraviolet and beyond), which contradicted experimental observations.\nThis anomaly showed that classical physics could not explain blackbody radiation and\nled to the development of quantum mechanics.\n",
+        "theory_id": "classical-mechanics",
+        "status": "explained",
+        "discovery_year": 1900,
+        "explanation_theory_id": "quantum-field-theory",
+        "violated_claims": [],
+        "people": [
+          "max-planck"
+        ],
+        "papers": [],
+        "c": 1,
+        "m": [
+          1
+        ],
+        "v": 1,
+        "violated_assumptions": [
+          {
+            "violated_assumption_id": "uv-catastrophe-violated-assumption-1",
+            "assumption_id": "cm-assumption-3",
+            "violation_description": "Classical mechanics assumes energy can be distributed continuously among all possible frequencies, but this leads to infinite energy at high frequencies (ultraviolet catastrophe), contradicting observations",
+            "c": 1,
+            "v": 1
+          }
+        ]
+      }
+    },
+    "prediction": {},
+    "prize": {
+      "kyoto-basic-sciences": {
+        "prize_id": "kyoto-basic-sciences",
+        "name": "Kyoto Prize in Basic Sciences",
+        "category": "Kyoto Prize in Basic Sciences",
+        "description": "Awarded annually by the Inamori Foundation for outstanding contributions to basic sciences",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-chemistry": {
+        "prize_id": "nobel-chemistry",
+        "name": "Nobel Prize in Chemistry",
+        "category": "Nobel Prize in Chemistry",
+        "description": "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to chemistry",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-economics": {
+        "prize_id": "nobel-economics",
+        "name": "Nobel Prize in Economic Sciences",
+        "category": "Nobel Prize in Economic Sciences",
+        "description": "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to economic sciences",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-medicine": {
+        "prize_id": "nobel-medicine",
+        "name": "Nobel Prize in Physiology or Medicine",
+        "category": "Nobel Prize in Physiology or Medicine",
+        "description": "Awarded annually by the Nobel Assembly at Karolinska Institutet for outstanding contributions to physiology or medicine",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics": {
+        "prize_id": "nobel-physics",
+        "name": "Nobel Prize in Physics",
+        "category": "Nobel Prize in Physics",
+        "description": "Awarded annually by the Royal Swedish Academy of Sciences for outstanding contributions to physics",
+        "c": 1,
+        "v": 1
+      }
+    },
+    "prize_award": {
+      "kyoto-1985": {
+        "award_id": "kyoto-1985",
+        "prize_id": "kyoto-basic-sciences",
+        "year": 1985,
+        "description": "For contributions to information theory",
+        "people": [
+          "claude-shannon"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-chemistry-1911": {
+        "award_id": "nobel-chemistry-1911",
+        "prize_id": "nobel-chemistry",
+        "year": 1911,
+        "description": "For the discovery of the elements radium and polonium",
+        "people": [
+          "marie-curie"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-medicine-1962": {
+        "award_id": "nobel-medicine-1962",
+        "prize_id": "nobel-medicine",
+        "year": 1962,
+        "description": "For their discoveries concerning the molecular structure of nucleic acids and its significance for information transfer in living material",
+        "people": [
+          "francis-crick",
+          "james-watson",
+          "maurice-wilkins"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1901": {
+        "award_id": "nobel-physics-1901",
+        "prize_id": "nobel-physics",
+        "year": 1901,
+        "description": "Discovery of X-rays",
+        "people": [
+          "wilhelm-conrad-rontgen"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1902": {
+        "award_id": "nobel-physics-1902",
+        "prize_id": "nobel-physics",
+        "year": 1902,
+        "description": "Influence of magnetism upon radiation phenomena",
+        "people": [
+          "hendrik-lorentz",
+          "pieter-zeeman"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1918": {
+        "award_id": "nobel-physics-1918",
+        "prize_id": "nobel-physics",
+        "year": 1918,
+        "description": "For the services he rendered to the advancement of Physics by his discovery of energy quanta",
+        "people": [
+          "max-planck"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1921": {
+        "award_id": "nobel-physics-1921",
+        "prize_id": "nobel-physics",
+        "year": 1921,
+        "description": "For his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect",
+        "people": [
+          "albert-einstein"
+        ],
+        "theory_id": "special-relativity",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1922": {
+        "award_id": "nobel-physics-1922",
+        "prize_id": "nobel-physics",
+        "year": 1922,
+        "description": "For his services in the investigation of the structure of atoms and of the radiation emanating from them",
+        "people": [
+          "niels-bohr"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1929": {
+        "award_id": "nobel-physics-1929",
+        "prize_id": "nobel-physics",
+        "year": 1929,
+        "description": "For his discovery of the wave nature of electrons",
+        "people": [
+          "louis-de-broglie"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1932": {
+        "award_id": "nobel-physics-1932",
+        "prize_id": "nobel-physics",
+        "year": 1932,
+        "description": "For the creation of quantum mechanics",
+        "people": [
+          "werner-heisenberg"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1933": {
+        "award_id": "nobel-physics-1933",
+        "prize_id": "nobel-physics",
+        "year": 1933,
+        "description": "For the discovery of new productive forms of atomic theory",
+        "people": [
+          "erwin-schrodinger",
+          "paul-dirac"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1965": {
+        "award_id": "nobel-physics-1965",
+        "prize_id": "nobel-physics",
+        "year": 1965,
+        "description": "Fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles",
+        "people": [
+          "sin-itiro-tomonaga",
+          "julian-schwinger",
+          "richard-feynman"
+        ],
+        "theory_id": "quantum-electrodynamics",
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-1979": {
+        "award_id": "nobel-physics-1979",
+        "prize_id": "nobel-physics",
+        "year": 1979,
+        "description": "For their contributions to the theory of the unified weak and electromagnetic interaction between elementary particles",
+        "people": [
+          "sheldon-glashow",
+          "abdus-salam",
+          "steven-weinberg"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-2017": {
+        "award_id": "nobel-physics-2017",
+        "prize_id": "nobel-physics",
+        "year": 2017,
+        "description": "For decisive contributions to the LIGO detector and the observation of gravitational waves",
+        "people": [
+          "rainer-weiss",
+          "barry-barish",
+          "kip-thorne"
+        ],
+        "c": 1,
+        "v": 1
+      },
+      "nobel-physics-2020": {
+        "award_id": "nobel-physics-2020",
+        "prize_id": "nobel-physics",
+        "year": 2020,
+        "description": "For the discovery that black hole formation is a robust prediction of the general theory of relativity",
+        "people": [
+          "roger-penrose",
+          "reinhard-genzel",
+          "andrea-ghez"
+        ],
+        "theory_id": "black-holes",
+        "c": 1,
+        "v": 1
+      }
+    }
+  }
+}
