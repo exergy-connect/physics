@@ -1,4 +1,6 @@
 {
+  "version": 6,
+  "timestamp": "2026-02-13T21:57:04.449630+00:00",
   "model": {
     "name": "Anomaly Model",
     "version": "26.02.12.1",
@@ -1107,6 +1109,9 @@
           "rovelli-1996-relational"
         ],
         "c": 1,
+        "m": [
+          1
+        ],
         "v": 1,
         "assumptions": [
           {

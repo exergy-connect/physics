@@ -3,6 +3,54 @@
   "title": "Consolidated Data Model",
   "description": "Consolidated entity schemas from data model files",
   "$defs": {
+    "ai_feedback": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent session feedback record.\n"
+        },
+        "session_summary": {
+          "type": "string",
+          "description": "Brief summary of the session, including what physics papers were analyzed, key facts\nextracted, and outcomes. Should be 2-3 sentences describing the session's purpose\nand results, emphasizing correctness, completeness, minimal representation, and\nconsistency of extracted physics facts.\n"
+        },
+        "entities_created_summary": {
+          "type": "string",
+          "description": "Summary of physics entities created during the session, including counts by type\n(theories, papers, people, assumptions, postulates, claims, predictions) and\nkey relationships established. Helps understand session scope and complexity,\nand whether all key facts from papers were captured completely.\n"
+        },
+        "challenges_encountered": {
+          "type": "array",
+          "description": "List of challenges or difficulties encountered during processing, documented to help\nhuman architects understand what makes physics paper analysis difficult.\n\n**INSTRUCTION FOR LARGE LLMs**: Document challenges encountered. For each challenge,\nexplain:\n- What happened\n- Why it's problematic for physics paper analysis\n- What model change would help\n\nExamples:\n- \"Validation failure for 'theory' entity missing 'year' - required_fields not visible\n  at depth=1. Depth=1 is often used, so required fields are missed. For physics papers,\n  missing year causes correctness and consistency issues. Solution: Add required_fields\n  to depth=1 response, especially for date-critical fields.\"\n- \"Ambiguous entity description - doesn't explicitly state required fields. Explicit\n  lists are needed, not inference. For physics entities, this leads to incomplete\n  fact extraction. Solution: Add 'Required fields: [list]' to description, emphasizing\n  importance of dates and IDs for correctness.\"\n- \"Inconsistent relationships - theory.papers includes paper_id but paper doesn't reference\n  theory. This violates consistency principle. Solution: Add explicit guidance on\n  maintaining bidirectional consistency when linking physics entities.\"\n- \"Redundant representation - same assumption extracted as both assumption and postulate\n  entities. This violates minimal representation principle. Solution: Add clearer\n  distinction in entity descriptions between assumptions and postulates.\"\n",
+          "items": {
+            "type": "string"
+          }
+        },
+        "what_worked_well": {
+          "type": "array",
+          "description": "List of aspects that worked well during the session, documented to help architects\nunderstand what model design elements enable success.\n\n**INSTRUCTION FOR LARGE LLMs**: Document what worked well and explain what in the\nmodel design made it possible. Help architects replicate these patterns. For each\nstrength, explain:\n- What worked\n- What in the model enabled this\n- How to replicate this pattern\n\nExamples:\n- \"All physics entities created successfully on first attempt with correct required\n  fields - required_fields were visible at depth=1 and entity description explicitly\n  listed them. This ensured correctness and completeness. To replicate: Ensure\n  required_fields always visible at default depth and add explicit lists to descriptions,\n  especially for date-critical fields like year.\"\n- \"Consistent relationships maintained - theory.papers and paper references matched\n  correctly. This ensured consistency across entities. To replicate: Add explicit\n  guidance on maintaining bidirectional consistency when linking physics entities.\"\n- \"Minimal representation achieved - no duplicate entities created, each fact represented\n  once in most appropriate entity. To replicate: Add guidance on checking existing entities\n  before creation and selecting most appropriate entity type for each fact.\"\n",
+          "items": {
+            "type": "string"
+          }
+        },
+        "suggestions_for_improvement": {
+          "type": "array",
+          "description": "Suggestions for improving the system, model, or processing workflow for physics\npaper analysis.\n\n**INSTRUCTION FOR LARGE LLMs**: Provide specific, actionable suggestions for human\narchitects. Focus on model design changes. Each suggestion should:\n- Identify a specific model/design issue\n- Explain why it's problematic for physics paper analysis\n- Propose a concrete model change\n\nExamples:\n- \"Add required_fields array to get_model() depth=1 response - depth=1 is often used\n  and required fields at depth=2 are missed. For physics papers, this causes incomplete\n  fact extraction, especially for critical date fields.\"\n- \"Add explicit 'Required fields: [list]' to all entity descriptions - explicit lists\n  are needed, not inference from field-level flags. For physics entities, emphasize\n  importance of year fields for correctness and consistency.\"\n- \"Add consistency check guidance: 'Verify years match across related entities\n  (theory.year, paper.year, person birth/death years)' - consistency issues may be missed\n  when extracting physics facts.\"\n- \"Add minimal representation guidance: 'Check for existing entities before creation\n  to avoid duplicates' - redundant entities may be created, violating minimal\n  representation principle.\"\n- \"Add explicit distinction between assumption and postulate entities in descriptions -\n  they may be confused, leading to incorrect categorization of physics facts.\"\n",
+          "items": {
+            "type": "string"
+          }
+        },
+        "model_insights": {
+          "type": "string",
+          "description": "Insights about the data model, entity relationships, or query patterns that would\nhelp human architects optimize the system for physics paper analysis.\n\n**INSTRUCTION FOR LARGE LLMs**: Provide insights focused on model design improvements.\nDocument:\n- What patterns in the model are unclear or require too much reasoning\n- What information is hard to find or discover\n- What structural changes would make the model more accessible\n- What guidance is missing or ambiguous\n\nExamples:\n- \"Required fields are only visible at depth=2, but depth=1 is often used. Making\n  required_fields visible at depth=1 would significantly improve success rate for physics\n  paper analysis, especially for date-critical fields like year that are essential\n  for correctness.\"\n- \"Entity descriptions don't explicitly list required fields, requiring inference\n  from field-level flags. Adding explicit lists would ensure complete physics fact\n  extraction.\"\n- \"No explicit guidance on maintaining consistency across related entities (e.g.,\n  theory.year should match paper.year when they're related). Adding consistency\n  check guidance would help ensure data quality.\"\n- \"Ambiguous distinction between assumption and postulate entities - they may be\n  misclassified. Adding explicit examples and criteria would improve correctness.\"\n- \"No guidance on minimal representation - duplicate entities or redundant representations\n  may be created. Adding explicit guidance on checking existing entities and selecting\n  most appropriate entity type would help.\"\n"
+        }
+      },
+      "required": [
+        "session_id",
+        "session_summary"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
     "anomaly": {
       "type": "object",
       "properties": {
@@ -137,6 +185,141 @@
       "x-created": 1,
       "x-version": 1
     },
+    "efficiency_count_metrics": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent efficiency_metrics record.\n"
+        },
+        "total_queries": {
+          "type": "integer",
+          "description": "Total number of queries executed during the session. Includes all tool calls\n(get_model, create_entity, get_entity, jmespath_query, etc.).\n",
+          "minimum": 0
+        },
+        "entities_created": {
+          "type": "integer",
+          "description": "Total number of entities successfully created during the session. Includes\nall entity types (theory, paper, person, assumption, postulate, claim, prediction,\nrelationships, etc.).\n",
+          "minimum": 0
+        },
+        "validation_failure_count": {
+          "type": "integer",
+          "description": "Total number of validation failures encountered during the session. Higher\nvalues indicate need for better pre-validation.\n",
+          "minimum": 0
+        },
+        "model_query_count": {
+          "type": "integer",
+          "description": "Number of get_model queries executed. Should typically be 1-2. Higher values\nmay indicate suboptimal depth selection or workflow issues.\n",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "session_id",
+        "total_queries",
+        "entities_created",
+        "validation_failure_count",
+        "model_query_count"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "efficiency_metrics": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent session assessment record.\n"
+        },
+        "efficiency_timing_metrics": {
+          "type": "array",
+          "description": "Timing-related efficiency metrics including session duration and calculated\nrates. Each efficiency_metrics record should have exactly one\nefficiency_timing_metrics record.\n",
+          "items": {
+            "$ref": "#/$defs/efficiency_timing_metrics"
+          }
+        },
+        "efficiency_count_metrics": {
+          "type": "array",
+          "description": "Count-based efficiency metrics including total queries, entities created,\nvalidation failures, and model queries. Each efficiency_metrics record should\nhave exactly one efficiency_count_metrics record.\n",
+          "items": {
+            "$ref": "#/$defs/efficiency_count_metrics"
+          }
+        },
+        "efficiency_optimization_metrics": {
+          "type": "array",
+          "description": "Optimization-related efficiency metrics including redundant queries, entity\nexistence checks, and batch operations. Each efficiency_metrics record should\nhave exactly one efficiency_optimization_metrics record.\n",
+          "items": {
+            "$ref": "#/$defs/efficiency_optimization_metrics"
+          }
+        }
+      },
+      "required": [
+        "session_id",
+        "efficiency_timing_metrics",
+        "efficiency_count_metrics",
+        "efficiency_optimization_metrics"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "efficiency_optimization_metrics": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent efficiency_metrics record.\n"
+        },
+        "redundant_queries": {
+          "type": "integer",
+          "description": "Number of redundant queries identified (e.g., multiple get_model calls with\ndifferent depths when one would suffice, checking entities that were just created).\nLower values indicate better query optimization.\n",
+          "minimum": 0
+        },
+        "entity_existence_checks": {
+          "type": "integer",
+          "description": "Number of times existing entities were checked before creation (get_entity calls\nto avoid duplicates). Higher values indicate better data quality practices.\n",
+          "minimum": 0
+        },
+        "batch_operations_count": {
+          "type": "integer",
+          "description": "Number of batch operations performed (creating multiple entities in parallel).\nHigher values indicate better efficiency through parallelization.\n",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "session_id"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "efficiency_timing_metrics": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent efficiency_metrics record.\n"
+        },
+        "session_duration_seconds": {
+          "type": "number",
+          "description": "Total duration of the session in seconds, from first query to finalize_session.\nUsed to calculate queries per second and identify slow sessions.\n",
+          "minimum": 0
+        },
+        "queries_per_second": {
+          "type": "number",
+          "description": "Calculated queries per second (total_queries / session_duration_seconds).\nHigher values indicate more efficient session execution.\n",
+          "minimum": 0
+        },
+        "entities_per_second": {
+          "type": "number",
+          "description": "Calculated entities created per second (entities_created / session_duration_seconds).\nHigher values indicate more efficient entity creation.\n",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "session_id",
+        "session_duration_seconds"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
     "paper": {
       "type": "object",
       "properties": {
@@ -228,7 +411,7 @@
         },
         "statement": {
           "type": "string",
-          "description": "The explicitly stated postulate or principle (e.g., 'Equivalence Principle', 'Einstein Field Equations: G_\u03bc\u03bd = 8\u03c0G/c\u2074 T_\u03bc\u03bd')"
+          "description": "The explicitly stated postulate or principle (e.g., 'Equivalence Principle', 'Einstein Field Equations: G_μν = 8πG/c⁴ T_μν')"
         },
         "formulation_year": {
           "type": "integer",
@@ -378,6 +561,170 @@
       "x-created": 1,
       "x-version": 1
     },
+    "recommendation": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent session assessment record.\n"
+        },
+        "recommendation_sequence": {
+          "type": "integer",
+          "description": "Sequence number of this recommendation within the session (1 = first recommendation,\n2 = second recommendation, etc.). Used to prioritize and track multiple recommendations.\n",
+          "minimum": 1
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the recommendation:\n- \"validation\": Pre-validation, required field checking\n- \"efficiency\": Query optimization, batch operations\n- \"data_quality\": Entity completeness, accuracy\n- \"workflow\": Process improvements, workflow patterns\n- \"error_handling\": Error recovery, failure handling\n- \"model_usage\": Model query patterns, depth selection\n",
+          "enum": [
+            "validation",
+            "efficiency",
+            "data_quality",
+            "workflow",
+            "error_handling",
+            "model_usage"
+          ]
+        },
+        "priority": {
+          "type": "string",
+          "description": "Priority level of the recommendation:\n- \"critical\": Must be addressed, causes failures or data quality issues\n- \"high\": Should be addressed, significantly impacts efficiency or quality\n- \"medium\": Recommended improvement, moderate impact\n- \"low\": Nice to have, minor optimization opportunity\n",
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "Brief, descriptive title for the recommendation targeting human architects.\n\n**INSTRUCTION FOR LARGE LLMs**: Write titles as specific model change recommendations\nfor architects. Use format: \"Add [specific change] to [entity/field/model] to [benefit]\"\n\nGood examples:\n- \"Add required_fields array to depth=1 get_model() response to make required fields\n  immediately visible when analyzing physics papers\"\n- \"Add explicit 'Required fields: [list]' to entity descriptions (especially theory, paper,\n  person) to reduce need for multiple model queries and ensure completeness\"\n- \"Add guidance in model description: 'Call get_model() once and cache result' to prevent\n  redundant queries when processing physics papers\"\n- \"Add consistency checks: 'Verify years match across related entities (theory.year,\n  paper.year, person birth/death years)' to ensure correctness\"\n\nBad examples (too abstract):\n- \"Improve validation workflow\"\n- \"Make required fields clearer\"\n- \"Optimize model queries\"\n- \"Better physics extraction\"\n"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the recommendation for human architects.\n\n**INSTRUCTION FOR LARGE LLMs**: Write descriptions to help architects understand what\nto change and why. Include:\n\n1. **The Problem**: What issue occurs (1-2 sentences)\n2. **Why It's Problematic**: What makes this problematic for physics paper analysis\n3. **The Proposed Change**: Exact model/design change to make (be specific)\n4. **Expected Impact**: How this change would help improve physics fact extraction\n5. **Example**: Show before/after of the model with the change\n\nFormat:\n\"Problem: [What issue occurs]. Why it's problematic: [What makes this problematic].\nProposed change: [Exact model modification]. Expected impact: [How this helps].\nExample: [Before/after showing the change].\"\n\nExample:\n\"Problem: Required fields (especially year fields) are missed when extracting physics\nfacts from papers because required_fields array is only visible at depth=2 in get_model(),\nbut depth=1 is often used. Why it's problematic: For physics papers, missing year fields\ncauses correctness and consistency issues. Multiple get_model() calls at different depths\nare inefficient. Proposed change: Add required_fields array to depth=1 response in\nget_model() tool, or add explicit 'Required fields: [list]' to entity description.\nExpected impact: Required fields will be visible immediately without additional queries,\nensuring complete and correct physics fact extraction. Example: Entity description\ncurrently says 'Represents a physics theory...'. After change: 'Represents a physics\ntheory. Required fields: theory_id, name, year. The year field is critical for correctness\nand consistency with related papers and people.'\"\n"
+        },
+        "implementation_guidance": {
+          "type": "string",
+          "description": "Specific guidance on how architects should implement this recommendation.\n\n**INSTRUCTION FOR LARGE LLMs**: Provide implementation guidance for human architects\nwho will modify the data model. Include:\n\n1. **Where to Make the Change**: Exact file location and entity/field to modify\n2. **What to Add/Change**: Specific text or structure to add/modify\n3. **Code/Structure Example**: Show the exact YAML or structure change\n4. **Validation**: How to verify the change works\n5. **Testing**: How to test that the change improves physics paper analysis\n\nFormat:\n\"Implementation steps:\n1. Location: [File path and entity/field]\n2. Change: [Specific modification]\n3. Example: [Before/after YAML or structure]\n4. Validation: [How to verify]\n5. Testing: [How to test impact on physics paper analysis]\"\n\nExample:\n\"Implementation steps:\n1. Location: data/physics/model/physics-theory.yaml, entity 'theory', description field\n2. Change: Add explicit required fields list to description, emphasizing importance of\n   year for correctness\n3. Example: Before: 'Represents a physics theory...' After: 'Represents a physics theory.\n   Required fields: theory_id, name, year. The year field is critical for correctness\n   and consistency with related papers and people.'\n4. Validation: Run consolidator to verify YAML is valid\n5. Testing: Test by analyzing physics papers - verify required fields are visible without\n   additional get_model() calls and year information is correctly extracted\"\n"
+        }
+      },
+      "required": [
+        "session_id",
+        "recommendation_sequence",
+        "category",
+        "priority",
+        "title",
+        "description"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "session_assessment": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent session feedback record.\n"
+        },
+        "overall_success": {
+          "type": "boolean",
+          "description": "Whether the session completed successfully. Set to false if critical errors occurred\nthat prevented completion or if significant data quality issues were identified.\n"
+        },
+        "efficiency_score": {
+          "type": "number",
+          "description": "Efficiency score (0.0-1.0) evaluating how efficiently the session executed.\n\n**INSTRUCTION FOR LARGE LLMs**: When scoring efficiency, think about what this reveals\nto human architects about the system's design. Document:\n\n1. **What inefficiencies occurred**: Be specific about what happened (e.g., \"Called\n   get_model() 5 times\" not \"Inefficient queries\")\n\n2. **Why they occurred**: Explain what in the model design or workflow made these\n   inefficiencies likely. For example: \"Multiple get_model() calls occurred because\n   the model doesn't clearly indicate that one call at the start is sufficient, and\n   the result can be cached.\"\n\n3. **What would prevent them**: Suggest model improvements. For example: \"Adding explicit\n   guidance in entity descriptions: 'Call get_model() once at session start and reuse\n   the result' would help avoid redundant calls.\"\n\n4. **Score calculation**: Document how you calculated the score, focusing on what it\n   reveals about system design. For example: \"Efficiency score: 0.6. Major issues:\n   (1) 3 redundant get_model() calls - suggests model guidance should emphasize caching,\n   (2) Missing required_fields check - suggests required_fields array should be more\n   prominently displayed or guidance should be more explicit for physics entity extraction.\"\n",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "data_quality_score": {
+          "type": "number",
+          "description": "Data quality score (0.0-1.0) evaluating the quality of created entities.\n\n**INSTRUCTION FOR LARGE LLMs**: When scoring data quality, focus on what this reveals\nto human architects about model design issues. Document:\n\n1. **What validation failures occurred**: List specific failures with entity types and\n   missing/incorrect fields.\n\n2. **Why they occurred**: Explain what in the model design made these failures likely.\n   For example: \"Validation failure for 'theory' entity missing 'year' occurred because:\n   (1) The required_fields array exists but isn't prominently displayed in get_model()\n   response at default depth, (2) The entity description doesn't explicitly list required\n   fields, (3) Field-level 'required: true' flags aren't visible without deeper model\n   queries. This is critical for physics papers where dates are essential for correctness.\"\n\n3. **What model changes would prevent them**: Suggest specific improvements. For example:\n   \"Adding required_fields to the default get_model() response (depth=1) would help.\n   Alternatively, adding explicit guidance in entity description: 'Required fields:\n   theory_id, name, year' would make it immediately clear. For physics papers, ensuring\n   year is captured is essential for correctness and consistency.\"\n\n4. **Score calculation with insights**: Document the score calculation and what it\n   reveals. For example: \"Data quality score: 0.7. Two validation failures occurred,\n   both due to missing required fields (theory.year, paper.year) that weren't obvious\n   from the model response. This suggests the model should make required_fields more\n   discoverable, especially for physics entities where dates are critical for correctness.\"\n",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "validation_failures": {
+          "type": "array",
+          "description": "List of validation failures encountered during the session. Each failure should be\ndocumented with entity type, error message, and resolution. Empty if no validation\nfailures occurred.\n",
+          "items": {
+            "$ref": "#/$defs/validation_failure"
+          }
+        },
+        "workflow_issues": {
+          "type": "array",
+          "description": "List of workflow issues identified during the session.\n\n**INSTRUCTION FOR LARGE LLMs**: Document workflow issues to help human architects\nunderstand what makes the system difficult. Use this format:\n\n\"Issue: [What happened] | Root Cause: [What in the model/workflow design caused this] |\nImpact: [Why this is problematic] | Suggested Model Change: [Specific change to model/guidance\nthat would help]\"\n\nExamples:\n- \"Issue: Validation failure for 'theory' entity missing 'year' | Root Cause: The\n  required_fields array is only visible at depth=2 in get_model(), but depth=1 is often\n  used. The entity description doesn't explicitly list required fields. For physics papers,\n  year is critical for correctness and consistency. | Impact: Required fields not visible\n  immediately, leading to incomplete physics fact extraction. | Suggested Model Change:\n  Add required_fields to depth=1 response, or add explicit 'Required fields: [list]' to\n  entity description.\"\n\n- \"Issue: Duplicate 'person' entities created for same physicist | Root Cause: No explicit\n  guidance on checking existing entities before creation. | Impact: Creates data inconsistency\n  and violates minimal representation principle. | Suggested Model Change: Add guidance in\n  model description: 'Check for existing entities using get_entity() before creating to\n  ensure consistency and minimal representation.'\"\n\n- \"Issue: Called get_model() 5 times unnecessarily | Root Cause: No explicit guidance\n  in model that get_model() result can be cached and reused. | Impact: Multiple calls waste\n  resources and increase latency when processing physics papers. | Suggested Model Change:\n  Add guidance in model description: 'Call get_model() once at session start and cache the\n  result for reuse.'\"\n\nFocus on helping architects understand what model design changes would prevent these issues.\n",
+          "items": {
+            "type": "string"
+          }
+        },
+        "workflow_strengths": {
+          "type": "array",
+          "description": "List of workflow strengths observed during the session.\n\n**INSTRUCTION FOR LARGE LLMs**: Document workflow strengths to help human architects\nunderstand what model design elements enable success. Use this format:\n\n\"Strength: [What was done well] | What Enabled This: [What in the model design made\nthis possible] | How to Replicate: [What model changes would make this pattern more\naccessible]\"\n\nExamples:\n- \"Strength: All physics entities created successfully on first attempt with correct\n  required fields | What Enabled This: The required_fields array was visible in get_model()\n  response at depth=1, and entity description explicitly stated 'Required fields must\n  be provided'. This ensured correctness and completeness. | How to Replicate: Ensure\n  required_fields are always visible at default depth, and add explicit 'Required fields:\n  [list]' to all entity descriptions, especially for physics entities where dates and IDs\n  are critical.\"\n\n- \"Strength: Efficient batch operations used for extracting multiple theories from paper |\n  What Enabled This: The model clearly indicated that multiple entities of the same type\n  can be created in parallel, and the create_entity tool documentation showed batch examples.\n  This maintained minimal representation by avoiding redundant operations. | How to Replicate:\n  Add explicit guidance in model: 'When extracting multiple physics entities from a paper,\n  collect all data first, then create in batch to improve efficiency and ensure consistency.'\"\n\n- \"Strength: Consistent relationships maintained (theory.papers and paper references match) |\n  What Enabled This: The model clearly showed bidirectional relationship patterns and\n  explicit guidance on maintaining consistency. | How to Replicate: Add explicit guidance:\n  'When linking theories to papers, ensure bidirectional consistency: if theory.papers\n  includes paper_id, verify the relationship is consistent across entities.'\"\n\nFocus on identifying what in the model design made success possible, so architects\ncan replicate these patterns.\n",
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendations": {
+          "type": "array",
+          "description": "Actionable recommendations for improving future sessions. Should include specific,\nimplementable suggestions based on issues identified in this session.\n",
+          "items": {
+            "$ref": "#/$defs/recommendation"
+          }
+        },
+        "efficiency_metrics": {
+          "type": "array",
+          "description": "Detailed efficiency metrics for the session, including query counts, timing,\nand performance indicators.\n",
+          "items": {
+            "$ref": "#/$defs/efficiency_metrics"
+          }
+        }
+      },
+      "required": [
+        "session_id",
+        "overall_success",
+        "efficiency_score",
+        "data_quality_score",
+        "efficiency_metrics"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "session_feedback": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Unique session identifier. Automatically generated by the MCP server when get_model\nis called. Used to track all queries and entity operations within a session.\n"
+        },
+        "session_assessment": {
+          "type": "array",
+          "description": "AI's comprehensive assessment of the session, including efficiency metrics, validation\ntracking, and quality evaluation. Must be provided for every session to enable\ncontinuous improvement.\n",
+          "items": {
+            "$ref": "#/$defs/session_assessment"
+          }
+        },
+        "user_feedback": {
+          "type": "array",
+          "description": "Optional user-provided feedback about the session, including ratings and comments.\n",
+          "items": {
+            "$ref": "#/$defs/user_feedback"
+          }
+        },
+        "ai_feedback": {
+          "type": "array",
+          "description": "AI-generated feedback about the session, including processing summary, tools used,\nchallenges encountered, and insights for improvement.\n",
+          "items": {
+            "$ref": "#/$defs/ai_feedback"
+          }
+        }
+      },
+      "required": [
+        "session_id",
+        "session_assessment",
+        "ai_feedback"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
     "tag": {
       "type": "object",
       "properties": {
@@ -512,6 +859,147 @@
       "x-created": 1,
       "x-version": 1
     },
+    "user_feedback": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent session feedback record.\n"
+        },
+        "rating": {
+          "type": "integer",
+          "description": "User rating on a scale of 1-5, where:\n1 = Poor (significant errors or issues)\n2 = Below average (some problems)\n3 = Average (acceptable but could improve)\n4 = Good (minor issues)\n5 = Excellent (no issues, high quality)\n",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "comments": {
+          "type": "string",
+          "description": "Free-form comments from the user about the session, including what worked well,\nwhat didn't work, and suggestions for improvement.\n"
+        }
+      },
+      "required": [
+        "session_id"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "validation_failure": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent session assessment record.\n"
+        },
+        "failure_sequence": {
+          "type": "integer",
+          "description": "Sequence number of this validation failure within the session (1 = first failure,\n2 = second failure, etc.). Used to track multiple failures and their order.\n",
+          "minimum": 1
+        },
+        "error_message": {
+          "type": "string",
+          "description": "Full error message from the validation failure. Should include field path and\nspecific validation error details.\n"
+        },
+        "missing_required_fields": {
+          "type": "array",
+          "description": "List of required fields that were missing from the entity data. Empty if the\nfailure was not due to missing required fields.\n",
+          "items": {
+            "type": "string"
+          }
+        },
+        "validation_failure_details": {
+          "type": "array",
+          "description": "Details about the validation failure including entity type, primary key, error\ntype, and resolution notes. Each validation_failure should have exactly one\nvalidation_failure_details record.\n",
+          "items": {
+            "$ref": "#/$defs/validation_failure_details"
+          }
+        },
+        "validation_failure_resolution": {
+          "type": "array",
+          "description": "Resolution information for the validation failure including resolution attempts\nand whether it was resolved. Each validation_failure should have exactly one\nvalidation_failure_resolution record.\n",
+          "items": {
+            "$ref": "#/$defs/validation_failure_resolution"
+          }
+        }
+      },
+      "required": [
+        "session_id",
+        "failure_sequence",
+        "error_message",
+        "validation_failure_details",
+        "validation_failure_resolution"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "validation_failure_details": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent validation_failure record.\n"
+        },
+        "failure_sequence": {
+          "type": "integer",
+          "description": "Reference to the parent validation_failure record.\n",
+          "minimum": 1
+        },
+        "entity_type": {
+          "type": "string",
+          "description": "Type of entity that failed validation (e.g., \"theory\", \"paper\", \"person\", \"assumption\",\n\"postulate\", \"claim\", \"prediction\").\n"
+        },
+        "entity_primary_key": {
+          "type": "string",
+          "description": "Primary key value of the entity that failed validation. Helps identify specific\nentity instances that had issues.\n"
+        },
+        "error_type": {
+          "type": "string",
+          "description": "Type of validation error (e.g., \"ValidationError\", \"MissingRequiredField\",\n\"TypeMismatch\", \"ConstraintViolation\").\n"
+        },
+        "resolution_notes": {
+          "type": "string",
+          "description": "Notes about how the validation failure was resolved, including what fields\nwere added or corrected. Useful for understanding error recovery patterns.\n"
+        }
+      },
+      "required": [
+        "session_id",
+        "failure_sequence",
+        "entity_type",
+        "error_type"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
+    "validation_failure_resolution": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent validation_failure record.\n"
+        },
+        "failure_sequence": {
+          "type": "integer",
+          "description": "Reference to the parent validation_failure record.\n",
+          "minimum": 1
+        },
+        "resolution_attempts": {
+          "type": "integer",
+          "description": "Number of attempts made to resolve this validation failure. Higher numbers\nindicate more complex resolution or multiple issues that needed fixing.\n",
+          "minimum": 1
+        },
+        "resolved": {
+          "type": "boolean",
+          "description": "Whether the validation failure was successfully resolved. Set to false if the\nentity creation ultimately failed or was abandoned.\n"
+        }
+      },
+      "required": [
+        "session_id",
+        "failure_sequence",
+        "resolution_attempts",
+        "resolved"
+      ],
+      "x-created": 1,
+      "x-version": 1
+    },
     "violated_assumption": {
       "type": "object",
       "properties": {
@@ -539,10 +1027,24 @@
       ],
       "x-created": 1,
       "x-version": 1
-    }
+    },
+    "change": [
+      {
+        "id": 1,
+        "timestamp": "2026-02-13T15:57:03.224798",
+        "author": "jeroen",
+        "note": "Updated feedback model for physics paper analysis"
+      }
+    ]
   },
   "type": "object",
   "properties": {
+    "ai_feedback": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ai_feedback"
+      }
+    },
     "anomaly": {
       "type": "array",
       "items": {
@@ -559,6 +1061,30 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/claim"
+      }
+    },
+    "efficiency_count_metrics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/efficiency_count_metrics"
+      }
+    },
+    "efficiency_metrics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/efficiency_metrics"
+      }
+    },
+    "efficiency_optimization_metrics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/efficiency_optimization_metrics"
+      }
+    },
+    "efficiency_timing_metrics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/efficiency_timing_metrics"
       }
     },
     "paper": {
@@ -597,6 +1123,24 @@
         "$ref": "#/$defs/prize_award"
       }
     },
+    "recommendation": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/recommendation"
+      }
+    },
+    "session_assessment": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/session_assessment"
+      }
+    },
+    "session_feedback": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/session_feedback"
+      }
+    },
     "tag": {
       "type": "array",
       "items": {
@@ -607,6 +1151,30 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/theory"
+      }
+    },
+    "user_feedback": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/user_feedback"
+      }
+    },
+    "validation_failure": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/validation_failure"
+      }
+    },
+    "validation_failure_details": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/validation_failure_details"
+      }
+    },
+    "validation_failure_resolution": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/validation_failure_resolution"
       }
     },
     "violated_assumption": {

@@ -88,6 +88,19 @@
             overflow: hidden;
         }
 
+        .data-age {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
         .header::before {
             content: '';
             position: absolute;
@@ -947,6 +960,7 @@
 <body>
     <div class="container">
         <div class="header">
+            <div class="data-age" id="dataAge"></div>
             <h1>🌌 Exergy ∞ Physics</h1>
             <p>Exploring and expanding on humanity's collective understanding</p>
         </div>
@@ -1908,6 +1922,9 @@
 
             // Store consolidated data globally for view switching
             consolidatedDataGlobal = consolidatedData;
+
+            // Update data age display
+            updateDataAge(consolidatedData);
 
             // Convert consolidated data format to hierarchical format based on current view
             const hierarchy = getHierarchyForView(currentView, consolidatedData);
@@ -3289,6 +3306,63 @@
             const versionDisplay = document.getElementById('version-display');
             if (versionDisplay) {
                 versionDisplay.textContent = APP_VERSION;
+            }
+        }
+
+        // Update data age display
+        function updateDataAge(consolidatedData) {
+            const ageElement = document.getElementById('dataAge');
+            if (!ageElement) {
+                console.warn('dataAge element not found');
+                return;
+            }
+            if (!consolidatedData) {
+                ageElement.textContent = '⚠️ data missing';
+                ageElement.style.color = 'rgba(255, 165, 0, 0.7)';
+                return;
+            }
+            if (!consolidatedData.timestamp) {
+                ageElement.textContent = '⚠️ stale data';
+                ageElement.style.color = 'rgba(255, 165, 0, 0.7)';
+                console.warn('Timestamp not found in consolidatedData. JS file may be stale. Available keys:', Object.keys(consolidatedData));
+                return;
+            }
+
+            try {
+                const timestamp = new Date(consolidatedData.timestamp);
+                if (isNaN(timestamp.getTime())) {
+                    ageElement.textContent = '⚠️ invalid timestamp';
+                    ageElement.style.color = 'rgba(255, 165, 0, 0.7)';
+                    console.error('Invalid timestamp:', consolidatedData.timestamp);
+                    return;
+                }
+                const now = new Date();
+                const ageMs = now - timestamp;
+                const ageSeconds = Math.floor(ageMs / 1000);
+                const ageMinutes = Math.floor(ageSeconds / 60);
+                const ageHours = Math.floor(ageMinutes / 60);
+                const ageDays = Math.floor(ageHours / 24);
+
+                let ageText;
+                if (ageSeconds < 60) {
+                    ageText = `${ageSeconds}s ago`;
+                } else if (ageMinutes < 60) {
+                    ageText = `${ageMinutes}m ago`;
+                } else if (ageHours < 24) {
+                    ageText = `${ageHours}h ago`;
+                } else if (ageDays < 7) {
+                    ageText = `${ageDays}d ago`;
+                } else {
+                    const ageWeeks = Math.floor(ageDays / 7);
+                    ageText = `${ageWeeks}w ago`;
+                }
+
+                ageElement.textContent = ageText;
+                ageElement.style.color = 'rgba(255, 255, 255, 0.5)'; // Reset to normal color
+            } catch (error) {
+                ageElement.textContent = '⚠️ error';
+                ageElement.style.color = 'rgba(255, 165, 0, 0.7)';
+                console.error('Error calculating data age:', error, consolidatedData);
             }
         }
 
