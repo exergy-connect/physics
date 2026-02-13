@@ -1013,7 +1013,7 @@
             <div class="context-modal-papers" id="contextModalPapers"></div>
             <div class="context-modal-nobel" id="contextModalNobel"></div>
             <div class="context-modal-actions">
-                <button class="context-modal-button secondary" id="contextModalCancel">Cancel</button>
+                <button class="context-modal-button secondary" id="contextModalClose">Close</button>
                 <button class="context-modal-button primary" id="contextModalWikipedia">Open Wikipedia</button>
             </div>
         </div>
@@ -1998,6 +1998,8 @@
                         anomaly_id: anomaly.anomaly_id,
                         explanation: anomaly.explanation || '',
                         explanation_theory_id: anomaly.explanation_theory_id,
+                        theory_id: theoryId, // Store parent theory ID for Wikipedia link
+                        parentTheory: theoryNode, // Store reference to parent theory node
                         children: []
                     };
 
@@ -3241,8 +3243,15 @@
 
         function openWikipedia() {
             if (currentModalNode) {
+                let nodeToUse = currentModalNode;
+                
+                // For anomalies, use the parent theory instead
+                if (currentModalNode.anomaly_id && currentModalNode.parentTheory) {
+                    nodeToUse = currentModalNode.parentTheory;
+                }
+                
                 // Use underscores instead of spaces for better Wikipedia compatibility
-                const wikiName = nameToWikipediaUrl(currentModalNode.name);
+                const wikiName = nameToWikipediaUrl(nodeToUse.name);
                 const wikipediaUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiName)}`;
                 window.open(wikipediaUrl, '_blank');
                 closeContextModal();
@@ -3251,7 +3260,7 @@
 
         // Modal event listeners
         document.getElementById('contextModalClose').addEventListener('click', closeContextModal);
-        document.getElementById('contextModalCancel').addEventListener('click', closeContextModal);
+        document.getElementById('contextModalClose').addEventListener('click', closeContextModal);
         document.getElementById('contextModalWikipedia').addEventListener('click', openWikipedia);
 
         // Close modal when clicking outside
