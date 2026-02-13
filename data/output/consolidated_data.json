@@ -1,6 +1,6 @@
 {
-  "version": 6,
-  "timestamp": "2026-02-13T21:57:04.449630+00:00",
+  "version": 7,
+  "timestamp": "2026-02-13T22:10:25.017434+00:00",
   "model": {
     "name": "Anomaly Model",
     "version": "26.02.12.1",
@@ -1127,6 +1127,20 @@
             "rationale": "Any physical system can serve as an observer; there is no fundamental distinction between observer and observed",
             "c": 1,
             "v": 1
+          },
+          {
+            "assumption_id": "rqm-hypothesis-1-all-systems-equivalent",
+            "statement": "All systems are equivalent: nothing distinguishes a priori macroscopic systems from quantum systems. If the observer O can give a quantum description of the system S, then it is also legitimate for an observer P to give a quantum description of the system formed by the observer O.",
+            "rationale": "This hypothesis rejects any fundamental distinction between system/observer, quantum/classical system, or physical system/consciousness. It allows any physical system to serve as an observer.",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "assumption_id": "rqm-hypothesis-2-completeness",
+            "statement": "Quantum mechanics provides a complete and self-consistent scheme of description of the physical world, appropriate to our present level of experimental observations.",
+            "rationale": "This hypothesis asserts that quantum mechanics is complete and does not require hidden variables or additional underlying theories.",
+            "c": 1,
+            "v": 1
           }
         ],
         "claims": [
@@ -1136,12 +1150,75 @@
             "status": "theoretical",
             "c": 1,
             "v": 1
+          },
+          {
+            "claim_id": "rqm-claim-2-observer-dependence",
+            "statement": "In quantum mechanics, different observers may give different accounts of the same sequence of events. Quantum mechanical descriptions are relative to a particular observer.",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "rqm-claim-3-information-theory",
+            "statement": "Quantum mechanics is a theory about the physical description of physical systems relative to other systems, and this is a complete description of the world. Physics is the theory of the relative information that systems have about each other.",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "rqm-claim-4-no-absolute-state",
+            "statement": "The notion of observer-independent state of a system, or observer-independent values of physical quantities, is inadequate to describe the physical world beyond the ħ → 0 limit. There is no absolute state of a system, only states relative to other systems.",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "rqm-claim-5-planck-constant",
+            "statement": "Postulate 1 (limited information) already adds Planck's constant to classical physics. Planck's constant can be viewed as the transformation coefficient between physical units (position × momentum) and information-theoretical units (bits).",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "rqm-claim-6-formalism-reconstruction",
+            "statement": "The full formalism of quantum mechanics can be (almost) reconstructed from Postulates 1 and 2. The physical content of the general formalism of quantum mechanics is (almost) nothing but a sequence of consequences of two physical facts expressed in postulates 1 and 2.",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "rqm-claim-7-relational-values",
+            "statement": "In quantum mechanics, 'state' as well as 'value of a variable' or 'outcome of a measurement' are relational notions in the same sense in which velocity is relational in classical mechanics. All physical variables are relational.",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
+          },
+          {
+            "claim_id": "rqm-claim-8-measurement-problem",
+            "statement": "The measurement problem (the unease with quantum mechanics) derives from the use of an incorrect notion: the notion of observer-independent state of a system, or observer-independent values of physical quantities. By abandoning such a notion, quantum mechanics makes much more sense.",
+            "status": "theoretical",
+            "c": 1,
+            "v": 1
           }
         ],
         "postulates": [
           {
-            "postulate_id": "rqm-postulate-1",
-            "statement": "The state of a system is only defined relative to another system (observer)",
+            "postulate_id": "rqm-postulate-1-limited-information",
+            "statement": "There is a maximum amount of relevant information that can be extracted from a system.",
+            "formulation_year": 1996,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "rqm-postulate-2-unlimited-information",
+            "statement": "It is always possible to acquire new information about a system.",
+            "formulation_year": 1996,
+            "c": 1,
+            "v": 1
+          },
+          {
+            "postulate_id": "rqm-postulate-3-superposition",
+            "statement": "If c and b define two complete families of questions, then the unitary matrix U_cb in p(Q^(i)_c, Q^(j)_b) = |U^(ij)_cb|² can be chosen in such a way that for every c, b and d, we have U_cd = U_cb U_bd and the effect of composite questions is given by eq.(17).",
             "formulation_year": 1996,
             "c": 1,
             "v": 1

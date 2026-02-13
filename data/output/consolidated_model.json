@@ -1027,15 +1027,7 @@
       ],
       "x-created": 1,
       "x-version": 1
-    },
-    "change": [
-      {
-        "id": 1,
-        "timestamp": "2026-02-13T15:57:03.224798",
-        "author": "jeroen",
-        "note": "Updated feedback model for physics paper analysis"
-      }
-    ]
+    }
   },
   "type": "object",
   "properties": {
