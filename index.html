@@ -2013,7 +2013,9 @@
                                     year: anomaly.discovery_year || 0,
                                     summary: desc,
                                     assumption_id: violatedAssumption.assumption_id,
-                                    violated_assumption_id: violatedAssumption.violated_assumption_id
+                                    violated_assumption_id: violatedAssumption.violated_assumption_id,
+                                    parentAnomaly: anomalyNode, // Reference to parent anomaly
+                                    parentTheory: theoryNode // Reference to parent theory for Wikipedia link
                                 });
                             }
                         });
@@ -2283,39 +2285,12 @@
 
         // Show anomaly details in modal
         function showAnomalyDetails(node) {
-            const modal = document.getElementById('contextModal');
-            const title = document.getElementById('contextModalTitle');
-            const year = document.getElementById('contextModalYear');
-            const summary = document.getElementById('contextModalSummary');
-
-            title.textContent = node.name;
-            if (node.year !== undefined) {
-                year.textContent = `Year: ${node.year}`;
-                // Apply year-based color to the year text
-                const yearColor = yearToColor(node.year);
-                year.style.color = yearColor;
-                year.style.textShadow = `
-                    0 0 5px ${yearColor},
-                    0 0 10px ${yearColor}80,
-                    0 0 15px ${yearColor}60
-                `;
-            } else {
-                year.textContent = '';
-                year.style.color = '';
-                year.style.textShadow = '';
-            }
-            summary.textContent = node.summary || node.explanation || 'No description available';
-
-            // Hide other modal sections
-            document.getElementById('contextModalTags').style.display = 'none';
-            document.getElementById('contextModalPeople').style.display = 'none';
-            document.getElementById('contextModalPapers').style.display = 'none';
-            document.getElementById('contextModalNobel').style.display = 'none';
-            document.getElementById('contextModalWikipedia').style.display = 'none';
-
-            // Use the same method as the main modal (classList.add('active'))
-            modal.classList.add('active');
-            currentModalNode = node;
+            // Use openContextModal to ensure proper setup including parentTheory preservation
+            // openContextModal will look up the node in sampleHierarchy, but for anomalies
+            // we need to ensure it looks in the anomaly hierarchy. Since we're calling this
+            // from the anomaly tree, the node should already have all properties including parentTheory.
+            // Just pass it directly to openContextModal which will handle the lookup properly.
+            openContextModal(node);
         }
 
         function renderTree(node, parentElement, searchTerm = '', visibleNodes = null, forceVisible = false) {
@@ -2936,19 +2911,18 @@
             // The node passed in should already have all properties, but we'll verify by looking it up
             let nodeToUse = node;
             
-            // Try to find it in the hierarchy to ensure we have the complete node
-            if (sampleHierarchy) {
-                const foundNode = findNodeByName(sampleHierarchy, node.name);
+            // Determine which hierarchy to search - use anomaly hierarchy for anomalies, main hierarchy otherwise
+            let hierarchyToSearch = sampleHierarchy;
+            if (node.anomaly_id && window.anomalyHierarchy) {
+                hierarchyToSearch = window.anomalyHierarchy;
+            }
+            
+            // Try to find it in the hierarchy to ensure we have all properties including parentTheory
+            if (hierarchyToSearch) {
+                const foundNode = findNodeByName(hierarchyToSearch, node.name);
                 if (foundNode) {
-                    // Merge properties: use found node but preserve important references from original node
-                    nodeToUse = { ...foundNode };
-                    // Preserve parentTheory and theory_id if they exist on the original node
-                    if (node.parentTheory) {
-                        nodeToUse.parentTheory = node.parentTheory;
-                    }
-                    if (node.theory_id) {
-                        nodeToUse.theory_id = node.theory_id;
-                    }
+                    // Use the found node directly - it should have all properties including parentTheory
+                    nodeToUse = foundNode;
                 }
             }
             
@@ -3253,8 +3227,12 @@
             if (currentModalNode) {
                 let nodeToUse = currentModalNode;
                 
+                // For violated assumptions, use the parent anomaly
+                if (currentModalNode.violated_assumption_id && currentModalNode.parentAnomaly) {
+                    nodeToUse = currentModalNode.parentAnomaly;
+                }
                 // For anomalies, use the parent theory instead
-                if (currentModalNode.anomaly_id && currentModalNode.parentTheory) {
+                else if (currentModalNode.anomaly_id && currentModalNode.parentTheory) {
                     nodeToUse = currentModalNode.parentTheory;
                 }
                 
