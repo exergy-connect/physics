@@ -153,6 +153,65 @@
             box-shadow: 0 -2px 10px rgba(120, 119, 198, 0.2);
         }
 
+        /* Mobile responsive styles for iPhone and small screens */
+        @media screen and (max-width: 768px) {
+            .tabs-container {
+                padding: 0 10px;
+                gap: 6px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Firefox */
+            }
+
+            .tabs-container::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Edge */
+            }
+
+            .tab {
+                padding: 10px 14px;
+                font-size: 0.85em;
+                white-space: nowrap;
+                flex-shrink: 0;
+                min-width: auto;
+            }
+
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                height: calc(100vh - 20px);
+            }
+
+            .header {
+                padding: 20px 15px;
+            }
+
+            .search-container {
+                padding: 15px;
+            }
+        }
+
+        /* iPhone specific portrait orientation */
+        @media screen and (max-width: 480px) and (orientation: portrait) {
+            .tabs-container {
+                padding: 0 8px;
+                gap: 4px;
+            }
+
+            .tab {
+                padding: 8px 10px;
+                font-size: 0.8em;
+                border-radius: 6px 6px 0 0;
+            }
+
+            .header {
+                padding: 15px 10px;
+                font-size: 0.9em;
+            }
+        }
+
         .search-container {
             padding: 30px;
             background: rgba(20, 25, 45, 0.8);
