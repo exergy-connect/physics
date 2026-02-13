@@ -2940,7 +2940,15 @@
             if (sampleHierarchy) {
                 const foundNode = findNodeByName(sampleHierarchy, node.name);
                 if (foundNode) {
-                    nodeToUse = foundNode;
+                    // Merge properties: use found node but preserve important references from original node
+                    nodeToUse = { ...foundNode };
+                    // Preserve parentTheory and theory_id if they exist on the original node
+                    if (node.parentTheory) {
+                        nodeToUse.parentTheory = node.parentTheory;
+                    }
+                    if (node.theory_id) {
+                        nodeToUse.theory_id = node.theory_id;
+                    }
                 }
             }
             
