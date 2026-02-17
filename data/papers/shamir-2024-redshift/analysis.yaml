@@ -1,0 +1,152 @@
+# Analysis of Shamir "An empirical consistent redshift bias: A possible direct reproducible
+# observation of Zwicky's TL theory" (2024)
+# Paper ID: shamir-2024-redshift
+# Analysis Date: 2026-02-16
+#
+# This file contains entities created during the analysis of Shamir's 2024 paper documenting
+# an empirical observation of redshift bias based on galaxy rotation direction relative to
+# the Milky Way. The paper shows that galaxies rotating in the same direction as the Milky Way
+# have systematically higher redshifts than those rotating in the opposite direction, with the
+# bias increasing at higher redshifts. This observation is consistent across multiple datasets
+# (SDSS, DESI, HSC DR3) and may provide the first direct empirical evidence for Zwicky's
+# tired-light theory, potentially explaining the H0 tension and mature galaxies at high redshifts.
+
+paper:
+  - paper_id: "shamir-2024-redshift"
+    title: "An empirical consistent redshift bias: A possible direct reproducible observation of Zwicky's TL theory"
+    year: 2024
+    link: "https://arxiv.org/abs/2407.20487"
+    authors:
+      - "lior-shamir"
+
+person:
+  - person_id: "lior-shamir"
+    name: "Lior Shamir"
+    sources:
+      - "author of paper shamir-2024-redshift"
+
+  - person_id: "fritz-zwicky"
+    name: "Fritz Zwicky"
+    sources:
+      - "proposed tired-light theory in 1929, referenced in paper shamir-2024-redshift"
+
+theory:
+  - theory_id: "tired-light-theory"
+    name: "Tired Light Theory"
+    year: 1929
+    summary: |
+      Theory proposed by Fritz Zwicky that photons lose energy as they travel through space,
+      causing redshift without requiring expansion. In extreme form, argues the Big Bang is
+      an artifact and the Universe is in steady state. The theory has lacked direct empirical
+      evidence until potentially this observation.
+    category: "Relativity"
+    people:
+      - "fritz-zwicky"
+    papers:
+      - "shamir-2024-redshift"
+
+  - theory_id: "standard-cosmological-model"
+    name: "Standard Cosmological Model (Lambda-CDM)"
+    year: 1998
+    summary: |
+      The standard model of cosmology based on dark energy (Lambda) and cold dark matter (CDM).
+      Assumes redshift is primarily due to cosmic expansion and Hubble flow. Faces tensions
+      including H0 tension and unexpected mature galaxies at high redshifts observed by JWST.
+    category: "Relativity"
+    papers:
+      - "shamir-2024-redshift"
+
+assumption:
+  - assumption_id: "redshift-assumption-rotational-velocity-negligible"
+    theory_id: "standard-cosmological-model"
+    statement: "The rotational velocity of the Milky Way galaxy relative to observed galaxies has a negligible effect on redshift measurements"
+    rationale: "Standard redshift models assume rotational velocity is far smaller than linear velocity and can be ignored when measuring cosmological redshift"
+
+  - assumption_id: "redshift-assumption-purely-velocity-based"
+    theory_id: "standard-cosmological-model"
+    statement: "Redshift corresponds primarily to the linear velocity of objects relative to Earth due to cosmic expansion"
+    rationale: "Standard cosmological model interprets redshift as Doppler effect from Hubble flow and cosmic expansion"
+
+claim:
+  - claim_id: "shamir-claim-redshift-bias-rotational"
+    theory_id: "tired-light-theory"
+    statement: "Galaxies that rotate in the same direction relative to the Milky Way have higher mean redshift than galaxies rotating in the opposite direction, with the difference increasing at higher redshifts"
+    status: "verified"
+    verification_year: 2024
+
+  - claim_id: "shamir-claim-consistent-across-datasets"
+    theory_id: "tired-light-theory"
+    statement: "The redshift bias is consistent across multiple datasets: SDSS, DESI Legacy Survey, HSC DR3, and third-party catalogs, using different telescopes, annotation methods, and covering both Northern and Southern Galactic poles"
+    status: "verified"
+    verification_year: 2024
+
+  - claim_id: "shamir-claim-delta-z-increases-redshift"
+    theory_id: "tired-light-theory"
+    statement: "The redshift difference (Δz) between galaxies rotating in opposite directions increases with redshift, from ~0.0007-0.0016 at z<0.1 to ~0.0059-0.0070 at z=0.2-0.3"
+    status: "verified"
+    verification_year: 2024
+
+  - claim_id: "shamir-claim-h0-tension-explanation"
+    theory_id: "tired-light-theory"
+    statement: "Redshift bias can explain the H0 tension: selecting SH0ES supernovae by rotation direction changes H0 from ~73.7 to ~69.05 km/s/Mpc (same direction) or ~74.2 km/s/Mpc (opposite direction), bringing same-direction value within error of CMB measurements"
+    status: "verified"
+    verification_year: 2023
+
+  - claim_id: "shamir-claim-flux-differences"
+    theory_id: "tired-light-theory"
+    statement: "Galaxies rotating in opposite directions show ~10% flux differences in different filters, with larger absolute differences at shorter wavelengths"
+    status: "verified"
+    verification_year: 2024
+
+prediction:
+  - prediction_id: "shamir-prediction-higher-redshift-bias"
+    theory_id: "tired-light-theory"
+    statement: "The redshift bias will be more significant at higher redshifts (z>0.3) observed by JWST, potentially explaining mature galaxies in the early Universe"
+    prediction_year: 2024
+    status: "pending"
+
+  - prediction_id: "shamir-prediction-jwst-asymmetry-explanation"
+    theory_id: "tired-light-theory"
+    statement: "The observed 140% excess of galaxies rotating opposite to Milky Way in JWST deep fields is due to brightness differences from Doppler shift combined with tired-light effects that become more significant at greater distances"
+    prediction_year: 2024
+    status: "pending"
+
+anomaly:
+  - anomaly_id: "h0-tension"
+    name: "H0 Tension"
+    description: "Discrepancy between two different methods of measuring the Hubble constant: local distance ladder measurements (~73-74 km/s/Mpc) versus CMB measurements (~67 km/s/Mpc), suggesting different expansion rates and ages of the Universe"
+    theory_id: "standard-cosmological-model"
+    discovery_year: 2017
+    papers:
+      - "shamir-2024-redshift"
+
+  - anomaly_id: "mature-galaxies-high-redshift"
+    name: "Mature Galaxies at High Redshift"
+    description: "JWST observations of mature, massive galaxies at redshifts z>11-15 that appear older than traditional galaxy formation models predict, challenging the standard cosmological timeline"
+    theory_id: "standard-cosmological-model"
+    discovery_year: 2023
+    papers:
+      - "shamir-2024-redshift"
+
+  - anomaly_id: "redshift-rotational-bias"
+    name: "Redshift Bias from Rotational Velocity"
+    description: "Systematic redshift difference between galaxies rotating in the same versus opposite direction relative to the Milky Way, with bias increasing at higher redshifts. This suggests redshift is not purely velocity-based and may be affected by rotational velocity or tired-light effects."
+    theory_id: "standard-cosmological-model"
+    discovery_year: 2024
+    explanation_theory_id: "tired-light-theory"
+    papers:
+      - "shamir-2024-redshift"
+    violated_assumptions:
+      - "redshift-assumption-rotational-velocity-negligible"
+      - "redshift-assumption-purely-velocity-based"
+
+violated_assumption:
+  - violated_assumption_id: "redshift-bias-violates-rotational-negligible"
+    anomaly_id: "redshift-rotational-bias"
+    assumption_id: "redshift-assumption-rotational-velocity-negligible"
+    violation_description: "The observed redshift bias shows that rotational velocity of the Milky Way relative to observed galaxies does have a measurable effect on redshift, contradicting the assumption that it is negligible"
+
+  - violated_assumption_id: "redshift-bias-violates-purely-velocity"
+    anomaly_id: "redshift-rotational-bias"
+    assumption_id: "redshift-assumption-purely-velocity-based"
+    violation_description: "The redshift bias that increases with distance (redshift) suggests redshift is not purely velocity-based, as the rotational velocity of the Milky Way is constant and cannot explain distance-dependent effects"

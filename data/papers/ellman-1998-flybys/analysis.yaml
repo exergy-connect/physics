@@ -1,0 +1,91 @@
+# Analysis of Ellman's "Analysis of The Anomalous Orbital-Energy Changes Observed in
+# Spacecraft Flybys of Earth" (1998)
+# Paper ID: ellman-1998-flybys
+# Analysis Date: 2026-02-13
+#
+# This file contains entities created during the analysis of Ellman's 1998 paper analyzing
+# the Earth flyby anomaly. This paper connects the Earth flyby anomaly to the Pioneer anomaly,
+# proposing that both share the same cause - a centrally directed, distance-independent
+# acceleration. Ellman further proposes that this acceleration is caused by a universal decay
+# of the length dimension of all material reality, which would also explain galactic rotation
+# curves without requiring dark matter.
+
+paper:
+  - paper_id: "ellman-1998-flybys"
+    title: "Analysis of The Anomalous Orbital-Energy Changes Observed in Spacecraft Flybys of Earth"
+    year: 1998
+    link: "http://www.The-Origin.org"
+    authors:
+      - "roger-ellman"
+
+person:
+  - person_id: "roger-ellman"
+    name: "Roger Ellman"
+    sources:
+      - "author of paper ellman-1998-flybys"
+
+anomaly:
+  - anomaly_id: "earth-flyby-anomaly"
+    name: "Earth Flyby Anomaly"
+    theory_id: "general-relativity"
+    description: |
+      Unaccounted for changes in spacecraft speed, both increases and decreases, observed during
+      Earth flybys of six different spacecraft from December 8, 1990 to August 2, 2005. The anomaly
+      appears as a small, centrally directed, distance-independent acceleration toward Earth, similar
+      to the Pioneer anomaly. All potential sources of systematic error have been modeled and cannot
+      account for the observed anomalies.
+    discovery_year: 2008
+    papers:
+      - "ellman-1998-flybys"
+    people:
+      - "roger-ellman"
+
+assumption:
+  - assumption_id: "flyby-assumption-central-acceleration"
+    theory_id: "general-relativity"
+    statement: "The Earth flyby anomaly is caused by a small acceleration (in addition to natural gravitation), centrally directed and independent of distance, directed toward the core center of Earth"
+    rationale: "Ellman proposes that the flyby anomaly shares the same characteristics as the Pioneer anomaly - a centrally directed, distance-independent acceleration"
+
+  - assumption_id: "flyby-assumption-shared-cause"
+    theory_id: "general-relativity"
+    statement: "The Flyby Anomaly and Pioneer Anomaly share the same cause - a centrally directed, distance-independent acceleration"
+    rationale: "Ellman argues that both anomalies exhibit the same characteristics and thus likely have the same underlying cause"
+
+  - assumption_id: "flyby-assumption-universal-decay"
+    theory_id: "general-relativity"
+    statement: "A universal decay of the length dimension of all material reality causes the anomalous accelerations observed in flybys, Pioneer spacecraft, and galactic rotation curves"
+    rationale: "Ellman proposes that a universal length decay would produce centrally directed, distance-independent accelerations without conflicting with planetary ephemeris"
+
+claim:
+  - claim_id: "flyby-claim-speed-changes"
+    theory_id: "general-relativity"
+    statement: "Six different spacecraft involved in Earth flybys from December 8, 1990 to August 2, 2005 showed unaccounted for changes in spacecraft speed, both increases and decreases"
+    status: "verified"
+    verification_year: 2008
+
+  - claim_id: "flyby-claim-latitude-effect"
+    theory_id: "general-relativity"
+    statement: "The magnitude of the anomalous acceleration component parallel to the spacecraft flight path depends on latitude, with the effective acceleration being A(λ) = A·Cos[λ], where λ is the latitude"
+    status: "theoretical"
+
+  - claim_id: "flyby-claim-net-effect"
+    theory_id: "general-relativity"
+    statement: "Depending on the specific flight path, a spacecraft may experience overall net anomalous acceleration or deceleration, or zero net modification if the path is perfectly symmetrical relative to the equator"
+    status: "theoretical"
+
+  - claim_id: "flyby-claim-cosmic-connection"
+    theory_id: "general-relativity"
+    statement: "The same anomalous centrally directed, distance-independent acceleration occurs relative to Earth (flyby anomaly), relative to the Sun (Pioneer anomaly), in galactic rotation curves, and in rotating groups of galaxies"
+    status: "theoretical"
+
+  - claim_id: "flyby-claim-no-ephemeris-conflict"
+    theory_id: "general-relativity"
+    statement: "A universal decay of the length dimension would not conflict with the planetary ephemeris and would not be detectable except in unusual circumstances like the Pioneer and Flyby anomalies"
+    status: "theoretical"
+
+prediction:
+  - prediction_id: "flyby-prediction-experiments"
+    theory_id: "general-relativity"
+    statement: "Experiments to test the universal decay and measure its parameters are proposed to verify the theory"
+    prediction_year: 1998
+    status: "pending"

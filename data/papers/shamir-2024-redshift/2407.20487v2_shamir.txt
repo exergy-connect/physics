@@ -1,0 +1,1340 @@
+An empirical consistent redshift bias: A possible direct reproducible
+observation of Zwicky’s TL theory
+
+arXiv:2407.20487v2 [astro-ph.CO] 14 Aug 2024
+
+Lior Shamir∗
+Kansas State University
+1701 Platt St
+Manhattan, KS 66506, USA
+
+Abstract
+
+existence of massive galaxies at high redshifts was reported
+also before JWST was launched (Neeleman et al., 2020), and
+JWST provided more and deeper instances of such galaxies,
+showing that mature galaxies were prevalent in the early Universe. Another example of a puzzling unexplained observation
+is the H0 tension, reflected by two different messengers that
+provide two different expansion rates and ages of the Universe
+(Wu and Huterer, 2017; Mörtsell and Dhawan, 2018; Bolejko,
+2018; Davis et al., 2019; Pandey et al., 2020; Camarena and
+Marra, 2020; Di Valentino et al., 2021; Riess et al., 2022).
+Since both measure the same Universe, it can be assumed
+that one of these measurements is biased.
+These puzzling observations introduce a challenge to cosmology: If the distance indicators are fully accurate, the standard cosmological theories are incomplete. If the current standard cosmological theories are complete, then the distance indicators might not be fully accurate. That is, either the standard cosmological theories need to be revised, or the redshift
+as a distance indicator needs to be revised, but the two might
+not be able to co-exist without modifications. While some
+solutions include alternative cosmological models, it has also
+been suggested that the tensions can be solved by changing
+the redshift model (Crawford, 1999; Pletcher, 2023; Gupta,
+2023; Lee, 2023; Lovyagin et al., 2022).
+The redshift of an astronomical object is expected to correspond to the linear velocity of the object relative to Earth.
+But in addition to the linear velocity, the measurement of the
+redshift can also be affected by the rotational velocity of the
+observed galaxy, or the rotational velocity of the Milky Way.
+The rotational velocity of a luminous object can affect the
+Doppler shift effect (Marrucci, 2013; Lavery et al., 2014; Liu
+et al., 2019), but since the rotational velocity of a galaxy is far
+smaller than its linear velocity, it is assumed that the effect
+of the rotational velocity is negligible. For that reason the
+rotational velocity of galaxies is ignored in common redshift
+models. However, it should be reminded that the physics of
+galaxy rotation, and namely its rotational velocity, is still one
+of the most mysterious and most provocative phenomena in
+nature.
+While the puzzling nature of the physics of galaxy rotation
+was noted in the first half of the 20th century (Oort, 1940),
+only five decades later it became part of the mainstream science (Rubin, 1983; El-Neaj et al., 2020). Common explanations include dark matter (Rubin, 1983) or modified Newtonian dynamics (Milgrom, 1983), but numerous other explanations have also been proposed (Sanders, 1990; Capozziello
+
+Recent advancements have shown tensions between observations and our current understanding of the Universe. Such observations may include the Ho tension and massive galaxies at
+high redshifts that are older than what traditional galaxy formation models predicted. Since these observations are based
+on the redshift as the primary distance indicator, a bias in
+the redshift may explain these tensions. While the redshift
+follows an established model, when applied to astronomy it
+is based on the assumption that the rotational velocity of the
+Milky Way galaxy relative to the observed galaxies has a negligible effect on the redshift. But given the mysterious nature
+of the physics of galaxy rotation, that assumption should be
+tested. The test is done by comparing the redshift of galaxies
+rotating in the same direction relative to the Milky Way to the
+redshift of galaxies rotating in the opposite direction relative
+to the Milky Way. The results show that the mean redshift of
+galaxies that rotate in the same direction relative to the Milky
+Way is higher than the mean redshift of galaxies that rotate
+in the opposite direction. Additionally, the redshift difference
+becomes larger as the redshift gets higher. The consistency of
+the analysis was verified by comparing data collected by three
+different telescopes, annotated using four different methods,
+released by three different research teams, and cover both
+the Northern and Southern ends of the galactic pole. All
+datasets are in excellent agreement with each other, showing
+consistency in the observed redshift bias. Given the “reproducibility crisis” in science, all datasets used in this study are
+publicly available, and the results can be easily reproduced.
+The observation could be a first direct empirical reproducible
+observation for the Zwicky’s “tired-light” model.
+
+1
+
+Introduction
+
+he unprecedented imaging power of JWST has revealed new
+information about the Universe that is not aligned with some
+of the current fundamental cosmological assumptions. For
+instance, the presence of galaxies at redshifts higher than 13
+(Curtis-Lake et al., 2023) or even as high as 15 (Whitler et al.,
+2023) was not expected according to previous assumptions
+(Cowley et al., 2018). Mature massive galaxies observed at
+redshift of ∼11 (Glazebrook et al., 2024) also challenge the
+cosmological model and the history of the Universe. The
+∗ lshamir@mtu.edu
+
+1
+
+and De Laurentis, 2012; Chadwick et al., 2013; Farnes, 2018;
+Rivera, 2020; Nagao, 2020; Blake, 2021; Gomel and Zimmerman, 2021; Skordis and Zlośnik, 2021; Larin, 2022). But despite over a century of scientific research, there is still no
+proven explanation to the nature of galaxy rotation (Sanders,
+1990; Mannheim, 2006; Kroupa, 2012; Kroupa et al., 2012;
+Kroupa, 2015; Arun et al., 2017; Akerib et al., 2017; Bertone
+and Tait, 2018; Aprile et al., 2018; Skordis and Zlośnik, 2019;
+Sivaram et al., 2020; Hofmeister and Criss, 2020; Byrd and
+Howard, 2021; Haslbauer et al., 2022a,b).
+The purpose of this experiment is to examine the impact
+of the galaxy rotational velocity on the redshift. That can be
+done by observing galaxies located around the Galactic pole,
+and comparing the redshift of galaxies that rotate in the same
+direction relative to the Milky Way to the redshift of galaxies
+that rotate in the opposite direction relative to the Milky Way.
+An observed difference in the redshift can indicate that the
+redshift is affected by the rotational velocity, and therefore
+the way it is implemented in astronomy is incomplete.
+
+2
+
+galaxies that rotate in opposite direction relative to the Milky
+Way. With the exception of the small Galaxy Zoo catalog,
+in all cases the difference is statistically significant. The
+observed ∆z difference was higher when using the smaller
+10o × 10o field centered at the Galactic pole compared to
+the larger 20o × 20o field. That can be explained by the difference in the relative rotational velocity that is expected to
+increase when the observed galaxies are closer to the Galactic
+pole. The SpArcFiRe algorithm was used with both the original images and with the mirrored images. That was done due
+to the reported bias of the SpArcFiRe method (Hayes et al.,
+2017). SpArcFiRe provided a higher number of galaxies, but
+on the expense of the accuracy of the annotation, leading
+to a smaller absolute ∆z though stronger statistical signal
+due to the higher number of galaxies (Shamir, 2024b). The
+Ganalyzer algorithm has a simple “mechanical” symmetric
+nature (Shamir, 2011a, 2021, 2022a), and therefore mirroring the galaxies did not change the results (Shamir, 2024b).
+When using SpArcFiRe the results changed when the galaxy
+images were mirrored, but the change was not substantial,
+except for the expected inverse ∆z observed when the galaxy
+images were mirrored.
+
+A possible link between the galaxy
+rotational velocity and the redshift
+
+The p-values shown in Table 1 are based on Student t-test,
+which
+assumes normal distribution of the redshift. Because
+A preliminary possible link between the redshift and the rothe
+redshift
+distribution does not necessarily follow normal
+tational velocity of galaxies have been proposed through emdistribution,
+the Student t-test might not provide the real
+pirical observations showing that galaxies that rotate in the
+probability
+to
+have such distribution by chance. To verify the
+same direction relative to the Milky Way have different redstatistical
+significance,
+a simulation analysis was used such
+shift compared to galaxies that rotate in the opposite directhat
+the
+galaxies
+were
+separated
+randomly into two groups,
+tion relative to the Milky Way (Shamir, 2024b). The analysis
+and
+the
+difference
+between
+the
+mean
+redshift of each of the
+was based on several different datasets of galaxies acquired
+two
+groups
+of
+galaxies
+was
+computed.
+That was repeated
+by two different telescopes, and annotated by their direction
+100,000
+times
+with
+the
+dataset
+of
+1,642
+galaxies
+of the second
+of rotation using several different annotation methods. Since
+row
+in
+Table
+1.
+In
+307
+of
+the
+runs
+the
+difference
+between the
+galaxies with leading arms are extremely rare (Buta et al.,
+first
+group
+of
+galaxies
+and
+the
+second
+group
+was
+larger than
+2003), the direction of rotation was determined by the arms
+0.0016,
+providing
+a
+probability
+of
+0.0031
+to
+occur
+by chance
+of the galaxies. The analysis was based on galaxies at the
+o
+o
+(Shamir,
+2024b).
+10 × 10 field centered at the Galactic pole, as well as the
+20o × 20o field to increase the number of galaxies and conThe DESI Legacy Survey data was collected around the
+sequently the statistical significance. The analysis was done
+Southern
+galactic pole, and therefore galaxies in that field
+for both the Northern and Southern ends of the Galactic pole
+that
+rotate
+in the same direction relative to the Milky Way
+(Shamir, 2024b).
+would
+seem
+to rotate in the opposite direction compared to
+The catalogs used in the experiment included galaxies angalaxies
+in
+the
+Northern galactic pole that rotate in the same
+notated by the Ganalyzer algorithm (Shamir, 2011a,b), by
+direction
+relative
+to the Milky Way. That provides an addithe SpArcFiRe method (Davis and Hayes, 2014, 2021), and
+tional
+verification
+that the difference is not a feature of some
+by the manual annotation of Galaxy Zoo such that the “suunknown
+behavior
+of the galaxy annotation methods, as such
+perclean” criteria of 95% agreement between the annotations
+effect
+should
+have
+been
+consistent across the sky, rather than
+(Lintott et al., 2008) was used. All of these methods deflip
+and
+provide
+inverse
+results
+in the two ends of the Galactic
+termine the spin direction of the galaxies based on analypole
+(Shamir,
+2024b).
+An
+additional
+control experiment was
+sis if the shape of the galaxy arms. The datasets are all
+performed
+by
+using
+SDSS
+galaxies
+from
+the same source that
+available publicly. SDSS and DESI galaxies annotated by
+rotate
+in
+opposite
+directions
+in
+fields
+that
+are perpendicular
+the Ganalyzer algorithm are available at https://people.
+cs.ksu.edu/~lshamir/data/zdifference/. Galaxies an- to the Galactic pole. For instance, in the 20×20 degree fields
+notated by SpArcFiRe are available at https://people. centered at (α = 102o , δ = 0o ) the ∆z was 0.00022±0.004,
+cs.ksu.edu/~lshamir/data/sparcfire/. The annotations which is statistically insignificant.
+of Galaxy Zoo can be accessed through SDSS CAS server
+at http://casjobs.sdss.org/CasJobs/default.aspx. TaTable 2 shows the differences between the flux in different
+ble 1 shows the mean redshift of galaxies that rotate in the wavelengths. The flux differences between galaxies that rosame direction and in the opposite direction relative to the tate in opposite directions show a difference of ∼10% in the
+Milky Way.
+different filters, and the absolute difference is larger when the
+As the table shows, all catalogs show lower redshift for wavelength is shorter (Shamir, 2024b).
+2
+
+Table 1: The mean redshift of galaxies that rotate in the same direction relative to the Milky Way galaxy (MW) and the mean
+redshift of galaxies that rotate in the opposite direction relative to the Milky Way (OWM). The p values are the one-tailed
+p values determined by the Student t-test. All datasets are publicly available. The experiments are described in detail in
+(Shamir, 2024b).
+Survey
+
+Pole
+
+SDSS
+SDSS
+SDSS
+SDSS
+SDSS
+
+North
+North
+North
+North
+North
+
+Field
+size (o )
+10×10
+20×20
+20×20
+10×10
+10×10
+
+SDSS
+SDSS
+
+North
+North
+
+20×20
+20×20
+
+DESI
+DESI
+
+South
+South
+
+10×10
+20×20
+
+Annotation
+
+# MW
+
+# OMW
+
+Zmw
+
+Zomw
+
+∆z
+
+Ganalyzer
+Ganalyzer
+Galaxy Zoo
+SpArcFiRe
+SpArcFiRe
+Mirrored
+SpArcFiRe
+SpArcFiRe
+Mirrored
+Ganalyzer
+Ganalyzer
+
+204
+817
+154
+710
+728
+
+202
+825
+135
+732
+709
+
+0.0996±0.0036
+0.09545±0.0017
+0.07384±0.004
+0.07197±0.0015
+0.06375±0.0014
+
+0.08774±0.0036
+0.08895±0.0016
+0.06829±0.0035
+0.06234±0.0014
+0.07191±0.0014
+
+0.01185±0.005
+0.0065±0.0023
+0.0056±0.0053
+0.00963±0.002
+-0.00816±0.002
+
+t-test
+p
+0.01
+0.0029
+0.15
+<0.0001
+<0.0001
+
+2903
+3003
+
+2976
+2914
+
+0.07285±0.0007
+0.07113±0.0007
+
+0.07116±0.0007
+0.07271±0.0007
+
+0.00169±0.001
+-0.00158±0.001
+
+0.04
+0.05
+
+414
+1702
+
+376
+1681
+
+0.1352±0.0027
+0.1317±0.0013
+
+0.1270±0.0025
+0.1273±0.0014
+
+0.0082±0.0036
+0.0044±0.0018
+
+0.018
+0.008
+
+ies is displayed in Figure 1. Although most galaxies have a
+Table 2: Flux differences in different filters between galaxies
+relatively low redshift, the catalog still contains more than
+that rotate in the same and in the opposite direction relative
+1000 galaxies with z > 0.2.
+to the Milky Way. The data are the galaxies and the field
+shown in the first row of Table 1. The p values are the twotailed Student t-test p value.
+Band
+spectroFlux g
+spectroFlux r
+spectroFlux i
+
+3
+
+MW
+25.969±0.8669
+53.2433±1.765
+77.4189±2.513
+
+OMW
+28.554±1.0918
+58.6214±2.3422
+85.0868±3.407
+
+∆
+-2.585
+-5.378
+-7.667
+
+t-test P
+0.063
+0.066
+0.067
+
+Analysis of HSC DR3 galaxies
+
+The analysis shown in Section 2 and in (Shamir, 2024b) shows
+a consistent but relatively small redshift bias. But these analyses are based on galaxies imaged mostly by SDSS, with one
+experiment with galaxies obtained through DESI Legacy Survey. Therefore, most galaxies used for the experiments included in Table 1 are of relatively low redshift. That makes it
+difficult to profile the change in ∆z when the redshift changes.
+That is, if ∆z increases at higher redshift, it can provide an
+indication that the redshift bias is higher for high-redshift
+galaxies.
+To profile the dependence between the ∆z and the redshift, an experiment was performed with the third data release (DR3) of the Hyper Suprime-Cam (HSC). Using the
+8.2m Subaru telescope, HSC provides high details of galaxies
+with higher redshifts compared to galaxies imaged by SDSS
+or DESI Legacy Surveys. That allows to annotate galaxies
+with higher redshift by their direction of rotation, and test
+whether the redshift bias increases with the redshift.
+The galaxies used in the experiment include all HSC DR3
+galaxies that have redshifts in SDSS DR17. That included
+101,415 galaxies with redshift of z < 0.3. The purpose of the
+redshift limit was to avoid galaxies that cannot be annotated
+accurately by their visible spin patterns. The galaxies were
+annotated by the Ganalyzer algorithm (Shamir, 2011a,b) as
+described in (Shamir, 2024b). That led to a clean dataset of
+13,477 galaxies.
+The smaller dataset of annotated galaxies compared to the
+initial dataset is expected since not all galaxies are spiral, and
+not all spiral galaxies have an identifiable direction of rotation.
+Manual inspection of randomly selected 100 galaxies showed
+that all galaxies are annotated accurately. The dataset can be
+accessed at https://people.cs.ksu.edu/~lshamir/data/
+zdifference_hsc/. The redshift distribution of the galax-
+
+Figure 1: Distribution of the reshift of the HSC DR3 galaxies.
+While providing better image quality and depth compared
+to the catalogs summarized in Section 2, the downside of the
+HSC catalog used here is that it does not cover neither the
+South nor North end of the Galactic pole. Therefore, the
+galaxies used for the analysis are galaxies that are closer to
+the South end of the Galactic pole, as well as galaxies that are
+close to the North end of the Galactic pole. The declination
+of the galaxies range between −6.58o to 53.18o . The distribution of the right ascension is shown in Figure 2. The catalog
+contains 4,724 galaxies that are within 60o from the Southern
+Galactic pole, and 8,753 galaxies that are within 60o from the
+Northern Galactic pole.
+Tables 3 and 4 show the mean redshift of galaxies that rotate in the same direction relative to the Milky Way and in the
+opposite direction relative to the Milky Way in the Southern
+and Northern Galactic poles, respectively. The tables show
+the difference between the mean z among all galaxies, but
+also the differences when the galaxy population is separated
+into 0.1 redshift ranges. As the table shows, in both ends of
+the Galactic pole there is a statistically significant difference
+between the redfshift of galaxies that rotate in the same direction as the Galactic pole, and galaxies that rotate in the
+opposite direction relative to the Galactic pole.
+The direction of rotation of the galaxies observed in the
+opposite sides of the Galactic pole are inverse, such that a
+galaxy located around the North end of the Galactic pole and
+rotates in the same direction relative to the Milky Way would
+3
+
+South Pole
+
+North Pole
+
+0.01
+
+Delta Z
+
+0.008
+0.006
+0.004
+0.002
+0
+0-0.1
+
+0.1-0.2
+
+0.2-0.3
+
+Redshift range
+
+Figure 2: Distribution of the RA in the dataset of HSC DR3
+galaxies.
+Figure 3: ∆z in different redshift ranges in the South and
+North end of the Galactic pole. Both ends of the Galactic
+pole show a very similar ∆z increase.
+
+4
+
+seem to rotate in the opposite direction if it was located in
+the South end of the Galactic pole. That is naturally taken
+into account in the analysis, but the consistency between both
+ends of the Galactic pole shows that the differences are not
+driven by an unknown bias in the annotation, as such bias
+should have been consistent in both ends of the Galactic pole,
+and not expected to flip based on the locations of the galaxies
+in the sky.
+
+Verification using a third-party
+dataset
+
+To further test the consistency of the bias, the observation described in Sections 2 and 3 was compared to a third
+party catalog (Longo, 2011). That catalog was prepared by
+five undergraduate students who manually annotated SDSS
+galaxies, and the galaxy images were also mirrored to offset for a possible human bias (Longo, 2011). While the
+purpose of that dataset was not to compare redshifts or
+test the impact of the rotational velocity of the Milky Way,
+14,462 of the galaxies in that dataset has redshift, and
+therefore can be used for the analysis. The dataset can
+be accessed at https://ars.els-cdn.com/content/image/
+1-s2.0-S0370269311003947-mmc1.txt. The redshift of all
+galaxies that have spectra is smaller than 0.1, and the redshift distribution is displayed by Figure 4. The distribution
+of the RA is displayed in Figure 5. As the figure shows, the
+majority of the galaxies are in relatively close proximity to
+the Northern Galactic pole.
+
+As discussed in Section 2, the p-values are based on Student
+t-test, and therefore on the the assumption that the redshifts
+are distributed normally. Since that assumption might not
+necessarily be correct, a simulation was performed such that
+the galaxies were separated into two groups randomly, and
+the mean redshift of one group was compared to the mean
+redshift of the galaxies of the other group (Shamir, 2024b).
+After 100,000 tests, the galaxies close to the Southern Galactic pole were separated into two random groups with mean
+redshift difference larger than 0.00363 in 518 runs. The same
+experiment when using the galaxies closer to the Northern
+Galactic pole showed a mean redshift difference larger than
+0.002451 in 230 of the runs. These simulation experiments
+show that the probability to have such separation by mere
+chance is far below 1%.
+The simple separation of the analysis into several redshift
+ranges shows that ∆z increases as the redshift gets higher.
+That observation is consistent in both ends of the Galactic
+pole. Figure 3 shows the ∆z in the different redshift ranges.
+The statistical significance of the increase in ∆z can also
+be determined by using a simple Pearson correlation after assigning the galaxies that rotate in the same direction relative
+to the the Milky Way with the value 1, and galaxies that rotate in the opposite direction relative to the Milky Way as
+-1. When using galaxies closer to the Northern Galactic pole
+the Pearson correlation is 0.0296, and the probability to have
+such correlation by chance is p=0.02. When using galaxies
+closer to the Southern Galactic pole, the Pearson correlation
+is 0.02669, and the p is 0.0064.
+
+Figure 4: Distribution of the reshift of the galaxies in the
+catalog of (Longo, 2011). The redshift of all galaxies is smaller
+than 0.1.
+A very simple analysis of the data shows that the mean redshift of the galaxies that rotate clockwise in that catalog is
+0.06586±0.00029, while the mean redshift of galaxies rotating
+4
+
+Table 3: Redshift of the galaxies around the Southern galactic pole that rotate in the same direction relative to the Milky
+Way and in the opposite direction relative to the Milky Way. The p values are the Student t-test probabilities to have such
+difference are stronger by chance.
+z range
+0-0.1
+0.1-0.2
+0.2-0.3
+All
+
+# MW
+871
+1,100
+342
+2,313
+
+# OMW
+917
+1,144
+350
+2,411
+
+Zmw
+0.072788±0.0006
+0.149292±0.0008
+0.242174±0.0015
+0.13421±0.001
+
+Zomw
+0.071198±0.0006
+0.145834±0.0008
+0.236287±0.001
+0.13058±0.001
+
+∆z
+0.001589±0.0009
+0.003458±0.001
+0.005886±0.002
+0.00363±0.0014
+
+t-test P
+0.03
+0.001
+0.0006
+0.005
+
+Table 4: Redshift of the galaxies around the Northern galactic pole that rotate in the same direction relative to the Milky
+Way and in the opposite direction relative to the Milky Way.
+z range
+0-0.1
+0.1-0.2
+0.2-0.3
+All
+
+# MW
+2,202
+1,949
+166
+4,317
+
+# OMW
+2,255
+2,021
+160
+4,436
+
+Zmw
+0.070232±0.0004
+0.138494±0.0006
+0.228586±0.0018
+0.10714±0.0006
+
+Zomw
+0.069493±0.0004
+0.134705±0.0005
+0.221593±0.0014
+0.104689±0.0006
+
+∆z
+0.000739±0.0006
+0.003789±0.0008
+0.006993±0.0023
+0.002451±0.0008
+
+t-test P
+0.095
+0.00005
+0.0012
+0.0019
+
+around the Northern Galactic pole, the Pearson correlation
+coefficient between the direction of rotation and the redshift is
+0.02033, and the probability to have this coefficient by chance
+is ∼0.01. That provides an indication that the bias increases
+with the redshift, as was also observed with the data from
+HSC DR3. The third-party dataset therefore shows the same
+observation as the dataset of HSC DR3 galaxies and in fact
+data from all other premier sky surveys.
+
+5
+
+Possible link to Zwicky’s “tiredlight” model
+
+The early Universe as imaged by JWST is different than the
+early Universe predicted by the standard model. Among other
+explanations, that tension was proposed to have a link to Fritz
+Zwicky’s “tired-light” (TL) theory (Zwicky, 1929; Yourgrau
+and Woodward, 1971; Vigier, 1977; Shao, 2013; Kragh, 2017;
+Shao et al., 2018; Sato, 2019; LaViolette, 2021; Lovyagin et al.,
+2022; Lopez-Corredoira, 2023; Gupta, 2023, 2024).
+According to TL, photons lose their energy along their traveling path through the Universe. That can lead to differences
+in the redshift as observed from Earth, and therefore different
+galaxies that are more distant from Earth can have different
+redshift than galaxies that are closer to Earth. If that theory
+is correct, it can explain the early mature galaxies observed
+by JWST, as their true age is not the same age that their
+redshift indicates. In its extreme form, TL can argue that the
+Big Bang is merely an artifact created by TL, and the Universe is in fact in steady state. One of the downsides of the
+model is that there is no empirical observation that can show
+that photons indeed lose their energy as they travel through
+the Cosmos.
+An empirical experiment that shows a redshift bias that
+grows as the redshift gets higher is difficult to perform at
+cosmological-scale distance, since the only information that
+can be obtained is the redshift as observed from Earth. While
+the distances of the galaxies can be estimated through other
+candles such as Ia supernovae, it is difficult to prove whether
+the redshift of a galaxy is higher because the galaxy indeed
+moves faster away from Earth in accordance to the Big Bang
+theory, because of TL, or a combination of the two. Ia supernovae are also limited in the distance range compared to
+the redshift, and therefore a redshift bias in the very high
+
+Figure 5: Distribution of the RA in the catalog of (Longo,
+2011). Most galaxies are closer to the North end of the Galactic pole.
+
+counterclockwise is 0.065±0.00029. The probability to have
+such difference by chance is 0.018. While the statistically significant redshift difference might seem unexpected, most of
+the galaxies are located near the Northern Galactic pole, and
+therefore the lower redshift for galaxies that rotate counterclockwise is in agreement with the results shown in Table 4
+using the HSC data taken from the Northern galactic pole, as
+well as the other datasets show in Table 1. Table 5 shows the
+mean z of galaxies that rotate in the same direction relative
+to the Milky Way in the catalog (Longo, 2011) and the mean
+z of galaxies that rotate in the opposite direction relative to
+the Milky Way in the Southern and Northern Galactic poles.
+As the table shows, the ∆z around the Northern Galactic
+pole agrees well with the ∆z observed by HSC around the
+Northern Galactic pole at the same redshift range of 0-0.1,
+as shown in Table 4. The opposite end of the Galactic pole
+also shows that galaxies that rotate in the opposite direction
+relative to the Milky Way have lower redshift compared to
+galaxies that rotate in the opposite direction, but in the case
+of the (Longo, 2011) catalog the difference is not statistically
+significant, possible due to the low number of galaxies in that
+part of the sky.
+Since the redshift of the galaxies in that catalog is limited
+to z < 0.1, a direct comparison to the redshift ranges used
+in Table 4 is not possible. However, when using the galaxies
+5
+
+Table 5: Redshift of the galaxies annotated by (Longo, 2011) around the Southern and Northern galactic poles that rotate in
+the same direction relative to the Milky Way and in the opposite direction relative to the Milky Way. The older third-party
+dataset is used to confirm the results observed with the other datasets.
+Hemisphere
+
+# MW
+
+# OMW
+
+Zmw
+
+Zomw
+
+∆z
+
+North
+South
+
+6450
+722
+
+6573
+717
+
+0.06598±0.0003
+0.06516±0.0008
+
+0.06498±0.0003
+0.06469±0.0009
+
+0.001±0.0004
+0.00047±0.0012
+
+redshifts will be difficult to profile using Ia supernovae.
+But when using the rotational velocity of the Earth within
+the Milky Way galaxy, a small redshift bias is expected due
+to the rotational velocity of the Earth. That bias is expected
+to affect galaxies that rotate in the same direction relative to
+the Milky Way differently than it affect galaxies that rotate
+in the opposite direction relative to the Milky Way. That bias
+is expected to be small, but according to several datasets as
+shown here it is statistically significant. More importantly,
+the bias grows with the redshift, suggesting that it is not the
+velocity alone that leads to the bias. The rotational velocity
+of the Earth within the Milky Way galaxy is obviously a constant that does not change, and the radial velocity of galaxies
+that rotate in the same direction relative to the Milky Way
+is expected to be, on average, the same as the radial velocity
+of galaxies that rotate in the opposite direction relative to
+the Milky Way. The idea that the redshift can change with
+the distance, and not necessarily the velocity, might be an
+indication supporting Fritz Zwicky’s century-old theory.
+That observation can also be related to the far higher number of galaxies that rotate in the opposite direction relative
+to the Milky Way as imaged by JWST (Shamir, 2024a). The
+JWST deep field images show a 140% more galaxies that
+rotate in the opposite direction relative to the Milky Way
+(Shamir, 2024a). A possible explanation is that galaxies that
+rotate in the opposite direction relative to the Milky Way
+are brighter due to the Doppler shift effect. Due to TL, the
+brightness difference gets more significant when the galaxies
+are more distant from Earth, and therefore much more galaxies that rotate in the opposite direction relative to the Milky
+Way are observed. Earlier observation made before JWST
+saw first light also showed such asymmetry that grows with
+the redshift (Shamir, 2020, 2022b), although at the lower redshift ranged the asymmetry was far milder than the asymmetry observed in the early Universe image by JWST.
+
+6
+
+t-test P
+values
+0.01
+0.34
+
+driven by the rotational velocity of the Milky Way relative to
+the rotational velocity of the observed galaxies. The observed
+bias is consistent across different telescopes, different annotation methods, and shows very similar bias in both ends of
+the Galactic pole. It is also consistent in catalogs that were
+collected for other purposes by different research teams.
+The empirical observations described in this paper are provided with the data to ensure that the results can be reproduced. It had been shown that the vast majority of the scientific results cannot be reproduced (Stodden et al., 2018), introducing the challenge known as the “reproducibility crisis”
+in science (Baker, 2016; Miyakawa, 2020; Sayre and Riegelman, 2018; Ball, 2023). The ability to access the data and
+reproduce the results allows to advance science in a transparent manner, and avoid errors that might not be noticeable to
+a reader unless they have access to the data.
+In the current astrophysics and cosmology practices, the
+redshift is used in most cases by ignoring the rotational velocity of the Milky Way, as the rotational velocity is far lower
+than the linear velocity and can therefore be considered negligible. But it should be reminded that the physics of galaxy
+rotation, and in particular the rotational velocity of galaxies, is still not fully understood (Opik, 1922; Babcock, 1939;
+Oort, 1940; Rubin and Ford Jr, 1970; Rubin et al., 1978, 1980,
+1985; Sanders, 1990; Sofue and Rubin, 2001; Mannheim, 2006;
+Kroupa, 2012; Kroupa et al., 2012; Kroupa, 2015; Arun et al.,
+2017; Akerib et al., 2017; Bertone and Tait, 2018; Aprile et al.,
+2018; Skordis and Zlośnik, 2019; Sivaram et al., 2020; Hofmeister and Criss, 2020; Byrd and Howard, 2021; Gomel and Zimmerman, 2021; Haslbauer et al., 2022b). . Theories such as
+dark matter (Rubin, 1983) or MOND (Milgrom, 1983) have
+been proposed to explain the anomaly of the rotational velocity of galaxies, but several decades of research still have not
+let to a proven explanation to the provocative nature of the
+rotational velocity of galaxies.
+It is difficult to identify an immediate explanation to the
+link between the rotational velocity and the redshift as observed from Earth. A possible explanation is the tired-light
+theory. But as mentioned above, the physics of galaxy rotation in general is difficult to explain without making unproven
+assumptions. Since the redshift is the most common distance
+indicator in cosmological scales, a bias in the redshift can impact a large number of other studies that make use of the
+redshift.
+Because the bias tends to becomes larger when the redshift
+gets higher, it is possible that such bias can explain anomalies such as galaxies that according to the existing theories
+are expected to be older than what traditional galaxy formation models predicted. The experiments described here were
+based on relatively low redshift ranges, and therefore it is still
+unclear whether higher redshifts will have significant redshift
+bias. Studying the bias in higher redshifts will require to use a
+
+Conclusion
+
+Unexpected observations such as the H0 tension and galaxies
+that according to the current theories are expected to be older
+than what traditional galaxy formation models predicted are
+challenging the standard cosmological model. If the cosmological model is complete and fully accurate, the distance measurements, and primarily the redshift, are biased. If the redshift is fully accurate then the standard cosmological model
+and basic theories regarding galaxy formation and the history of the Universe are incomplete. In any case, the redshift
+as used currently and the existing basic cosmological theories
+cannot co-exist without modifications.
+This paper presents empirical observations that show that
+the redshift model might be biased, and the bias might be
+6
+
+large number of galaxies with redshift imaged by space-based
+instruments such as JWST at around the galactic pole.
+Because H0 is determined by using the redshift, a redshift
+bias can also explain the observed H0 tension. For instance,
+when using the SH0ES catalog (Khetan et al., 2021) of Ia
+supernovae by just selecting the galaxies that rotate in the
+same direction as the Milky Way, H0 drops from ∼73.7 to
+∼69.05 km/sM pc−1 (McAdam and Shamir, 2023), which is
+within statistical error from the H0 as observed by the CMB.
+When using just SH0ES galaxies that rotate in the opposite
+direction relative to the Milky Way, the H0 increases to ∼74.2
+km/sM pc−1 (McAdam and Shamir, 2023). Although SH0ES
+contains a relatively small number of Ia supernovae with their
+host galaxies, it suggests that the redshift as a distance indicator might depend on the rotational velocity relative to the
+rotational velocity of the Milky Way. This observation is also
+aligned with the contention the H0 tension might require new
+physics that applies to the entire Universe, rather than certain
+changes in the physics of the early Universe (Vagnozzi, 2023).
+Because the H0 is determined by using the redshift, redshift
+bias can also be related to the observed H0 anisotropy (Javanmardi et al., 2015; Krishnan et al., 2022a; Cowell et al., 2022;
+McConville and Colgain, 2023; Aluri et al., 2023), which is another puzzling observation that does not have an immediate
+explanation.
+It is also possible that the redshift difference is not a bias,
+and galaxies that rotate in the opposite direction relative to
+the Milky Way are indeed closer to Earth compared to galaxies that rotate in the same direction relative to the Milky
+Way. In that case the alignment with both ends of the Galactic pole is merely a coincidence. Such large-scale alignment is
+far larger than any known cluster, super-cluster, or filament
+in the cosmic web. That might be in agreement with numerous other observations that suggest that the cosmological
+principle is violated (Aluri et al., 2023).
+Although alignment in galaxy spin directions is expected
+(d’Assignies D et al., 2022; Kraljic et al., 2020), it does not
+expect to form a cosmological-scale axis. If such axis indeed exists and it is not driven by the impact of the rotational velocity on the redshift measurements, it can be
+linked with theories such as dipole cosmology (Ebrahimian
+et al., 2023; Krishnan et al., 2022b; Allahyari et al., 2023;
+Krishnan et al., 2023b,a), or rotating universe (Gödel, 1949;
+Ozsváth and Schücking, 1962; Gödel, 2000; Chechin, 2016;
+Campanelli, 2021). Theories that assume a universe rotating around a cosmological-scale axis include Black Hole Cosmology (Pathria, 1972; Stuckey, 1994; Easson and Brandenberger, 2001; Poplawski, 2010; Christillin, 2014; Dymnikova,
+2019; Chakrabarty et al., 2020; Poplawski, 2021; Gaztanaga,
+2022a,b) and ellipsoidal universe (Campanelli et al., 2006,
+2007; Gruppuso, 2007; Campanelli et al., 2011; Cea, 2014).
+Tensions between the expected age of some galaxies and
+the age of the Universe, as well as other cosmological-scale
+anisotropies and observations such as the Ho tension, challenge our understanding of the Universe. It is clear that the
+current theories cannot co-exist with the reshift model as it is
+used currently, and therefore if the current theories are complete, it means that the redshift as a distance indicator is
+incomplete. This paper showed consistent evidence that the
+redshift depends on the rotational velocity of the Milky Way
+
+relative to the observed objects. The bias is small, but if
+it increases in the redshift ranges of the JWST deep fields it
+can potentially explain the existence of mature galaxies in the
+early Universe.
+
+Data availability
+All datasets used in this paper are publicly available.
+HSC DR3 galaxy data are available at https:
+//people.cs.ksu.edu/~lshamir/data/zdifference_hsc/.
+Annotated SDSS and DESI galaxies from the Northern and Southern Galactic poles are available at https:
+//people.cs.ksu.edu/~lshamir/data/zdifference/.
+The data used by Michael Longo can be accessed
+at
+https://ars.els-cdn.com/content/image/1-s2.
+0-S0370269311003947-mmc1.txt.
+SDSS
+galaxies annotated by SPARCFIRE are available at
+https://people.cs.ksu.edu/~lshamir/data/sparcfire/.
+Galaxy Zoo data are available through SDSS CAS at
+http://casjobs.sdss.org/CasJobs/default.aspx.
+
+Acknowledgments
+I would like to thank the three anonymous reviewers and the
+associate editor for the helpful comments. This study was
+supported in part by NSF grant 2148878.
+
+References
+Akerib, D. S., Alsum, S., Araújo, H. M., Bai, X., Bailey, A. J.,
+Balajthy, J., Beltrame, P., Bernard, E. P., Bernstein, A.,
+Biesiadzinski, T. P., Boulton, E. M., Bramante, R., Brás,
+P., Byram, D., Cahn, S. B., Carmona-Benitez, M. C., Chan,
+C., Chiller, A. A., Chiller, C., Currie, A., Cutter, J. E.,
+Davison, T. J. R., Dobi, A., Dobson, J. E. Y., Druszkiewicz,
+E., Edwards, B. N., Faham, C. H., Fiorucci, S., Gaitskell,
+R. J., Gehman, V. M., Ghag, C., Gibson, K. R., Gilchriese,
+M. G. D., Hall, C. R., Hanhardt, M., Haselschwardt, S. J.,
+Hertel, S. A., Hogan, D. P., Horn, M., Huang, D. Q., Ignarra, C. M., Ihm, M., Jacobsen, R. G., Ji, W., Kamdin,
+K., Kazkaz, K., Khaitan, D., Knoche, R., Larsen, N. A.,
+Lee, C., Lenardo, B. G., Lesko, K. T., Lindote, A., Lopes,
+M. I., Manalaysay, A., Mannino, R. L., Marzioni, M. F.,
+McKinsey, D. N., Mei, D.-M., Mock, J., Moongweluwan,
+M., Morad, J. A., Murphy, A. S. J., Nehrkorn, C., Nelson,
+H. N., Neves, F., O’Sullivan, K., Oliver-Mallory, K. C.,
+Palladino, K. J., Pease, E. K., Phelps, P., Reichhart, L.,
+Rhyne, C., Shaw, S., Shutt, T. A., Silva, C., Solmaz, M.,
+Solovov, V. N., Sorensen, P., Stephenson, S., Sumner, T. J.,
+Szydagis, M., Taylor, D. J., Taylor, W. C., Tennyson, B. P.,
+Terman, P. A., Tiedt, D. R., To, W. H., Tripathi, M.,
+Tvrznikova, L., Uvarov, S., Verbus, J. R., Webb, R. C.,
+White, J. T., Whitis, T. J., Witherell, M. S., Wolfs, F.
+L. H., Xu, J., Yazdani, K., Young, S. K., and Zhang, C.
+(2017). Results from a search for dark matter in the complete lux exposure. Phys. Rev. Lett., 118:021303.
+Allahyari, A., Ebrahimian, E., Mondol, R., and Sheikh7
+
+Jabbari, M. (2023).
+arXiv:2307.15791.
+
+Big bang in dipole cosmology.
+
+Bolejko, K. (2018). Emerging spatial curvature can resolve
+the tension between high-redshift cmb and low-redshift distance ladder measurements of the hubble constant. Physical
+Aluri, P. K., Cea, P., Chingangbam, P., Chu, M.-C., Clowes,
+Review D, 97(10):103529.
+R. G., Hutsemékers, D., Kochappan, J. P., Krasiński, A.,
+Lopez, A. M., Liu, L., Martens, N. C. M., Martins, C. J. Buta, R. J., Byrd, G. G., and Freeman, T. (2003). The ringed
+spiral galaxy ngc 4622. i. photometry, kinematics, and the
+A. P., Migkas, K., Colgáin, E. ., Pranav, P., Shamir, L., Sincase for two strong leading outer spiral arms. Astronomical
+gal, A. K., Sheikh-Jabbari, M. M., Wagner, J., Wang, S.-J.,
+Journal, 125(2):634.
+Wiltshire, D. L., Yeung, S., Yin, L., and Zhao, W. (2023).
+Is the observable universe consistent with the cosmological
+Byrd, G. and Howard, S. (2021). Spiral galaxies when
+principle? Classical and Quantum Gravity, 40(9):094001.
+disks dominate their halos (using arm pitches and rotation
+curves). Journal of the Washington Academy of Sciences,
+Aprile, E., Aalbers, J., Agostini, F., Alfonsi, M., Althueser,
+107(1):1.
+L., Amaro, F. D., Anthony, M., Arneodo, F., Baudis, L.,
+Bauermeister, B., Benabderrahmane, M. L., Berger, T.,
+Breur, P. A., Brown, A., Brown, A., Brown, E., Bruenner, S., Bruno, G., Budnik, R., Capelli, C., Cardoso, J.
+M. R., Cichon, D., Coderre, D., Colijn, A. P., Conrad, J.,
+Cussonneau, J. P., Decowski, M. P., de Perio, P., Di Gangi,
+P., Di Giovanni, A., Diglio, S., Elykov, A., Eurin, G., Fei,
+J., Ferella, A. D., Fieguth, A., Fulgione, W., Gallo Rosso,
+A., Galloway, M., Gao, F., Garbini, M., Geis, C., Grandi,
+L., Greene, Z., Qiu, H., Hasterok, C., Hogenbirk, E.,
+Howlett, J., Itay, R., Joerg, F., Kaminsky, B., Kazama, S.,
+Kish, A., Koltman, G., Landsman, H., Lang, R. F., Levinson, L., Lin, Q., Lindemann, S., Lindner, M., Lombardi,
+F., Lopes, J. A. M., Mahlstedt, J., Manfredini, A., Marrodán Undagoitia, T., Masbou, J., Masson, D., Messina,
+M., Micheneau, K., Miller, K., Molinario, A., Morå, K.,
+Murra, M., Naganoma, J., Ni, K., Oberlack, U., Pelssers,
+B., Piastra, F., Pienaar, J., Pizzella, V., Plante, G., Podviianiuk, R., Priel, N., Ramı́rez Garcı́a, D., Rauch, L., Reichard, S., Reuter, C., Riedel, B., Rizzo, A., Rocchetti, A.,
+Rupp, N., dos Santos, J. M. F., Sartorelli, G., Scheibelhut,
+M., Schindler, S., Schreiner, J., Schulte, D., Schumann, M.,
+Scotto Lavina, L., Selvi, M., Shagin, P., Shockley, E., Silva,
+M., Simgen, H., Thers, D., Toschi, F., Trinchero, G., Tunnell, C., Upole, N., Vargas, M., Wack, O., Wang, H., Wang,
+Z., Wei, Y., Weinheimer, C., Wittweg, C., Wulf, J., Ye, J.,
+Zhang, Y., and Zhu, T. (2018). Dark matter search results
+from a one ton-year exposure of xenon1t. Phys. Rev. Lett.,
+121:111302.
+
+Camarena, D. and Marra, V. (2020). Local determination of
+the hubble constant and the deceleration parameter. Physical Review Research, 2(1):013028.
+Campanelli, L. (2021). A conjecture on the neutrality of matter. Foundations of Physics, 51:56.
+Campanelli, L., Cea, P., Fogli, G., and Tedesco, L. (2011).
+Cosmic parallax in ellipsoidal universe. Modern Physics
+Letters A, 26(16):1169–1181.
+Campanelli, L., Cea, P., and Tedesco, L. (2006). Ellipsoidal universe can solve the cosmic microwave background
+quadrupole problem. PRL, 97(13):131302.
+Campanelli, L., Cea, P., and Tedesco, L. (2007). Cosmic microwave background quadrupole and ellipsoidal universe.
+Physical Review D, 76(6):063007.
+Capozziello, S. and De Laurentis, M. (2012). The dark matter
+problem from f (r) gravity viewpoint. Annalen der Physik,
+524(9-10):545–578.
+Cea, P. (2014). The ellipsoidal universe in the planck satellite
+era. Monthly Notices of the Royal Astronomical Society,
+441(2):1646–1661.
+Chadwick, E. A., Hodgkinson, T. F., and McDonald, G. S.
+(2013). Gravitational theoretical development supporting
+mond. Physical Review D, 88(2):024036.
+
+Arun, K., Gudennavar, S., and Sivaram, C. (2017). Dark matter, dark energy, and alternate models: A review. Advances
+in Space Research, 60(1):166–186.
+
+Chakrabarty, H., Abdujabbarov, A., Malafarina, D., and
+Bambi, C. (2020). A toy model for a baby universe inside a
+black hole. European Physical Journal C, 80(1909.07129):1–
+10.
+
+Babcock, H. W. (1939). The rotation of the andromeda nebula. Lick Observatory Bulletin, 19:41–51.
+
+Chechin, L. (2016). Rotation of the universe at different cosmological epochs. Astronomy Reports, 60(6):535–541.
+
+Baker, M. (2016). Reproducibility crisis. nature, 533(26):353–
+66.
+
+Christillin, P. (2014). The machian origin of linear inertial
+forces from our gravitationally radiating black hole universe. The European Physical Journal Plus, 129(8):1–3.
+
+Ball, P. (2023). Is AI leading to a reproducibility crisis in
+Cowell, J. A., Dhawan, S., and Macpherson, H. J. (2022).
+science? Nature, 624:22–25.
+Potential signature of a quadrupolar hubble expansion in
+Bertone, G. and Tait, T. M. (2018). A new era in the search
+pantheon+ supernovae. arXiv:2212.13569.
+for dark matter. Nature, 562(7725):51–56.
+Cowley, W. I., Baugh, C. M., Cole, S., Frenk, C. S., and
+Blake, B. C. (2021). Relativistic beaming of gravity and the
+Lacey, C. G. (2018). Predictions for deep galaxy surveys
+missing mass problem. Bulletin of the American Physical
+with JWST from λcdm. Monthly Notices of the Royal AsSociety, page B17.00002.
+tronomical Society, 474(2):2352–2372.
+8
+
+Crawford, D. F. (1999). Curvature pressure in a cosmology Gödel, K. (1949). An example of a new type of cosmological
+with a tired-light redshift. Australian Journal of Physics,
+solutions of einstein’s field equations of gravitation. Reviews
+52(4):753–777.
+of Modern Physics, 21(3):447.
+Curtis-Lake, E., Carniani, S., Cameron, A., Charlot, S., Gödel, K. (2000). Rotating universes in general relativity theJakobsen, P., Maiolino, R., Bunker, A., Witstok, J., Smit,
+ory. General Relativity and Gravitation, 32(7):1419–1427.
+R., Chevallard, J., et al. (2023). Spectroscopic confirmation of four metal-poor galaxies at z= 10.3–13.2. Nature Gomel, R. and Zimmerman, T. (2021). The effects of inertial
+forces on the dynamics of disk galaxies. Galaxies, 9(2):34.
+Astronomy, 7(5):622–632.
+d’Assignies D, W., Chisari, N. E., Hamaus, N., and Singh, Gruppuso, A. (2007). Complete statistical analysis for the
+quadrupole amplitude in an ellipsoidal universe. Physical
+S. (2022). Intrinsic alignments of galaxies around cosmic
+Review
+D, 76(8):083010.
+voids. Monthly Notices of the Royal Astronomical Society,
+509(2):1985–1994.
+Gupta, R. (2023). JWST early universe observations and
+λcdm cosmology. Monthly Notices of the Royal AstronomDavis, D. and Hayes, W. (2021). Sparcfire: Spiral arc finder
+ical Society, page stad2032.
+and reporter. ASCL, page ascl:2107.010.
+Davis, D. R. and Hayes, W. B. (2014). SpArcFiRe: Scalable Gupta, R. P. (2024). On dark matter and dark energy in ccc+
+tl cosmology. Universe, 10(6):266.
+Automated Detection of Spiral Galaxy Arm Segments. Astrophysical Journal, 790(2):87.
+Haslbauer, M., Banik, I., Kroupa, P., Wittenburg, N., and Javanmardi, B. (2022a). The high fraction of thin disk galaxDavis, T. M., Hinton, S. R., Howlett, C., and Calcino, J.
+ies continues to challenge λcdm cosmology. Astrophysical
+(2019). Can redshift errors bias measurements of the hubJournal, 925(2):183.
+ble constant? Monthly Notices of the Royal Astronomical
+Society, 490(2):2948–2957.
+
+Haslbauer, M., Kroupa, P., Zonoozi, A. H., and Haghi,
+H. (2022b). Has JWST already falsified dark-matterDi Valentino, E., Mena, O., Pan, S., Visinelli, L., Yang, W.,
+driven galaxy formation? Astrophysical Journal Letters,
+Melchiorri, A., Mota, D. F., Riess, A. G., and Silk, J.
+939(2):L31.
+(2021). In the realm of the hubble tension—a review of
+solutions. Classical and Quantum Gravity, 38(15):153001. Hayes, W. B., Davis, D., and Silva, P. (2017). On the nature
+and correction of the spurious s-wise spiral galaxy winding
+bias in galaxy zoo 1. Monthyl Notices of the Royal Astronomical Society, 466(4):3928–3936.
+
+Dymnikova, I. (2019). Universes inside a black hole with the
+de sitter interior. Universe, 5(5):111.
+
+Easson, D. A. and Brandenberger, R. H. (2001). Universe generation from black hole interiors. Journal of High Energy Hofmeister, A. M. and Criss, R. E. (2020). Debate on the
+physics of galactic rotation and the existence of dark matPhysics, 2001(06):024.
+ter.
+Ebrahimian, E., Krishnan, C., Mondol, R., and SheikhJabbari, M. (2023). Towards a realistic dipole cosmology: Javanmardi, B., Porciani, C., Kroupa, P., and PflamAltenburg, J. (2015). Probing the isotropy of cosmic accelThe dipole \lambda cdm model. arXiv:2305.16177.
+eration traced by type ia supernovae. Astrophysical JourEl-Neaj, Y. A., Alpigiani, C., Amairi-Pyka, S., Araújo, H.,
+nal, 810(1):47.
+Balaž, A., Bassi, A., Bathe-Peters, L., Battelier, B., Belić,
+A., Bentine, E., et al. (2020). Aedge: atomic experiment for Khetan, N., Izzo, L., Branchesi, M., Wojtak, R., Cantiello,
+M., Murugeshan, C., Agnello, A., Cappellaro, E.,
+dark matter and gravity exploration in space. EPJ QuanDella Valle, M., Gall, C., Hjorth, J., Benetti, S., Brocato,
+tum Technology, 7(1):1–27.
+E., Burke, J., Hiramatsu, D., Howell, D. A., Tomasella, L.,
+Farnes, J. S. (2018). A unifying theory of dark energy and
+and Valenti, S. (2021). A new measurement of the hubdark matter: Negative masses and matter creation within
+ble constant using type ia supernovae calibrated with sura modified λcdm framework. Astronomy & Astrophysics,
+face brightness fluctuations. Astronomy & Astrophysics,
+620:A92.
+647:A72.
+Gaztanaga, E. (2022a). The black hole universe, part i. Sym- Kragh, H. (2017). Is the universe expanding? fritz zwicky
+metry, 14(9):1849.
+and early tired-light hypotheses. Journal of Astronomical
+History and Heritage, 20(1):2–12.
+Gaztanaga, E. (2022b). The black hole universe, part ii. Symmetry, 14(10):1984.
+Kraljic, K., Davé, R., and Pichon, C. (2020). And yet it
+flips: connecting galactic spin and the cosmic web. Monthly
+Glazebrook, K., Nanayakkara, T., Schreiber, C., Lagos, C.,
+Notices of the Royal Astronomical Society, 493(1):362–381.
+Kawinwanichakij, L., Jacobs, C., Chittenden, H., Brammer, G., Kacprzak, G. G., Labbe, I., et al. (2024). A mas- Krishnan, C., Mohayaee, R., Colgáin, E. Ó., Sheikh-Jabbari,
+sive galaxy that formed its stars at z˜ 11. Nature, pages
+M., and Yin, L. (2022a). Hints of flrw breakdown from
+1–3.
+supernovae. Physical Review D, 105(6):063514.
+9
+
+Krishnan, C., Mondol, R., and Jabbari, M. S. (2023a). Coper- Mannheim, P. D. (2006). Alternatives to dark matter and
+nican paradigm beyond flrw.
+dark energy. Progress in Particle and Nuclear Physics,
+56(2):340–445.
+Krishnan, C., Mondol, R., and Sheikh-Jabbari, M.
+(2022b). A tilt instability in the cosmological principle. Marrucci, L. (2013). Spinning the Doppler effect. Science,
+arXiv:2211.08093.
+341(6145):464–465.
+Krishnan, C., Mondol, R., and Sheikh-Jabbari, M. (2023b). McAdam, D. and Shamir, L. (2023). Asymmetry between
+Dipole cosmology: the copernican paradigm beyond
+galaxy apparent magnitudes shows a possible tension beflrw. Journal of Cosmology and Astroparticle Physics,
+tween physical properties of galaxies and their rotational
+2023(07):020.
+velocity. Symmetry, 15(6):1190.
+Kroupa, P. (2012). The dark matter crisis: falsification of the McConville, R. and Colgain, E. (2023). Anisotropic distance
+current standard model of cosmology. Publications of the
+ladder in pantheon+ supernovae. arXiv:2304.02718.
+Astronomical Society of Australia, 29(4):395–433.
+Milgrom, M. (1983). A modification of the newtonian dynamKroupa, P. (2015). Galaxies as simple dynamical systems:
+ics as a possible alternative to the hidden mass hypothesis.
+observational data disfavor dark matter and stochastic star
+Astrophysical Journal, 270:365–370.
+formation. Canadian Journal of Physics, 93(2):169–202.
+Miyakawa, T. (2020). No raw data, no science: another posKroupa, P., Pawlowski, M., and Milgrom, M. (2012). The
+sible source of the reproducibility crisis.
+failures of the standard model of cosmology require a new
+paradigm. International Journal of Modern Physics D, Mörtsell, E. and Dhawan, S. (2018). Does the hubble constant
+21(14):1230003.
+tension call for new physics? Journal of Cosmology and
+Astroparticle Physics, 2018(09):025.
+Larin, S. A. (2022). Towards the explanation of flatness of
+galaxies rotation curves. Universe, 8(12):632.
+Nagao, S. (2020). Galactic evolution showing a constant circulating speed of stars in a galactic disc without requiring
+Lavery, M. P., Barnett, S. M., Speirits, F. C., and Padgett,
+dark matter. Reports in Advances of Physical Sciences,
+M. J. (2014). Observation of the rotational Doppler shift
+4(02):2050004.
+of a white-light, orbital-angular-momentum-carrying beam
+backscattered from a rotating body. Optica, 1(1):1–4.
+LaViolette, P. A. (2021). Expanding or static universe: Emergence of a new paradigm. International Journal of Astronomy and Astrophysics, 11(2):190–231.
+
+Neeleman, M., Prochaska, J. X., Kanekar, N., and Rafelski,
+M. (2020). A cold, massive, rotating disk galaxy 1.5 billion
+years after the big bang. Nature, 581(7808):269–272.
+
+Oort, J. H. (1940). Some problems concerning the structure
+and dynamics of the galactic system and the elliptical nebLee, S. (2023). The cosmological evolution condition of
+ulae ngc 3115 and 4494. Astrophysical Journal, 91:273.
+the Planck constant in the varying speed of light models
+through adiabatic expansion. Physics of the Dark Universe,
+Opik, E. (1922). An estimate of the distance of the andromeda
+page 101286.
+nebula. Astrophysical Journal, 55.
+Lintott, C. J., Schawinski, K., Slosar, A., Land, K., Bamford,
+S., Thomas, D., Raddick, M. J., Nichol, R. C., Szalay, A., Ozsváth, I. and Schücking, E. (1962). Finite rotating universe.
+Nature, 193(4821):1168–1169.
+Andreescu, D., et al. (2008). Galaxy zoo: morphologies
+derived from visual inspection of galaxies from the sloan
+digital sky survey. Monthly Notices of the Royal Astronom- Pandey, S., Raveri, M., and Jain, B. (2020). Model independent comparison of supernova and strong lensing cosmograical Society, 389(3):1179–1189.
+phy: Implications for the hubble constant tension. Physical
+Review D, 102(2):023505.
+Liu, B., Chu, H., Giddens, H., Li, R., and Hao, Y. (2019).
+Experimental observation of linear and rotational Doppler
+shifts from several designer surfaces. Scientific Reports, Pathria, R. (1972). The universe as a black hole. Nature,
+240(5379):298–299.
+9(1):8971.
+Longo, M. J. (2011). Detection of a dipole in the handedness Pletcher, A. E. (2023). Why mature galaxies seem to have
+filled the universe shortly after the big bang. Qeios, page
+of spiral galaxies with redshifts z 0.04. Physics Letters B,
+10.32388/2X1GDL.2.
+699(4):224–229.
+Lopez-Corredoira, M. (2023). History and problems of the Poplawski, N. J. (2010). Radial motion into an einstein–rosen
+bridge. Physics Letters B, 687(2-3):110–113.
+standard model in cosmology. arXiv:2307.10606.
+Lovyagin, N., Raikov, A., Yershov, V., and Lovyagin, Y. Poplawski, N. J. (2021). A nonsingular, anisotropic universe
+(2022). Cosmological model tests with jwst. Galaxies,
+in a black hole with torsion and particle production. Gen10(6):108.
+eral Relativity and Gravitation, 53(2):1–14.
+10
+
+Riess, A. G., Yuan, W., Macri, L. M., Scolnic, D., Brout, D., Shamir, L. (2024a). Galaxy spin direction asymmetry in jwst
+Casertano, S., Jones, D. O., Murakami, Y., Anand, G. S.,
+deep fields. Publications of the Astronomical Society of AusBreuval, L., et al. (2022). A comprehensive measurement of
+tralia, 41:e038.
+the local value of the hubble constant with 1 km s−1 Mpc−1
+uncertainty from the hubble space telescope and the sh0es Shamir, L. (2024b). A simple direct empirical observation
+of systematic bias of the redshift as a distance indicator.
+team. Astrophysical Journal Letters, 934(1):L7.
+Universe, 10(3).
+Rivera, P. C. (2020). An alternative model of rotation curve
+that explains anomalous orbital velocity, mass discrepancy Shao, M.-H. (2013). The energy loss of photons and cosmological redshift. Physics Essays, 26(2):183–190.
+and structure of some galaxies. American Journal of Astronomy and Astrophysics, 7(4):73–79.
+Shao, M.-H., Wang, N., and Gao, Z.-F. (2018). Tired light
+denies the big bang. In Redefining Standard Model CosmolRubin, V. C. (1983). The rotation of spiral galaxies. Science,
+ogy, pages 13–29. IntechOpen.
+220(4604):1339–1344.
+Rubin, V. C., Burstein, D., Ford Jr, W. K., and Thonnard, Sivaram, C., Arun, K., and Rebecca, L. (2020). Mond, mong,
+morg as alternatives to dark matter and dark energy, and
+N. (1985). Rotation velocities of 16 sa galaxies and a comconsequences for cosmic structures. Journal of Astrophysics
+parison of sa, sb, and sc rotation properties. Astrophysical
+and Astronomy, 41(1):1–6.
+Journal, 289:81–98.
+Rubin, V. C. and Ford Jr, W. K. (1970). Rotation of the Skordis, C. and Zlośnik, T. (2019). Gravitational alternatives
+andromeda nebula from a spectroscopic survey of emission
+to dark matter with tensor mode speed equaling the speed
+regions. Astrophysical Journal, 159:379.
+of light. Physical Review D, 100(10):104013.
+Rubin, V. C., Ford Jr, W. K., and Thonnard, N. (1978). Ex- Skordis, C. and Zlośnik, T. (2021). New relativistic theory for
+tended rotation curves of high-luminosity spiral galaxies.
+modified newtonian dynamics. Pattern Recognition Letters,
+iv-systematic dynamical properties, sa through sc. Astro127(16):161302.
+physical Journal, 225:L107–L111.
+Sofue, Y. and Rubin, V. (2001). Rotation curves of spiral
+Rubin, V. C., Ford Jr, W. K., and Thonnard, N. (1980).
+galaxies. Annual Review of Astronomy and Astrophysics,
+Rotational properties of 21 sc galaxies with a large range
+39:137–174.
+of luminosities and radii, from ngc 4605/r= 4kpc/to ugc
+Stodden, V., Seiler, J., and Ma, Z. (2018). An empirical
+2885/r= 122 kpc. Astrophysical Journal, 238:471–487.
+analysis of journal policy effectiveness for computational
+Sanders, R. (1990). Mass discrepancies in galaxies: dark matreproducibility. Proceedings of the National Academy of
+ter and alternatives. The Astronomy and Astrophysics ReSciences, 115(11):2584–2589.
+view, 2(1):1–28.
+Stuckey, W. (1994). The observable universe inside a black
+Sato, M. (2019). Tired light: An alternative interpretation of
+hole. American Journal of Physics, 62(9):788–795.
+the accelerating universe. Physics Essays, 32(1):43–47.
+Sayre, F. and Riegelman, A. (2018). The reproducibility cri- Vagnozzi, S. (2023). Seven hints that early-time new physics
+alone is not sufficient to solve the hubble tension. Universe,
+sis and academic libraries. College & Research Libraries,
+9(9):393.
+79(1):2.
+Shamir, L. (2011a). Ganalyzer: A tool for automatic galaxy Vigier, J.-P. (1977). Cosmological implications of non-velocity
+redshifts—a tired-light mechanism. In Cosmology, History,
+image analysis. Astrophysical Journal, 736(2):141.
+and Theology, pages 141–157. Springer.
+Shamir, L. (2011b). Ganalyzer: A tool for automatic galaxy
+Whitler, L., Endsley, R., Stark, D. P., Topping, M., Chen, Z.,
+image analysis. ASCL, page ascl:1105.011.
+and Charlot, S. (2023). On the ages of bright galaxies 500
+Shamir, L. (2020). Patterns of galaxy spin directions in sdss
+myr after the big bang: insights into star formation acand pan-starrs show parity violation and multipoles. Astivity at z>15 with JWST. Monthly Notices of the Royal
+trophysics & Space Science, 365:136.
+Astronomical Society, 519(1):157–171.
+Shamir, L. (2021). Analysis of the alignment of non-random Wu, H.-Y. and Huterer, D. (2017). Sample variance in the lopatterns of spin directions in populations of spiral galaxies.
+cal measurements of the hubble constant. Monthly Notices
+Particles, 4(1):11–28.
+of the Royal Astronomical Society, 471(4):4946–4955.
+Shamir, L. (2022a). Analysis of spin directions of galaxies
+Yourgrau, W. and Woodward, J. (1971). Tired light and
+in the desi legacy survey. Monthly Notices of the Royal
+the missing mass problem. Acta Physica Academiae SciAstronomical Society, 516(2):2281–2291.
+entiarum Hungaricae, 30(3):323–329.
+Shamir, L. (2022b).
+Large-scale asymmetry in galaxy
+spin directions: analysis of galaxies with spectra in des, Zwicky, F. (1929). On the redshift of spectral lines through
+interstellar space. Proceedings of the National Academy of
+sdss, and desi legacy survey. Astronomical Notes, 343(6Sciences, 15(10):773–779.
+7):e20220010.
+11
+
+
