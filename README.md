@@ -65,6 +65,36 @@ The physics knowledge base, including concept summaries, historical dates, and k
 
 The data structure, hierarchical organization, and summaries were all generated with AI assistance to create a comprehensive and navigable representation of physics knowledge.
 
+## 📑 Papers Analyzed
+
+The following papers have been analyzed and integrated into the knowledge base:
+
+1. **Riemann, B. (1854)** - "On the Hypotheses which lie at the Bases of Geometry"
+   - Paper ID: `riemann-1854-geometry`
+   - Established foundations of differential geometry and n-dimensional manifolds
+
+2. **Feynman, R. P. (1949)** - "Space-Time Approach to Quantum Electrodynamics"
+   - Paper ID: `feynman-1949-space-time`
+   - Introduced space-time approach to QED calculations
+
+3. **Rovelli, C. (1996)** - "Relational Quantum Mechanics"
+   - Paper ID: `rovelli-1996-rqm`
+   - Proposed relational interpretation of quantum mechanics
+
+4. **Ellman, R. (1998)** - "Analysis of The Anomalous Orbital-Energy Changes Observed in Spacecraft Flybys of Earth"
+   - Paper ID: `ellman-1998-flybys`
+   - Analyzed Earth flyby anomaly and its connection to Pioneer anomaly
+
+5. **Anderson, J. D., et al. (1998)** - "Indication, from Pioneer 10/11, Galileo, and Ulysses Data, of an Apparent Anomalous, Weak, Long-Range Acceleration"
+   - Paper ID: `anderson-1998-pioneer`
+   - Documented the Pioneer anomaly observation
+
+6. **Shamir, L. (2024)** - "An empirical consistent redshift bias: A possible direct reproducible observation of Zwicky's TL theory"
+   - Paper ID: `shamir-2024-redshift`
+   - Observed systematic redshift bias based on galaxy rotation direction, potentially providing first empirical evidence for Zwicky's tired-light theory
+
+*Note: Additional papers are available in the `data/papers/` directory and will be added to this index as they are analyzed.*
+
 ## 🔬 Current Status & Future Work
 
 **First Pass Complete**: This initial version represents a first-pass implementation of the physics knowledge browser, establishing the foundational structure, data model, and visualization framework.
