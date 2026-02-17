@@ -1822,20 +1822,24 @@
             }
         }
 
-        // Set parent years to minimum of children (except root)
+        // Set parent years to minimum of children (except root and nodes that already have a year)
         function setParentYears(node, isRoot = true) {
             if (node.children && node.children.length > 0) {
                 // Recursively process children first
                 node.children.forEach(child => setParentYears(child, false));
                 
-                // Find minimum year among children
-                const childYears = node.children
-                    .map(child => child.year)
-                    .filter(year => year !== undefined);
-                
-                if (childYears.length > 0 && !isRoot) {
-                    const minChildYear = Math.min(...childYears);
-                    node.year = minChildYear;
+                // Only set year from children if node doesn't already have a year set
+                // This preserves theory.year, paper.year, etc. which are authoritative
+                if (node.year === undefined && !isRoot) {
+                    // Find minimum year among children
+                    const childYears = node.children
+                        .map(child => child.year)
+                        .filter(year => year !== undefined);
+                    
+                    if (childYears.length > 0) {
+                        const minChildYear = Math.min(...childYears);
+                        node.year = minChildYear;
+                    }
                 }
             }
         }
