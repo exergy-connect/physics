@@ -22,9 +22,6 @@
           "pierre-maupertuis"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -48,9 +45,6 @@
           "william-hamilton"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -75,9 +69,6 @@
           "albert-einstein"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -116,9 +107,6 @@
           "isaac-newton"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -197,9 +185,6 @@
           "james-joule"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -232,9 +217,6 @@
           "rene-descartes"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -271,9 +253,6 @@
           "bianchi-identity"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "claims": [
           {
@@ -311,9 +290,6 @@
           "force"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -358,9 +334,6 @@
           "feynman-1949-space-time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -418,9 +391,6 @@
           "time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -462,9 +432,6 @@
           "gravity"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -713,9 +680,6 @@
           "william-hamilton"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -738,9 +702,6 @@
           "joseph-lagrange"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -766,9 +727,6 @@
           "time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -805,9 +763,6 @@
           "time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -850,9 +805,6 @@
           "newton-principia"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -914,9 +866,6 @@
           "force"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -942,9 +891,6 @@
           "noether-invariante"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -991,9 +937,6 @@
           "time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1046,9 +989,6 @@
           "feynman-1982-simulating"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1091,9 +1031,6 @@
           "force"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1202,9 +1139,6 @@
           "richard-feynman"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1256,9 +1190,6 @@
           "rovelli-1996-relational"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1383,9 +1314,6 @@
           "albert-einstein"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1408,9 +1336,6 @@
           "albert-einstein"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1452,9 +1377,6 @@
           "feynman-1949-space-time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1515,9 +1437,6 @@
           "ricci-1904-absolute-calculus"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "claims": [
           {
@@ -1543,9 +1462,6 @@
           "riemann-1854-geometry"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1579,9 +1495,6 @@
           "bernhard-riemann"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1745,9 +1658,6 @@
           "time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1960,9 +1870,6 @@
           "time"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -1998,9 +1905,6 @@
           "force"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "assumptions": [
           {
@@ -2757,9 +2661,6 @@
         "people": [],
         "papers": [],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "violated_assumptions": [
           {
@@ -2810,9 +2711,6 @@
         "people": [],
         "papers": [],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "violated_assumptions": [
           {
@@ -2854,9 +2752,6 @@
           "einstein-1915-field-equations"
         ],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "violated_assumptions": [
           {
@@ -2884,9 +2779,6 @@
         ],
         "papers": [],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "violated_assumptions": [
           {
@@ -2909,9 +2801,6 @@
         "people": [],
         "papers": [],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "violated_assumptions": [
           {
@@ -2966,9 +2855,6 @@
         ],
         "papers": [],
         "c": 1,
-        "m": [
-          1
-        ],
         "v": 1,
         "violated_assumptions": [
           {
