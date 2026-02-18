@@ -1,0 +1,265 @@
+{
+  "session_feedback": [
+    {
+      "session_id": "e72ac12b-5320-4037-baf6-3bd979d1edc5",
+      "timestamp": "2026-02-13T20:56:36.415839",
+      "initial_prompt": "Analyze Ellman 1998 flyby anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+      "llm_model_version": "gpt-4o",
+      "model": {
+        "name": "Anomaly Model",
+        "version": "26.02.12.1",
+        "author": "Exergy ∞ LLC",
+        "include_x_fields": false,
+        "max_name_underscores": 2,
+        "exclude": null,
+        "meta_model_version_date": "2025-01-27"
+      },
+      "data_file": {
+        "reloaded": false,
+        "last_modified": 1771024026
+      },
+      "queries_executed": [
+        {
+          "tool": "get_model",
+          "depth": 0,
+          "initial_prompt": "Analyze Ellman 1998 flyby anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+          "ai_reasoning": "Getting the data model structure to properly analyze the Ellman 1998 flyby anomaly paper",
+          "timestamp": "2026-02-13T20:49:35.054118-06:00",
+          "result_count": 24
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "person.* | [?contains(name, 'Ellman') || contains(name, 'ellman')]",
+          "ai_reasoning": "Checking if Roger Ellman already exists in the database",
+          "timestamp": "2026-02-13T20:49:42.532784-06:00",
+          "result_count": 0
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "paper.* | [?year == `1998` && contains(title, 'Flyby') || contains(title, 'flyby')]",
+          "ai_reasoning": "Checking if the Ellman 1998 paper already exists",
+          "timestamp": "2026-02-13T20:49:43.022640-06:00",
+          "result_count": 0
+        },
+        {
+          "tool": "create_entity",
+          "entity": "paper",
+          "ai_reasoning": "Creating the paper entity for Ellman's 1998 flyby anomaly analysis paper",
+          "timestamp": "2026-02-13T20:49:43.797476-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for Roger Ellman, author of the flyby anomaly paper",
+          "timestamp": "2026-02-13T20:49:44.336346-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "anomaly",
+          "ai_reasoning": "Creating the Earth flyby anomaly entity based on the paper's description",
+          "timestamp": "2026-02-13T20:49:53.187259-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Extracting the assumption about centrally directed acceleration from the paper",
+          "timestamp": "2026-02-13T20:49:54.353660-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Extracting the assumption that flyby and Pioneer anomalies share the same cause",
+          "timestamp": "2026-02-13T20:49:55.606359-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Extracting the assumption about universal length decay as the cause",
+          "timestamp": "2026-02-13T20:49:57.082965-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting the claim about observed speed changes in flybys",
+          "timestamp": "2026-02-13T20:49:58.150496-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting the claim about latitude dependence of the flyby anomaly",
+          "timestamp": "2026-02-13T20:49:59.192948-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting the claim about net acceleration/deceleration depending on flight path",
+          "timestamp": "2026-02-13T20:50:00.276314-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting the claim connecting flyby anomaly to cosmic-scale effects",
+          "timestamp": "2026-02-13T20:50:01.170746-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting the claim that universal length decay wouldn't conflict with planetary ephemeris",
+          "timestamp": "2026-02-13T20:50:02.143650-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "prediction",
+          "ai_reasoning": "Extracting the prediction about proposed experiments to test universal decay",
+          "timestamp": "2026-02-13T20:50:03.145141-06:00"
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "anomaly.* | [?anomaly_id == 'earth-flyby-anomaly']",
+          "ai_reasoning": "Verifying the created Earth flyby anomaly",
+          "timestamp": "2026-02-13T20:50:18.494554-06:00",
+          "result_count": 1
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "claim.* | [?theory_id == 'general-relativity' && contains(claim_id, 'flyby')]",
+          "ai_reasoning": "Counting claims created for the flyby anomaly analysis",
+          "timestamp": "2026-02-13T20:50:19.216268-06:00",
+          "result_count": 5
+        },
+        {
+          "tool": "finalize_session",
+          "timestamp": "2026-02-13T20:54:34.850738-06:00"
+        },
+        {
+          "tool": "finalize_session",
+          "timestamp": "2026-02-13T20:56:36.415740-06:00"
+        }
+      ],
+      "query_count": 19,
+      "session_duration": 421,
+      "tool_counts": [
+        {
+          "tool_name": "get_model",
+          "count": 1
+        },
+        {
+          "tool_name": "jmespath_query",
+          "count": 4
+        },
+        {
+          "tool_name": "create_entity",
+          "count": 12
+        },
+        {
+          "tool_name": "finalize_session",
+          "count": 2
+        }
+      ],
+      "created_entities": {
+        "paper": {
+          "ellman-1998-flybys.analysis of the anomalous orbital-energy changes observed in spacecraft flybys of earth.000000001998.http://www.the-origin.org.": {
+            "paper_id": "ellman-1998-flybys",
+            "title": "analysis of the anomalous orbital-energy changes observed in spacecraft flybys of earth",
+            "year": 1998,
+            "link": "http://www.the-origin.org"
+          }
+        },
+        "person": {
+          "roger-ellman.roger ellman....": {
+            "person_id": "roger-ellman",
+            "name": "roger ellman"
+          }
+        },
+        "anomaly": {
+          "earth-flyby-anomaly.earth flyby anomaly.unaccounted for changes in spacecraft speed, both increases and decreases, observed during earth flybys of six different spacecraft from december 8, 1990 to august 2, 2005. the anomaly appears as a small, centrally directed, distance-independent acceleration toward earth, similar to the pioneer anomaly. all potential sources of systematic error have been modeled and cannot account for the observed anomalies..general-relativity...000000002008...ellman-1998-flybys.roger-ellman": {
+            "anomaly_id": "earth-flyby-anomaly",
+            "name": "earth flyby anomaly",
+            "theory_id": "general-relativity",
+            "description": "unaccounted for changes in spacecraft speed, both increases and decreases, observed during earth flybys of six different spacecraft from december 8, 1990 to august 2, 2005. the anomaly appears as a small, centrally directed, distance-independent acceleration toward earth, similar to the pioneer anomaly. all potential sources of systematic error have been modeled and cannot account for the observed anomalies.",
+            "discovery_year": 2008,
+            "papers": [
+              "ellman-1998-flybys"
+            ],
+            "people": [
+              "roger-ellman"
+            ]
+          }
+        },
+        "assumption": {
+          "flyby-assumption-central-acceleration.general-relativity.the earth flyby anomaly is caused by a small acceleration (in addition to natural gravitation), centrally directed and independent of distance, directed toward the core center of earth.ellman proposes that the flyby anomaly shares the same characteristics as the pioneer anomaly - a centrally directed, distance-independent acceleration": {
+            "assumption_id": "flyby-assumption-central-acceleration",
+            "theory_id": "general-relativity",
+            "statement": "the earth flyby anomaly is caused by a small acceleration (in addition to natural gravitation), centrally directed and independent of distance, directed toward the core center of earth",
+            "rationale": "ellman proposes that the flyby anomaly shares the same characteristics as the pioneer anomaly - a centrally directed, distance-independent acceleration"
+          },
+          "flyby-assumption-shared-cause.general-relativity.the flyby anomaly and pioneer anomaly share the same cause - a centrally directed, distance-independent acceleration.ellman argues that both anomalies exhibit the same characteristics and thus likely have the same underlying cause": {
+            "assumption_id": "flyby-assumption-shared-cause",
+            "theory_id": "general-relativity",
+            "statement": "the flyby anomaly and pioneer anomaly share the same cause - a centrally directed, distance-independent acceleration",
+            "rationale": "ellman argues that both anomalies exhibit the same characteristics and thus likely have the same underlying cause"
+          },
+          "flyby-assumption-universal-decay.general-relativity.a universal decay of the length dimension of all material reality causes the anomalous accelerations observed in flybys, pioneer spacecraft, and galactic rotation curves.ellman proposes that a universal length decay would produce centrally directed, distance-independent accelerations without conflicting with planetary ephemeris": {
+            "assumption_id": "flyby-assumption-universal-decay",
+            "theory_id": "general-relativity",
+            "statement": "a universal decay of the length dimension of all material reality causes the anomalous accelerations observed in flybys, pioneer spacecraft, and galactic rotation curves",
+            "rationale": "ellman proposes that a universal length decay would produce centrally directed, distance-independent accelerations without conflicting with planetary ephemeris"
+          }
+        },
+        "claim": {
+          "flyby-claim-speed-changes.general-relativity.six different spacecraft involved in earth flybys from december 8, 1990 to august 2, 2005 showed unaccounted for changes in spacecraft speed, both increases and decreases.verified.000000002008": {
+            "claim_id": "flyby-claim-speed-changes",
+            "theory_id": "general-relativity",
+            "statement": "six different spacecraft involved in earth flybys from december 8, 1990 to august 2, 2005 showed unaccounted for changes in spacecraft speed, both increases and decreases",
+            "status": "verified",
+            "verification_year": 2008
+          },
+          "flyby-claim-latitude-effect.general-relativity.the magnitude of the anomalous acceleration component parallel to the spacecraft flight path depends on latitude, with the effective acceleration being a(λ) = a·cos[λ], where λ is the latitude.theoretical.": {
+            "claim_id": "flyby-claim-latitude-effect",
+            "theory_id": "general-relativity",
+            "statement": "the magnitude of the anomalous acceleration component parallel to the spacecraft flight path depends on latitude, with the effective acceleration being a(λ) = a·cos[λ], where λ is the latitude",
+            "status": "theoretical"
+          },
+          "flyby-claim-net-effect.general-relativity.depending on the specific flight path, a spacecraft may experience overall net anomalous acceleration or deceleration, or zero net modification if the path is perfectly symmetrical relative to the equator.theoretical.": {
+            "claim_id": "flyby-claim-net-effect",
+            "theory_id": "general-relativity",
+            "statement": "depending on the specific flight path, a spacecraft may experience overall net anomalous acceleration or deceleration, or zero net modification if the path is perfectly symmetrical relative to the equator",
+            "status": "theoretical"
+          },
+          "flyby-claim-cosmic-connection.general-relativity.the same anomalous centrally directed, distance-independent acceleration occurs relative to earth (flyby anomaly), relative to the sun (pioneer anomaly), in galactic rotation curves, and in rotating groups of galaxies.theoretical.": {
+            "claim_id": "flyby-claim-cosmic-connection",
+            "theory_id": "general-relativity",
+            "statement": "the same anomalous centrally directed, distance-independent acceleration occurs relative to earth (flyby anomaly), relative to the sun (pioneer anomaly), in galactic rotation curves, and in rotating groups of galaxies",
+            "status": "theoretical"
+          },
+          "flyby-claim-no-ephemeris-conflict.general-relativity.a universal decay of the length dimension would not conflict with the planetary ephemeris and would not be detectable except in unusual circumstances like the pioneer and flyby anomalies.theoretical.": {
+            "claim_id": "flyby-claim-no-ephemeris-conflict",
+            "theory_id": "general-relativity",
+            "statement": "a universal decay of the length dimension would not conflict with the planetary ephemeris and would not be detectable except in unusual circumstances like the pioneer and flyby anomalies",
+            "status": "theoretical"
+          }
+        },
+        "prediction": {
+          "flyby-prediction-experiments.general-relativity.experiments to test the universal decay and measure its parameters are proposed to verify the theory.000000001998.pending....": {
+            "prediction_id": "flyby-prediction-experiments",
+            "theory_id": "general-relativity",
+            "statement": "experiments to test the universal decay and measure its parameters are proposed to verify the theory",
+            "prediction_year": 1998,
+            "status": "pending"
+          }
+        }
+      },
+      "feedback_model": {
+        "name": "session_feedback",
+        "version": "",
+        "author": "Exergy ∞ LLC",
+        "raw_feedback": {
+          "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+          "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+        },
+        "validation_status": "failed",
+        "validation_error": "Validation skipped for timeout session"
+      }
+    }
+  ]
+}

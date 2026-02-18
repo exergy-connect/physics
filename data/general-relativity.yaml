@@ -3,6 +3,27 @@
 # with assumptions, postulates, claims, papers, and people
 
 theory:
+  - theory_id: "differential-geometry"
+    name: "Differential Geometry"
+    year: 1827
+    summary: "Mathematical field that studies geometric structures using techniques from calculus and linear algebra. Studies curves, surfaces, and higher-dimensional manifolds, their curvature, and intrinsic properties. Founded by Gauss's work on surfaces and developed by Riemann into the study of n-dimensional manifolds. Provides the mathematical foundation for general relativity and modern physics."
+    category: "Relativity"
+    people:
+      - "carl-friedrich-gauss"
+      - "bernhard-riemann"
+    tags:
+      - "spacetime"
+    children:
+      - theory_id: "riemannian-geometry"
+        name: "Riemannian Geometry"
+        year: 1854
+        summary: "Branch of differential geometry that studies smooth manifolds with a Riemannian metric, allowing measurement of distances and angles. Introduced by Riemann in 1854, it provides the mathematical framework for describing curved spaces and is fundamental to general relativity."
+        category: "Relativity"
+        parent_theory_id: "differential-geometry"
+        people:
+          - "bernhard-riemann"
+        papers:
+          - "riemann-1854-geometry"
   - theory_id: "general-relativity"
     name: "General Relativity"
     year: 1915
@@ -90,7 +111,7 @@ theory:
         year: 1854
         summary: "Fundamental tensor in differential geometry that completely characterizes the intrinsic curvature of a manifold"
         category: "Relativity"
-        parent_theory_id: "general-relativity"
+        parent_theory_id: "differential-geometry"
         people:
           - "bernhard-riemann"
         papers:
@@ -183,6 +204,36 @@ theory:
           - claim_id: "bh-claim-2"
             statement: "Black holes emit Hawking radiation and can evaporate over time"
             status: "theoretical"
+      - theory_id: "einstein-weyl-geometry"
+        name: "Einstein–Weyl Geometry"
+        year: 1918
+        summary: "Generalization of Einstein's general relativity that incorporates conformal (scale) geometry. Proposed by Hermann Weyl as an attempt to unify gravity and electromagnetism through a conformal connection that allows for scale transformations while preserving the causal structure of spacetime."
+        category: "Relativity"
+        parent_theory_id: "general-relativity"
+        people:
+          - "hermann-weyl"
+          - "albert-einstein"
+        tags:
+          - "spacetime"
+          - "gravity"
+        assumptions:
+          - assumption_id: "ew-assumption-1"
+            statement: "Spacetime geometry can be described using a conformal connection that allows for scale transformations"
+            rationale: "Weyl's conformal geometry extends Riemannian geometry to include scale transformations while preserving angles and causal structure"
+          - assumption_id: "ew-assumption-2"
+            statement: "The electromagnetic field can be unified with gravity through the conformal connection"
+            rationale: "Weyl proposed that the electromagnetic potential could be identified with the conformal connection, providing a geometric foundation for electromagnetism"
+        postulates:
+          - postulate_id: "ew-postulate-1"
+            statement: "The metric tensor and conformal connection together determine the geometry of spacetime"
+            formulation_year: 1918
+        claims:
+          - claim_id: "ew-claim-1"
+            statement: "Einstein–Weyl geometry reduces to standard general relativity when the conformal connection vanishes"
+            status: "theoretical"
+          - claim_id: "ew-claim-2"
+            statement: "The theory provides a geometric interpretation of electromagnetism through the conformal connection"
+            status: "theoretical"
 
 person:
   - person_id: "albert-einstein"
@@ -222,6 +273,14 @@ person:
     name: "Arthur Geoffrey Walker"
     birth_year: 1909
     death_year: 2001
+  - person_id: "hermann-weyl"
+    name: "Hermann Weyl"
+    birth_year: 1885
+    death_year: 1955
+  - person_id: "carl-friedrich-gauss"
+    name: "Carl Friedrich Gauss"
+    birth_year: 1777
+    death_year: 1855
 
 paper:
   - paper_id: "einstein-1915-field-equations"

@@ -1,33 +1,35 @@
-2026-02-17 22:54:14 [INFO] Logging to: data/output/consolidation_log.txt
-2026-02-17 22:54:14 [INFO] Step 1: Consolidating models from: data/model
-2026-02-17 22:54:14 [INFO] Validating consolidated models with YANG validator
-2026-02-17 22:54:14 [INFO] ✓ YANG validation passed for consolidated models
-2026-02-17 22:54:15 [INFO] ✓ Consolidated model written to: data/output/consolidated_model.json
-2026-02-17 22:54:15 [INFO] Model consolidation completed successfully (exit code: 0)
-2026-02-17 22:54:15 [INFO] Step 2: Consolidating data from: data
-2026-02-17 22:54:15 [INFO] Loading data files from: data
-2026-02-17 22:54:15 [INFO] Loaded data from 12 files (bulk validation)
-2026-02-17 22:54:15 [INFO] ============================================================
-2026-02-17 22:54:15 [INFO] Validation Summary Report
-2026-02-17 22:54:15 [INFO] ============================================================
-2026-02-17 22:54:15 [INFO] Total entities validated: 316
-2026-02-17 22:54:15 [INFO] Entities validated by type:
-2026-02-17 22:54:15 [INFO]   - anomaly: 10
-2026-02-17 22:54:15 [INFO]   - assumption: 58
-2026-02-17 22:54:15 [INFO]   - claim: 72
-2026-02-17 22:54:15 [INFO]   - paper: 17
-2026-02-17 22:54:15 [INFO]   - person: 60
-2026-02-17 22:54:15 [INFO]   - postulate: 23
-2026-02-17 22:54:15 [INFO]   - prediction: 9
-2026-02-17 22:54:15 [INFO]   - prize: 5
-2026-02-17 22:54:15 [INFO]   - prize_award: 15
-2026-02-17 22:54:15 [INFO]   - tag: 4
-2026-02-17 22:54:15 [INFO]   - theory: 35
-2026-02-17 22:54:15 [INFO]   - violated_assumption: 8
-2026-02-17 22:54:15 [INFO] ✓ No validation errors - all entities validated successfully
-2026-02-17 22:54:15 [INFO] ============================================================
-2026-02-17 22:54:15 [INFO] Calculating computed fields
-2026-02-17 22:54:15 [INFO] Wrote consolidated data to data/output/consolidated_data.json (146 entities across 24 entity types)
-2026-02-17 22:54:15 [INFO] ✓ Successfully consolidated data into data/output/consolidated_data.json
-2026-02-17 22:54:15 [INFO] Data consolidation completed successfully (exit code: 0)
-2026-02-17 22:54:15 [INFO] Consolidation completed successfully (exit code: 0)
+2026-02-18 09:21:27 [INFO] Logging to: data/output/consolidation_log.txt
+2026-02-18 09:21:27 [INFO] Step 1: Consolidating models from: data/model
+2026-02-18 09:21:27 [INFO] Validating consolidated models with YANG validator
+2026-02-18 09:21:27 [INFO] ✓ YANG validation passed for consolidated models
+2026-02-18 09:21:27 [INFO] Wrote consolidated data to data/output/consolidated_model.js
+2026-02-18 09:21:27 [INFO] ✓ Consolidated model written to: data/output/consolidated_model.json
+2026-02-18 09:21:27 [INFO] Model consolidation completed successfully (exit code: 0)
+2026-02-18 09:21:27 [INFO] Step 2: Consolidating data from: data
+2026-02-18 09:21:27 [INFO] Loading data files from: data
+2026-02-18 09:21:27 [INFO] Loaded data from 12 files (bulk validation)
+2026-02-18 09:21:27 [INFO] ============================================================
+2026-02-18 09:21:27 [INFO] Validation Summary Report
+2026-02-18 09:21:27 [INFO] ============================================================
+2026-02-18 09:21:27 [INFO] Total entities validated: 325
+2026-02-18 09:21:27 [INFO] Entities validated by type:
+2026-02-18 09:21:27 [INFO]   - anomaly: 10
+2026-02-18 09:21:27 [INFO]   - assumption: 60
+2026-02-18 09:21:27 [INFO]   - claim: 74
+2026-02-18 09:21:27 [INFO]   - paper: 17
+2026-02-18 09:21:27 [INFO]   - person: 62
+2026-02-18 09:21:27 [INFO]   - postulate: 24
+2026-02-18 09:21:27 [INFO]   - prediction: 9
+2026-02-18 09:21:27 [INFO]   - prize: 5
+2026-02-18 09:21:27 [INFO]   - prize_award: 15
+2026-02-18 09:21:27 [INFO]   - tag: 4
+2026-02-18 09:21:27 [INFO]   - theory: 37
+2026-02-18 09:21:27 [INFO]   - violated_assumption: 8
+2026-02-18 09:21:27 [INFO] ✓ No validation errors - all entities validated successfully
+2026-02-18 09:21:27 [INFO] ============================================================
+2026-02-18 09:21:27 [INFO] Calculating computed fields
+2026-02-18 09:21:27 [INFO] Wrote consolidated data to data/output/consolidated_data.json (150 entities across 24 entity types)
+2026-02-18 09:21:27 [INFO] Wrote consolidated data to data/output/consolidated_data.js
+2026-02-18 09:21:27 [INFO] ✓ Successfully consolidated data into data/output/consolidated_data.json
+2026-02-18 09:21:27 [INFO] Data consolidation completed successfully (exit code: 0)
+2026-02-18 09:21:27 [INFO] Consolidation completed successfully (exit code: 0)

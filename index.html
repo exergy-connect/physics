@@ -1831,14 +1831,14 @@
                 // Only set year from children if node doesn't already have a year set
                 // This preserves theory.year, paper.year, etc. which are authoritative
                 if (node.year === undefined && !isRoot) {
-                    // Find minimum year among children
-                    const childYears = node.children
-                        .map(child => child.year)
-                        .filter(year => year !== undefined);
-                    
+                // Find minimum year among children
+                const childYears = node.children
+                    .map(child => child.year)
+                    .filter(year => year !== undefined);
+                
                     if (childYears.length > 0) {
-                        const minChildYear = Math.min(...childYears);
-                        node.year = minChildYear;
+                    const minChildYear = Math.min(...childYears);
+                    node.year = minChildYear;
                     }
                 }
             }

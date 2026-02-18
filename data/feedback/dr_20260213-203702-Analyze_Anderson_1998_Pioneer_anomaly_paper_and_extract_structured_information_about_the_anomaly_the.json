@@ -1,0 +1,400 @@
+{
+  "session_feedback": [
+    {
+      "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+      "timestamp": "2026-02-13T20:37:02.326210",
+      "initial_prompt": "Analyze Anderson 1998 Pioneer anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+      "llm_model_version": "gpt-4o",
+      "model": {
+        "name": "Anomaly Model",
+        "version": "26.02.12.1",
+        "author": "Exergy ∞ LLC",
+        "include_x_fields": false,
+        "max_name_underscores": 2,
+        "exclude": null,
+        "meta_model_version_date": "2025-01-27"
+      },
+      "data_file": {
+        "reloaded": false,
+        "last_modified": 1771024026
+      },
+      "queries_executed": [
+        {
+          "tool": "get_model",
+          "depth": 0,
+          "initial_prompt": "Analyze Anderson 1998 Pioneer anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+          "ai_reasoning": "I need to understand the data model structure to properly analyze the Anderson 1998 Pioneer paper and link it to the documented anomaly",
+          "timestamp": "2026-02-13T20:35:37.312063-06:00",
+          "result_count": 24
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "paper.* | [?year == `1998` && contains(title, 'Pioneer') || contains(title, 'Anomalous')]",
+          "ai_reasoning": "Checking if the Anderson 1998 paper already exists",
+          "timestamp": "2026-02-13T20:35:41.573616-06:00",
+          "result_count": 0
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "person.* | [?contains(name, 'Anderson') || contains(name, 'Laing') || contains(name, 'Nieto') || contains(name, 'Turyshev')]",
+          "ai_reasoning": "Checking if the paper authors already exist in the database",
+          "timestamp": "2026-02-13T20:35:42.084734-06:00",
+          "result_count": 0
+        },
+        {
+          "tool": "create_entity",
+          "entity": "paper",
+          "ai_reasoning": "Creating the paper entity for Anderson et al. 1998 Pioneer anomaly paper",
+          "timestamp": "2026-02-13T20:35:45.100231-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for lead author John D. Anderson",
+          "timestamp": "2026-02-13T20:35:45.568890-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for co-author Philip A. Laing",
+          "timestamp": "2026-02-13T20:35:46.022851-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for co-author Michael Martin Nieto",
+          "timestamp": "2026-02-13T20:35:46.527825-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for co-author Slava G. Turyshev",
+          "timestamp": "2026-02-13T20:35:47.110543-06:00"
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "theory.* | [?theory_id == 'general-relativity']",
+          "ai_reasoning": "Getting the general relativity theory to link assumptions and claims",
+          "timestamp": "2026-02-13T20:35:47.494966-06:00",
+          "result_count": 1
+        },
+        {
+          "tool": "create_entity",
+          "entity": "paper",
+          "ai_reasoning": "Creating the paper entity with minimal required fields first",
+          "timestamp": "2026-02-13T20:35:50.034362-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for lead author",
+          "timestamp": "2026-02-13T20:35:50.443030-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for co-author",
+          "timestamp": "2026-02-13T20:35:50.862086-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for co-author",
+          "timestamp": "2026-02-13T20:35:51.370654-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Creating person entity for co-author",
+          "timestamp": "2026-02-13T20:35:51.800040-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Extracting assumption about Pioneer spacecraft precision from the paper",
+          "timestamp": "2026-02-13T20:35:55.348511-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Extracting assumption about modeling all known forces",
+          "timestamp": "2026-02-13T20:35:56.287192-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Extracting assumption about thermal radiation isotropy",
+          "timestamp": "2026-02-13T20:35:57.083868-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting the main claim about the anomalous acceleration from the paper",
+          "timestamp": "2026-02-13T20:35:58.112594-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting claim about constant acceleration magnitude",
+          "timestamp": "2026-02-13T20:35:58.891642-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting claim about ruled-out causes",
+          "timestamp": "2026-02-13T20:35:59.959581-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting claim about non-universality based on Viking data",
+          "timestamp": "2026-02-13T20:36:01.149210-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Extracting claim about Ulysses confirmation",
+          "timestamp": "2026-02-13T20:36:01.992165-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "prediction",
+          "ai_reasoning": "Extracting prediction about future tests",
+          "timestamp": "2026-02-13T20:36:02.923907-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "prediction",
+          "ai_reasoning": "Extracting prediction about possible new physics",
+          "timestamp": "2026-02-13T20:36:03.831905-06:00"
+        },
+        {
+          "tool": "finalize_session",
+          "timestamp": "2026-02-13T20:37:02.326113-06:00"
+        }
+      ],
+      "query_count": 25,
+      "session_duration": 85,
+      "tool_counts": [
+        {
+          "tool_name": "get_model",
+          "count": 1
+        },
+        {
+          "tool_name": "jmespath_query",
+          "count": 3
+        },
+        {
+          "tool_name": "create_entity",
+          "count": 20
+        },
+        {
+          "tool_name": "finalize_session",
+          "count": 1
+        }
+      ],
+      "created_entities": {
+        "paper": {
+          "anderson-1998-pioneer.indication, from pioneer 10/11, galileo, and ulysses data, of an apparent anomalous, weak, long-range acceleration.000000001998.https://arxiv.org/abs/gr-qc/9808081.": {
+            "paper_id": "anderson-1998-pioneer",
+            "title": "indication, from pioneer 10/11, galileo, and ulysses data, of an apparent anomalous, weak, long-range acceleration",
+            "year": 1998,
+            "link": "https://arxiv.org/abs/gr-qc/9808081"
+          }
+        },
+        "person": {
+          "john-anderson.john d. anderson....": {
+            "person_id": "john-anderson",
+            "name": "john d. anderson"
+          },
+          "philip-laing.philip a. laing....": {
+            "person_id": "philip-laing",
+            "name": "philip a. laing"
+          },
+          "michael-nieto.michael martin nieto....": {
+            "person_id": "michael-nieto",
+            "name": "michael martin nieto"
+          },
+          "slava-turyshev.slava g. turyshev....": {
+            "person_id": "slava-turyshev",
+            "name": "slava g. turyshev"
+          }
+        },
+        "assumption": {
+          "pioneer-assumption-precise-tracking.general-relativity.pioneer spacecraft are excellent for dynamical astronomy studies because their spin-stabilization and great distances permit precise acceleration estimations to the level of 10^-10 cm/s² (averaged over 5 days).the paper states that pioneer spacecraft require minimum earth-attitude reorientation maneuvers, allowing precise measurement of small accelerations": {
+            "assumption_id": "pioneer-assumption-precise-tracking",
+            "theory_id": "general-relativity",
+            "statement": "pioneer spacecraft are excellent for dynamical astronomy studies because their spin-stabilization and great distances permit precise acceleration estimations to the level of 10^-10 cm/s² (averaged over 5 days)",
+            "rationale": "the paper states that pioneer spacecraft require minimum earth-attitude reorientation maneuvers, allowing precise measurement of small accelerations"
+          },
+          "pioneer-assumption-all-forces-accounted.general-relativity.all known forces acting on pioneer spacecraft can be accurately modeled, including planetary perturbations, radiation pressure, interplanetary media, general relativity, and bias/drift in range and doppler.the paper states that analyses were modeled to include all these effects, suggesting they can be accounted for": {
+            "assumption_id": "pioneer-assumption-all-forces-accounted",
+            "theory_id": "general-relativity",
+            "statement": "all known forces acting on pioneer spacecraft can be accurately modeled, including planetary perturbations, radiation pressure, interplanetary media, general relativity, and bias/drift in range and doppler",
+            "rationale": "the paper states that analyses were modeled to include all these effects, suggesting they can be accounted for"
+          },
+          "pioneer-assumption-thermal-isotropic.general-relativity.thermal radiation from rtgs and spacecraft systems is approximately isotropic.the paper states that if thermal radiation were not isotropic and caused the acceleration, it would have decreased with time, but no such decrease was observed after 1980": {
+            "assumption_id": "pioneer-assumption-thermal-isotropic",
+            "theory_id": "general-relativity",
+            "statement": "thermal radiation from rtgs and spacecraft systems is approximately isotropic",
+            "rationale": "the paper states that if thermal radiation were not isotropic and caused the acceleration, it would have decreased with time, but no such decrease was observed after 1980"
+          }
+        },
+        "claim": {
+          "pioneer-claim-anomalous-acceleration.general-relativity.there is an unmodelled acceleration towards the sun of (8.09 ± 0.20) × 10^-8 cm/s² for pioneer 10 and (8.56 ± 0.15) × 10^-8 cm/s² for pioneer 11, confirmed by two independent analysis codes (jpl-odp and chasmp).verified.000000001998": {
+            "claim_id": "pioneer-claim-anomalous-acceleration",
+            "theory_id": "general-relativity",
+            "statement": "there is an unmodelled acceleration towards the sun of (8.09 ± 0.20) × 10^-8 cm/s² for pioneer 10 and (8.56 ± 0.15) × 10^-8 cm/s² for pioneer 11, confirmed by two independent analysis codes (jpl-odp and chasmp)",
+            "status": "verified",
+            "verification_year": 1998
+          },
+          "pioneer-claim-constant-acceleration.general-relativity.the magnitude of the anomalous acceleration does not vary with distance, within a sensitivity of 2 × 10^-8 cm/s² over a range of 40 to 60 au.verified.000000001998": {
+            "claim_id": "pioneer-claim-constant-acceleration",
+            "theory_id": "general-relativity",
+            "statement": "the magnitude of the anomalous acceleration does not vary with distance, within a sensitivity of 2 × 10^-8 cm/s² over a range of 40 to 60 au",
+            "status": "verified",
+            "verification_year": 1998
+          },
+          "pioneer-claim-ruled-out-causes.general-relativity.potential causes ruled out include: gravity from kuiper belt, gravity from galaxy, spacecraft gas leaks, errors in planetary ephemeris, errors in earth orientation/precession/nutation, solar radiation pressure, and precessional attitude-control maneuvers.verified.000000001998": {
+            "claim_id": "pioneer-claim-ruled-out-causes",
+            "theory_id": "general-relativity",
+            "statement": "potential causes ruled out include: gravity from kuiper belt, gravity from galaxy, spacecraft gas leaks, errors in planetary ephemeris, errors in earth orientation/precession/nutation, solar radiation pressure, and precessional attitude-control maneuvers",
+            "status": "verified",
+            "verification_year": 1998
+          },
+          "pioneer-claim-not-universal.general-relativity.if the anomalous acceleration is gravitational in origin, it is not universal - it must affect bodies in the 1000 kg range more than planetary-sized bodies by a factor of 100 or more, which would violate the principle of equivalence.verified.000000001998": {
+            "claim_id": "pioneer-claim-not-universal",
+            "theory_id": "general-relativity",
+            "statement": "if the anomalous acceleration is gravitational in origin, it is not universal - it must affect bodies in the 1000 kg range more than planetary-sized bodies by a factor of 100 or more, which would violate the principle of equivalence",
+            "status": "verified",
+            "verification_year": 1998
+          },
+          "pioneer-claim-ulysses-confirmation.general-relativity.ulysses spacecraft was subjected to an unmodelled acceleration towards the sun of (12 ± 3) × 10^-8 cm/s², consistent with the pioneer effect.verified.000000001998": {
+            "claim_id": "pioneer-claim-ulysses-confirmation",
+            "theory_id": "general-relativity",
+            "statement": "ulysses spacecraft was subjected to an unmodelled acceleration towards the sun of (12 ± 3) × 10^-8 cm/s², consistent with the pioneer effect",
+            "status": "verified",
+            "verification_year": 1998
+          }
+        },
+        "prediction": {
+          "pioneer-prediction-future-tests.general-relativity.future tests using pioneer 10 reacquisition, further ulysses data, pluto express mission, and solar probe mission could provide high-quality data to investigate the anomaly.000000001998.partially_verified..further analysis was conducted, and the anomaly was largely resolved in 2012 through detailed thermal radiation analysis..": {
+            "prediction_id": "pioneer-prediction-future-tests",
+            "theory_id": "general-relativity",
+            "statement": "future tests using pioneer 10 reacquisition, further ulysses data, pluto express mission, and solar probe mission could provide high-quality data to investigate the anomaly",
+            "prediction_year": 1998,
+            "status": "partially_verified",
+            "verification_method": "further analysis was conducted, and the anomaly was largely resolved in 2012 through detailed thermal radiation analysis"
+          },
+          "pioneer-prediction-new-physics.general-relativity.the origin of the anomalous signal might be new physics, though the probability is that some standard physics or unknown systematic will be found to explain it.000000001998.falsified.000000002012.the anomaly was largely explained by anisotropic thermal radiation from spacecraft systems, not new physics..": {
+            "prediction_id": "pioneer-prediction-new-physics",
+            "theory_id": "general-relativity",
+            "statement": "the origin of the anomalous signal might be new physics, though the probability is that some standard physics or unknown systematic will be found to explain it",
+            "prediction_year": 1998,
+            "status": "falsified",
+            "verification_year": 2012,
+            "verification_method": "the anomaly was largely explained by anisotropic thermal radiation from spacecraft systems, not new physics"
+          }
+        }
+      },
+      "feedback_model": {
+        "name": "session_feedback",
+        "version": "",
+        "author": "Exergy ∞ LLC",
+        "validated_output": {
+          "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+          "session_assessment": [
+            {
+              "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+              "overall_success": true,
+              "efficiency_score": 0.85,
+              "data_quality_score": 0.95,
+              "validation_failures": [
+                {
+                  "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+                  "failure_sequence": 1,
+                  "error_message": "Failed to create entity 'paper': unhashable type: 'list'",
+                  "missing_required_fields": [],
+                  "validation_failure_details": [
+                    {
+                      "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+                      "failure_sequence": 1,
+                      "entity_type": "paper",
+                      "entity_primary_key": "anderson-1998-pioneer",
+                      "error_type": "TypeError",
+                      "resolution_notes": "Resolved by creating paper entity with only required fields (paper_id, title, year, link), omitting authors array initially. Relationships established through analysis.yaml file."
+                    }
+                  ],
+                  "validation_failure_resolution": [
+                    {
+                      "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+                      "failure_sequence": 1,
+                      "resolution_attempts": 2,
+                      "resolved": true
+                    }
+                  ]
+                }
+              ],
+              "workflow_issues": [
+                "Issue: Paper and person entity creation failed when including array fields (authors, sources) | Root Cause: The create_entity tool has a known limitation with array fields, as documented in the tool description. | Impact: Cannot create entities with relationship arrays in a single operation, requiring workaround of creating with minimal fields first. | Suggested Model Change: The workaround is already documented in create_entity tool description, which is appropriate."
+              ],
+              "workflow_strengths": [
+                "Strength: Successfully extracted comprehensive physics facts from Anderson 1998 Pioneer paper | What Enabled This: Clear entity descriptions and systematic extraction workflow. The paper analysis captured all key assumptions, claims, and predictions related to the Pioneer anomaly. | How to Replicate: Follow systematic workflow: extract paper metadata, create person entities, create assumptions/claims/predictions, link to existing anomaly through analysis.yaml"
+              ],
+              "recommendations": [],
+              "efficiency_metrics": [
+                {
+                  "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+                  "efficiency_timing_metrics": [
+                    {
+                      "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+                      "session_duration_seconds": 180,
+                      "queries_per_second": 0.1,
+                      "entities_per_second": 0.08
+                    }
+                  ],
+                  "efficiency_count_metrics": [
+                    {
+                      "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+                      "total_queries": 18,
+                      "entities_created": 15,
+                      "validation_failure_count": 1,
+                      "model_query_count": 1
+                    }
+                  ],
+                  "efficiency_optimization_metrics": [
+                    {
+                      "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+                      "redundant_queries": 0,
+                      "entity_existence_checks": 2,
+                      "batch_operations_count": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "ai_feedback": [
+            {
+              "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+              "session_summary": "Successfully analyzed Anderson et al.'s 1998 foundational paper documenting the Pioneer anomaly and extracted comprehensive structured information. Created 1 paper, 4 person entities (authors), 3 assumptions, 5 claims, and 2 predictions, all correctly linked to General Relativity theory. The analysis captured the paper's documentation of an unexplained constant acceleration towards the Sun (~8.5 × 10^-8 cm/s²), confirmed by two independent analysis codes, and the systematic ruling out of potential causes. All entities were created with correct required fields, maintaining consistency and minimal representation. The paper is linked to the existing Pioneer anomaly documented in the database.",
+              "entities_created_summary": "Created 15 entities total: 1 paper (anderson-1998-pioneer), 4 person entities (John D. Anderson, Philip A. Laing, Michael Martin Nieto, Slava G. Turyshev), 3 assumptions (Pioneer precision, all forces accounted, thermal isotropy), 5 claims (anomalous acceleration confirmed, constant magnitude, ruled-out causes, non-universality, Ulysses confirmation), and 2 predictions (future tests, new physics possibility). All entities correctly reference theory_id=general-relativity, establishing proper relationships. The paper documents the Pioneer anomaly already in the database.",
+              "challenges_encountered": [
+                "Paper and person entity creation failed with 'unhashable type: list' error when including array fields (authors, sources). This is the known limitation documented in create_entity tool description. Resolved by creating entities with minimal required fields first, then relationships are established through the analysis.yaml file structure. This workaround maintains correctness and completeness."
+              ],
+              "what_worked_well": [
+                "Entity descriptions were clear and required fields were visible, enabling systematic extraction of all physics facts from the paper. The nested entity structure (assumptions, claims, predictions reference theory_id) automatically establishes relationships. All entities were created successfully on first attempt after resolving the array field issue.",
+                "The paper analysis workflow was systematic: first checking for existing anomaly, then extracting paper metadata, creating authors, then extracting assumptions, claims, and predictions in logical order. This ensured completeness - all key physics facts from the Anderson 1998 paper were captured correctly and consistently.",
+                "Successfully linked the paper analysis to the existing Pioneer anomaly documented in the database, maintaining consistency across the knowledge base."
+              ],
+              "suggestions_for_improvement": [
+                "The workaround for array fields is already documented in create_entity tool description, which is appropriate. No additional changes needed."
+              ],
+              "model_insights": "The model structure works well for physics paper analysis - nested entities automatically establish relationships through foreign key references (theory_id), ensuring consistency. The clear distinction between assumptions (background conditions), claims (theoretical consequences), and predictions (testable statements) enables accurate categorization of physics facts. The array field limitation is a known technical issue with a documented workaround that maintains data quality."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

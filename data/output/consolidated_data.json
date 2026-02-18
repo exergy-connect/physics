@@ -1,6 +1,6 @@
 {
-  "version": 9,
-  "timestamp": "2026-02-16T22:46:57.353548+00:00",
+  "version": 10,
+  "timestamp": "2026-02-18T15:21:27.962317+00:00",
   "model": {
     "name": "Anomaly Model",
     "version": "26.02.12.1",
@@ -10,6 +10,14 @@
     "exclude": null
   },
   "data": {
+    "change": {
+      "000000000009": {
+        "id": 9,
+        "timestamp": "2026-02-18T09:21:27.961544",
+        "author": "jeroen",
+        "note": "Build child_to_parents_map during normalization"
+      }
+    },
     "theory": {
       "action-principle": {
         "theory_id": "action-principle",
@@ -273,6 +281,22 @@
           }
         ]
       },
+      "differential-geometry": {
+        "theory_id": "differential-geometry",
+        "name": "Differential Geometry",
+        "year": 1827,
+        "summary": "Mathematical field that studies geometric structures using techniques from calculus and linear algebra. Studies curves, surfaces, and higher-dimensional manifolds, their curvature, and intrinsic properties. Founded by Gauss's work on surfaces and developed by Riemann into the study of n-dimensional manifolds. Provides the mathematical foundation for general relativity and modern physics.",
+        "category": "Relativity",
+        "people": [
+          "carl-friedrich-gauss",
+          "bernhard-riemann"
+        ],
+        "tags": [
+          "spacetime"
+        ],
+        "c": 9,
+        "v": 9
+      },
       "einstein-field-equations": {
         "theory_id": "einstein-field-equations",
         "name": "Einstein Field Equations",
@@ -317,6 +341,65 @@
             "formulation_year": 1915,
             "c": 1,
             "v": 1
+          }
+        ]
+      },
+      "einstein-weyl-geometry": {
+        "theory_id": "einstein-weyl-geometry",
+        "name": "Einstein–Weyl Geometry",
+        "year": 1918,
+        "summary": "Generalization of Einstein's general relativity that incorporates conformal (scale) geometry. Proposed by Hermann Weyl as an attempt to unify gravity and electromagnetism through a conformal connection that allows for scale transformations while preserving the causal structure of spacetime.",
+        "category": "Relativity",
+        "parent_theory_id": "general-relativity",
+        "people": [
+          "hermann-weyl",
+          "albert-einstein"
+        ],
+        "tags": [
+          "spacetime",
+          "gravity"
+        ],
+        "c": 9,
+        "v": 9,
+        "assumptions": [
+          {
+            "assumption_id": "ew-assumption-1",
+            "statement": "Spacetime geometry can be described using a conformal connection that allows for scale transformations",
+            "rationale": "Weyl's conformal geometry extends Riemannian geometry to include scale transformations while preserving angles and causal structure",
+            "c": 9,
+            "v": 9
+          },
+          {
+            "assumption_id": "ew-assumption-2",
+            "statement": "The electromagnetic field can be unified with gravity through the conformal connection",
+            "rationale": "Weyl proposed that the electromagnetic potential could be identified with the conformal connection, providing a geometric foundation for electromagnetism",
+            "c": 9,
+            "v": 9
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "ew-claim-1",
+            "statement": "Einstein–Weyl geometry reduces to standard general relativity when the conformal connection vanishes",
+            "status": "theoretical",
+            "c": 9,
+            "v": 9
+          },
+          {
+            "claim_id": "ew-claim-2",
+            "statement": "The theory provides a geometric interpretation of electromagnetism through the conformal connection",
+            "status": "theoretical",
+            "c": 9,
+            "v": 9
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "ew-postulate-1",
+            "statement": "The metric tensor and conformal connection together determine the geometry of spacetime",
+            "formulation_year": 1918,
+            "c": 9,
+            "v": 9
           }
         ]
       },
@@ -1982,6 +2065,14 @@
         "c": 1,
         "v": 1
       },
+      "carl-friedrich-gauss": {
+        "person_id": "carl-friedrich-gauss",
+        "name": "Carl Friedrich Gauss",
+        "birth_year": 1777,
+        "death_year": 1855,
+        "c": 9,
+        "v": 9
+      },
       "carlo-rovelli": {
         "person_id": "carlo-rovelli",
         "name": "Carlo Rovelli",
@@ -2074,6 +2165,14 @@
         "death_year": 1909,
         "c": 1,
         "v": 1
+      },
+      "hermann-weyl": {
+        "person_id": "hermann-weyl",
+        "name": "Hermann Weyl",
+        "birth_year": 1885,
+        "death_year": 1955,
+        "c": 9,
+        "v": 9
       },
       "howard-robertson": {
         "person_id": "howard-robertson",

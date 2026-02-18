@@ -1,0 +1,124 @@
+{
+  "session_feedback": [
+    {
+      "session_id": "0bb6b2f3-6c94-4b4b-a4c6-508dc3757ea2",
+      "timestamp": "2026-02-13T20:51:36.383702",
+      "initial_prompt": "Test create_entity with nested entity objects in array fields",
+      "llm_model_version": "gpt-4o",
+      "model": {
+        "name": "Anomaly Model",
+        "version": "26.02.12.1",
+        "author": "Exergy ∞ LLC",
+        "include_x_fields": false,
+        "max_name_underscores": 2,
+        "exclude": null,
+        "meta_model_version_date": "2025-01-27"
+      },
+      "data_file": {
+        "reloaded": false,
+        "last_modified": 1771024026
+      },
+      "queries_executed": [
+        {
+          "tool": "get_model",
+          "depth": 1,
+          "initial_prompt": "Test create_entity with nested entity objects in array fields",
+          "ai_reasoning": "Getting the model structure to understand how nested entities are defined",
+          "timestamp": "2026-02-13T20:42:40.347397-06:00",
+          "result_count": 24
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "theory.* | [0]",
+          "ai_reasoning": "Getting an example theory to see how nested assumptions are structured",
+          "timestamp": "2026-02-13T20:42:43.850482-06:00",
+          "result_count": 11
+        },
+        {
+          "tool": "create_entity",
+          "entity": "theory",
+          "ai_reasoning": "Testing create_entity with nested assumption objects in the assumptions array field",
+          "timestamp": "2026-02-13T20:42:44.842276-06:00"
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "theory.* | [?theory_id == 'test-nested-entities']",
+          "ai_reasoning": "Verifying the created test theory to see if nested entities were stored correctly",
+          "timestamp": "2026-02-13T20:42:47.888683-06:00",
+          "result_count": 1
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "theory.* | [?theory_id == 'test-nested-entities'] | [0] | {theory_id, name, assumptions, papers, people}",
+          "ai_reasoning": "Checking the full structure of the test entity to confirm nested entities are properly stored",
+          "timestamp": "2026-02-13T20:42:50.937126-06:00"
+        },
+        {
+          "tool": "jmespath_query",
+          "query": "anomaly.* | [?contains(name, 'flyby') || contains(name, 'Flyby') || contains(description, 'flyby') || contains(description, 'Flyby')]",
+          "ai_reasoning": "Checking if the Earth flyby anomaly already exists in the database",
+          "timestamp": "2026-02-13T20:49:35.672895-06:00",
+          "result_count": 0
+        },
+        {
+          "tool": "finalize_session",
+          "timestamp": "2026-02-13T20:51:36.383649-06:00"
+        }
+      ],
+      "query_count": 7,
+      "session_duration": 536,
+      "tool_counts": [
+        {
+          "tool_name": "get_model",
+          "count": 1
+        },
+        {
+          "tool_name": "jmespath_query",
+          "count": 4
+        },
+        {
+          "tool_name": "create_entity",
+          "count": 1
+        },
+        {
+          "tool_name": "finalize_session",
+          "count": 1
+        }
+      ],
+      "created_entities": {
+        "theory": {
+          "test-nested-entities.test theory with nested entities.000000002024....{'assumption_id': 'test-assumption-1', 'theory_id': 'test-nested-entities', 'statement': 'This is a test assumption', 'rationale': 'Testing nested entity creation'}.....anderson-1998-pioneer.john-anderson...": {
+            "theory_id": "test-nested-entities",
+            "name": "test theory with nested entities",
+            "year": 2024,
+            "assumptions": [
+              {
+                "assumption_id": "test-assumption-1",
+                "theory_id": "test-nested-entities",
+                "statement": "This is a test assumption",
+                "rationale": "Testing nested entity creation"
+              }
+            ],
+            "papers": [
+              "anderson-1998-pioneer"
+            ],
+            "people": [
+              "john-anderson"
+            ]
+          }
+        }
+      },
+      "feedback_model": {
+        "name": "session_feedback",
+        "version": "",
+        "author": "Exergy ∞ LLC",
+        "raw_feedback": {
+          "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+          "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+        },
+        "validation_status": "failed",
+        "validation_error": "Validation skipped for timeout session"
+      }
+    }
+  ]
+}
