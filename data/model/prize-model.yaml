@@ -65,10 +65,10 @@ entities:
       - name: people
         type: array
         required: false
-        item_type: string
-        foreignKey:
-          entity: person
-          field: person_id
+        item_type:
+          foreignKey:
+            entity: person
+            field: person_id
         description: "Array of person_ids who received this award"
       - name: theory_id
         type: string

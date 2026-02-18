@@ -74,10 +74,10 @@ entities:
       - name: anomalies
         type: array
         required: false
-        item_type: string
-        foreignKey:
-          entity: anomaly
-          field: anomaly_id
+        item_type:
+          foreignKey:
+            entity: anomaly
+            field: anomaly_id
         description: "Array of anomaly IDs that challenge or are explained by this theory"
       - name: papers
         type: array
@@ -281,18 +281,18 @@ entities:
       - name: people
         type: array
         required: false
-        item_type: string
-        foreignKey:
-          entity: person
-          field: person_id
+        item_type:
+          foreignKey:
+            entity: person
+            field: person_id
         description: "Array of person_ids who made this prediction or were involved in its verification"
       - name: papers
         type: array
         required: false
-        item_type: string
-        foreignKey:
-          entity: paper
-          field: paper_id
+        item_type:
+          foreignKey:
+            entity: paper
+            field: paper_id
         description: "Array of paper_ids related to this prediction (prediction papers, verification papers, etc.)"
 
   - name: paper

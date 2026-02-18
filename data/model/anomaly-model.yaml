@@ -43,10 +43,10 @@ entities:
       - name: violated_claims
         type: array
         required: false
-        item_type: string
-        foreignKey:
-          entity: claim
-          field: claim_id
+        item_type:
+          foreignKey:
+            entity: claim
+            field: claim_id
         description: "Array of claim IDs that this anomaly appears to violate or challenge"
       - name: discovery_year
         type: integer
@@ -66,18 +66,18 @@ entities:
       - name: papers
         type: array
         required: false
-        item_type: string
-        foreignKey:
-          entity: paper
-          field: paper_id
+        item_type:
+          foreignKey:
+            entity: paper
+            field: paper_id
         description: "Array of paper IDs related to this anomaly (discovery papers, explanation papers, etc.)"
       - name: people
         type: array
         required: false
-        item_type: string
-        foreignKey:
-          entity: person
-          field: person_id
+        item_type:
+          foreignKey:
+            entity: person
+            field: person_id
         description: "Array of person IDs associated with this anomaly (discoverers, explainers, etc.)"
 
   - name: violated_assumption
