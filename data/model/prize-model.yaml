@@ -8,11 +8,10 @@ entities:
     description: |
       Represents a scientific prize or award (e.g., Nobel Prize in Physics, Kyoto Prize).
       Prizes are awarded to people and/or theories for significant contributions to science.
-    primary_key: [prize_id]
+    primary_key: prize_id
     fields:
       - name: prize_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the prize (e.g., 'nobel-physics', 'kyoto-basic-sciences')"
       - name: name
@@ -40,19 +39,17 @@ entities:
     description: |
       Represents the awarding of a prize in a specific year to one or more people and/or theories.
       Links prizes to recipients (people and/or theories) with the year and description of the award.
-    primary_key: [award_id]
+    primary_key: award_id
     fields:
       - name: award_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the award (e.g., 'nobel-physics-1965')"
       - name: prize_id
         type: string
         required: true
-        foreignKey:
-          entity: prize
-          field: prize_id
+        foreignKeys:
+          - entity: prize
         description: "Reference to the prize being awarded"
       - name: year
         type: integer
@@ -66,14 +63,11 @@ entities:
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: person
-            field: person_id
+          entity: person
         description: "Array of person_ids who received this award"
       - name: theory_id
         type: string
         required: false
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to theory for which the prize was awarded (if applicable)"

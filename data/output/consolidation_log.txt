@@ -1,35 +1,50 @@
-2026-02-18 09:21:27 [INFO] Logging to: data/output/consolidation_log.txt
-2026-02-18 09:21:27 [INFO] Step 1: Consolidating models from: data/model
-2026-02-18 09:21:27 [INFO] Validating consolidated models with YANG validator
-2026-02-18 09:21:27 [INFO] ✓ YANG validation passed for consolidated models
-2026-02-18 09:21:27 [INFO] Wrote consolidated data to data/output/consolidated_model.js
-2026-02-18 09:21:27 [INFO] ✓ Consolidated model written to: data/output/consolidated_model.json
-2026-02-18 09:21:27 [INFO] Model consolidation completed successfully (exit code: 0)
-2026-02-18 09:21:27 [INFO] Step 2: Consolidating data from: data
-2026-02-18 09:21:27 [INFO] Loading data files from: data
-2026-02-18 09:21:27 [INFO] Loaded data from 12 files (bulk validation)
-2026-02-18 09:21:27 [INFO] ============================================================
-2026-02-18 09:21:27 [INFO] Validation Summary Report
-2026-02-18 09:21:27 [INFO] ============================================================
-2026-02-18 09:21:27 [INFO] Total entities validated: 325
-2026-02-18 09:21:27 [INFO] Entities validated by type:
-2026-02-18 09:21:27 [INFO]   - anomaly: 10
-2026-02-18 09:21:27 [INFO]   - assumption: 60
-2026-02-18 09:21:27 [INFO]   - claim: 74
-2026-02-18 09:21:27 [INFO]   - paper: 17
-2026-02-18 09:21:27 [INFO]   - person: 62
-2026-02-18 09:21:27 [INFO]   - postulate: 24
-2026-02-18 09:21:27 [INFO]   - prediction: 9
-2026-02-18 09:21:27 [INFO]   - prize: 5
-2026-02-18 09:21:27 [INFO]   - prize_award: 15
-2026-02-18 09:21:27 [INFO]   - tag: 4
-2026-02-18 09:21:27 [INFO]   - theory: 37
-2026-02-18 09:21:27 [INFO]   - violated_assumption: 8
-2026-02-18 09:21:27 [INFO] ✓ No validation errors - all entities validated successfully
-2026-02-18 09:21:27 [INFO] ============================================================
-2026-02-18 09:21:27 [INFO] Calculating computed fields
-2026-02-18 09:21:27 [INFO] Wrote consolidated data to data/output/consolidated_data.json (150 entities across 24 entity types)
-2026-02-18 09:21:27 [INFO] Wrote consolidated data to data/output/consolidated_data.js
-2026-02-18 09:21:27 [INFO] ✓ Successfully consolidated data into data/output/consolidated_data.json
-2026-02-18 09:21:27 [INFO] Data consolidation completed successfully (exit code: 0)
-2026-02-18 09:21:27 [INFO] Consolidation completed successfully (exit code: 0)
+2026-02-26 15:35:38 [INFO] Logging to: data/output/consolidation_log.txt
+2026-02-26 15:35:38 [INFO] Step 1: Consolidating models from: data/model
+2026-02-26 15:35:39 [INFO] Validating consolidated models with YANG validator
+2026-02-26 15:35:40 [INFO] ✓ YANG validation passed for consolidated models
+2026-02-26 15:35:41 [INFO] ✓ Consolidated model written to: data/output/consolidated_model.json
+2026-02-26 15:35:41 [INFO] Model consolidation completed successfully (exit code: 0)
+2026-02-26 15:35:41 [INFO] Step 1 completed in 2.44 seconds
+2026-02-26 15:35:41 [INFO] Step 2: Consolidating data from: data
+2026-02-26 15:35:41 [INFO] Validating consolidated models with YANG validator
+2026-02-26 15:35:42 [INFO] ✓ YANG validation passed for consolidated models
+2026-02-26 15:35:43 [INFO] Loading data files from: data
+2026-02-26 15:35:43 [INFO] Processing 12 data file(s) from data
+2026-02-26 15:35:43 [INFO] Loaded 48 entity instance(s) from /home/jeroen/Projects/physics/data/classical-mechanics.yaml (entities: assumption, postulate, claim, person, theory, paper, tag)
+2026-02-26 15:35:43 [INFO] Loaded 60 entity instance(s) from /home/jeroen/Projects/physics/data/general-relativity.yaml (entities: person, tag, theory, paper, assumption, postulate, claim)
+2026-02-26 15:35:43 [INFO] Loaded 12 entity instance(s) from /home/jeroen/Projects/physics/data/anomalies.yaml (entities: violated_assumption, claim, paper, person, anomaly)
+2026-02-26 15:35:43 [INFO] Loaded 33 entity instance(s) from /home/jeroen/Projects/physics/data/special-relativity.yaml (entities: assumption, postulate, claim, prediction, person, paper, tag, theory)
+2026-02-26 15:35:43 [INFO] Loaded 36 entity instance(s) from /home/jeroen/Projects/physics/data/quantum-field-theory.yaml (entities: assumption, postulate, claim, person, theory, paper, tag)
+2026-02-26 15:35:43 [INFO] Loaded 40 entity instance(s) from /home/jeroen/Projects/physics/data/prizes.yaml (entities: prize, person, prize_award)
+2026-02-26 15:35:43 [INFO] Loaded 19 entity instance(s) from /home/jeroen/Projects/physics/data/papers/riemann-1854-geometry/analysis.yaml (entities: paper, person, theory, assumption, postulate, claim, prediction)
+2026-02-26 15:35:43 [INFO] Loaded 19 entity instance(s) from /home/jeroen/Projects/physics/data/papers/shamir-2024-redshift/analysis.yaml (entities: person, paper, theory, assumption, claim, prediction, violated_assumption, anomaly)
+2026-02-26 15:35:43 [INFO] Loaded 12 entity instance(s) from /home/jeroen/Projects/physics/data/papers/ellman-1998-flybys/analysis.yaml (entities: person, paper, anomaly, assumption, claim, prediction)
+2026-02-26 15:35:43 [INFO] Loaded 15 entity instance(s) from /home/jeroen/Projects/physics/data/papers/feynman-1949-space-time/analysis.yaml (entities: claim, postulate, assumption, person)
+2026-02-26 15:35:43 [INFO] Loaded 18 entity instance(s) from /home/jeroen/Projects/physics/data/papers/rovelli-1996-rqm/analysis.yaml (entities: assumption, postulate, claim, paper, person, theory)
+2026-02-26 15:35:43 [INFO] Loaded 15 entity instance(s) from /home/jeroen/Projects/physics/data/papers/anderson-1998-pioneer/analysis.yaml (entities: person, paper, assumption, claim, prediction)
+2026-02-26 15:35:43 [INFO] Loaded data from 12 files (bulk validation)
+2026-02-26 15:35:43 [INFO] Data loading completed in 0.13 seconds
+2026-02-26 15:35:43 [INFO] ============================================================
+2026-02-26 15:35:43 [INFO] Validation Summary Report
+2026-02-26 15:35:43 [INFO] ============================================================
+2026-02-26 15:35:43 [INFO] Total entities validated: 325
+2026-02-26 15:35:43 [INFO] Entities validated by type:
+2026-02-26 15:35:43 [INFO]   - anomaly: 10
+2026-02-26 15:35:43 [INFO]   - assumption: 60
+2026-02-26 15:35:43 [INFO]   - claim: 74
+2026-02-26 15:35:43 [INFO]   - paper: 17
+2026-02-26 15:35:43 [INFO]   - person: 62
+2026-02-26 15:35:43 [INFO]   - postulate: 24
+2026-02-26 15:35:43 [INFO]   - prediction: 9
+2026-02-26 15:35:43 [INFO]   - prize: 5
+2026-02-26 15:35:43 [INFO]   - prize_award: 15
+2026-02-26 15:35:43 [INFO]   - tag: 4
+2026-02-26 15:35:43 [INFO]   - theory: 37
+2026-02-26 15:35:43 [INFO]   - violated_assumption: 8
+2026-02-26 15:35:43 [INFO] ✓ No validation errors - all entities validated successfully
+2026-02-26 15:35:43 [INFO] ============================================================
+2026-02-26 15:35:43 [INFO] Calculating computed fields
+2026-02-26 15:35:43 [INFO] Wrote consolidated data to data/output/consolidated_data.json (150 entities across 23 entity types)
+2026-02-26 15:35:43 [INFO] ✓ Successfully consolidated data into data/output/consolidated_data.json
+2026-02-26 15:35:43 [INFO] Data consolidation completed successfully (exit code: 0)
+2026-02-26 15:35:43 [INFO] Consolidation completed successfully (exit code: 0)

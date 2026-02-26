@@ -10,11 +10,10 @@ entities:
       (parent-child relationships) and contain assumptions, postulates, claims, papers,
       and associated people. Theories are organized by category (e.g., Classical Mechanics,
       Quantum Physics, Relativity) and have a year of development.
-    primary_key: [theory_id]
+    primary_key: theory_id
     fields:
       - name: theory_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the theory (e.g., 'general-relativity', 'newtons-laws')"
       - name: name
@@ -43,9 +42,8 @@ entities:
       - name: parent_theory_id
         type: string
         required: false
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to parent theory for hierarchical organization"
       - name: assumptions
         type: array
@@ -75,33 +73,25 @@ entities:
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: anomaly
-            field: anomaly_id
+          entity: anomaly
         description: "Array of anomaly IDs that challenge or are explained by this theory"
       - name: papers
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: paper
-            field: paper_id
+          entity: paper
         description: "Array of paper IDs referencing key papers related to this theory"
       - name: people
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: person
-            field: person_id
+          entity: person
         description: "Array of person IDs referencing people associated with this theory"
       - name: tags
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: tag
-            field: tag_id
+          entity: tag
         description: "Array of tag IDs for categorizing and searching theories"
       - name: nobel_year
         type: integer
@@ -123,22 +113,20 @@ entities:
       system") or structural premises (e.g., "spacetime is a 4D manifold"). Unlike postulates,
       assumptions are often implicit or contextual rather than explicitly stated as
       foundational principles. They provide the framework within which the theory operates.
-    primary_key: [assumption_id]
+    primary_key: assumption_id
     parents:
       - child_fk: theory_id
         parent_array: assumptions
     fields:
       - name: assumption_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the assumption"
       - name: theory_id
         type: string
         required: true
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to the parent theory"
       - name: statement
         type: string
@@ -159,22 +147,20 @@ entities:
       Equations"). Unlike assumptions, postulates are explicitly stated as the fundamental
       axioms of the theory and are typically the primary principles from which claims and
       predictions follow.
-    primary_key: [postulate_id]
+    primary_key: postulate_id
     parents:
       - child_fk: theory_id
         parent_array: postulates
     fields:
       - name: postulate_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the postulate"
       - name: theory_id
         type: string
         required: true
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to the parent theory"
       - name: statement
         type: string
@@ -192,22 +178,20 @@ entities:
       theoretical statements or consequences that follow from the theory's assumptions
       and postulates. Unlike predictions, claims may be more general theoretical
       consequences that are not necessarily testable in isolation.
-    primary_key: [claim_id]
+    primary_key: claim_id
     parents:
       - child_fk: theory_id
         parent_array: claims
     fields:
       - name: claim_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the claim"
       - name: theory_id
         type: string
         required: true
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to the parent theory"
       - name: statement
         type: string
@@ -236,22 +220,20 @@ entities:
       and have both a prediction year (when the prediction was made) and potentially
       a verification year (when it was tested). Predictions are the bridge between
       theory and experiment.
-    primary_key: [prediction_id]
+    primary_key: prediction_id
     parents:
       - child_fk: theory_id
         parent_array: predictions
     fields:
       - name: prediction_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the prediction"
       - name: theory_id
         type: string
         required: true
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to the parent theory"
       - name: statement
         type: string
@@ -282,17 +264,13 @@ entities:
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: person
-            field: person_id
+          entity: person
         description: "Array of person_ids who made this prediction or were involved in its verification"
       - name: papers
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: paper
-            field: paper_id
+          entity: paper
         description: "Array of paper_ids related to this prediction (prediction papers, verification papers, etc.)"
 
   - name: paper
@@ -300,11 +278,10 @@ entities:
     description: |
       Represents a scientific paper, publication, or key reference related to physics theories.
       Papers can be associated with multiple theories and people.
-    primary_key: [paper_id]
+    primary_key: paper_id
     fields:
       - name: paper_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the paper (e.g., 'einstein-1915-field-equations')"
       - name: title
@@ -323,9 +300,7 @@ entities:
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: person
-            field: person_id
+          entity: person
         description: "Array of person IDs who authored this paper"
 
   - name: person
@@ -333,11 +308,10 @@ entities:
     description: |
       Represents a person associated with physics theories, papers, or discoveries.
       People can be associated with multiple theories and papers.
-    primary_key: [person_id]
+    primary_key: person_id
     fields:
       - name: person_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the person (e.g., 'albert-einstein', 'isaac-newton')"
       - name: name
@@ -355,12 +329,14 @@ entities:
       - name: nobel_years
         type: array
         required: false
-        item_type: integer
+        item_type:
+          primitive: integer
         description: "Array of years when this person received Nobel Prizes"
       - name: sources
         type: array
         required: false
-        item_type: string
+        item_type:
+          primitive: string
         description: "Array of source descriptions tracking why this person was added to the database (e.g., 'referenced by paper feynman-1949-space-time', 'author of paper einstein-1905-relativity')"
 
   - name: tag
@@ -368,11 +344,10 @@ entities:
     description: |
       Represents a tag or keyword for categorizing and searching physics theories.
       Tags help organize theories by themes, concepts, or properties (e.g., 'force', 'time', 'energy').
-    primary_key: [tag_id]
+    primary_key: tag_id
     fields:
       - name: tag_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the tag (e.g., 'force', 'time', 'exergy')"
       - name: name

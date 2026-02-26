@@ -81,7 +81,7 @@
           "type": "array",
           "description": "Array of claim IDs that this anomaly appears to violate or challenge",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/claim"
           }
         },
         "discovery_year": {
@@ -100,14 +100,14 @@
           "type": "array",
           "description": "Array of paper IDs related to this anomaly (discovery papers, explanation papers, etc.)",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/paper"
           }
         },
         "people": {
           "type": "array",
           "description": "Array of person IDs associated with this anomaly (discoverers, explainers, etc.)",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/person"
           }
         }
       },
@@ -343,7 +343,7 @@
           "type": "array",
           "description": "Array of person IDs who authored this paper",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/person"
           }
         }
       },
@@ -464,14 +464,14 @@
           "type": "array",
           "description": "Array of person_ids who made this prediction or were involved in its verification",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/person"
           }
         },
         "papers": {
           "type": "array",
           "description": "Array of paper_ids related to this prediction (prediction papers, verification papers, etc.)",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/paper"
           }
         }
       },
@@ -542,7 +542,7 @@
           "type": "array",
           "description": "Array of person_ids who received this award",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/person"
           }
         },
         "theory_id": {
@@ -561,14 +561,24 @@
     "recommendation": {
       "type": "object",
       "properties": {
-        "session_id": {
-          "type": "string",
-          "description": "Reference to the parent session assessment record.\n"
-        },
-        "recommendation_sequence": {
-          "type": "integer",
-          "description": "Sequence number of this recommendation within the session (1 = first recommendation,\n2 = second recommendation, etc.). Used to prioritize and track multiple recommendations.\n",
-          "minimum": 1
+        "recommendation_key": {
+          "type": "object",
+          "properties": {
+            "session_id": {
+              "type": "string",
+              "description": "Reference to the parent session assessment record (matches session_assessment.primary_key)"
+            },
+            "recommendation_sequence": {
+              "type": "integer",
+              "description": "Sequence number of this recommendation within the session (1 = first recommendation,\n2 = second recommendation, etc.). Used to prioritize and track multiple recommendations.\n",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "session_id",
+            "recommendation_sequence"
+          ],
+          "description": "Composite primary key for recommendation, consisting of session_id and recommendation_sequence.\nThe session_id component references the parent session assessment record.\n"
         },
         "category": {
           "type": "string",
@@ -606,8 +616,7 @@
         }
       },
       "required": [
-        "session_id",
-        "recommendation_sequence",
+        "recommendation_key",
         "category",
         "priority",
         "title",
@@ -812,28 +821,28 @@
           "type": "array",
           "description": "Array of anomaly IDs that challenge or are explained by this theory",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/anomaly"
           }
         },
         "papers": {
           "type": "array",
           "description": "Array of paper IDs referencing key papers related to this theory",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/paper"
           }
         },
         "people": {
           "type": "array",
           "description": "Array of person IDs referencing people associated with this theory",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/person"
           }
         },
         "tags": {
           "type": "array",
           "description": "Array of tag IDs for categorizing and searching theories",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/tag"
           }
         },
         "nobel_year": {
@@ -1024,6 +1033,37 @@
       ],
       "x-created": 1,
       "x-version": 1
+    },
+    "change": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique change identifier (monotonically increasing)"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of the change"
+        },
+        "author": {
+          "type": "string",
+          "description": "Author of the change"
+        },
+        "note": {
+          "type": "string",
+          "description": "Optional note describing the change"
+        },
+        "git_commit_hash": {
+          "type": "string",
+          "description": "Git commit hash corresponding to this change"
+        }
+      },
+      "required": [
+        "id",
+        "timestamp"
+      ],
+      "additionalProperties": false
     }
   },
   "type": "object",
@@ -1171,7 +1211,21 @@
       "items": {
         "$ref": "#/$defs/violated_assumption"
       }
+    },
+    "change": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/change"
+      }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "changes": [
+    {
+      "id": 1,
+      "timestamp": "2026-02-26T15:35:40.881526",
+      "author": "jeroen",
+      "note": "Updated physics model to match xFrame meta-model: converted composite primary keys to composite fields, updated foreignKey to foreignKeys, removed primaryKey from field definitions, using unique composite subcomponent names"
+    }
+  ]
 }

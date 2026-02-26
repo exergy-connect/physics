@@ -12,11 +12,10 @@ entities:
       errors, or the need for theory extension or replacement. Each anomaly is linked to
       the specific assumptions and claims it appears to violate, helping identify which
       aspects of the theory are challenged by the observation.
-    primary_key: [anomaly_id]
+    primary_key: anomaly_id
     fields:
       - name: anomaly_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for the anomaly (e.g., 'mercury-perihelion-precession', 'ultraviolet-catastrophe')"
       - name: name
@@ -30,9 +29,8 @@ entities:
       - name: theory_id
         type: string
         required: true
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to the theory that this anomaly challenges or violates"
       - name: violated_assumptions
         type: array
@@ -44,9 +42,7 @@ entities:
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: claim
-            field: claim_id
+          entity: claim
         description: "Array of claim IDs that this anomaly appears to violate or challenge"
       - name: discovery_year
         type: integer
@@ -55,9 +51,8 @@ entities:
       - name: explanation_theory_id
         type: string
         required: false
-        foreignKey:
-          entity: theory
-          field: theory_id
+        foreignKeys:
+          - entity: theory
         description: "Reference to the theory that explains or resolves this anomaly (if applicable)"
       - name: explanation
         type: string
@@ -67,17 +62,13 @@ entities:
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: paper
-            field: paper_id
+          entity: paper
         description: "Array of paper IDs related to this anomaly (discovery papers, explanation papers, etc.)"
       - name: people
         type: array
         required: false
         item_type:
-          foreignKey:
-            entity: person
-            field: person_id
+          entity: person
         description: "Array of person IDs associated with this anomaly (discoverers, explainers, etc.)"
 
   - name: violated_assumption
@@ -86,29 +77,26 @@ entities:
       Represents a specific assumption from a theory that is violated or challenged by an anomaly.
       This entity links anomalies to the specific assumptions they contradict, allowing detailed
       tracking of which theoretical premises are challenged by observed phenomena.
-    primary_key: [violated_assumption_id]
+    primary_key: violated_assumption_id
     parents:
       - child_fk: anomaly_id
         parent_array: violated_assumptions
     fields:
       - name: violated_assumption_id
         type: string
-        primaryKey: true
         required: true
         description: "Unique identifier for this violated assumption record"
       - name: anomaly_id
         type: string
         required: true
-        foreignKey:
-          entity: anomaly
-          field: anomaly_id
+        foreignKeys:
+          - entity: anomaly
         description: "Reference to the parent anomaly"
       - name: assumption_id
         type: string
         required: true
-        foreignKey:
-          entity: assumption
-          field: assumption_id
+        foreignKeys:
+          - entity: assumption
         description: "Reference to the assumption from the theory that is being violated"
       - name: violation_description
         type: string
