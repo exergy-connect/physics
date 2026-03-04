@@ -1,6 +1,7 @@
 name: "Physics Paper Analysis Feedback Model"
 version: 26.02.12.1
 author: "Exergy ∞ LLC"
+allow_unlimited_fields: true
 
 entities:
   - name: session_feedback
@@ -119,9 +120,6 @@ entities:
       
       Frame your assessment to help architects understand what improvements are needed to ensure
       correct, complete, minimal, and consistent physics fact extraction.
-    parents:
-      - child_fk: session_id
-        parent_array: session_assessment
     primary_key: session_id
     fields:
       - name: session_id
@@ -129,6 +127,7 @@ entities:
         required: true
         foreignKeys:
           - entity: session_feedback
+            parent_array: session_assessment
         description: |
           Reference to the parent session feedback record.
       - name: overall_success
@@ -305,9 +304,6 @@ entities:
       Detailed documentation of a validation failure that occurred during entity creation.
       Captures the entity type, error message, missing fields, and how it was resolved.
       This enables pattern detection and helps prevent similar failures in future sessions.
-    parents:
-      - child_fk: session_id
-        parent_array: validation_failures
     primary_key: session_id
     fields:
       - name: session_id
@@ -315,6 +311,7 @@ entities:
         required: true
         foreignKeys:
           - entity: session_assessment
+            parent_array: validation_failures
         description: |
           Reference to the parent session assessment record.
       - name: failure_sequence
@@ -363,9 +360,6 @@ entities:
       Detailed information about a validation failure including the entity that failed,
       error type, and resolution notes. This information helps identify patterns in
       validation failures and improve error prevention.
-    parents:
-      - child_fk: session_id
-        parent_array: validation_failure_details
     primary_key: session_id
     fields:
       - name: session_id
@@ -373,16 +367,16 @@ entities:
         required: true
         foreignKeys:
           - entity: validation_failure
+            parent_array: validation_failure_details
         description: |
           Reference to the parent validation_failure record.
       - name: failure_sequence
         type: integer
         min: 1
         required: true
-        foreignKeys:
-          - entity: validation_failure
         description: |
-          Reference to the parent validation_failure record.
+          Sequence number linking to the parent validation_failure (with session_id).
+          Together with session_id identifies this details record.
       - name: entity_type
         type: string
         required: true
@@ -414,9 +408,6 @@ entities:
       Information about how a validation failure was resolved, including the number of
       attempts and whether it was successfully resolved. This helps track error recovery
       patterns and identify failures that are difficult to resolve.
-    parents:
-      - child_fk: session_id
-        parent_array: validation_failure_resolution
     primary_key: session_id
     fields:
       - name: session_id
@@ -424,16 +415,16 @@ entities:
         required: true
         foreignKeys:
           - entity: validation_failure
+            parent_array: validation_failure_resolution
         description: |
           Reference to the parent validation_failure record.
       - name: failure_sequence
         type: integer
         min: 1
         required: true
-        foreignKeys:
-          - entity: validation_failure
         description: |
-          Reference to the parent validation_failure record.
+          Sequence number linking to the parent validation_failure (with session_id).
+          Together with session_id identifies this resolution record.
       - name: resolution_attempts
         type: integer
         min: 1
@@ -474,29 +465,28 @@ entities:
       
       Frame recommendations as: "To improve physics paper analysis, architects should [specific
       model change] because [why this helps]."
-    parents:
-      - child_fk: session_id
-        parent_array: recommendations
-    primary_key: recommendation_key
+    primary_key: recommendation_id
     fields:
-      - name: recommendation_key
-        type: composite
+      - name: recommendation_id
+        type: string
         required: true
         description: |
-          Composite primary key for recommendation, consisting of session_id and recommendation_sequence.
-          The session_id component references the parent session assessment record.
-        composite:
-          - name: session_id
-            type: string
-            foreignKeys:
-              - entity: session_assessment
-            description: "Reference to the parent session assessment record (matches session_assessment.primary_key)"
-          - name: recommendation_sequence
-            type: integer
-            min: 1
-            description: |
-              Sequence number of this recommendation within the session (1 = first recommendation,
-              2 = second recommendation, etc.). Used to prioritize and track multiple recommendations.
+          Unique identifier for the recommendation (e.g. session_id + '-' + recommendation_sequence
+          for compatibility with nested data).
+      - name: session_id
+        type: string
+        required: true
+        foreignKeys:
+          - entity: session_assessment
+            parent_array: recommendations
+        description: "Reference to the parent session assessment record (matches session_assessment.primary_key)"
+      - name: recommendation_sequence
+        type: integer
+        min: 1
+        required: true
+        description: |
+          Sequence number of this recommendation within the session (1 = first recommendation,
+          2 = second recommendation, etc.). Used to prioritize and track multiple recommendations.
       - name: category
         type: string
         enum: ["validation", "efficiency", "data_quality", "workflow", "error_handling", "model_usage"]
@@ -616,9 +606,6 @@ entities:
       Detailed metrics tracking session efficiency, including query counts, timing,
       entity creation patterns, and performance indicators. Used to identify optimization
       opportunities and track efficiency improvements over time.
-    parents:
-      - child_fk: session_id
-        parent_array: efficiency_metrics
     primary_key: session_id
     fields:
       - name: session_id
@@ -626,6 +613,7 @@ entities:
         required: true
         foreignKeys:
           - entity: session_assessment
+            parent_array: efficiency_metrics
         description: |
           Reference to the parent session assessment record.
       - name: efficiency_timing_metrics
@@ -662,9 +650,6 @@ entities:
       Metrics tracking session timing including duration and calculated rates for queries
       and entity creation. These metrics help identify slow sessions and track performance
       improvements.
-    parents:
-      - child_fk: session_id
-        parent_array: efficiency_timing_metrics
     primary_key: session_id
     fields:
       - name: session_id
@@ -672,6 +657,7 @@ entities:
         required: true
         foreignKeys:
           - entity: efficiency_metrics
+            parent_array: efficiency_timing_metrics
         description: |
           Reference to the parent efficiency_metrics record.
       - name: session_duration_seconds
@@ -701,9 +687,6 @@ entities:
     description: |
       Metrics tracking counts of queries, entities, and validation failures. These metrics
       help understand session scope and identify areas for optimization.
-    parents:
-      - child_fk: session_id
-        parent_array: efficiency_count_metrics
     primary_key: session_id
     fields:
       - name: session_id
@@ -711,6 +694,7 @@ entities:
         required: true
         foreignKeys:
           - entity: efficiency_metrics
+            parent_array: efficiency_count_metrics
         description: |
           Reference to the parent efficiency_metrics record.
       - name: total_queries
@@ -749,9 +733,6 @@ entities:
       Metrics tracking optimization opportunities including redundant queries, entity
       existence checks, and batch operations. These metrics help identify workflow
       improvements and best practices.
-    parents:
-      - child_fk: session_id
-        parent_array: efficiency_optimization_metrics
     primary_key: session_id
     fields:
       - name: session_id
@@ -759,6 +740,7 @@ entities:
         required: true
         foreignKeys:
           - entity: efficiency_metrics
+            parent_array: efficiency_optimization_metrics
         description: |
           Reference to the parent efficiency_metrics record.
       - name: redundant_queries
@@ -789,9 +771,6 @@ entities:
     description: |
       Optional feedback provided by the user about the session quality, accuracy,
       and usefulness. Used to improve AI performance and system reliability.
-    parents:
-      - child_fk: session_id
-        parent_array: user_feedback
     primary_key: session_id
     fields:
       - name: session_id
@@ -799,6 +778,7 @@ entities:
         required: true
         foreignKeys:
           - entity: session_feedback
+            parent_array: user_feedback
         description: |
           Reference to the parent session feedback record.
       - name: rating
@@ -849,9 +829,6 @@ entities:
       
       Required for every session to enable continuous improvement and quality tracking of physics
       paper analysis.
-    parents:
-      - child_fk: session_id
-        parent_array: ai_feedback
     primary_key: session_id
     fields:
       - name: session_id
@@ -859,6 +836,7 @@ entities:
         required: true
         foreignKeys:
           - entity: session_feedback
+            parent_array: ai_feedback
         description: |
           Reference to the parent session feedback record.
       - name: session_summary

@@ -78,9 +78,6 @@ entities:
       This entity links anomalies to the specific assumptions they contradict, allowing detailed
       tracking of which theoretical premises are challenged by observed phenomena.
     primary_key: violated_assumption_id
-    parents:
-      - child_fk: anomaly_id
-        parent_array: violated_assumptions
     fields:
       - name: violated_assumption_id
         type: string
@@ -91,6 +88,7 @@ entities:
         required: true
         foreignKeys:
           - entity: anomaly
+            parent_array: violated_assumptions
         description: "Reference to the parent anomaly"
       - name: assumption_id
         type: string

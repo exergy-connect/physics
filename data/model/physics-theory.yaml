@@ -114,9 +114,6 @@ entities:
       assumptions are often implicit or contextual rather than explicitly stated as
       foundational principles. They provide the framework within which the theory operates.
     primary_key: assumption_id
-    parents:
-      - child_fk: theory_id
-        parent_array: assumptions
     fields:
       - name: assumption_id
         type: string
@@ -127,6 +124,7 @@ entities:
         required: true
         foreignKeys:
           - entity: theory
+            parent_array: assumptions
         description: "Reference to the parent theory"
       - name: statement
         type: string
@@ -148,9 +146,6 @@ entities:
       axioms of the theory and are typically the primary principles from which claims and
       predictions follow.
     primary_key: postulate_id
-    parents:
-      - child_fk: theory_id
-        parent_array: postulates
     fields:
       - name: postulate_id
         type: string
@@ -161,6 +156,7 @@ entities:
         required: true
         foreignKeys:
           - entity: theory
+            parent_array: postulates
         description: "Reference to the parent theory"
       - name: statement
         type: string
@@ -179,9 +175,6 @@ entities:
       and postulates. Unlike predictions, claims may be more general theoretical
       consequences that are not necessarily testable in isolation.
     primary_key: claim_id
-    parents:
-      - child_fk: theory_id
-        parent_array: claims
     fields:
       - name: claim_id
         type: string
@@ -192,6 +185,7 @@ entities:
         required: true
         foreignKeys:
           - entity: theory
+            parent_array: claims
         description: "Reference to the parent theory"
       - name: statement
         type: string
@@ -221,9 +215,6 @@ entities:
       a verification year (when it was tested). Predictions are the bridge between
       theory and experiment.
     primary_key: prediction_id
-    parents:
-      - child_fk: theory_id
-        parent_array: predictions
     fields:
       - name: prediction_id
         type: string
@@ -234,6 +225,7 @@ entities:
         required: true
         foreignKeys:
           - entity: theory
+            parent_array: predictions
         description: "Reference to the parent theory"
       - name: statement
         type: string

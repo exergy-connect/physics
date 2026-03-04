@@ -8,7 +8,13 @@
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent session feedback record.\n"
+          "description": "Reference to the parent session feedback record.\n",
+          "x-parents": [
+            {
+              "entity": "session_feedback",
+              "parent_array": "ai_feedback"
+            }
+          ]
         },
         "session_summary": {
           "type": "string",
@@ -47,9 +53,7 @@
       "required": [
         "session_id",
         "session_summary"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "anomaly": {
       "type": "object",
@@ -115,9 +119,7 @@
         "anomaly_id",
         "name",
         "theory_id"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "assumption": {
       "type": "object",
@@ -128,7 +130,13 @@
         },
         "theory_id": {
           "type": "string",
-          "description": "Reference to the parent theory"
+          "description": "Reference to the parent theory",
+          "x-parents": [
+            {
+              "entity": "theory",
+              "parent_array": "assumptions"
+            }
+          ]
         },
         "statement": {
           "type": "string",
@@ -143,9 +151,7 @@
         "assumption_id",
         "theory_id",
         "statement"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "claim": {
       "type": "object",
@@ -156,7 +162,13 @@
         },
         "theory_id": {
           "type": "string",
-          "description": "Reference to the parent theory"
+          "description": "Reference to the parent theory",
+          "x-parents": [
+            {
+              "entity": "theory",
+              "parent_array": "claims"
+            }
+          ]
         },
         "statement": {
           "type": "string",
@@ -181,16 +193,20 @@
         "claim_id",
         "theory_id",
         "statement"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "efficiency_count_metrics": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent efficiency_metrics record.\n"
+          "description": "Reference to the parent efficiency_metrics record.\n",
+          "x-parents": [
+            {
+              "entity": "efficiency_metrics",
+              "parent_array": "efficiency_count_metrics"
+            }
+          ]
         },
         "total_queries": {
           "type": "integer",
@@ -219,16 +235,20 @@
         "entities_created",
         "validation_failure_count",
         "model_query_count"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "efficiency_metrics": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent session assessment record.\n"
+          "description": "Reference to the parent session assessment record.\n",
+          "x-parents": [
+            {
+              "entity": "session_assessment",
+              "parent_array": "efficiency_metrics"
+            }
+          ]
         },
         "efficiency_timing_metrics": {
           "type": "array",
@@ -257,16 +277,20 @@
         "efficiency_timing_metrics",
         "efficiency_count_metrics",
         "efficiency_optimization_metrics"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "efficiency_optimization_metrics": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent efficiency_metrics record.\n"
+          "description": "Reference to the parent efficiency_metrics record.\n",
+          "x-parents": [
+            {
+              "entity": "efficiency_metrics",
+              "parent_array": "efficiency_optimization_metrics"
+            }
+          ]
         },
         "redundant_queries": {
           "type": "integer",
@@ -286,16 +310,20 @@
       },
       "required": [
         "session_id"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "efficiency_timing_metrics": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent efficiency_metrics record.\n"
+          "description": "Reference to the parent efficiency_metrics record.\n",
+          "x-parents": [
+            {
+              "entity": "efficiency_metrics",
+              "parent_array": "efficiency_timing_metrics"
+            }
+          ]
         },
         "session_duration_seconds": {
           "type": "number",
@@ -316,9 +344,7 @@
       "required": [
         "session_id",
         "session_duration_seconds"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "paper": {
       "type": "object",
@@ -350,9 +376,7 @@
       "required": [
         "paper_id",
         "title"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "person": {
       "type": "object",
@@ -391,9 +415,7 @@
       "required": [
         "person_id",
         "name"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "postulate": {
       "type": "object",
@@ -404,7 +426,13 @@
         },
         "theory_id": {
           "type": "string",
-          "description": "Reference to the parent theory"
+          "description": "Reference to the parent theory",
+          "x-parents": [
+            {
+              "entity": "theory",
+              "parent_array": "postulates"
+            }
+          ]
         },
         "statement": {
           "type": "string",
@@ -419,9 +447,7 @@
         "postulate_id",
         "theory_id",
         "statement"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "prediction": {
       "type": "object",
@@ -432,7 +458,13 @@
         },
         "theory_id": {
           "type": "string",
-          "description": "Reference to the parent theory"
+          "description": "Reference to the parent theory",
+          "x-parents": [
+            {
+              "entity": "theory",
+              "parent_array": "predictions"
+            }
+          ]
         },
         "statement": {
           "type": "string",
@@ -480,9 +512,7 @@
         "theory_id",
         "statement",
         "prediction_year"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "prize": {
       "type": "object",
@@ -515,9 +545,7 @@
       "required": [
         "prize_id",
         "name"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "prize_award": {
       "type": "object",
@@ -554,31 +582,29 @@
         "award_id",
         "prize_id",
         "year"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "recommendation": {
       "type": "object",
       "properties": {
-        "recommendation_key": {
-          "type": "object",
-          "properties": {
-            "session_id": {
-              "type": "string",
-              "description": "Reference to the parent session assessment record (matches session_assessment.primary_key)"
-            },
-            "recommendation_sequence": {
-              "type": "integer",
-              "description": "Sequence number of this recommendation within the session (1 = first recommendation,\n2 = second recommendation, etc.). Used to prioritize and track multiple recommendations.\n",
-              "minimum": 1
+        "recommendation_id": {
+          "type": "string",
+          "description": "Unique identifier for the recommendation (e.g. session_id + '-' + recommendation_sequence\nfor compatibility with nested data).\n"
+        },
+        "session_id": {
+          "type": "string",
+          "description": "Reference to the parent session assessment record (matches session_assessment.primary_key)",
+          "x-parents": [
+            {
+              "entity": "session_assessment",
+              "parent_array": "recommendations"
             }
-          },
-          "required": [
-            "session_id",
-            "recommendation_sequence"
-          ],
-          "description": "Composite primary key for recommendation, consisting of session_id and recommendation_sequence.\nThe session_id component references the parent session assessment record.\n"
+          ]
+        },
+        "recommendation_sequence": {
+          "type": "integer",
+          "description": "Sequence number of this recommendation within the session (1 = first recommendation,\n2 = second recommendation, etc.). Used to prioritize and track multiple recommendations.\n",
+          "minimum": 1
         },
         "category": {
           "type": "string",
@@ -616,21 +642,27 @@
         }
       },
       "required": [
-        "recommendation_key",
+        "recommendation_id",
+        "session_id",
+        "recommendation_sequence",
         "category",
         "priority",
         "title",
         "description"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "session_assessment": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent session feedback record.\n"
+          "description": "Reference to the parent session feedback record.\n",
+          "x-parents": [
+            {
+              "entity": "session_feedback",
+              "parent_array": "session_assessment"
+            }
+          ]
         },
         "overall_success": {
           "type": "boolean",
@@ -690,9 +722,7 @@
         "efficiency_score",
         "data_quality_score",
         "efficiency_metrics"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "session_feedback": {
       "type": "object",
@@ -727,9 +757,7 @@
         "session_id",
         "session_assessment",
         "ai_feedback"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "tag": {
       "type": "object",
@@ -750,9 +778,7 @@
       "required": [
         "tag_id",
         "name"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "theory": {
       "type": "object",
@@ -861,16 +887,20 @@
         "theory_id",
         "name",
         "year"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "user_feedback": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent session feedback record.\n"
+          "description": "Reference to the parent session feedback record.\n",
+          "x-parents": [
+            {
+              "entity": "session_feedback",
+              "parent_array": "user_feedback"
+            }
+          ]
         },
         "rating": {
           "type": "integer",
@@ -885,16 +915,20 @@
       },
       "required": [
         "session_id"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "validation_failure": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent session assessment record.\n"
+          "description": "Reference to the parent session assessment record.\n",
+          "x-parents": [
+            {
+              "entity": "session_assessment",
+              "parent_array": "validation_failures"
+            }
+          ]
         },
         "failure_sequence": {
           "type": "integer",
@@ -933,20 +967,24 @@
         "error_message",
         "validation_failure_details",
         "validation_failure_resolution"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "validation_failure_details": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent validation_failure record.\n"
+          "description": "Reference to the parent validation_failure record.\n",
+          "x-parents": [
+            {
+              "entity": "validation_failure",
+              "parent_array": "validation_failure_details"
+            }
+          ]
         },
         "failure_sequence": {
           "type": "integer",
-          "description": "Reference to the parent validation_failure record.\n",
+          "description": "Sequence number linking to the parent validation_failure (with session_id).\nTogether with session_id identifies this details record.\n",
           "minimum": 1
         },
         "entity_type": {
@@ -971,20 +1009,24 @@
         "failure_sequence",
         "entity_type",
         "error_type"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "validation_failure_resolution": {
       "type": "object",
       "properties": {
         "session_id": {
           "type": "string",
-          "description": "Reference to the parent validation_failure record.\n"
+          "description": "Reference to the parent validation_failure record.\n",
+          "x-parents": [
+            {
+              "entity": "validation_failure",
+              "parent_array": "validation_failure_resolution"
+            }
+          ]
         },
         "failure_sequence": {
           "type": "integer",
-          "description": "Reference to the parent validation_failure record.\n",
+          "description": "Sequence number linking to the parent validation_failure (with session_id).\nTogether with session_id identifies this resolution record.\n",
           "minimum": 1
         },
         "resolution_attempts": {
@@ -1002,9 +1044,7 @@
         "failure_sequence",
         "resolution_attempts",
         "resolved"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "violated_assumption": {
       "type": "object",
@@ -1015,7 +1055,13 @@
         },
         "anomaly_id": {
           "type": "string",
-          "description": "Reference to the parent anomaly"
+          "description": "Reference to the parent anomaly",
+          "x-parents": [
+            {
+              "entity": "anomaly",
+              "parent_array": "violated_assumptions"
+            }
+          ]
         },
         "assumption_id": {
           "type": "string",
@@ -1030,9 +1076,7 @@
         "violated_assumption_id",
         "anomaly_id",
         "assumption_id"
-      ],
-      "x-created": 1,
-      "x-version": 1
+      ]
     },
     "change": {
       "type": "object",
@@ -1226,6 +1270,12 @@
       "timestamp": "2026-02-26T15:35:40.881526",
       "author": "jeroen",
       "note": "Updated physics model to match xFrame meta-model: converted composite primary keys to composite fields, updated foreignKey to foreignKeys, removed primaryKey from field definitions, using unique composite subcomponent names"
+    },
+    {
+      "id": 2,
+      "timestamp": "2026-03-04T16:41:58.354241",
+      "author": "jeroen",
+      "note": "Fix feedback model for consolidation"
     }
   ]
 }

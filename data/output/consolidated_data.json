@@ -1,6 +1,6 @@
 {
-  "version": 11,
-  "timestamp": "2026-02-26T21:35:43.347338+00:00",
+  "version": 12,
+  "timestamp": "2026-03-04T22:41:59.165773+00:00",
   "model": {
     "name": "Anomaly Model",
     "version": "26.02.12.1",
@@ -542,23 +542,23 @@
         "summary": "Physical systems follow paths that minimize or maximize the action integral",
         "category": "Classical Mechanics",
         "parent_theory_id": "analytical-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "ap-assumption-1",
             "statement": "Time is absolute and provides the integration variable for the action",
             "rationale": "The action S = ∫L dt integrates over absolute time",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "analytical-mechanics": {
         "theory_id": "analytical-mechanics",
@@ -567,23 +567,23 @@
         "summary": "Reformulation of mechanics using variational principles and energy-based approaches",
         "category": "Classical Mechanics",
         "parent_theory_id": "classical-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "am-assumption-1",
             "statement": "Time is absolute and global",
             "rationale": "Analytical mechanics still operates within the framework of absolute time",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "black-holes": {
         "theory_id": "black-holes",
@@ -592,22 +592,16 @@
         "summary": "Regions of spacetime where gravity is so strong that nothing can escape",
         "category": "Relativity",
         "parent_theory_id": "general-relativity",
-        "nobel_year": 2020,
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "bh-assumption-1",
             "statement": "Matter can collapse to a point where the escape velocity exceeds the speed of light",
             "rationale": "This follows from the Schwarzschild solution of the Einstein field equations",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -617,22 +611,28 @@
             "status": "verified",
             "verification_year": 2019,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "bh-claim-2",
             "statement": "Black holes emit Hawking radiation and can evaporate over time",
             "status": "theoretical",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "nobel_year": 2020,
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "classical-mechanics": {
         "theory_id": "classical-mechanics",
@@ -640,41 +640,68 @@
         "year": 1687,
         "summary": "Branch of physics that describes the motion of macroscopic objects under the influence of forces. Based on Newton's laws of motion and the assumption of absolute space and time.",
         "category": "Classical Mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "cm-assumption-1",
             "statement": "Time is absolute and global - it flows uniformly and identically for all observers, regardless of their motion or position",
             "rationale": "This fundamental assumption distinguishes classical mechanics from relativity, where time is relative. In classical mechanics, there is a universal 'now' that all observers share.",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "cm-assumption-2",
             "statement": "Space is absolute - it exists as a fixed, unchanging background independent of matter and energy",
             "rationale": "Space is treated as a three-dimensional Euclidean space that provides the stage for physical events, but is not affected by them",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "cm-assumption-3",
             "statement": "Objects have definite positions and velocities that can be measured simultaneously with arbitrary precision",
             "rationale": "Unlike quantum mechanics, classical mechanics assumes no fundamental uncertainty in position and momentum measurements",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "cm-postulate-1",
+            "statement": "Newton's First Law: An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an external force",
+            "formulation_year": 1687,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "postulate_id": "cm-postulate-2",
+            "statement": "Newton's Second Law: The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass (F = ma)",
+            "formulation_year": 1687,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "postulate_id": "cm-postulate-3",
+            "statement": "Newton's Third Law: For every action, there is an equal and opposite reaction",
+            "formulation_year": 1687,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -684,10 +711,10 @@
             "status": "verified",
             "verification_year": 1687,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "cm-claim-2",
@@ -695,44 +722,17 @@
             "status": "verified",
             "verification_year": 1905,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
-        "postulates": [
-          {
-            "postulate_id": "cm-postulate-1",
-            "statement": "Newton's First Law: An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an external force",
-            "formulation_year": 1687,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "postulate_id": "cm-postulate-2",
-            "statement": "Newton's Second Law: The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass (F = ma)",
-            "formulation_year": 1687,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "postulate_id": "cm-postulate-3",
-            "statement": "Newton's Third Law: For every action, there is an equal and opposite reaction",
-            "formulation_year": 1687,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          }
-        ]
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "conservation-of-energy": {
         "theory_id": "conservation-of-energy",
@@ -741,21 +741,16 @@
         "summary": "Energy cannot be created or destroyed, only transformed from one form to another",
         "category": "Classical Mechanics",
         "parent_theory_id": "newtonian-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "coe-assumption-1",
             "statement": "Time is absolute and flows uniformly",
             "rationale": "Energy conservation requires a consistent time coordinate across all observers",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -765,12 +760,17 @@
             "status": "verified",
             "verification_year": 1847,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "conservation-of-momentum": {
         "theory_id": "conservation-of-momentum",
@@ -779,21 +779,16 @@
         "summary": "Total momentum of a closed system remains constant in the absence of external forces",
         "category": "Classical Mechanics",
         "parent_theory_id": "newtonian-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "com-assumption-1",
             "statement": "Time is absolute and uniform",
             "rationale": "Required for momentum conservation to hold consistently across all reference frames",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -803,12 +798,17 @@
             "status": "verified",
             "verification_year": 1644,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "contracted-bianchi-identities": {
         "theory_id": "contracted-bianchi-identities",
@@ -817,10 +817,17 @@
         "summary": "Fundamental differential identities in general relativity that ensure the Einstein tensor is divergence-free",
         "category": "Relativity",
         "parent_theory_id": "general-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
+        "postulates": [
+          {
+            "postulate_id": "bianchi-postulate-1",
+            "statement": "The contracted Bianchi identities yield ∇_μ G^μν = 0, ensuring energy-momentum conservation",
+            "formulation_year": 1915,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          }
         ],
         "claims": [
           {
@@ -828,24 +835,17 @@
             "statement": "The Einstein field equations automatically satisfy energy-momentum conservation without requiring it as a separate postulate",
             "status": "theoretical",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
-        "postulates": [
-          {
-            "postulate_id": "bianchi-postulate-1",
-            "statement": "The contracted Bianchi identities yield ∇_μ G^μν = 0, ensuring energy-momentum conservation",
-            "formulation_year": 1915,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          }
-        ]
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "differential-geometry": {
         "theory_id": "differential-geometry",
@@ -854,10 +854,10 @@
         "summary": "Mathematical field that studies geometric structures using techniques from calculus and linear algebra. Studies curves, surfaces, and higher-dimensional manifolds, their curvature, and intrinsic properties. Founded by Gauss's work on surfaces and developed by Riemann into the study of n-dimensional manifolds. Provides the mathematical foundation for general relativity and modern physics.",
         "category": "Relativity",
         "c": 9,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "einstein-field-equations": {
         "theory_id": "einstein-field-equations",
@@ -866,21 +866,28 @@
         "summary": "Set of equations describing how matter and energy curve spacetime",
         "category": "Relativity",
         "parent_theory_id": "general-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "efe-assumption-1",
             "statement": "The Einstein tensor G_μν is proportional to the stress-energy tensor T_μν",
             "rationale": "This relates the geometry of spacetime (left side) to the matter-energy content (right side)",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "efe-postulate-1",
+            "statement": "The contracted Bianchi identities ensure energy-momentum conservation: ∇_μ G^μν = 0",
+            "formulation_year": 1915,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -890,24 +897,17 @@
             "status": "verified",
             "verification_year": 1915,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
-        "postulates": [
-          {
-            "postulate_id": "efe-postulate-1",
-            "statement": "The contracted Bianchi identities ensure energy-momentum conservation: ∇_μ G^μν = 0",
-            "formulation_year": 1915,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          }
-        ]
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "einstein-weyl-geometry": {
         "theory_id": "einstein-weyl-geometry",
@@ -916,53 +916,26 @@
         "summary": "Generalization of Einstein's general relativity that incorporates conformal (scale) geometry. Proposed by Hermann Weyl as an attempt to unify gravity and electromagnetism through a conformal connection that allows for scale transformations while preserving the causal structure of spacetime.",
         "category": "Relativity",
         "parent_theory_id": "general-relativity",
-        "c": 9,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "ew-assumption-1",
             "statement": "Spacetime geometry can be described using a conformal connection that allows for scale transformations",
             "rationale": "Weyl's conformal geometry extends Riemannian geometry to include scale transformations while preserving angles and causal structure",
             "c": 9,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "ew-assumption-2",
             "statement": "The electromagnetic field can be unified with gravity through the conformal connection",
             "rationale": "Weyl proposed that the electromagnetic potential could be identified with the conformal connection, providing a geometric foundation for electromagnetism",
             "c": 9,
-            "v": 10,
             "m": [
               10
-            ]
-          }
-        ],
-        "claims": [
-          {
-            "claim_id": "ew-claim-1",
-            "statement": "Einstein–Weyl geometry reduces to standard general relativity when the conformal connection vanishes",
-            "status": "theoretical",
-            "c": 9,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "ew-claim-2",
-            "statement": "The theory provides a geometric interpretation of electromagnetism through the conformal connection",
-            "status": "theoretical",
-            "c": 9,
-            "v": 10,
-            "m": [
-              10
-            ]
+            ],
+            "v": 10
           }
         ],
         "postulates": [
@@ -971,12 +944,39 @@
             "statement": "The metric tensor and conformal connection together determine the geometry of spacetime",
             "formulation_year": 1918,
             "c": 9,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "claims": [
+          {
+            "claim_id": "ew-claim-1",
+            "statement": "Einstein–Weyl geometry reduces to standard general relativity when the conformal connection vanishes",
+            "status": "theoretical",
+            "c": 9,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "ew-claim-2",
+            "statement": "The theory provides a geometric interpretation of electromagnetism through the conformal connection",
+            "status": "theoretical",
+            "c": 9,
+            "m": [
+              10
+            ],
+            "v": 10
+          }
+        ],
+        "c": 9,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "feynman-diagrams": {
         "theory_id": "feynman-diagrams",
@@ -985,21 +985,16 @@
         "summary": "Graphical representation of particle interactions in quantum field theory. Lines represent particles, vertices represent interactions, and diagrams encode the mathematical expressions for scattering amplitudes.",
         "category": "Quantum Physics",
         "parent_theory_id": "quantum-electrodynamics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "fd-assumption-1",
             "statement": "Particle interactions can be represented as diagrams with lines and vertices",
             "rationale": "Feynman diagrams provide a visual and computational tool for calculating scattering amplitudes",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1009,10 +1004,10 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "fd-claim-2",
@@ -1020,10 +1015,10 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "fd-claim-3",
@@ -1031,12 +1026,17 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "flrw-metric": {
         "theory_id": "flrw-metric",
@@ -1045,21 +1045,16 @@
         "summary": "Friedmann-Lemaître-Robertson-Walker metric describing a homogeneous, isotropic, expanding or contracting universe",
         "category": "Relativity",
         "parent_theory_id": "general-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "flrw-assumption-1",
             "statement": "The universe is homogeneous (uniform in space) and isotropic (looks the same in all directions)",
             "rationale": "This cosmological principle simplifies the description of the large-scale universe",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1069,12 +1064,17 @@
             "status": "verified",
             "verification_year": 1929,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "general-relativity": {
         "theory_id": "general-relativity",
@@ -1082,265 +1082,96 @@
         "year": 1915,
         "summary": "Theory of gravitation that describes gravity as the curvature of spacetime caused by matter and energy. Replaces Newton's law of universal gravitation and provides a geometric description of gravity.",
         "category": "Relativity",
-        "nobel_year": 1921,
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "flyby-assumption-central-acceleration",
             "statement": "The Earth flyby anomaly is caused by a small acceleration (in addition to natural gravitation), centrally directed and independent of distance, directed toward the core center of Earth",
             "rationale": "Ellman proposes that the flyby anomaly shares the same characteristics as the Pioneer anomaly - a centrally directed, distance-independent acceleration",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "flyby-assumption-shared-cause",
             "statement": "The Flyby Anomaly and Pioneer Anomaly share the same cause - a centrally directed, distance-independent acceleration",
             "rationale": "Ellman argues that both anomalies exhibit the same characteristics and thus likely have the same underlying cause",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "flyby-assumption-universal-decay",
             "statement": "A universal decay of the length dimension of all material reality causes the anomalous accelerations observed in flybys, Pioneer spacecraft, and galactic rotation curves",
             "rationale": "Ellman proposes that a universal length decay would produce centrally directed, distance-independent accelerations without conflicting with planetary ephemeris",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "gr-assumption-1",
             "statement": "Spacetime is a four-dimensional manifold that can be curved by the presence of matter and energy",
             "rationale": "This geometric view of spacetime allows gravity to be described as curvature rather than a force",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "gr-assumption-2",
             "statement": "The laws of physics are the same in all inertial reference frames (principle of relativity)",
             "rationale": "Extends special relativity to include accelerated frames and gravitational fields",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "gr-assumption-3",
             "statement": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
             "rationale": "Carried over from special relativity as a fundamental constant of nature",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "pioneer-assumption-all-forces-accounted",
             "statement": "All known forces acting on Pioneer spacecraft can be accurately modeled, including planetary perturbations, radiation pressure, interplanetary media, general relativity, and bias/drift in range and Doppler",
             "rationale": "The paper states that analyses were modeled to include all these effects, suggesting they can be accounted for",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "pioneer-assumption-precise-tracking",
             "statement": "Pioneer spacecraft are excellent for dynamical astronomy studies because their spin-stabilization and great distances permit precise acceleration estimations to the level of 10^-10 cm/s² (averaged over 5 days)",
             "rationale": "The paper states that Pioneer spacecraft require minimum Earth-attitude reorientation maneuvers, allowing precise measurement of small accelerations",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "pioneer-assumption-thermal-isotropic",
             "statement": "Thermal radiation from RTGs and spacecraft systems is approximately isotropic",
             "rationale": "The paper states that if thermal radiation were not isotropic and caused the acceleration, it would have decreased with time, but no such decrease was observed after 1980",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
-          }
-        ],
-        "claims": [
-          {
-            "claim_id": "flyby-claim-cosmic-connection",
-            "statement": "The same anomalous centrally directed, distance-independent acceleration occurs relative to Earth (flyby anomaly), relative to the Sun (Pioneer anomaly), in galactic rotation curves, and in rotating groups of galaxies",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "flyby-claim-latitude-effect",
-            "statement": "The magnitude of the anomalous acceleration component parallel to the spacecraft flight path depends on latitude, with the effective acceleration being A(λ) = A·Cos[λ], where λ is the latitude",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "flyby-claim-net-effect",
-            "statement": "Depending on the specific flight path, a spacecraft may experience overall net anomalous acceleration or deceleration, or zero net modification if the path is perfectly symmetrical relative to the equator",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "flyby-claim-no-ephemeris-conflict",
-            "statement": "A universal decay of the length dimension would not conflict with the planetary ephemeris and would not be detectable except in unusual circumstances like the Pioneer and Flyby anomalies",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "flyby-claim-speed-changes",
-            "statement": "Six different spacecraft involved in Earth flybys from December 8, 1990 to August 2, 2005 showed unaccounted for changes in spacecraft speed, both increases and decreases",
-            "status": "verified",
-            "verification_year": 2008,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "gr-claim-1",
-            "statement": "Light rays are bent by gravitational fields",
-            "status": "verified",
-            "verification_year": 1919,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "gr-claim-2",
-            "statement": "Time passes more slowly in stronger gravitational fields (gravitational time dilation)",
-            "status": "verified",
-            "verification_year": 1971,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "gr-claim-3",
-            "statement": "Gravitational waves exist and propagate at the speed of light",
-            "status": "verified",
-            "verification_year": 2016,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "gr-claim-4",
-            "statement": "Black holes can form when matter collapses beyond its Schwarzschild radius",
-            "status": "verified",
-            "verification_year": 2019,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "gr-claim-5",
-            "statement": "The universe can be described by cosmological models with a scale factor that evolves over time",
-            "status": "verified",
-            "verification_year": 1929,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "pioneer-claim-anomalous-acceleration",
-            "statement": "There is an unmodelled acceleration towards the Sun of (8.09 ± 0.20) × 10^-8 cm/s² for Pioneer 10 and (8.56 ± 0.15) × 10^-8 cm/s² for Pioneer 11, confirmed by two independent analysis codes (JPL-ODP and CHASMP)",
-            "status": "verified",
-            "verification_year": 1998,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "pioneer-claim-constant-acceleration",
-            "statement": "The magnitude of the anomalous acceleration does not vary with distance, within a sensitivity of 2 × 10^-8 cm/s² over a range of 40 to 60 AU",
-            "status": "verified",
-            "verification_year": 1998,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "pioneer-claim-not-universal",
-            "statement": "If the anomalous acceleration is gravitational in origin, it is not universal - it must affect bodies in the 1000 kg range more than planetary-sized bodies by a factor of 100 or more, which would violate the Principle of Equivalence",
-            "status": "verified",
-            "verification_year": 1998,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "pioneer-claim-ruled-out-causes",
-            "statement": "Potential causes ruled out include: gravity from Kuiper belt, gravity from galaxy, spacecraft gas leaks, errors in planetary ephemeris, errors in Earth orientation/precession/nutation, solar radiation pressure, and precessional attitude-control maneuvers",
-            "status": "verified",
-            "verification_year": 1998,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "pioneer-claim-ulysses-confirmation",
-            "statement": "Ulysses spacecraft was subjected to an unmodelled acceleration towards the Sun of (12 ± 3) × 10^-8 cm/s², consistent with the Pioneer effect",
-            "status": "verified",
-            "verification_year": 1998,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
+            ],
+            "v": 10
           }
         ],
         "postulates": [
@@ -1349,30 +1180,193 @@
             "statement": "The equivalence principle: The effects of gravity are locally indistinguishable from the effects of acceleration",
             "formulation_year": 1907,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "postulate_id": "gr-postulate-2",
             "statement": "Spacetime curvature is determined by the distribution of matter and energy through the Einstein field equations: G_μν = 8πG/c⁴ T_μν",
             "formulation_year": 1915,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "postulate_id": "gr-postulate-3",
             "statement": "Free-falling objects follow geodesics (the shortest paths) in curved spacetime",
             "formulation_year": 1915,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "flyby-claim-cosmic-connection",
+            "statement": "The same anomalous centrally directed, distance-independent acceleration occurs relative to Earth (flyby anomaly), relative to the Sun (Pioneer anomaly), in galactic rotation curves, and in rotating groups of galaxies",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "flyby-claim-latitude-effect",
+            "statement": "The magnitude of the anomalous acceleration component parallel to the spacecraft flight path depends on latitude, with the effective acceleration being A(λ) = A·Cos[λ], where λ is the latitude",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "flyby-claim-net-effect",
+            "statement": "Depending on the specific flight path, a spacecraft may experience overall net anomalous acceleration or deceleration, or zero net modification if the path is perfectly symmetrical relative to the equator",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "flyby-claim-no-ephemeris-conflict",
+            "statement": "A universal decay of the length dimension would not conflict with the planetary ephemeris and would not be detectable except in unusual circumstances like the Pioneer and Flyby anomalies",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "flyby-claim-speed-changes",
+            "statement": "Six different spacecraft involved in Earth flybys from December 8, 1990 to August 2, 2005 showed unaccounted for changes in spacecraft speed, both increases and decreases",
+            "status": "verified",
+            "verification_year": 2008,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "gr-claim-1",
+            "statement": "Light rays are bent by gravitational fields",
+            "status": "verified",
+            "verification_year": 1919,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "gr-claim-2",
+            "statement": "Time passes more slowly in stronger gravitational fields (gravitational time dilation)",
+            "status": "verified",
+            "verification_year": 1971,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "gr-claim-3",
+            "statement": "Gravitational waves exist and propagate at the speed of light",
+            "status": "verified",
+            "verification_year": 2016,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "gr-claim-4",
+            "statement": "Black holes can form when matter collapses beyond its Schwarzschild radius",
+            "status": "verified",
+            "verification_year": 2019,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "gr-claim-5",
+            "statement": "The universe can be described by cosmological models with a scale factor that evolves over time",
+            "status": "verified",
+            "verification_year": 1929,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "pioneer-claim-anomalous-acceleration",
+            "statement": "There is an unmodelled acceleration towards the Sun of (8.09 ± 0.20) × 10^-8 cm/s² for Pioneer 10 and (8.56 ± 0.15) × 10^-8 cm/s² for Pioneer 11, confirmed by two independent analysis codes (JPL-ODP and CHASMP)",
+            "status": "verified",
+            "verification_year": 1998,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "pioneer-claim-constant-acceleration",
+            "statement": "The magnitude of the anomalous acceleration does not vary with distance, within a sensitivity of 2 × 10^-8 cm/s² over a range of 40 to 60 AU",
+            "status": "verified",
+            "verification_year": 1998,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "pioneer-claim-not-universal",
+            "statement": "If the anomalous acceleration is gravitational in origin, it is not universal - it must affect bodies in the 1000 kg range more than planetary-sized bodies by a factor of 100 or more, which would violate the Principle of Equivalence",
+            "status": "verified",
+            "verification_year": 1998,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "pioneer-claim-ruled-out-causes",
+            "statement": "Potential causes ruled out include: gravity from Kuiper belt, gravity from galaxy, spacecraft gas leaks, errors in planetary ephemeris, errors in Earth orientation/precession/nutation, solar radiation pressure, and precessional attitude-control maneuvers",
+            "status": "verified",
+            "verification_year": 1998,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "pioneer-claim-ulysses-confirmation",
+            "statement": "Ulysses spacecraft was subjected to an unmodelled acceleration towards the Sun of (12 ± 3) × 10^-8 cm/s², consistent with the Pioneer effect",
+            "status": "verified",
+            "verification_year": 1998,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "predictions": [
@@ -1382,10 +1376,10 @@
             "prediction_year": 1998,
             "status": "pending",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "prediction_id": "pioneer-prediction-future-tests",
@@ -1394,10 +1388,10 @@
             "status": "partially_verified",
             "verification_method": "Further analysis was conducted, and the anomaly was largely resolved in 2012 through detailed thermal radiation analysis",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "prediction_id": "pioneer-prediction-new-physics",
@@ -1407,12 +1401,18 @@
             "verification_year": 2012,
             "verification_method": "The anomaly was largely explained by anisotropic thermal radiation from spacecraft systems, not new physics",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "nobel_year": 1921,
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "hamiltonian-formulation": {
         "theory_id": "hamiltonian-formulation",
@@ -1421,23 +1421,23 @@
         "summary": "Mechanics expressed in terms of position and momentum coordinates",
         "category": "Classical Mechanics",
         "parent_theory_id": "analytical-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "hf-assumption-1",
             "statement": "Time is absolute and global",
             "rationale": "Hamilton's equations describe evolution with respect to absolute time",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "lagrangian-formulation": {
         "theory_id": "lagrangian-formulation",
@@ -1446,23 +1446,23 @@
         "summary": "Mechanics reformulated using kinetic and potential energy in a single function",
         "category": "Classical Mechanics",
         "parent_theory_id": "analytical-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "lf-assumption-1",
             "statement": "Time is absolute and flows uniformly",
             "rationale": "The Lagrangian L(q, q̇, t) explicitly depends on time as an absolute parameter",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "lorentz-transformations": {
         "theory_id": "lorentz-transformations",
@@ -1471,21 +1471,16 @@
         "summary": "Mathematical transformations that relate space and time coordinates between different inertial reference frames",
         "category": "Relativity",
         "parent_theory_id": "special-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "lt-assumption-1",
             "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
             "rationale": "Lorentz transformations preserve the Minkowski metric and are the isometries of hyperbolic spacetime",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1495,12 +1490,17 @@
             "status": "verified",
             "verification_year": 1904,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "minkowski-spacetime": {
         "theory_id": "minkowski-spacetime",
@@ -1509,31 +1509,26 @@
         "summary": "Four-dimensional mathematical model combining three-dimensional space with time into a single continuum using hyperbolic geometry",
         "category": "Relativity",
         "parent_theory_id": "special-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "ms-assumption-1",
             "statement": "Spacetime is a four-dimensional flat manifold with zero Riemann curvature and Minkowski (hyperbolic/Lorentzian) geometry",
             "rationale": "The Minkowski metric uses hyperbolic geometry with signature (-, +, +, +), fundamentally different from Euclidean geometry. The spacetime interval is ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning the manifold has no intrinsic curvature - it is globally flat. The hyperbolic structure is a property of the entire spacetime, not just the time dimension, arising from the mixed signature that enables light cones and causality.",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "ms-assumption-2",
             "statement": "Time and space are unified into a single four-dimensional continuum",
             "rationale": "Time is treated as a dimension on equal footing with spatial dimensions, but with opposite sign in the metric",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1543,12 +1538,17 @@
             "status": "verified",
             "verification_year": 1908,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "newtonian-mechanics": {
         "theory_id": "newtonian-mechanics",
@@ -1557,31 +1557,48 @@
         "summary": "Mechanics based on Newton's three laws of motion and universal gravitation",
         "category": "Classical Mechanics",
         "parent_theory_id": "classical-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "nm-assumption-1",
             "statement": "Time is absolute and flows uniformly for all observers",
             "rationale": "Fundamental to Newtonian mechanics - there is a universal time coordinate",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "nm-assumption-2",
             "statement": "Space is Euclidean and absolute",
             "rationale": "Three-dimensional space follows Euclidean geometry and is independent of matter",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "nm-postulate-1",
+            "statement": "Newton's Laws of Motion govern the motion of all objects",
+            "formulation_year": 1687,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "postulate_id": "nm-postulate-2",
+            "statement": "Universal Gravitation: Every particle attracts every other particle with a force proportional to their masses and inversely proportional to the square of the distance between them",
+            "formulation_year": 1687,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1591,34 +1608,17 @@
             "status": "verified",
             "verification_year": 1687,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
-        "postulates": [
-          {
-            "postulate_id": "nm-postulate-1",
-            "statement": "Newton's Laws of Motion govern the motion of all objects",
-            "formulation_year": 1687,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "postulate_id": "nm-postulate-2",
-            "statement": "Universal Gravitation: Every particle attracts every other particle with a force proportional to their masses and inversely proportional to the square of the distance between them",
-            "formulation_year": 1687,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          }
-        ]
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "newtons-laws-of-motion": {
         "theory_id": "newtons-laws-of-motion",
@@ -1627,23 +1627,23 @@
         "summary": "Three fundamental laws describing the relationship between motion and forces",
         "category": "Classical Mechanics",
         "parent_theory_id": "newtonian-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "nlm-assumption-1",
             "statement": "Time is absolute and global - all observers measure the same time",
             "rationale": "Essential for defining velocity and acceleration consistently across all reference frames",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "noethers-theorem": {
         "theory_id": "noethers-theorem",
@@ -1652,21 +1652,16 @@
         "summary": "Fundamental theorem connecting symmetries to conservation laws. States that every differentiable symmetry of the action of a physical system corresponds to a conservation law.",
         "category": "Classical Mechanics",
         "parent_theory_id": "newtonian-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "nt-assumption-1",
             "statement": "Physical systems can be described by an action principle",
             "rationale": "The theorem applies to systems with well-defined Lagrangians and actions",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1676,10 +1671,10 @@
             "status": "verified",
             "verification_year": 1918,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "nt-claim-2",
@@ -1687,12 +1682,17 @@
             "status": "verified",
             "verification_year": 1918,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "path-integral-formulation": {
         "theory_id": "path-integral-formulation",
@@ -1701,31 +1701,26 @@
         "summary": "Alternative formulation of quantum mechanics that describes the probability amplitude for a particle to travel between two points as a sum over all possible paths. Each path contributes with a phase proportional to the action along that path. Equivalent to the Schrödinger equation but provides intuitive insights into quantum behavior.",
         "category": "Quantum Physics",
         "parent_theory_id": "quantum-field-theory",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "pif-assumption-1",
             "statement": "All possible paths between two points contribute to the quantum amplitude",
             "rationale": "The path integral sums over all possible paths, weighted by the action, to compute quantum amplitudes",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "pif-assumption-2",
             "statement": "Time is absolute in the path integral formulation (though paths can vary in time)",
             "rationale": "The path integral integrates over paths in spacetime, treating time as a parameter",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1735,10 +1730,10 @@
             "status": "verified",
             "verification_year": 1948,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "pif-claim-2",
@@ -1746,12 +1741,17 @@
             "status": "verified",
             "verification_year": 1948,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "quantum-computing": {
         "theory_id": "quantum-computing",
@@ -1760,21 +1760,16 @@
         "summary": "Computing paradigm that uses quantum mechanical phenomena like superposition and entanglement to perform computations. Feynman proposed using quantum systems to simulate quantum physics.",
         "category": "Quantum Physics",
         "parent_theory_id": "quantum-field-theory",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "qc-assumption-1",
             "statement": "Quantum systems can be used to perform computations more efficiently than classical computers for certain problems",
             "rationale": "Quantum superposition and entanglement provide computational advantages for specific algorithms",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1784,12 +1779,17 @@
             "status": "verified",
             "verification_year": 2019,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "quantum-electrodynamics": {
         "theory_id": "quantum-electrodynamics",
@@ -1798,52 +1798,78 @@
         "summary": "Quantum field theory of electromagnetism describing interactions of light and matter. The most precisely tested theory in physics, with predictions verified to extraordinary accuracy.",
         "category": "Quantum Physics",
         "parent_theory_id": "quantum-field-theory",
-        "nobel_year": 1965,
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "qed-assumption-1",
             "statement": "Electromagnetic field is quantized and interacts with charged particles",
             "rationale": "QED treats the electromagnetic field as a quantum field with photons as quanta",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "qed-assumption-2",
             "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
             "rationale": "QED operates in flat Minkowski spacetime consistent with special relativity",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "qed-assumption-3",
             "statement": "The interaction between charges can be modified at short distances to make divergent integrals finite",
             "rationale": "This modification allows systematic removal of infinities through renormalization",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "qed-assumption-4",
             "statement": "Observable phenomena are insensitive to the details of the short-distance modification (except at extreme energies)",
             "rationale": "This allows taking the limit as the cut-off goes to zero for observable processes",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "qed-postulate-1",
+            "statement": "The interaction between charged particles and photons is described by the QED Lagrangian",
+            "formulation_year": 1948,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "postulate_id": "qed-postulate-2",
+            "statement": "Electrodynamics can be described as a direct interaction at a distance (albeit delayed in time) between charges, rather than through field oscillators",
+            "formulation_year": 1949,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "postulate_id": "qed-postulate-3",
+            "statement": "The interaction viewpoint is best for virtual quanta, while the field viewpoint is best for real quanta",
+            "formulation_year": 1949,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1853,10 +1879,10 @@
             "status": "verified",
             "verification_year": 1948,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "qed-claim-2",
@@ -1864,10 +1890,10 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "qed-claim-3",
@@ -1875,10 +1901,10 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "qed-claim-4",
@@ -1886,10 +1912,10 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "qed-claim-5",
@@ -1897,44 +1923,18 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
-        "postulates": [
-          {
-            "postulate_id": "qed-postulate-1",
-            "statement": "The interaction between charged particles and photons is described by the QED Lagrangian",
-            "formulation_year": 1948,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "postulate_id": "qed-postulate-2",
-            "statement": "Electrodynamics can be described as a direct interaction at a distance (albeit delayed in time) between charges, rather than through field oscillators",
-            "formulation_year": 1949,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "postulate_id": "qed-postulate-3",
-            "statement": "The interaction viewpoint is best for virtual quanta, while the field viewpoint is best for real quanta",
-            "formulation_year": 1949,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          }
-        ]
+        "nobel_year": 1965,
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "quantum-field-theory": {
         "theory_id": "quantum-field-theory",
@@ -1942,31 +1942,38 @@
         "year": 1927,
         "summary": "Theoretical framework combining quantum mechanics with special relativity to describe how fields and particles interact. Provides the foundation for understanding fundamental forces and particles.",
         "category": "Quantum Physics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "qft-assumption-1",
             "statement": "Fields are the fundamental entities, and particles are excitations of these fields",
             "rationale": "Quantum field theory treats particles as quantized excitations of underlying fields rather than point particles",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "qft-assumption-2",
             "statement": "Spacetime uses Minkowski (hyperbolic) geometry from special relativity",
             "rationale": "QFT operates in flat Minkowski spacetime, requiring the hyperbolic geometry structure",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "qft-postulate-1",
+            "statement": "Fields obey quantum mechanical principles and special relativity",
+            "formulation_year": 1927,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -1976,24 +1983,17 @@
             "status": "verified",
             "verification_year": 1948,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
-        "postulates": [
-          {
-            "postulate_id": "qft-postulate-1",
-            "statement": "Fields obey quantum mechanical principles and special relativity",
-            "formulation_year": 1927,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          }
-        ]
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "relational-quantum-mechanics": {
         "theory_id": "relational-quantum-mechanics",
@@ -2002,133 +2002,46 @@
         "summary": "Interpretation of quantum mechanics that states quantum states are relative to observers, not absolute. Proposes that there is no absolute state of a system, only states relative to other systems. Resolves the measurement problem by eliminating the need for wave function collapse.",
         "category": "Quantum Physics",
         "parent_theory_id": "quantum-field-theory",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "rqm-assumption-1",
             "statement": "Quantum states are relative to observers, not absolute",
             "rationale": "There is no absolute state of a system; states only exist relative to other systems (observers)",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "rqm-assumption-2",
             "statement": "All systems are equivalent as observers",
             "rationale": "Any physical system can serve as an observer; there is no fundamental distinction between observer and observed",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "rqm-hypothesis-1-all-systems-equivalent",
             "statement": "All systems are equivalent: nothing distinguishes a priori macroscopic systems from quantum systems. If the observer O can give a quantum description of the system S, then it is also legitimate for an observer P to give a quantum description of the system formed by the observer O.",
             "rationale": "This hypothesis rejects any fundamental distinction between system/observer, quantum/classical system, or physical system/consciousness. It allows any physical system to serve as an observer.",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "rqm-hypothesis-2-completeness",
             "statement": "Quantum mechanics provides a complete and self-consistent scheme of description of the physical world, appropriate to our present level of experimental observations.",
             "rationale": "This hypothesis asserts that quantum mechanics is complete and does not require hidden variables or additional underlying theories.",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
-          }
-        ],
-        "claims": [
-          {
-            "claim_id": "rqm-claim-1",
-            "statement": "Relational Quantum Mechanics resolves the measurement problem without requiring wave function collapse",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "rqm-claim-2-observer-dependence",
-            "statement": "In quantum mechanics, different observers may give different accounts of the same sequence of events. Quantum mechanical descriptions are relative to a particular observer.",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "rqm-claim-3-information-theory",
-            "statement": "Quantum mechanics is a theory about the physical description of physical systems relative to other systems, and this is a complete description of the world. Physics is the theory of the relative information that systems have about each other.",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "rqm-claim-4-no-absolute-state",
-            "statement": "The notion of observer-independent state of a system, or observer-independent values of physical quantities, is inadequate to describe the physical world beyond the ħ → 0 limit. There is no absolute state of a system, only states relative to other systems.",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "rqm-claim-5-planck-constant",
-            "statement": "Postulate 1 (limited information) already adds Planck's constant to classical physics. Planck's constant can be viewed as the transformation coefficient between physical units (position × momentum) and information-theoretical units (bits).",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "rqm-claim-6-formalism-reconstruction",
-            "statement": "The full formalism of quantum mechanics can be (almost) reconstructed from Postulates 1 and 2. The physical content of the general formalism of quantum mechanics is (almost) nothing but a sequence of consequences of two physical facts expressed in postulates 1 and 2.",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "rqm-claim-7-relational-values",
-            "statement": "In quantum mechanics, 'state' as well as 'value of a variable' or 'outcome of a measurement' are relational notions in the same sense in which velocity is relational in classical mechanics. All physical variables are relational.",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "rqm-claim-8-measurement-problem",
-            "statement": "The measurement problem (the unease with quantum mechanics) derives from the use of an incorrect notion: the notion of observer-independent state of a system, or observer-independent values of physical quantities. By abandoning such a notion, quantum mechanics makes much more sense.",
-            "status": "theoretical",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
+            ],
+            "v": 10
           }
         ],
         "postulates": [
@@ -2137,32 +2050,119 @@
             "statement": "There is a maximum amount of relevant information that can be extracted from a system.",
             "formulation_year": 1996,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "postulate_id": "rqm-postulate-2-unlimited-information",
             "statement": "It is always possible to acquire new information about a system.",
             "formulation_year": 1996,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "postulate_id": "rqm-postulate-3-superposition",
             "statement": "If c and b define two complete families of questions, then the unitary matrix U_cb in p(Q^(i)_c, Q^(j)_b) = |U^(ij)_cb|² can be chosen in such a way that for every c, b and d, we have U_cd = U_cb U_bd and the effect of composite questions is given by eq.(17).",
             "formulation_year": 1996,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "claims": [
+          {
+            "claim_id": "rqm-claim-1",
+            "statement": "Relational Quantum Mechanics resolves the measurement problem without requiring wave function collapse",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "rqm-claim-2-observer-dependence",
+            "statement": "In quantum mechanics, different observers may give different accounts of the same sequence of events. Quantum mechanical descriptions are relative to a particular observer.",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "rqm-claim-3-information-theory",
+            "statement": "Quantum mechanics is a theory about the physical description of physical systems relative to other systems, and this is a complete description of the world. Physics is the theory of the relative information that systems have about each other.",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "rqm-claim-4-no-absolute-state",
+            "statement": "The notion of observer-independent state of a system, or observer-independent values of physical quantities, is inadequate to describe the physical world beyond the ħ → 0 limit. There is no absolute state of a system, only states relative to other systems.",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "rqm-claim-5-planck-constant",
+            "statement": "Postulate 1 (limited information) already adds Planck's constant to classical physics. Planck's constant can be viewed as the transformation coefficient between physical units (position × momentum) and information-theoretical units (bits).",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "rqm-claim-6-formalism-reconstruction",
+            "statement": "The full formalism of quantum mechanics can be (almost) reconstructed from Postulates 1 and 2. The physical content of the general formalism of quantum mechanics is (almost) nothing but a sequence of consequences of two physical facts expressed in postulates 1 and 2.",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "rqm-claim-7-relational-values",
+            "statement": "In quantum mechanics, 'state' as well as 'value of a variable' or 'outcome of a measurement' are relational notions in the same sense in which velocity is relational in classical mechanics. All physical variables are relational.",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "rqm-claim-8-measurement-problem",
+            "statement": "The measurement problem (the unease with quantum mechanics) derives from the use of an incorrect notion: the notion of observer-independent state of a system, or observer-independent values of physical quantities. By abandoning such a notion, quantum mechanics makes much more sense.",
+            "status": "theoretical",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          }
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "relativistic-dynamics": {
         "theory_id": "relativistic-dynamics",
@@ -2171,23 +2171,23 @@
         "summary": "Study of motion under the influence of forces, incorporating relativistic corrections",
         "category": "Relativity",
         "parent_theory_id": "relativistic-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "rd-assumption-1",
             "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
             "rationale": "Relativistic dynamics requires the hyperbolic metric structure of Minkowski spacetime",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "relativistic-kinematics": {
         "theory_id": "relativistic-kinematics",
@@ -2196,23 +2196,23 @@
         "summary": "Study of motion in the absence of forces, accounting for relativistic effects",
         "category": "Relativity",
         "parent_theory_id": "relativistic-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "rk-assumption-1",
             "statement": "Spacetime follows Minkowski (hyperbolic) geometry",
             "rationale": "Relativistic kinematics is based on the hyperbolic geometry of Minkowski spacetime",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "relativistic-mechanics": {
         "theory_id": "relativistic-mechanics",
@@ -2222,10 +2222,10 @@
         "category": "Relativity",
         "parent_theory_id": "special-relativity",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "renormalization": {
         "theory_id": "renormalization",
@@ -2234,21 +2234,16 @@
         "summary": "Mathematical procedure to remove infinities from quantum field theory calculations by redefining physical parameters. Essential for making QED and other quantum field theories produce finite, meaningful predictions.",
         "category": "Quantum Physics",
         "parent_theory_id": "quantum-field-theory",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "ren-assumption-1",
             "statement": "Divergent integrals in quantum field theory can be systematically removed",
             "rationale": "Renormalization provides a procedure to absorb infinities into redefinition of physical parameters",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -2258,10 +2253,10 @@
             "status": "verified",
             "verification_year": 1947,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "ren-claim-2",
@@ -2269,10 +2264,10 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "ren-claim-3",
@@ -2280,10 +2275,10 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "ren-claim-4",
@@ -2291,12 +2286,17 @@
             "status": "verified",
             "verification_year": 1949,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "ricci-curvature": {
         "theory_id": "ricci-curvature",
@@ -2305,23 +2305,23 @@
         "summary": "Mathematical tensor that measures the degree to which the geometry of a space differs from that of flat Euclidean space",
         "category": "Relativity",
         "parent_theory_id": "general-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "claims": [
           {
             "claim_id": "ricci-claim-1",
             "statement": "The Ricci tensor is a contraction of the Riemann curvature tensor",
             "status": "theoretical",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "riemann-curvature-tensor": {
         "theory_id": "riemann-curvature-tensor",
@@ -2330,21 +2330,16 @@
         "summary": "Fundamental tensor in differential geometry that completely characterizes the intrinsic curvature of a manifold",
         "category": "Relativity",
         "parent_theory_id": "general-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "riemann-assumption-1",
             "statement": "Space can be described as a differentiable manifold with a metric tensor",
             "rationale": "This allows the application of differential geometry to describe curved spaces",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -2353,12 +2348,17 @@
             "statement": "The Riemann tensor measures the failure of parallel transport to be path-independent",
             "status": "theoretical",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "riemannian-geometry": {
         "theory_id": "riemannian-geometry",
@@ -2366,123 +2366,46 @@
         "year": 1854,
         "summary": "Riemann's foundational work introducing n-dimensional manifolds, metric tensors, and intrinsic curvature.\nThis paper established that space is a particular case of a triply extended magnitude, that geometry\ncannot be derived from general notions of magnitude alone, and that the properties distinguishing\nspace must be deduced from experience. It introduced the concept of manifolds, measure-relations,\nand curvature, laying the groundwork for differential geometry and later general relativity.\n",
         "category": "Relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "riemann-assumption-experience",
             "statement": "The properties which distinguish space from other conceivable triply extended magnitudes are only to be deduced from experience",
             "rationale": "Riemann argues that geometry cannot be derived from general notions of magnitude alone, and that the measure-relations of space must be determined from empirical facts, which are hypotheses of empirical certainty",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "riemann-assumption-line-length",
             "statement": "The length of lines is independent of their position, and consequently every line is measurable by means of every other",
             "rationale": "This is the hypothesis that first presents itself for measure-determinations, allowing the establishment of a mathematical expression for the length of a line",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "riemann-assumption-manifold",
             "statement": "Space can be described as a multiply extended magnitude (manifold) of n dimensions",
             "rationale": "Riemann constructs the notion of a multiply extended magnitude from general notions of magnitude, establishing that space is a particular case of a triply extended magnitude",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "riemann-assumption-quadric",
             "statement": "The line-element is expressible as the square root of a quadric differential expression (flatness in the smallest parts)",
             "rationale": "Riemann restricts himself to manifoldnesses where the line element is expressed as the square root of a quadric differential, which includes the simplest cases and allows geometric representation",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
-          }
-        ],
-        "claims": [
-          {
-            "claim_id": "riemann-claim-constant-curvature",
-            "statement": "Manifoldnesses with constant curvature allow figures to be moved without stretching, and the measure-relations depend only on the value of the curvature",
-            "status": "verified",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "riemann-claim-curvature-measure",
-            "statement": "The curvature at a point in a given surface-direction measures the deviation of the manifoldness from flatness at that point",
-            "status": "verified",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "riemann-claim-flat-manifold",
-            "statement": "Manifoldnesses in which the square of the line-element may be expressed as the sum of the squares of complete differentials are called flat (Euclidean space is a special case)",
-            "status": "verified",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "riemann-claim-geometry-not-deduced",
-            "statement": "The propositions of geometry cannot be derived from general notions of magnitude, but must be deduced from experience",
-            "status": "verified",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "riemann-claim-space-particular",
-            "statement": "Space is only a particular case of a triply extended magnitude, and a multiply extended magnitude is capable of different measure-relations",
-            "status": "verified",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "riemann-claim-space-unbounded",
-            "statement": "Space is an unbounded three-fold manifoldness, but its infinite extent does not follow from this; if space has constant positive curvature, it must necessarily be finite",
-            "status": "verified",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "claim_id": "riemann-claim-triangle-sum",
-            "statement": "If the curvature at each point is zero in three surface-directions, the sum of the angles of a triangle is always equal to two right angles (Euclidean geometry)",
-            "status": "verified",
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
+            ],
+            "v": 10
           }
         ],
         "postulates": [
@@ -2491,40 +2414,112 @@
             "statement": "The measure-relations of a manifoldness are determined by the curvature at each point in ½n(n-1) surface-directions",
             "formulation_year": 1854,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "postulate_id": "riemann-postulate-line-element",
             "statement": "The linear element ds is the square root of an always positive integral homogeneous function of the second order of the quantities dx, in which the coefficients are continuous functions of the quantities x",
             "formulation_year": 1854,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "postulate_id": "riemann-postulate-manifold-construction",
             "statement": "A multiply extended magnitude is constructed by composing a variability of m+1 dimensions out of a variability of n dimensions and a variability of one dimension",
             "formulation_year": 1854,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "postulate_id": "riemann-postulate-position-reduction",
             "statement": "The determination of position in an n-ply extended manifoldness is reduced to n determinations of quantity",
             "formulation_year": 1854,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "riemann-claim-constant-curvature",
+            "statement": "Manifoldnesses with constant curvature allow figures to be moved without stretching, and the measure-relations depend only on the value of the curvature",
+            "status": "verified",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "riemann-claim-curvature-measure",
+            "statement": "The curvature at a point in a given surface-direction measures the deviation of the manifoldness from flatness at that point",
+            "status": "verified",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "riemann-claim-flat-manifold",
+            "statement": "Manifoldnesses in which the square of the line-element may be expressed as the sum of the squares of complete differentials are called flat (Euclidean space is a special case)",
+            "status": "verified",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "riemann-claim-geometry-not-deduced",
+            "statement": "The propositions of geometry cannot be derived from general notions of magnitude, but must be deduced from experience",
+            "status": "verified",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "riemann-claim-space-particular",
+            "statement": "Space is only a particular case of a triply extended magnitude, and a multiply extended magnitude is capable of different measure-relations",
+            "status": "verified",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "riemann-claim-space-unbounded",
+            "statement": "Space is an unbounded three-fold manifoldness, but its infinite extent does not follow from this; if space has constant positive curvature, it must necessarily be finite",
+            "status": "verified",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "claim_id": "riemann-claim-triangle-sum",
+            "statement": "If the curvature at each point is zero in three surface-directions, the sum of the angles of a triangle is always equal to two right angles (Euclidean geometry)",
+            "status": "verified",
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "predictions": [
@@ -2536,10 +2531,10 @@
             "verification_year": 1919,
             "verification_method": "Eddington expedition confirmed that space is approximately flat on large scales, though general relativity later showed local curvature near massive objects",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "prediction_id": "riemann-prediction-discrete-manifold",
@@ -2549,10 +2544,10 @@
             "verification_year": 1915,
             "verification_method": "Einstein's general relativity showed that metric relations come from the stress-energy tensor (binding forces), partially validating the second option",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "prediction_id": "riemann-prediction-infinitesimal-geometry",
@@ -2562,12 +2557,17 @@
             "verification_year": 1915,
             "verification_method": "Einstein showed that spacetime curvature explains gravitational phenomena, validating Riemann's insight that geometry in the small may differ from Euclidean geometry",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "special-relativity": {
         "theory_id": "special-relativity",
@@ -2575,52 +2575,68 @@
         "year": 1905,
         "summary": "Theory of physics that describes the relationship between space and time in inertial reference frames. Based on the constancy of the speed of light and the principle of relativity.",
         "category": "Relativity",
-        "nobel_year": 1921,
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "sr-assumption-1",
             "statement": "Spacetime is flat with zero Riemann curvature and uses Minkowski geometry (hyperbolic/Lorentzian geometry) with metric signature (-, +, +, +)",
             "rationale": "Special relativity assumes flat spacetime with hyperbolic geometry, where the spacetime interval ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning spacetime has no intrinsic curvature. The hyperbolic nature is a property of the entire 4D spacetime manifold (not just the time dimension), arising from the mixed signature that distinguishes time from space. This is fundamentally different from Euclidean geometry used in classical mechanics.",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "sr-assumption-2",
             "statement": "The laws of physics are the same in all inertial reference frames (principle of relativity)",
             "rationale": "No preferred inertial frame exists; physics is the same for all observers moving at constant velocity relative to each other",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "sr-assumption-3",
             "statement": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
             "rationale": "This fundamental postulate leads to time dilation, length contraction, and the relativity of simultaneity",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "sr-assumption-4",
             "statement": "Time is relative - there is no absolute, global time. Simultaneity is relative to the observer's reference frame",
             "rationale": "In contrast to classical mechanics, special relativity shows that time flows differently for observers in relative motion",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "sr-postulate-1",
+            "statement": "The principle of relativity: The laws of physics are identical in all inertial frames of reference",
+            "formulation_year": 1905,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
+          },
+          {
+            "postulate_id": "sr-postulate-2",
+            "statement": "The constancy of the speed of light: The speed of light in vacuum is the same for all observers, regardless of the motion of the light source or observer",
+            "formulation_year": 1905,
+            "c": 1,
+            "m": [
+              10
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -2630,10 +2646,10 @@
             "status": "verified",
             "verification_year": 1905,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "sr-claim-3",
@@ -2641,10 +2657,10 @@
             "status": "verified",
             "verification_year": 1905,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "sr-claim-4",
@@ -2652,32 +2668,10 @@
             "status": "verified",
             "verification_year": 1905,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
-          }
-        ],
-        "postulates": [
-          {
-            "postulate_id": "sr-postulate-1",
-            "statement": "The principle of relativity: The laws of physics are identical in all inertial frames of reference",
-            "formulation_year": 1905,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
-          },
-          {
-            "postulate_id": "sr-postulate-2",
-            "statement": "The constancy of the speed of light: The speed of light in vacuum is the same for all observers, regardless of the motion of the light source or observer",
-            "formulation_year": 1905,
-            "c": 1,
-            "v": 10,
-            "m": [
-              10
-            ]
+            ],
+            "v": 10
           }
         ],
         "predictions": [
@@ -2689,12 +2683,18 @@
             "verification_year": 1971,
             "verification_method": "Hafele-Keating experiment with atomic clocks on airplanes",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "nobel_year": 1921,
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "standard-cosmological-model": {
         "theory_id": "standard-cosmological-model",
@@ -2702,33 +2702,33 @@
         "year": 1998,
         "summary": "The standard model of cosmology based on dark energy (Lambda) and cold dark matter (CDM).\nAssumes redshift is primarily due to cosmic expansion and Hubble flow. Faces tensions\nincluding H0 tension and unexpected mature galaxies at high redshifts observed by JWST.\n",
         "category": "Relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "redshift-assumption-purely-velocity-based",
             "statement": "Redshift corresponds primarily to the linear velocity of objects relative to Earth due to cosmic expansion",
             "rationale": "Standard cosmological model interprets redshift as Doppler effect from Hubble flow and cosmic expansion",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "assumption_id": "redshift-assumption-rotational-velocity-negligible",
             "statement": "The rotational velocity of the Milky Way galaxy relative to observed galaxies has a negligible effect on redshift measurements",
             "rationale": "Standard redshift models assume rotational velocity is far smaller than linear velocity and can be ignored when measuring cosmological redshift",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "tired-light-theory": {
         "theory_id": "tired-light-theory",
@@ -2736,11 +2736,6 @@
         "year": 1929,
         "summary": "Theory proposed by Fritz Zwicky that photons lose energy as they travel through space,\ncausing redshift without requiring expansion. In extreme form, argues the Big Bang is\nan artifact and the Universe is in steady state. The theory has lacked direct empirical\nevidence until potentially this observation.\n",
         "category": "Relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "claims": [
           {
             "claim_id": "shamir-claim-consistent-across-datasets",
@@ -2748,10 +2743,10 @@
             "status": "verified",
             "verification_year": 2024,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "shamir-claim-delta-z-increases-redshift",
@@ -2759,10 +2754,10 @@
             "status": "verified",
             "verification_year": 2024,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "shamir-claim-flux-differences",
@@ -2770,10 +2765,10 @@
             "status": "verified",
             "verification_year": 2024,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "shamir-claim-h0-tension-explanation",
@@ -2781,10 +2776,10 @@
             "status": "verified",
             "verification_year": 2023,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "claim_id": "shamir-claim-redshift-bias-rotational",
@@ -2792,10 +2787,10 @@
             "status": "verified",
             "verification_year": 2024,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "predictions": [
@@ -2805,10 +2800,10 @@
             "prediction_year": 2024,
             "status": "pending",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "prediction_id": "shamir-prediction-jwst-asymmetry-explanation",
@@ -2816,12 +2811,17 @@
             "prediction_year": 2024,
             "status": "pending",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "twin-paradox": {
         "theory_id": "twin-paradox",
@@ -2830,21 +2830,16 @@
         "summary": "Thought experiment demonstrating time dilation where a traveling twin ages slower than a stationary twin",
         "category": "Relativity",
         "parent_theory_id": "special-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "tp-assumption-1",
             "statement": "Time is relative and spacetime uses Minkowski (hyperbolic) geometry",
             "rationale": "The twin paradox demonstrates the non-Euclidean nature of time in Minkowski spacetime",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -2854,12 +2849,17 @@
             "status": "verified",
             "verification_year": 1971,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "universal-gravitation": {
         "theory_id": "universal-gravitation",
@@ -2868,21 +2868,16 @@
         "summary": "Every particle attracts every other particle with a force proportional to their masses",
         "category": "Classical Mechanics",
         "parent_theory_id": "newtonian-mechanics",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "assumptions": [
           {
             "assumption_id": "ug-assumption-1",
             "statement": "Gravitational force acts instantaneously across any distance",
             "rationale": "Assumes action at a distance without propagation delay, in contrast to general relativity where gravity propagates at the speed of light",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
         ],
         "claims": [
@@ -2892,12 +2887,17 @@
             "status": "verified",
             "verification_year": 1687,
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       }
     },
     "paper": {
@@ -2907,10 +2907,10 @@
         "year": 1998,
         "link": "https://arxiv.org/abs/gr-qc/9808081",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "bianchi-identity": {
         "paper_id": "bianchi-identity",
@@ -2918,10 +2918,10 @@
         "year": 1915,
         "link": "https://en.wikipedia.org/wiki/Bianchi_identity",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "einstein-1905-relativity": {
         "paper_id": "einstein-1905-relativity",
@@ -2929,10 +2929,10 @@
         "year": 1905,
         "link": "https://en.wikipedia.org/wiki/Annus_Mirabilis_papers",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "einstein-1915-field-equations": {
         "paper_id": "einstein-1915-field-equations",
@@ -2940,10 +2940,10 @@
         "year": 1915,
         "link": "https://en.wikipedia.org/wiki/Einstein_field_equations",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "einstein-1915-foundation": {
         "paper_id": "einstein-1915-foundation",
@@ -2951,10 +2951,10 @@
         "year": 1915,
         "link": "https://en.wikipedia.org/wiki/General_relativity",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "ellman-1998-flybys": {
         "paper_id": "ellman-1998-flybys",
@@ -2962,10 +2962,10 @@
         "year": 1998,
         "link": "http://www.The-Origin.org",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "feynman-1948-path-integral": {
         "paper_id": "feynman-1948-path-integral",
@@ -2973,10 +2973,10 @@
         "year": 1948,
         "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.74.939",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "feynman-1949-positron": {
         "paper_id": "feynman-1949-positron",
@@ -2984,10 +2984,10 @@
         "year": 1949,
         "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.749",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "feynman-1949-space-time": {
         "paper_id": "feynman-1949-space-time",
@@ -2995,10 +2995,10 @@
         "year": 1949,
         "link": "https://journals.aps.org/pr/abstract/10.1103/PhysRev.76.769",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "feynman-1982-simulating": {
         "paper_id": "feynman-1982-simulating",
@@ -3006,10 +3006,10 @@
         "year": 1982,
         "link": "https://link.springer.com/article/10.1007/BF02650179",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "flrw-metric": {
         "paper_id": "flrw-metric",
@@ -3017,10 +3017,10 @@
         "year": 1935,
         "link": "https://en.wikipedia.org/wiki/Friedmann%E2%80%93Lema%C3%AEtre%E2%80%93Robertson%E2%80%93Walker_metric",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "newton-principia": {
         "paper_id": "newton-principia",
@@ -3028,10 +3028,10 @@
         "year": 1687,
         "link": "https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "noether-invariante": {
         "paper_id": "noether-invariante",
@@ -3039,10 +3039,10 @@
         "year": 1918,
         "link": "https://en.wikipedia.org/wiki/Noether%27s_theorem",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "ricci-1904-absolute-calculus": {
         "paper_id": "ricci-1904-absolute-calculus",
@@ -3050,10 +3050,10 @@
         "year": 1904,
         "link": "https://en.wikipedia.org/wiki/Ricci_curvature",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "riemann-1854-geometry": {
         "paper_id": "riemann-1854-geometry",
@@ -3061,10 +3061,10 @@
         "year": 1854,
         "link": "https://en.wikipedia.org/wiki/Riemann_curvature_tensor",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "rovelli-1996-relational": {
         "paper_id": "rovelli-1996-relational",
@@ -3072,10 +3072,10 @@
         "year": 1996,
         "link": "https://arxiv.org/abs/quant-ph/9609002",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "shamir-2024-redshift": {
         "paper_id": "shamir-2024-redshift",
@@ -3083,10 +3083,10 @@
         "year": 2024,
         "link": "https://arxiv.org/abs/2407.20487",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       }
     },
     "tag": {
@@ -3125,37 +3125,37 @@
         "name": "Cosmic Blueshift Anomaly",
         "description": "While most distant galaxies show redshift due to cosmic expansion (Hubble's law),\nsome observations have reported unexpected blueshifts or anomalous redshift patterns\nthat cannot be explained by simple Hubble flow. These include local blueshifts in\ncertain galaxy clusters, anomalous redshift quantization, and discrepancies between\npredicted and observed redshifts. This challenges the assumption of uniform cosmic\nexpansion and the FLRW cosmological model.\n",
         "theory_id": "flrw-metric",
-        "discovery_year": 1976,
-        "explanation": "Most blueshift observations are explained by local peculiar velocities (galaxies moving\nwithin clusters) rather than cosmic expansion. However, some anomalous redshift patterns\nremain unexplained and may indicate large-scale structure effects, modified gravity,\nor systematic measurement errors. The redshift quantization claims remain controversial\nand unverified by mainstream cosmology.\n",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "violated_assumptions": [
           {
             "violated_assumption_id": "blueshift-violated-assumption-1",
             "assumption_id": "flrw-assumption-1",
             "violation_description": "The FLRW metric assumes uniform cosmic expansion, but blueshift observations and anomalous redshift patterns suggest possible local deviations, large-scale structure effects, or violations of the cosmological principle",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "discovery_year": 1976,
+        "explanation": "Most blueshift observations are explained by local peculiar velocities (galaxies moving\nwithin clusters) rather than cosmic expansion. However, some anomalous redshift patterns\nremain unexplained and may indicate large-scale structure effects, modified gravity,\nor systematic measurement errors. The redshift quantization claims remain controversial\nand unverified by mainstream cosmology.\n",
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "earth-flyby-anomaly": {
         "anomaly_id": "earth-flyby-anomaly",
         "name": "Earth Flyby Anomaly",
-        "theory_id": "general-relativity",
         "description": "Unaccounted for changes in spacecraft speed, both increases and decreases, observed during\nEarth flybys of six different spacecraft from December 8, 1990 to August 2, 2005. The anomaly\nappears as a small, centrally directed, distance-independent acceleration toward Earth, similar\nto the Pioneer anomaly. All potential sources of systematic error have been modeled and cannot\naccount for the observed anomalies.\n",
+        "theory_id": "general-relativity",
         "discovery_year": 2008,
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "h0-tension": {
         "anomaly_id": "h0-tension",
@@ -3164,34 +3164,34 @@
         "theory_id": "standard-cosmological-model",
         "discovery_year": 2017,
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "hubble-tension": {
         "anomaly_id": "hubble-tension",
         "name": "Hubble Tension",
         "description": "A significant discrepancy between measurements of the Hubble constant (H₀) from early\nuniverse observations (cosmic microwave background, CMB) and late universe observations\n(Type Ia supernovae, Cepheid variables). Early universe measurements suggest H₀ ≈ 67 km/s/Mpc,\nwhile late universe measurements suggest H₀ ≈ 73 km/s/Mpc. This ~5-10% tension challenges\nthe standard ΛCDM cosmological model and suggests possible new physics or systematic errors.\n",
         "theory_id": "flrw-metric",
-        "discovery_year": 2016,
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "violated_assumptions": [
           {
             "violated_assumption_id": "hubble-tension-violated-assumption-1",
             "assumption_id": "flrw-assumption-1",
             "violation_description": "The FLRW metric assumes a homogeneous and isotropic universe, but the Hubble tension suggests possible spatial variations, evolution of dark energy, or new physics that breaks the cosmological principle",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "discovery_year": 2016,
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "mature-galaxies-high-redshift": {
         "anomaly_id": "mature-galaxies-high-redshift",
@@ -3200,148 +3200,145 @@
         "theory_id": "standard-cosmological-model",
         "discovery_year": 2023,
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "mercury-perihelion-precession": {
         "anomaly_id": "mercury-perihelion-precession",
         "name": "Mercury's Perihelion Precession",
         "description": "The observed precession of Mercury's perihelion (the point of closest approach to the Sun)\nwas approximately 43 arcseconds per century more than could be explained by Newtonian\nmechanics, even accounting for perturbations from other planets. This anomaly challenged\nNewton's theory of gravitation and was one of the key pieces of evidence that led to\nthe development of general relativity.\n",
         "theory_id": "newtonian-mechanics",
-        "status": "explained",
-        "discovery_year": 1859,
-        "explanation_theory_id": "general-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "violated_assumptions": [
           {
             "violated_assumption_id": "mercury-violated-assumption-1",
             "assumption_id": "ug-assumption-1",
             "violation_description": "Newtonian mechanics assumes gravitational force acts instantaneously and follows an exact inverse square law, but Mercury's orbit shows additional precession that cannot be explained by this assumption alone",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "discovery_year": 1859,
+        "explanation_theory_id": "general-relativity",
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "michelson-morley-null-result": {
         "anomaly_id": "michelson-morley-null-result",
         "name": "Michelson-Morley Null Result",
         "description": "The Michelson-Morley experiment attempted to detect the motion of Earth through the\nhypothetical luminiferous ether by measuring the speed of light in different directions.\nThe experiment found no difference in the speed of light regardless of direction,\ncontradicting the ether theory and leading to the development of special relativity.\n",
         "theory_id": "classical-mechanics",
-        "status": "explained",
-        "discovery_year": 1887,
-        "explanation_theory_id": "special-relativity",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "violated_assumptions": [
           {
             "violated_assumption_id": "michelson-violated-assumption-1",
             "assumption_id": "cm-assumption-1",
             "violation_description": "Classical mechanics assumes time is absolute, but the Michelson-Morley experiment's null result showed that the speed of light is constant in all directions, contradicting the assumption of absolute time and space",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "discovery_year": 1887,
+        "explanation_theory_id": "special-relativity",
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "pioneer-anomaly": {
         "anomaly_id": "pioneer-anomaly",
         "name": "Pioneer anomaly",
         "description": "The Pioneer 10 and Pioneer 11 spacecraft exhibited an unexplained constant acceleration\ntowards the Sun of approximately 8.74 × 10⁻¹⁰ m/s². This anomalous acceleration was\nobserved over decades of tracking data and could not be explained by known forces,\nincluding solar radiation pressure, general relativity effects, or spacecraft systematics.\nThe anomaly challenged our understanding of gravity in the outer solar system.\n",
         "theory_id": "general-relativity",
-        "discovery_year": 1998,
-        "explanation": "Year: 2012. The anomaly was largely resolved through detailed analysis showing that\nanisotropic thermal radiation from the spacecraft's radioisotope thermoelectric generators\nand electrical systems provided the missing acceleration. However, some residual\nunexplained acceleration may still exist, suggesting possible new physics or incomplete\nunderstanding of thermal effects.\n",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "violated_assumptions": [
           {
             "violated_assumption_id": "pioneer-violated-assumption-1",
             "assumption_id": "gr-assumption-1",
             "violation_description": "General relativity assumes that all accelerations can be explained by spacetime curvature and known forces, but the Pioneer anomaly suggested an unexplained acceleration that might indicate new physics or incomplete understanding of gravity at large distances",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "discovery_year": 1998,
+        "explanation": "Year: 2012. The anomaly was largely resolved through detailed analysis showing that\nanisotropic thermal radiation from the spacecraft's radioisotope thermoelectric generators\nand electrical systems provided the missing acceleration. However, some residual\nunexplained acceleration may still exist, suggesting possible new physics or incomplete\nunderstanding of thermal effects.\n",
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "redshift-rotational-bias": {
         "anomaly_id": "redshift-rotational-bias",
         "name": "Redshift Bias from Rotational Velocity",
         "description": "Systematic redshift difference between galaxies rotating in the same versus opposite direction relative to the Milky Way, with bias increasing at higher redshifts. This suggests redshift is not purely velocity-based and may be affected by rotational velocity or tired-light effects.",
         "theory_id": "standard-cosmological-model",
-        "discovery_year": 2024,
-        "explanation_theory_id": "tired-light-theory",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "violated_assumptions": [
           {
             "violated_assumption_id": "redshift-bias-violates-purely-velocity",
             "assumption_id": "redshift-assumption-purely-velocity-based",
             "violation_description": "The redshift bias that increases with distance (redshift) suggests redshift is not purely velocity-based, as the rotational velocity of the Milky Way is constant and cannot explain distance-dependent effects",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           },
           {
             "violated_assumption_id": "redshift-bias-violates-rotational-negligible",
             "assumption_id": "redshift-assumption-rotational-velocity-negligible",
             "violation_description": "The observed redshift bias shows that rotational velocity of the Milky Way relative to observed galaxies does have a measurable effect on redshift, contradicting the assumption that it is negligible",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "discovery_year": 2024,
+        "explanation_theory_id": "tired-light-theory",
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       },
       "ultraviolet-catastrophe": {
         "anomaly_id": "ultraviolet-catastrophe",
         "name": "Ultraviolet Catastrophe",
         "description": "Classical statistical mechanics predicted that a blackbody should emit infinite energy\nat high frequencies (ultraviolet and beyond), which contradicted experimental observations.\nThis anomaly showed that classical physics could not explain blackbody radiation and\nled to the development of quantum mechanics.\n",
         "theory_id": "classical-mechanics",
-        "status": "explained",
-        "discovery_year": 1900,
-        "explanation_theory_id": "quantum-field-theory",
-        "c": 1,
-        "v": 10,
-        "m": [
-          10
-        ],
         "violated_assumptions": [
           {
             "violated_assumption_id": "uv-catastrophe-violated-assumption-1",
             "assumption_id": "cm-assumption-3",
             "violation_description": "Classical mechanics assumes energy can be distributed continuously among all possible frequencies, but this leads to infinite energy at high frequencies (ultraviolet catastrophe), contradicting observations",
             "c": 1,
-            "v": 10,
             "m": [
               10
-            ]
+            ],
+            "v": 10
           }
-        ]
+        ],
+        "discovery_year": 1900,
+        "explanation_theory_id": "quantum-field-theory",
+        "c": 1,
+        "m": [
+          10
+        ],
+        "v": 10
       }
     },
     "prize": {
@@ -3393,10 +3390,10 @@
         "year": 1985,
         "description": "For contributions to information theory",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-chemistry-1911": {
         "award_id": "nobel-chemistry-1911",
@@ -3404,10 +3401,10 @@
         "year": 1911,
         "description": "For the discovery of the elements radium and polonium",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-medicine-1962": {
         "award_id": "nobel-medicine-1962",
@@ -3415,10 +3412,10 @@
         "year": 1962,
         "description": "For their discoveries concerning the molecular structure of nucleic acids and its significance for information transfer in living material",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1901": {
         "award_id": "nobel-physics-1901",
@@ -3426,10 +3423,10 @@
         "year": 1901,
         "description": "Discovery of X-rays",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1902": {
         "award_id": "nobel-physics-1902",
@@ -3437,10 +3434,10 @@
         "year": 1902,
         "description": "Influence of magnetism upon radiation phenomena",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1918": {
         "award_id": "nobel-physics-1918",
@@ -3448,10 +3445,10 @@
         "year": 1918,
         "description": "For the services he rendered to the advancement of Physics by his discovery of energy quanta",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1921": {
         "award_id": "nobel-physics-1921",
@@ -3460,10 +3457,10 @@
         "description": "For his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect",
         "theory_id": "special-relativity",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1922": {
         "award_id": "nobel-physics-1922",
@@ -3471,10 +3468,10 @@
         "year": 1922,
         "description": "For his services in the investigation of the structure of atoms and of the radiation emanating from them",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1929": {
         "award_id": "nobel-physics-1929",
@@ -3482,10 +3479,10 @@
         "year": 1929,
         "description": "For his discovery of the wave nature of electrons",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1932": {
         "award_id": "nobel-physics-1932",
@@ -3493,10 +3490,10 @@
         "year": 1932,
         "description": "For the creation of quantum mechanics",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1933": {
         "award_id": "nobel-physics-1933",
@@ -3504,10 +3501,10 @@
         "year": 1933,
         "description": "For the discovery of new productive forms of atomic theory",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1965": {
         "award_id": "nobel-physics-1965",
@@ -3516,10 +3513,10 @@
         "description": "Fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles",
         "theory_id": "quantum-electrodynamics",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-1979": {
         "award_id": "nobel-physics-1979",
@@ -3527,10 +3524,10 @@
         "year": 1979,
         "description": "For their contributions to the theory of the unified weak and electromagnetic interaction between elementary particles",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-2017": {
         "award_id": "nobel-physics-2017",
@@ -3538,10 +3535,10 @@
         "year": 2017,
         "description": "For decisive contributions to the LIGO detector and the observation of gravitational waves",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       },
       "nobel-physics-2020": {
         "award_id": "nobel-physics-2020",
@@ -3550,10 +3547,10 @@
         "description": "For the discovery that black hole formation is a robust prediction of the general theory of relativity",
         "theory_id": "black-holes",
         "c": 1,
-        "v": 10,
         "m": [
           10
-        ]
+        ],
+        "v": 10
       }
     }
   }
