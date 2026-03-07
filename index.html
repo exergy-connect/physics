@@ -1027,7 +1027,7 @@
             <div class="context-modal-papers" id="contextModalPapers"></div>
             <div class="context-modal-nobel" id="contextModalNobel"></div>
             <div class="context-modal-actions">
-                <button class="context-modal-button secondary" id="contextModalClose">Close</button>
+                <button class="context-modal-button secondary" id="contextModalCloseBtn">Close</button>
                 <button class="context-modal-button primary" id="contextModalWikipedia">Open Wikipedia</button>
             </div>
         </div>
@@ -3267,7 +3267,7 @@
 
         // Modal event listeners
         document.getElementById('contextModalClose').addEventListener('click', closeContextModal);
-        document.getElementById('contextModalClose').addEventListener('click', closeContextModal);
+        document.getElementById('contextModalCloseBtn').addEventListener('click', closeContextModal);
         document.getElementById('contextModalWikipedia').addEventListener('click', openWikipedia);
 
         // Close modal when clicking outside
