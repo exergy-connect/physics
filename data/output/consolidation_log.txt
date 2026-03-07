@@ -1,44 +1,44 @@
-2026-03-07 00:22:45 [INFO] Logging to: /home/jeroen/Projects/physics/data/output/consolidation_log.txt
-2026-03-07 00:22:45 [INFO] Auto-enabled --js flag: Found existing .js files in output directory
-2026-03-07 00:22:45 [INFO] Step 1: Consolidating models from: /home/jeroen/Projects/physics/data/model
-2026-03-07 00:22:45 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
-2026-03-07 00:22:45 [INFO] Validating consolidated models with YANG validator
-2026-03-07 00:22:46 [INFO] ✓ YANG validation passed for consolidated models
-2026-03-07 00:22:46 [WARNING] Entity ai_feedback[ai_feedback] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity anomaly[anomaly] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity assumption[assumption] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity claim[claim] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity efficiency_count_metrics[efficiency_count_metrics] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity efficiency_metrics[efficiency_metrics] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity efficiency_optimization_metrics[efficiency_optimization_metrics] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity efficiency_timing_metrics[efficiency_timing_metrics] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity paper[paper] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity person[person] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity postulate[postulate] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity prediction[prediction] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity prize[prize] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity prize_award[prize_award] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity recommendation[recommendation] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity session_assessment[session_assessment] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity session_feedback[session_feedback] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity tag[tag] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity theory[theory] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity user_feedback[user_feedback] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity validation_failure[validation_failure] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity validation_failure_details[validation_failure_details] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity validation_failure_resolution[validation_failure_resolution] exists but has no creation or version field
-2026-03-07 00:22:46 [WARNING] Entity violated_assumption[violated_assumption] exists but has no creation or version field
-2026-03-07 00:22:46 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_model.js
-2026-03-07 00:22:46 [INFO] ✓ Consolidated model written to: /home/jeroen/Projects/physics/data/output/consolidated_model.json
-2026-03-07 00:22:46 [INFO] Model consolidation completed successfully (exit code: 0)
-2026-03-07 00:22:46 [INFO] Step 1 completed in 0.62 seconds
-2026-03-07 00:22:46 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
-2026-03-07 00:22:46 [INFO] Step 2: Consolidating data from: /home/jeroen/Projects/physics/data
-2026-03-07 00:22:46 [INFO] Validating consolidated models with YANG validator
-2026-03-07 00:22:46 [INFO] ✓ YANG validation passed for consolidated models
-2026-03-07 00:22:46 [INFO] Loading data files from: /home/jeroen/Projects/physics/data
-2026-03-07 00:22:46 [INFO] Processing 14 data file(s) from /home/jeroen/Projects/physics/data
-2026-03-07 00:22:46 [WARNING] Bulk validation failed, falling back to per-file validation: 'session_assessment' is a required property
+2026-03-07 10:11:06 [INFO] Logging to: /home/jeroen/Projects/physics/data/output/consolidation_log.txt
+2026-03-07 10:11:06 [INFO] Auto-enabled --js flag: Found existing .js files in output directory
+2026-03-07 10:11:06 [INFO] Step 1: Consolidating models from: /home/jeroen/Projects/physics/data/model
+2026-03-07 10:11:06 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
+2026-03-07 10:11:06 [INFO] Validating consolidated models with YANG validator
+2026-03-07 10:11:06 [INFO] ✓ YANG validation passed for consolidated models
+2026-03-07 10:11:06 [WARNING] Entity ai_feedback[ai_feedback] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity anomaly[anomaly] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity assumption[assumption] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity claim[claim] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity efficiency_count_metrics[efficiency_count_metrics] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity efficiency_metrics[efficiency_metrics] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity efficiency_optimization_metrics[efficiency_optimization_metrics] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity efficiency_timing_metrics[efficiency_timing_metrics] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity paper[paper] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity person[person] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity postulate[postulate] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity prediction[prediction] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity prize[prize] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity prize_award[prize_award] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity recommendation[recommendation] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity session_assessment[session_assessment] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity session_feedback[session_feedback] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity tag[tag] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity theory[theory] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity user_feedback[user_feedback] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity validation_failure[validation_failure] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity validation_failure_details[validation_failure_details] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity validation_failure_resolution[validation_failure_resolution] exists but has no creation or version field
+2026-03-07 10:11:06 [WARNING] Entity violated_assumption[violated_assumption] exists but has no creation or version field
+2026-03-07 10:11:06 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_model.js
+2026-03-07 10:11:06 [INFO] ✓ Consolidated model written to: /home/jeroen/Projects/physics/data/output/consolidated_model.json
+2026-03-07 10:11:06 [INFO] Model consolidation completed successfully (exit code: 0)
+2026-03-07 10:11:06 [INFO] Step 1 completed in 0.61 seconds
+2026-03-07 10:11:06 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
+2026-03-07 10:11:06 [INFO] Step 2: Consolidating data from: /home/jeroen/Projects/physics/data
+2026-03-07 10:11:06 [INFO] Validating consolidated models with YANG validator
+2026-03-07 10:11:07 [INFO] ✓ YANG validation passed for consolidated models
+2026-03-07 10:11:07 [INFO] Loading data files from: /home/jeroen/Projects/physics/data
+2026-03-07 10:11:07 [INFO] Processing 14 data file(s) from /home/jeroen/Projects/physics/data
+2026-03-07 10:11:07 [WARNING] Bulk validation failed, falling back to per-file validation: 'session_assessment' is a required property
 
 Failed validating 'required' in schema['properties']['session_feedback']['items']:
     {'type': 'object',
@@ -4096,39 +4096,39 @@ On instance['session_feedback'][0]:
                                                                                   'from '
                                                                                   'paper '
                                                                                   'sections']}}}}
-2026-03-07 00:22:46 [ERROR] Validation error for session_feedback in /home/jeroen/Projects/physics/data/feedback/dr_20260307-001758-Analyze_the_No_Free_Lunch_Wolpert_Macready_1997_paper_using_the_physics_model_add_paper_entity_and_r.yaml: 'session_assessment' is a required property
-2026-03-07 00:22:46 [ERROR] Entity 'theory' with primary key 'riemannian-geometry' is being overwritten with different values. Existing from: unknown file, New from: /home/jeroen/Projects/physics/data/papers/riemann-1854-geometry/analysis.yaml. Conflicting fields: summary
-2026-03-07 00:22:46 [INFO] Loaded data from 14 files (per-file validation)
-2026-03-07 00:22:46 [INFO] Data loading completed in 0.13 seconds
-2026-03-07 00:22:46 [INFO] ============================================================
-2026-03-07 00:22:46 [INFO] Validation Summary Report
-2026-03-07 00:22:46 [INFO] ============================================================
-2026-03-07 00:22:46 [INFO] Total entities validated: 337
-2026-03-07 00:22:46 [INFO] Entities validated by type:
-2026-03-07 00:22:46 [INFO]   - anomaly: 10
-2026-03-07 00:22:46 [INFO]   - assumption: 63
-2026-03-07 00:22:46 [INFO]   - claim: 77
-2026-03-07 00:22:46 [INFO]   - paper: 18
-2026-03-07 00:22:46 [INFO]   - person: 65
-2026-03-07 00:22:46 [INFO]   - postulate: 24
-2026-03-07 00:22:46 [INFO]   - prediction: 9
-2026-03-07 00:22:46 [INFO]   - prize: 5
-2026-03-07 00:22:46 [INFO]   - prize_award: 15
-2026-03-07 00:22:46 [INFO]   - tag: 4
-2026-03-07 00:22:46 [INFO]   - theory: 39
-2026-03-07 00:22:46 [INFO]   - violated_assumption: 8
-2026-03-07 00:22:46 [WARNING] Total validation errors: 1
-2026-03-07 00:22:46 [WARNING] Entities with validation issues: 1
-2026-03-07 00:22:46 [WARNING] Errors by type:
-2026-03-07 00:22:46 [WARNING]   - schema validation: 1
-2026-03-07 00:22:46 [WARNING] Errors by entity type:
-2026-03-07 00:22:46 [WARNING]   - session_feedback: 1 error(s)
-2026-03-07 00:22:46 [WARNING] Sample validation errors (showing first 10 of 1):
-2026-03-07 00:22:46 [WARNING]   - session_feedback in /home/jeroen/Projects/physics/data/feedback/dr_20260307-001758-Analyze_the_No_Free_Lunch_Wolpert_Macready_1997_paper_using_the_physics_model_add_paper_entity_and_r.yaml: 'session_assessment' is a required property (type: schema validation, path: root)
-2026-03-07 00:22:46 [INFO] ============================================================
-2026-03-07 00:22:46 [INFO] Calculating computed fields
-2026-03-07 00:22:47 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.json (154 entities across 24 entity types)
-2026-03-07 00:22:47 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.js
-2026-03-07 00:22:47 [INFO] ✓ Successfully consolidated data into /home/jeroen/Projects/physics/data/output/consolidated_data.json
-2026-03-07 00:22:47 [INFO] Data consolidation completed successfully (exit code: 0)
-2026-03-07 00:22:47 [INFO] Consolidation completed successfully (exit code: 0)
+2026-03-07 10:11:07 [ERROR] Validation error for session_feedback in /home/jeroen/Projects/physics/data/feedback/dr_20260307-001758-Analyze_the_No_Free_Lunch_Wolpert_Macready_1997_paper_using_the_physics_model_add_paper_entity_and_r.yaml: 'session_assessment' is a required property
+2026-03-07 10:11:07 [ERROR] Entity 'theory' with primary key 'riemannian-geometry' is being overwritten with different values. Existing from: unknown file, New from: /home/jeroen/Projects/physics/data/papers/riemann-1854-geometry/analysis.yaml. Conflicting fields: summary
+2026-03-07 10:11:07 [INFO] Loaded data from 14 files (per-file validation)
+2026-03-07 10:11:07 [INFO] Data loading completed in 0.14 seconds
+2026-03-07 10:11:07 [INFO] ============================================================
+2026-03-07 10:11:07 [INFO] Validation Summary Report
+2026-03-07 10:11:07 [INFO] ============================================================
+2026-03-07 10:11:07 [INFO] Total entities validated: 337
+2026-03-07 10:11:07 [INFO] Entities validated by type:
+2026-03-07 10:11:07 [INFO]   - anomaly: 10
+2026-03-07 10:11:07 [INFO]   - assumption: 63
+2026-03-07 10:11:07 [INFO]   - claim: 77
+2026-03-07 10:11:07 [INFO]   - paper: 18
+2026-03-07 10:11:07 [INFO]   - person: 65
+2026-03-07 10:11:07 [INFO]   - postulate: 24
+2026-03-07 10:11:07 [INFO]   - prediction: 9
+2026-03-07 10:11:07 [INFO]   - prize: 5
+2026-03-07 10:11:07 [INFO]   - prize_award: 15
+2026-03-07 10:11:07 [INFO]   - tag: 4
+2026-03-07 10:11:07 [INFO]   - theory: 39
+2026-03-07 10:11:07 [INFO]   - violated_assumption: 8
+2026-03-07 10:11:07 [WARNING] Total validation errors: 1
+2026-03-07 10:11:07 [WARNING] Entities with validation issues: 1
+2026-03-07 10:11:07 [WARNING] Errors by type:
+2026-03-07 10:11:07 [WARNING]   - schema validation: 1
+2026-03-07 10:11:07 [WARNING] Errors by entity type:
+2026-03-07 10:11:07 [WARNING]   - session_feedback: 1 error(s)
+2026-03-07 10:11:07 [WARNING] Sample validation errors (showing first 10 of 1):
+2026-03-07 10:11:07 [WARNING]   - session_feedback in /home/jeroen/Projects/physics/data/feedback/dr_20260307-001758-Analyze_the_No_Free_Lunch_Wolpert_Macready_1997_paper_using_the_physics_model_add_paper_entity_and_r.yaml: 'session_assessment' is a required property (type: schema validation, path: root)
+2026-03-07 10:11:07 [INFO] ============================================================
+2026-03-07 10:11:07 [INFO] Calculating computed fields
+2026-03-07 10:11:07 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.json (154 entities across 24 entity types)
+2026-03-07 10:11:07 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.js
+2026-03-07 10:11:07 [INFO] ✓ Successfully consolidated data into /home/jeroen/Projects/physics/data/output/consolidated_data.json
+2026-03-07 10:11:07 [INFO] Data consolidation completed successfully (exit code: 0)
+2026-03-07 10:11:07 [INFO] Consolidation completed successfully (exit code: 0)

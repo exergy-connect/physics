@@ -1445,20 +1445,19 @@
                 }
             });
 
-            // Build hierarchy grouped by papers
+            // Build hierarchy grouped by papers (include every paper, even without theory link)
             const paperNodes = [];
             Object.values(papers).forEach(paper => {
                 const paperTheories = papersMap.get(paper.paper_id) || [];
-                if (paperTheories.length > 0) {
-                    const paperNode = {
-                        name: paper.title,
-                        year: paper.year || 0,
-                        summary: `${paper.title} (${paper.year || '?'})`,
-                        paper_id: paper.paper_id,
-                        link: paper.link,
-                        children: paperTheories
-                            .sort((a, b) => (a.year || 0) - (b.year || 0))
-                            .map(theory => {
+                const paperNode = {
+                    name: paper.title,
+                    year: paper.year || 0,
+                    summary: `${paper.title} (${paper.year || '?'})`,
+                    paper_id: paper.paper_id,
+                    link: paper.link,
+                    children: paperTheories
+                        .sort((a, b) => (a.year || 0) - (b.year || 0))
+                        .map(theory => {
                                 const node = {
                                     name: theory.name,
                                     year: theory.year,
@@ -1516,9 +1515,8 @@
                                 }
                                 return node;
                             })
-                    };
-                    paperNodes.push(paperNode);
-                }
+                };
+                paperNodes.push(paperNode);
             });
 
             // Sort by year
