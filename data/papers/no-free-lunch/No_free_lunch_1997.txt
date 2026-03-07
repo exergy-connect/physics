@@ -1,0 +1,2017 @@
+No Free Lunch Theorems for Optimization
+David H. Wolpert
+IBM Almaden Research Center
+N5Na/D3
+650 Harry Road
+San Jose, CA 95120-6099
+William G. Macready
+Santa Fe Institute
+1399 Hyde Park Road
+Santa Fe, NM, 87501
+December 31, 1996
+Abstract
+
+A framework is developed to explore the connection between e ective optimization
+algorithms and the problems they are solving. A number of \no free lunch" (NFL)
+theorems are presented that establish that for any algorithm, any elevated performance
+over one class of problems is exactly paid for in performance over another class. These
+theorems result in a geometric interpretation of what it means for an algorithm to
+be well suited to an optimization problem. Applications of the NFL theorems to
+information theoretic aspects of optimization and benchmark measures of performance
+are also presented. Other issues addressed are time-varying optimization problems
+and a priori \head-to-head" minimax distinctions between optimization algorithms,
+distinctions that can obtain despite the NFL theorems' enforcing of a type of uniformity
+over all algorithms.
+
+1 Introduction
+The past few decades have seen increased interest in general-purpose \black-box" optimization algorithms that exploit little if any knowledge concerning the optimization problem on
+which they are run. In large part these algorithms have drawn inspiration from optimization
+processes that occur in nature. In particular, the two most popular black-box optimization
+strategies, evolutionary algorithms FOW66, Hol93] and simulated annealing KGV83] mimic
+processes in natural selection and statistical mechanics respectively.
+1
+
+In light of this interest in general-purpose optimization algorithms, it has become important to understand the relationship between how well an algorithm a performs and the
+optimization problem f on which it is run. In this paper we present a formal analysis that
+contributes towards such an understanding by addressing questions like the following: Given
+the plethora of black-box optimization algorithms and of optimization problems, how can we
+best match algorithms to problems (i.e., how best can we relax the black-box nature of the
+algorithms and have them exploit some knowledge concerning the optimization problem)? In
+particular, while serious optimization practitioners almost always perform such matching, it
+is usually on an ad hoc basis how can such matching be formally analyzed? More generally,
+what is the underlying mathematical \skeleton" of optimization theory before the \esh" of
+the probability distributions of a particular context and set of optimization problems are imposed? What can information theory and Bayesian analysis contribute to an understanding
+of these issues? How a priori generalizable are the performance results of a certain algorithm
+on a certain class of problems to its performance on other classes of problems? How should
+we even measure such generalization how should we assess the performance of algorithms
+on problems so that we may programmatically compare those algorithms?
+Broadly speaking, we take two approaches to these questions. First, we investigate what
+a priori restrictions there are on the pattern of performance of one or more algorithms as one
+runs over the set of all optimization problems. Our second approach is to instead focus on
+a particular problem and consider the eects of running over all algorithms. In the current
+paper we present results from both types of analyses but concentrate largely on the rst
+approach. The reader is referred to the companion paper MW96] for more kinds of analysis
+involving the second approach.
+We begin in Section 2 by introducing the necessary notation. Also discussed in this
+section is the model of computation we adopt, its limitations, and the reasons we chose it.
+One might expect that there are pairs of search algorithms A and B such that A performs better than B on average, even if B sometimes outperforms A. As an example, one
+might expect that hill-climbing usually outperforms hill-descending if one's goal is to nd a
+maximum of the cost function. One might also expect it would outperform a random search
+in such a context.
+One of the main results of this paper is that such expectations are incorrect. We prove
+two NFL theorems in Section 3 that demonstrate this and more generally illuminate the
+connection between algorithms and problems. Roughly speaking, we show that for both
+static and time dependent optimization problems, the average performance of any pair of
+algorithms across all possible problems is exactly identical. This means in particular that if
+some algorithm a1's performance is superior to that of another algorithm a2 over some set of
+optimization problems, then the reverse must be true over the set of all other optimization
+problems. (The reader is urged to read this section carefully for a precise statement of these
+theorems.) This is true even if one of the algorithms is random any algorithm a1 performs
+worse than randomly just as readily (over the set of all optimization problems) as it performs
+better than randomly. Possible objections to these results are also addressed in Sections 3.1
+and 3.2.
+In Section 4 we present a geometric interpretation of the NFL theorems. In particular,
+2
+
+we show that an algorithm's average performance is determined by how \aligned" it is with
+the underlying probability distribution over optimization problems on which it is run. This
+Section is critical for anyone wishing to understand how the NFL results are consistent with
+the well-accepted fact that many search algorithms that do not take into account knowledge
+concerning the cost function work quite well in practice
+Section 5.1 demonstrates that the NFL theorems allow one to answer a number of what
+would otherwise seem to be intractable questions. The implications of these answers for
+measures of algorithm performance and of how best to compare optimization algorithms are
+explored in Section 5.2.
+In Section 6 we discuss some of the ways in which, despite the NFL theorems, algorithms can have a priori distinctions that hold even if nothing is specied concerning the
+optimization problems. In particular, we show that there can be \head-to-head" minimax
+distinctions between a pair of algorithms, it i.e., we show that considered one f at a time, a
+pair of algorithms may be distinguishable, even if they are not when one looks over all f 's.
+In Section 7 we present an introduction to the alternative approach to the formal analysis
+of optimization in which problems are held xed and one looks at properties across the space
+of algorithms. Since these results hold in general, they hold for any and all optimization
+problems, and in this are independent of the what kinds of problems one is more or less likely
+to encounter in the real world. In particular, these results state that one has no a priori
+justication for using a search algorithm's behavior so far on a particular cost function
+to predict its future behavior on that function. In fact when choosing between algorithms
+based on their observed performance it does not suce to make an assumption about the cost
+function some (currently poorly understood) assumptions are also being made about how
+the algorithms in question are related to each other and to the cost function. In addition to
+presenting results not found in MW96], this section serves as an introduction to perspective
+adopted in MW96].
+We conclude in Section 8 with a brief discussion, a summary of results, and a short list
+of open problems.
+We have conned as many of our proofs to appendices as possible to facilitate the ow
+of the paper. A more detailed | and substantially longer | version of this paper, a version
+that also analyzes some issues not addressed in this paper, can be found in WM95].
+Finally, we cannot emphasize enough that no claims whatsoever are being made in
+this paper concerning how well various search algorithms work in practice. The focus of
+this paper is on what can be said a priori, without any assumptions and from mathematical
+principles alone, concerning the utility of a search algorithm.
+
+2 Preliminaries
+
+We restrict attention to combinatorial optimization in which the search space, X , though
+perhaps quite large, is nite. We further assume that the space of possible \cost" values, Y ,
+is also nite. These restrictions are automatically met for optimization algorithms run on
+digital computers. For example, typically Y is some 32 or 64 bit representation of the real
+3
+
+numbers in such a case.
+The size of the spaces X and Y are indicated by jXj and jYj respectively. Optimization
+problems f (sometimes called \cost functions" or \objective functions" or \energy functions") are represented as mappings f : X 7! Y . F = Y X is then the space of all possible
+problems. F is of size jYjjXj | a very large but nite number. In addition to static f , we
+shall also be interested in optimization problems that depend explicitly on time. The extra
+notation needed for such time-dependent problems will be introduced as needed.
+It is common in the optimization community to adopt an oracle-based view of computation. In this view, when assessing the performance of algorithms, results are stated in terms
+of the number of function evaluations required to nd a certain solution. Unfortunately
+though, many optimization algorithms are wasteful of function evaluations. In particular,
+many algorithms do not remember where they have already searched and therefore often
+revisit the same points. Although any algorithm that is wasteful in this fashion can be made
+more ecient simply by remembering where it has been (c.f. tabu search Glo89, Glo90]),
+many real-world algorithms elect not to employ this stratagem. Accordingly, from the point
+of view of the oracle-based performance measures, there are \artefacts" distorting the apparent relationship between many such real-world algorithms.
+This diculty is exacerbated by the fact that the amount of revisiting that occurs is
+a complicated function of both the algorithm and the optimization problem, and therefore
+cannot be simply \ltered out" of a mathematical analysis. Accordingly, we have elected to
+circumvent the problem entirely by comparing algorithms based on the number of distinct
+function evaluations they have performed. Note that this does not mean that we cannot
+compare algorithms that are wasteful of evaluations | it simply means that we compare
+algorithms by counting only their number of distinct calls to the oracle.
+We call a time-ordered set of m distinct visited points a \sample" of size m. Samples are
+denoted by dm  f(dxm(1) dym (1))  (dxm(m) dym(m))g. The points in a sample are ordered
+according to the time at which they were generated. Thus dxm (i) indicates the X value of
+the ith successive element in a sample of size m and dym (i) is the associated cost or Y value.
+dym  fdym (1)  dym (m)g will be used to indicate the ordered set of cost values. The space
+of all samples of size m is Dm = (X  Y )m (so dm 2 Dm ) and the set of all possible samples
+of arbitrary size is D  m 0Dm .
+As an important clarication of this denition, consider a hill-descending algorithm.
+This is the algorithm that examines a set of neighboring points in X and moves to the one
+having the lowest cost. The process is then iterated from the newly chosen point. (Often,
+implementations of hill-descending stop when they reach a local minimum, but they can
+easily be extended to run longer by randomly jumping to a new unvisited point once the
+neighborhood of a local minimum has been exhausted.) The point to note is that because
+a sample contains all the previous points at which the oracles was consulted, it includes the
+(X Y ) values of all the neighbors of the current point, and not only the lowest cost one that
+the algorithm moves to. This must be taken into account when counting the value of m.
+Optimization algorithms a are represented as mappings from previously visited sets of
+points to a single new (i.e., previously unvisited) point in X . Formally, a : d 2 D 7!
+fxjx 62 dX g. Given our decision to only measure distinct function evaluations even if an
+4
+
+algorithm revisits previously searched points, our denition of an algorithm includes all
+common black-box optimization techniques like simulated annealing and evolutionary algorithms. (Techniques like branch and bound LW66] are not included since they rely explicitly
+on the cost structure of partial solutions, and we are here interested primarily in black-box
+algorithms.)
+As dened above, a search algorithm is deterministic every sample maps to a unique new
+point. Of course essentially all algorithms implemented on computers are deterministic1, and
+in this our denition is not restrictive. Nonetheless, it is worth noting that all of our results
+are extensible to non-deterministic algorithms, where the new point is chosen stochastically
+from the set of unvisited points. (This point is returned to below.)
+Under the oracle-based model of computation any measure of the performance of an
+algorithm after m iterations is a function of the sample dym . Such performance measures
+will be indicated by (dym ). As an example, if we are trying to nd a minimum of f , then
+a reasonable measure of the performance of a might be the value of the lowest Y value in
+dym : (dym ) = minifdym(i) : i = 1 : : : mg. Note that measures of performance based on factors
+other than dym (e.g., wall clock time) are outside the scope of our results.
+We shall cast all of our results in terms of probability theory. We do so for three reasons.
+First, it allows simple generalization of our results to stochastic algorithms. Second, even
+when the setting is deterministic, probability theory provides a simple consistent framework
+in which to carry out proofs.
+The third reason for using probability theory is perhaps the most interesting. A crucial
+factor in the probabilistic framework is the distribution P (f ) = P (f (x1)  f (xjXj)). This
+distribution, dened over F , gives the probability that each f 2 F is the actual optimization
+problem at hand. An approach based on this distribution has the immediate advantage that
+often knowledge of a problem is statistical in nature and this information may be easily
+encodable in P (f ). For example, Markov or Gibbs random eld descriptions KS80] of
+families of optimization problems express P (f ) exactly.
+However exploiting P (f ) also has advantages even when we are presented with a single
+uniquely specied cost function. One such advantage is the fact that although it may be
+fully specied, many aspects of the cost function are eectively unknown (e:g:, we certainly
+do not know the extrema of the function.) It is in many ways most appropriate to have this
+eective ignorance reected in the analysis as a probability distribution. More generally,
+we usually act as though the cost function is partially unknown. For example, we might
+use the same search algorithm for all cost functions in a class (e.g., all traveling salesman
+problems having certain characteristics). In so doing, we are implicitly acknowledging that
+we consider distinctions between the cost functions in that class to be irrelevant or at least
+unexploitable. In this sense, even though we are presented with a single particular problem
+from that class, we act as though we are presented with a probability distribution over cost
+functions, a distribution that is non-zero only for members of that class of cost functions.
+P (f ) is thus a prior specication of the class of the optimization problem at hand, with
+dierent classes of problems corresponding to dierent choices of what algorithms we will
+1
+
+In particular, note that random number generators are deterministic given a seed.
+
+5
+
+use, and giving rise to dierent distributions P (f ).
+Given our choice to use probability theory, the performance of an algorithm a iterated
+m times on a cost function f is measured with P (dym jf m a). This is the conditional probability of obtaining a particular sample dm under the stated conditions. From P (dym jf m a)
+performance measures (dym ) can be found easily.
+In the next section we will analyze P (dym jf m a), and in particular how it can vary with
+the algorithm a. Before proceeding with that analysis however, it is worth briey noting
+that there are other formal approaches to the issues investigated in this paper. Perhaps the
+most prominent of these is the eld of computational complexity. Unlike the approach taken
+in this paper, computational complexity mostly ignores the statistical nature of search, and
+concentrates instead on computational issues. Much (though by no means all) of computational complexity is concerned with physically unrealizable computational devices (Turing
+machines) and the worst case amount of resources they require to nd optimal solutions. In
+contrast, the analysis in this paper does not concern itself with the computational engine
+used by the search algorithm, but rather concentrates exclusively on the underlying statistical nature of the search problem. In this the current probabilistic approach is complimentary
+to computational complexity. Future work involves combining our analysis of the statistical
+nature of search with practical concerns for computational resources.
+
+3 The NFL theorems
+In this section we analyze the connection between algorithms and cost functions. We have
+dubbed the associated results \No Free Lunch" (NFL) theorems because they demonstrate
+that if an algorithm performs well on a certain class of problems then it necessarily pays
+for that with degraded performance on the set of all remaining problems. Additionally, the
+name emphasizes the parallel with similar results in supervised learning Wol96a, Wol96b].
+The precise question addressed in this section is: \How does the set of problems F1  F
+for which algorithm a1 performs better than algorithm a2 compare to the set F2  F for
+which the reverse is true?" To address this question we compare the sum over all f of
+P (dym jf m a1) to the sum over all f of P (dym jf m a2). This comparison constitutes a major
+result of this paper: P (dymjf m a) is independent of a when we average over all cost functions:
+
+Theorem 1 For any pair of algorithms a1 and a2,
+X
+X
+P (dym jf m a1) = P (dym jf m a2):
+f
+
+f
+
+A proof of this result is found in Appendix A. An immediate corollary of this result is that for
+any performance measure (dym ), the average over all f of P ((dym )jf m a) is independent
+of a. The precise way that the sample is mapped to a performance measure is unimportant.
+This theorem explicitly demonstrates that what an algorithm gains in performance on
+one class of problems it necessarily pays for on the remaining problems that is the only way
+that all algorithms can have the same f -averaged performance.
+6
+
+A result analogous to Theorem 1 holds for a class of time-dependent cost functions. The
+time-dependent functions we consider begin with an initial cost function f1 that is present
+at the sampling of the rst x value. Before the beginning of each subsequent iteration of
+the optimization algorithm, the cost function is deformed to a new function, as specied
+by a mapping T : F  N ! F .2 We indicate this mapping with the notation Ti. So the
+function present during the ith iteration is fi+1 = Ti(fi). Ti is assumed to be a (potentially
+i-dependent) bijection between F and F . We impose bijectivity because if it did not hold,
+the evolution of cost functions could narrow in on a region of f 's for which some algorithms
+may perform better than others. This would constitute an a priori bias in favor of those
+algorithms, a bias whose analysis we wish to defer to future work.
+How best to assess the quality of an algorithm's performance on time-dependent cost
+functions is not clear. Here we consider two schemes based on manipulations of the denition
+of the sample. In scheme 1 the particular Y value in dym(j ) corresponding to a particular
+x value dxm (j ) is given by the cost function that was present when dxm (j ) was sampled. In
+contrast, for scheme 2 we imagine a sample Dmy given by the Y values from the present
+cost function for each of the x values in dxm . Formally if dxm = fdxm (1)  dxm(m)g, then
+in scheme 1 we have dym = ff1(dxm(1))  Tm;1(fm;1)(dxm (m))g, and in scheme 2 we have
+Dmy = ffm (dxm(1))  fm(dxm (m))g where fm = Tm;1(fm;1 ) is the nal cost function.
+In some situations it may be that the members of the sample \live" for a long time, on
+the time scale of the evolution of the cost function. In such situations it may be appropriate
+to judge the quality of the search algorithm by Dmy  all those previous elements of the sample
+are still \alive" at time m, and therefore their current cost is of interest. On the other hand,
+if members of the sample live for only a short time on the time scale of evolution of the cost
+function, one may instead be concerned with things like how well the \living" member(s) of
+the sample track the changing cost function. In such situations, it may make more sense to
+judge the quality of the algorithm with the dym sample.
+Results similar to Theorem 1 can be derived for both schemes. By analogy with that
+theorem, we average over all possible ways a cost function may
+be time-dependent, i.e., we
+P
+average over all T (rather than over all f ). Thus we consider T P (dym jf1 T m a) where f1
+is the initial cost function. Since T only takes eect for m > 1, and since f1 is xed, there
+are a priori distinctions between algorithms as far as the rst member of the population is
+concerned. However after redening samples to only contain those elements added after the
+rst iteration of the algorithm, we arrive at the following result, proven in Appendix B:
+Theorem 2 For all dym, Dmy , m > 1, algorithms a1 and a2, and initial cost functions f1,
+X
+X
+P (dym jf1 T m a1) = P (dym jf1 T m a2):
+T
+
+and
+
+X
+
+T
+
+T
+
+P (Dmy jf1 T m a1) =
+
+X
+
+T
+
+P (Dmy jf1 T m a2):
+
+An obvious restriction would be to require that doesn't vary with time, so that it is a mapping simply
+from F to F . An analysis for 's limited this way is beyond the scope of this paper.
+2
+
+T
+
+T
+
+7
+
+So in particular, if one algorithm outperforms another for certain kinds of evolution operators,
+then the reverse must be true on the set of all other evolution operators.
+Although this particular result is similar to the NFL result for the static case, in general
+the time-dependent situation is more subtle. In particular, with time-dependence there are
+situations in which there can be a priori distinctions between algorithms even for those
+members of the population arising after the rst. For example,
+in general there will be
+distinctions between algorithms when considering the quantity Pf P (dym jf T m a). To see
+this, consider the case where X is a set of contiguous integers and for all iterations T is a
+shift operator, replacing f (x) by f (x ; 1) for all x (with min(x) ; 1  max(x)). For such a
+case we can construct algorithms which behave dierently a priori. For example, take a to
+be the algorithm that rst samples f at x1, next at x1 + 1 and so on, regardless of the values
+in
+the population. Then for any f , dym is always made up of identical Y values. Accordingly,
+P
+y
+y
+y
+f P (dm jf T m a) is non-zero only for dm for which all values dm (i) are identical. Other
+search algorithms, even for the same shift T , do not have this restriction on Y values. This
+constitutes an a priori distinction between algorithms.
+
+3.1 Implications of the NFL theorems
+
+As emphasized above, the NFL theorems mean that if an algorithm does particularly well on
+one class of problems then it most do more poorly over the remaining problems. In particular,
+if an algorithm performs better than random search on some class of problems then in must
+perform worse than random search on the remaining problems. Thus comparisons reporting
+the performance of a particular algorithm with particular parameter setting on a few sample
+problems are of limited utility. While sicj results do indicate behavior on the narrow range
+of problems considered, one should be very wary of trying to generalize those results to other
+problems.
+Note though that the NFL theorem need not be viewed this way, as a way of comparing
+function classes F1 and F2 (or classes of evolution operators T1 and T2, as the case might
+be). It can be viewed instead as a statement concerning any algorithm's performance when
+f is not xed, under the uniform prior over cost functions, P (f ) = 1=jFj. If we wish instead
+to analyze performance where f is not xed, as in this alternative interprations of the NFL
+theorem, but in contrast with the NFL case f is now chosen from a non-uniform prior, then
+we must analyze explicitly the sum
+
+P (dym jm a) =
+
+X
+
+f
+
+P (dym jf m a)P (f )
+
+(1)
+
+Since it is certainly true that any class of problems faced by a practitioner will not have a at
+prior, what are the practical implications of the NFL theorems when viewed as a statement
+concerning an algorithm's performance for non-xed f ? This question is taken up in greater
+detail in Section 4 but we make a few comments here.
+First, if the practitioner has knowledge of problem characteristics but does not incorporate them into the optimization algorithm, then P (f ) is eectively uniform. (Recall that
+8
+
+P (f ) can be viewed as a statement concerning the practitioner's choice of optimization algorithms.) In such a case, the NFL theorems establish that there are no formal assurances
+that the algorithm chosen will be at all eective.
+Secondly, while most classes of problems will certainly have some structure which, if
+known, might be exploitable, the simple existence of that structure does not justify choice of
+a particular algorithm that structure must be known and reected directly in the choice of
+algorithm to serve as such a justication. In other words, the simple existence of structure
+per se, absent a specication of that structure, cannot provide a basis for preferring one algorithm over another. Formally, this is established by the existence of NFL-type theorems in
+which rather than average over specic cost functions f , one averages over specic \kinds of
+structure", i.e., theorems in which one averages P (dym j m a) over distributions P (f ). That
+such theorems hold when one averages over all P (f ) means that the indistinguishability of
+algorithms associated with uniform P (f ) is not some pathological, outlier case. Rather uniform P (f ) is a \typical" distribution as far as indistinguishability of algorithms is concerned.
+The simple fact that the P (f ) at hand is non-uniform cannot serve to determine one's choice
+of optimization algorithm.
+Finally, it is important to emphasize that even if one is considering the case where f is
+not xed, performing the associated average according to a uniform P (f ) is not essential for
+NFL to hold. NFL can Qalso be demonstrated for a range of non-uniform priors. For example,
+any prior of the form x2X P 0(f (x)) (where P 0(y = f (x)) is the distribution of Y values)
+will also give NFL. The f -average can also enforce correlations between costs at dierent
+X values and NFL still obtain. For example if costs are rank ordered (with ties broken in
+some arbitrary way) and we sum only over all cost functions given by permutations of those
+orders, then NFL still holds.
+The choice of uniform P (f ) was motivated more from theoretical rather pragramattic
+concerns, as a way of analyzing the theoretical structure of optimization. Nevertheless, the
+cautionary observations presented above make clear that an analysis of the uniform P (f )
+case has a number of ramications for practitioners.
+
+3.2 Stochastic optimization algorithms
+
+Thus far we have considered the case in which algorithms are deterministic. What is the situation for stochastic algorithms? As it turns out, NFL results hold even for such algorithms.
+The proof of this is straightforward. Let  be a stochastic \non-potentially revisiting"
+algorithm. Formally, this means that  is a mapping taking any d to a d-dependent distribution over X that equals zero for all x 2 dx. (In this sense  is what in statistics community is
+known as a \hyper-parameter", specifying the function P (dxm+1 (m + 1) j dm ) for all m and
+d.) One can now reproduce the derivation of the NFL result for deterministic algorithms,
+only with a replaced by  throughout. In so doing all steps in the proof remain valid. This
+establishes that NFL results apply to stochastic algorithms as well as deterministic ones.
+
+9
+
+4 A geometric perspective on the NFL theorems
+Intuitively, the NFL theorem illustrates that even if knowledge of f (perhaps specied
+through P (f )) is not incorporated into a, then there are no formal assurances that a will
+be eective. Rather, eective optimization relies on a fortuitous matching between f and a.
+This point is formally established by viewing the NFL theorem from a geometric perspective.
+Consider the space F of all possible cost functions. As previously discussed in regard to
+Equation (1) the probability of obtaining some dym is
+
+P (dym jm a) =
+
+X
+
+f
+
+P (dym jm a f )P (f ):
+
+where P (f ) is the prior probability that the optimization problem at hand has cost function
+f . This sum over functions can be viewed as an inner product in F . More precisely, dening
+the F -space vectors ~vdym a m and ~p by their f components ~vdym a m(f )  P (dym jm a f ) and
+~p(f )  P (f ) respectively,
+
+P (dym jm a) = ~vdym a m  p~:
+
+(2)
+
+This equation provides a geometric interpretation of the optimization process. dym can
+be viewed as xed to the sample that is desired, usually one with a low cost value, and m
+is a measure of the computational resources that can be aorded. Any knowledge of the
+properties of the cost function goes into the prior over cost functions, p~. Then Equation
+(2) says the performance of an algorithm is determined by the magnitude of its projection
+onto ~p, i.e. by how aligned ~vdym a m is with the problems ~p. Alternatively, by averaging over
+dym , it is easy to see that E (dym jm a) is an inner product between ~p and E (dym jm a f ). The
+expectation of any performance measure (dym) can be written similarly.
+In any of these cases, P (f ) or ~p must \match" or be aligned with a to get desired
+behavior. This need for matching provides a new perspective on how certain algorithms can
+perform well in practice on specic kinds of problems. For example, it means that the years
+of research into the traveling salesman problem (TSP) have resulted in algorithms aligned
+with the (implicit) ~p describing traveling salesman P
+problems of interest to TSP researchers.
+Taking the geometric view, the NFL result that f P (dym jf m a) is independent of a has
+the interpretation that for any particular dym and m, all algorithms a have the same projection
+onto the the uniform P (f ), represented by the diagonal vector ~1. Formally, vdym a m  ~1 =
+cst(dym m). For deterministic algorithms the components of vdym a m (i.e. the probabilities
+that algorithm a gives sample dym on cost function
+f after m distinct cost evaluations) are
+P 2 y
+all either 0 or 1, so NFL also implies that f P (dm j m a f ) = cst(dym m). Geometrically,
+this indicates that the length of ~vdym a m is independent of a. Dierent algorithms thus
+generate dierent vectors ~vdym a m all having the same length and lying on a cone with constant
+projection onto ~1. (A schematic of this situation is shown in Figure 1 for the case where
+F is 3-dimensional.) Because the components of ~vc a m are binary we might equivalently
+view ~vdym a m as lying on the subset the vertices of the Boolean hypercube having the same
+hamming distance from ~1.
+10
+
+1
+
+p
+
+Figure 1: Schematic view of the situation in which function space F is 3-dimensional. The
+uniform prior over this space, ~1 lies along the diagonal. Dierent algorithms a give dierent
+vectors v lying in the cone surrounding the diagonal. A particular problem is represented by
+its prior ~p lying on the simplex. The algorithm that will perform best will be the algorithm
+in the cone having the largest inner product with p~.
+Now restrict attention to algorithms having the same probability of some particular dym.
+The algorithms in this set lie in the intersection of 2 cones|one about the diagonal, set by
+the NFL theorem, and one set by having the same probability for dym. This is in general an
+jFj; 2 dimensional manifold. Continuing, as we impose yet more dym -based restrictions on a
+set of algorithms, we will continue to reduce the dimensionality of the manifold by focusing
+on intersections of more and more cones.
+The geometric view of optimization also suggests alternative measures for determining
+how \similar" two optimization algorithms are. Consider again Equation (2). In that the
+algorithm directly only gives ~vdym a m, perhaps the most straight-forward way to compare two
+algorithms a1 and a2 would be by measuring how similar the vectors ~vdym a1 m and ~vdym a2 m are.
+(E.g., by evaluating the dot product of those vectors.) However those vectors occur on the
+right-hand side of Equation (2), whereas the performance of the algorithms | which is after
+all our ultimate concern | instead occur on the left-hand side. This suggests measuring
+the similarity of two algorithms not directly in terms of their vectors ~vdym a m, but rather in
+terms of the dot products of those vectors with ~p. For example, it may be the case that
+algorithms behave very similarly for certain P (f ) but are quite dierent for other P (f ). In
+many respects, knowing this about two algorithms is of more interest than knowing how
+their vectors ~vdym a m compare.
+As another example of a similarity measure suggested by the geometric perspective,
+we could measure similarity between algorithms based on similarities between P (f )'s. For
+example, for two dierent algorithms, one can imagine solving for the P (f ) that optimizes
+11
+
+P (dym j m a) for those algorithms, in some non-trivial sense.3 We could then use some
+measure of distance between those two P (f ) distributions as a gauge of how similar the
+associated algorithms are.
+Unfortunately, exploiting the inner product formula in practice, by going from a P (f )
+to an algorithm optimal for that P (f ), appears to often be quite dicult. Indeed, even
+determining a plausible P (f ) for the situation at hand is often dicult. Consider, for
+example, TSP problems with N cities. To the degree that any practitioner attacks all
+N -city TSP cost functions with the same algorithm, that practitioner implicitly ignores
+distinctions between such cost functions. In this, that practitioner has implicitly agreed
+that the problem is one of how their xed algorithm does across the set of all N -city TSP
+cost functions. However the detailed nature of the P (f ) that is uniform over this class of
+problems appears to be dicult to elucidate.
+On the other hand, there is a growing body of work that does rely explicitly on enumeration of P (f ). For example, applications of Markov random elds Gri76, KS80] to cost
+landscapes yield P (f ) directly as a Gibbs distribution.
+
+5 Calculational applications of the NFL theorems
+In this section we explore some of the applications of the NFL theorems for performing
+calculations concerning optimization. We will consider both calculations of practical and
+theoretical interest, and begin with calculations of theoretical interest, in which informationtheoretic quantities arise naturally.
+
+5.1 Information-theoretic aspects of optimization
+
+For expository purposes, we simplify the discussion slightly by considering only the histogram
+of number of instances of each possible cost value produced by a run of an algorithm, and
+not the temporal order in which those cost values were generated. (Essentially all realworld performance measures are independent of such temporal information.) We indicate
+that histogram with the symbol ~c ~c has Y components (cY1 cY2  cY ), where ci is the
+number of times cost value Yi occurs in the sample dym .
+Now consider any question like the following: \What fraction of cost functions give a
+particular histogram ~c of cost values after m distinct cost evaluations produced by using a
+particular instantiation of an evolutionary algorithm FOW66, Hol93]?"
+At rst glance this seems to be an intractable question. However it turn out that the
+NFL theorem provides a way to answer it. This is because | according to the NFL theorem
+| the answer must be independent of the algorithm used to generate ~c. Consequently we
+can chose an algorithm for which the calculation is tractable.
+jY j
+
+In particular, one may want to impose restrictions on ( ). For instance, one may wish to only consider
+( ) that are invariant under at least partial relabelling of the elements in X , to preclude there being an
+algorithm that will assuredly \luck out" and land on minx2X ( ) on its very rst query.
+3
+
+P f
+
+P f
+
+f x
+
+12
+
+Theorem 3 For any algorithm, the fraction of cost functions that result in a particular
+histogram ~c = m~ is
+
+f (~ ) =
+
+
+
+m
+c1 c2  c
+
+jY j
+
+jYjjXj;m
+
+jYjjXj
+
+=
+
+m
+c1 c2  c
+jYjm
+
+
+
+jY j
+
+:
+
+For large enough m this can be approximated as
+
+m S (~ )]
+f (~ ) = C (m jYj) exp
+QjYj 1=2
+i=1 i
+where S (~ ) is the entropy of the distribution ~ , and C (m jYj) is a constant that does not
+depend on ~ .
+This theorem is derived in Appendix C. If some of the ~ i are 0, the approximation still holds,
+only with Y redened to exclude the y's corresponding to the zero-valued ~ i . However Y
+is dened, the normalization constant of Equation (3) can be found by summing over all ~
+lying on the unit simplex ?].
+A question related to one addressed in this theorem is the following: \For a given cost
+function, what is the fraction alg of all algorithms that give rise to a particular ~c?" It turns
+out that the only feature of f relevant for this question is the histogram of its cost values
+formed by looking across all X . Specify the fractional form of this histogram by ~ : there
+are Ni = i jXj points in X for which f (x) has the i'th Y value.
+In Appendix D it is shown that to leading order, alg(~ ~ ) depends on yet another
+information theoretic quantity, the Kullback-Liebler distance CT91] between ~ and ~ :
+Theorem 4 For a given f with histogram N~ = jXj~ , the fraction of algorithms that give
+rise to a histogram ~c = m~ is given by
+QjYj Ni 
+alg(~ ~ ) = i=1jXjci :
+m
+
+For large enough m this can be written as
+;m DKL (~ ~)
+alg(~ ~ ) = C (m jXj jYj) e QjYj 1=2
+i=1 i
+
+where DKL (~ ~ ) is the Kullback-Liebler distnace between the distributions  and  .
+As before, C can be calculated by summing ~ over the unit simplex.
+
+13
+
+(3)
+
+5.2 Measures of performance
+
+We now show how to apply the NFL framework to calculate certain benchmark performance
+measures. These allow both the programmatic (rather than ad hoc) assessment of the ecacy
+of any individual optimization algorithm and principled comparisons between algorithms.
+Without loss of generality, assume that the goal of the search process is nding a minimum. So we are interested in the -dependence of P (min(~c) > j f m a), by which we mean
+the probability that the minimum cost an algorithm a nds on problem f in m distinct
+evaluations is larger than . At least three quantities related to this conditional probability
+can be used to gauge an algorithm's performance in a particular optimization run:
+i) The uniform average of P (min(~c) > j f m a) over all cost functions.
+ii) The form P (min(~c) > j f m a) takes for the random algorithm, which uses no information from the sample dm .
+iii) The fraction of algorithms which, for a particular f and m, result in a ~c whose minimum
+exceeds .
+These measures give benchmarks which any algorithm run on a particular cost function
+should surpass if that algorithm is to be considered as having worked well for that cost
+function.
+Without loss of generality assume the that i'th cost value (i.e., Yi equals i. So cost values
+run from a minimum of 1 to a maximum of jYj, in integer increments. The following results
+are derived in Appendix E.
+
+Theorem 5
+
+X
+
+f
+
+P (min(~c) > j f m) = !m( )
+
+where ! ( )  1 ; =jYj is the fraction of cost lying above . In the limit of jYj ! 1, this
+distribution obeys the following relationship
+P
+
+f E (min(~c) j f m) =
+
+jYj
+
+1 :
+m+1
+
+Unless one's algorithm has its best-cost-so-far drop faster than the drop associated with
+these results, one would be hard-pressed indeed to claim that the algorithm is well-suited to
+the cost function at hand. After all, for such performance the algorithm is doing no better
+than one would expect it to for a randomly chosen cost function.
+Unlike the preceding measure, the measures analyzed below take into account the actual
+cost function at hand. This is manifested in the dependance of the values of those measures
+on the vector N~ given by the cost function's histogram (N~ = jXj~ ):
+14
+
+Theorem 6 For the random algorithm ~a,
+P (min(~c)
+
+j f m ~a) =
+
+mY
+;1
+i=0
+
+( ) ; i=jXj :
+1 ; i=jXj
+
+P
+where ( )  jYj
+i= Ni =jXj is the fraction of points in X for which f (x)
+in 1=jXj
+
+P (min(~c) > j f m ~a) =
+
+
+m ( ) 1 ; m(m ; 1)(1 ;
+
+(4)
+. To rst order
+
+( )) 1 +  :
+
+(5)
+2 ()
+jXj
+This result allows the calculation of other quantities of interest for measuring performance,
+for example the quantity
+
+E (min(~c)jf m ~a) =
+
+jYj
+X
+=1
+
+P (min(~c)
+
+j f m ~a) ; P (min(~c)
+
++ 1 j f m ~a)]:
+
+Note that for many cost functions of both practical and theoretical interest, cost values are
+distributed Gaussianly. For such cases, we can use that Gaussian nature of the distribution
+to facilitate our calculations. In particular, if the mean
+p and variance of the Gaussian are
+and  respectively, then we have ( ) = erfc(( ; )= 2)=2, where erfc is the complimentary
+error function.
+To calculate the third performance measure, note that for xed f and m, for any (deterministic) algorithm a, P (~c > j f m a) is either 1 or 0. Therefore the fraction of algorithms
+which result in a ~c whose minimum exceeds is given by
+P
+c) > j f m a) :
+a P (min(~P
+a1
+P
+Expanding
+in
+terms
+of
+~
+c
+,
+we
+can
+rewrite
+the
+numerator
+of
+this
+ratio
+as
+~c P (min(~c) >
+P
+P
+j~c) a P (~c j f m a). However the ratio of this quantity to a 1 is exactly what was calculated when we evaluated measure (ii) (see the beginning of the argument deriving Equation
+(4)). This establishes the following:
+
+Theorem 7 For xed f and m, the fraction of algorithms which result in a ~c whose minimum
+
+exceeds is given by the quantity on the right-hand sides of Equations (4) and (5).
+As a particular example of applying this result, consider measuring the value of min(~c)
+produced in a particular run of your algorithm. Then imagine that when it is evaluated for
+equal to this value, the quantity given in Equation (5) is less than 1=2. In such a situation
+the algorithm in question has performaed worse than over half of all search algorithms, for
+the f and m at hand hardly a stirring endorsement.
+None of the discussion above explicitly concerns the dynamics of an algorithm's performance as m increases. Many aspects of such dynamics may be of interest. As an example, let
+
+15
+
+us consider whether, as m grows, there is any change in how well the algorithm's performance
+compares to that of the random algorithm.
+To this end, let the sample generated by the algorithm a after m steps be dm , and dene
+0
+y  min(dym ). Let k be the number of additional steps it takes the algorithm to nd an
+x such that f (x) < y0. Now we can estimate the number of steps it would have taken the
+random search algorithm to search X ; dX and nd a point whose y was less than y0. The
+expected value of this number of steps is 1=z(d) ; 1, where z(d) is the fraction of X ; dxm
+for which f (x) < y0. Therefore k + 1 ; 1=z(d) is how much worse a did than would have the
+random algorithm, on average.
+Next imagine letting a run for many steps over some tness function f and plotting how
+well a did in comparison to the random algorithm on that run, as m increased. Consider
+the step where a nds its n'th new value of min(~c). For that step, there is an associated k
+(the number of steps until the next min(dym )) and z(d). Accordingly, indicate that step on
+our plot as the point (n k + 1 ; 1=z(d)). Put down as many points on our plot as there are
+successive values of min(~c(d)) in the run of a over f .
+If throughout the run a is always a better match to f than is the random search algorithm,
+then all the points in the plot will have their ordinate values lie below 0. If the random
+algorithm won for any of the comparisons though, that would mean a point lying above 0.
+In general, even if the points all lie to one side of 0, one would expect that as the search
+progresses there is corresponding (perhaps systematic) variation in how far away from 0 the
+points lie. That variation tells one when the algorithm is entering harder or easier parts of
+the search.
+Note that even for a xed f , by using dierent starting points for the algorithm one
+could generate many of these plots and then superimpose them. This allows a plot of
+the mean value of k + 1 ; 1=z(d) as a function of n along with an associated error bar.
+Similarly, one could replace the single number z(d) characterizing the random algorithm
+with a full distribution over the number of required steps to nd a new minimum. In these
+and similar ways, one can generate a more nuanced picture of an algorithm's performance
+than is provided by any of the single numbers given by the performance measure discussed
+above.
+
+6 Minimax distinctions between algorithms
+The NFL theorems do not direclty address minimax properties of search. For example, say
+we're considering two deterministic algorithms, a1 and a2. It may very well be that there
+exist cost functions f such that a1's histogram is much better (according to some appropriate
+performance measure) than a2's, but no cost functions for which the reverse is true. For the
+NFL theorem to be obeyed in such a scenario, it would have to be true that there are many
+more f for which a2's histogram is better than a1's than vice-versa, but it is only slightly
+better for all those f . For such a scenario, in a certain sense a1 has better \head-to-head"
+minimax behavior than a2 there are f for which a1 beats a2 badly, but none for which a1
+does substantially worse than a2.
+16
+
+Formally, we say that there exists head-to-head minimax distinctions between two algorithms a1 and a2 i there exists a k such that for at least one cost function f , the dierence
+E (~c j f m a1) ; E (~c j f m a2) = k, but there is no other f for which E (~c j f m a2) ; E (~c j
+f m a1) = k. (A similar denition can be used if one is instead interested in (~c) or dym
+rather than ~c.)
+It appears that analyzing head-to-head minimax properties of algorithms is substantially
+more dicult than analyzing average behavior (like in the NFL theorem). Presently, very
+little is known about minimax behavior involving stochastic algorithms. In particular, it is
+not known if there are any senses in which a stochastic version of a deterministic algorithm
+has better/worse minimax behavior than that deterministic algorithm. In fact, even if we
+stick completely to deterministic algorithms, only an extremely preliminary understanding
+of minimax issues has been reached.
+What we do know is the following. Consider the quantity
+X
+
+f
+
+Pdym 1 dym 2 (z z0 j f m a1 a2)
+
+for deterministic algorithms a1 and a2. (By PA (a) is meant the distribution of a random
+variable A evaluated at A = a.) For deterministic algorithms, this quantity is just the
+number of f such that it is both true that a1 produces a population with Y components z
+and that a2 produces a population with Y components z0.
+In Appendix F, it is proven by example that this quantity need not be symmetric under
+interchange of z and z0:
+
+Theorem 8 In general,
+X
+
+f
+
+Pdym 1 dym 2 (z z0 j f m a1 a2) 6=
+
+X
+
+f
+
+Pdym 1 dym 2 (z0 z j f m a1 a2):
+
+(6)
+
+This means that under certain circumstances, even knowing only the Y components of the
+populations produced by two algorithms run on the same (unknown) f , we can infer something concerning what algorithm produced each population.
+Now consider the quantity
+X
+
+f
+
+PC1 C2 (z z0 j f m a1 a2)
+
+again for deterministic algorithms a1 and a2. This quantity is just the number of f such that
+it is both true that a1 produces a histogram z and that a2 produces a histogram z0. It too
+need not be symmetric under interchange of z and z0 (see Appendix F). This is a stronger
+statement then the asymmetry of dy 's statement, since any particular histogram corresponds
+to multiple populations.
+It would seem that neither of these two results directly implies that there are algorithms
+a1 and a2 such that for some f a1's histogram is much better than a2's, but for no f 's is the
+reverse is true. To investigate this problem involves looking over all pairs of histograms (one
+17
+
+pair for each f ) such that there is the same relationship between (the performances of the
+algorithms, as reected in) the histograms. Simply having an inequality between the sums
+presented above does not seem to directly imply that the relative performances between
+the associated pair of histograms is asymmetric. (To formally establish this would involve
+creating scenarios in which there is an inequality between the sums, but no head-to-head
+minimax distinctions. Such an analysis is beyond the scope of this paper.)
+On the other hand, having the sums equal does carry obvious implications for whether
+there are head-to-head minimax distinctions. For example, if both algorithms are deterministic, then for any particular f PPdym 1 dym 2 (z1 z2 j f m a1 a2) equals 1 for one (z1 z2) pair, and 0
+for all others. In such a case,P f Pdym 1 dym 2 (z1 z2 j f m a1 a2) P
+is just the number of f that re0
+y
+y
+sult in the pair (z1 z2). So f Pdm 1 dm 2 (z z j f m a1 a2) = f Pdym 1 dym 2 (z0 z j f m a1 a2)
+implies that there are no head-to-head minimax distinctions between a1 and a2. The converse
+does not appear to hold however.4
+As a preliminary analysis of whether there can be head-to-head minimax distinctions, we
+can exploit the result in Appendix F, which concerns the case where jXj = jYj = 3. First,
+dene the following performance measures of two-element populations, Q(dy2 ):
+i) Q(y2 y3) = Q(y3 y2) = 2.
+ii) Q(y1 y2) = Q(y2 y1) = 0.
+iii) Q of any other argument = 1.
+In Appendix F we show that for this scenario there exist pairs of algorithms a1 and a2 such
+that for one f a1 generates the histogram fy1 y2g and a2 generates the histogram fy2 y3g,
+but there is no f for which the reverse occurs (i.e., there is no f such that a1 generates the
+histogram fy2 y3g and a2 generates fy1 y2g).
+So in this scenario, with our dened performance measure, there are minimax distinctions between a1 and a2. For one f the performance measures of algorithms a1 and a2 are
+respectively 0 and 2. The dierence in the Q values for the two algorithms is 2 for that f .
+However there are no other f for which the dierence is -2. For this Q then, algorithm a2 is
+minimax superior to algorithm a1.
+It is not currently known what restrictions on Q(dym) are needed for there to be minimax
+distinctions between the algorithms. As an example, it may well be that for Q(dym ) =
+minifdym (i)g there are no minimax distinctions between algorithms.
+More generally, at present nothing is known about \how big a problem" these kinds of
+asymmetries are. All of the examples of asymmetry considered here arise when the set of
+Consider the grid of all ( 0) pairs. Assign to each grid point the number of that result in that grid
+point's ( 0) pair. Then our constraints are i) by the hypothesis that there are no head-to-head minimax
+distinctions, if grid point ( 1 2) is assigned a non-zero number, then so is ( 2 1 ) and ii) by the no-freelunch theorem, the sum of all numbers in row equals the sum of all numbers in column . These two
+constraints do not appear to imply that the distribution of numbers is symmetric under interchange of rows
+and columns. Although again, like before, to formally establish this point would involve explicitly creating
+search scenarios in which it holds.
+4
+
+z z
+
+f
+
+z z
+
+z
+
+z
+
+z
+
+z
+
+z
+
+z
+
+18
+
+X values a1 has visited overlaps with those that a2 has visited. Given such overlap, and
+certain properties of how the algorithms generated the overlap, asymmetry arises. A precise
+specication of those \certain properties" is not yet in hand. Nor is it known how generic
+they are, i.e., for what percentage of pairs of algorithms they arise. Although such issues are
+easy to state (see Appendix F), it is not at all clear how best to answer them.
+However consider the case where we are assured that in m steps the populations of two
+particular algorithms have not overlapped. Such assurances hold, for example, if we are
+comparing two hill-climbing algorithms that start far apart (on the scale of m) in X . It
+turns out that given such assurances, there are no asymmetries between the two algorithms
+for m-element populations. To see this formally, go throughP the argument used to prove
+the NFL theorem, but apply that argument to the quantity f Pdym 1 dym 2 (z z0 j f m a1 a2)
+rather than P (~c j f m a). Doing this establishes the following:
+Theorem: If there is no overlap between dxm 1 and dxm 2, then
+X
+
+f
+
+Pdym 1 dym 2 (z z0 j f m a1 a2) =
+
+X
+
+f
+
+Pdym 1 dym 2 (z0 z j f m a1 a2):
+
+(7)
+
+An immediate
+consequence of this theorem is that under the no-overlap conditions, the
+P
+quantity f PC1 C2 (z z0 j f m a1 a2) is symmetric under interchange of z and z0, as are
+all distributions determined from this one over C1 and C2 (e.g., the distribution over the
+dierence between those C 's extrema).
+Note that with stochastic algorithms, if they give non-zero probability to all dxm, there
+is always overlap to consider. So there is always the possibility of asymmetry between
+algorithms if one of them is stochastic.
+
+7
+
+P (f )-independent results
+
+All work to this point has largely considered the behavior of various algorithms across a wide
+range of problems. In this section we introduce the kinds of results that can be obtained
+when we reverse roles and consider the properties of many algorithms on a single problem.
+More results of this type are found in MW96]. The results of this section, although less
+sweeping than the NFL results, hold no matter what the real world's distribution over cost
+functions is.
+Let a and a0 be two search algorithms. Dene a \choosing procedure" as a rule that
+examines the samples dm and d0m , produced by a and a0 respectively, and based on those
+populations, decides to use either a or a0 for the subsequent part of the search. As an
+example, one \rational" choosing procedure is to use a for the subsequent part of the search
+if and only it has generated a lower cost value in its sample than has a0. Conversely we
+can consider a \irrational" choosing procedure that went with the algorithm that had not
+generated the sample with the lowest cost solution.
+At the point that a choosing procedure takes eect the cost function will have been
+sampled at d  dm  d0m . Accordingly, if d>m refers to the samples of the cost function that
+19
+
+come after using the choosing algorithm, then the user is interested in the remaining sample
+d>m . As always, without loss of generality it is assumed that the search algorithm chosen
+by the choosing procedure does not return to any points in d.5
+The following theorem, proven in Appendix G, establishes that there is no a priori
+justication for using any particular choosing procedure. Loosely speaking, no matter what
+the cost function, without special consideration of the algorithm at hand, simply observing
+how well that algorithm has done so far tells us nothing a priori about how well it would do
+if we continue to use it on the same cost function. For simplicity, in stating the result we
+only consider deterministic algorithms.
+
+Theorem 9 Let dm and d0m be two xed samples of size m, that are generated when the
+
+algorithms a and a0 respectively are run on the (arbitrary) cost function at hand. Let A and
+B be two dierent choosing procedures. Let k be the number of elements in c>m. Then
+X
+
+aa
+
+0
+
+X
+
+P (c>m j f d d0 k a a0 A) =
+
+aa
+
+0
+
+P (c>m j f d d0 k a a0 B ):
+
+Implicit in this result is the assumption that the sum excludes those algorithms a and a0
+that do not result in d and d0 respectively when run on f .
+In the precise form it is presented above, the result may appear misleading, since it
+treats all populations equally, when for any given f some populations will be more likely
+than others. However even if one weights populations according to their probability of
+occurrence, it is still true that, on average, the choosing procedure one uses has no eect on
+likely c>m. This is established by the following result, proven in Appendix H:
+
+Theorem 10 Under the conditions given in the preceding theorem,
+X
+X
+P (c>m j f m k a a0 A) = P (c>m j f m k a a0 B ):
+aa
+
+aa
+
+0
+
+0
+
+These results show that no assumption for P (f ) alone justies using some choosing
+procedure as far as subsequent search is concerned. To have an intelligent choosing procedure,
+one must take into account not only P (f ) but also the search algorithms one is choosing
+among. This conclusion may be surprising. In particular, note that it means that there is no
+intrinsic advantage to using a rational choosing procedure, which continues with the better
+of a and a0, rather than using a irrational choosing procedure which does the opposite.
+These results also have interesting implications for degenerate choosing procedures A 
+falways use algorithm ag, and B  falways use algorithm a0g. As applied to this case, they
+can know to avoid the elements it has seen before. However a priori, has no way to avoid the elements
+it hasn't seen yet but that 0 has (and vice-versa). Rather than have the denition of somehow depend
+on the elements in 0 ; (and similarly for 0 ), we deal with this problem by dening >m to be set only by
+those elements in >m that lie outside of  . (This is similar to the convention we exploited above to deal
+with potentially retracing algorithms.) Formally, this means that the random variable >m is a function of
+ as well as of >m . It also means there may be fewer elements in the histogram >m than there are in the
+population >m .
+5a
+
+a
+
+a
+
+d
+
+d
+
+a
+
+d
+
+a
+
+c
+
+d
+
+c
+
+d
+
+d
+
+c
+
+d
+
+20
+
+mean that for xed f1 and f2, if f1 does better (on average) with the algorithms in some set
+A, then f2 does better (on average) with the algorithms in the set of all other algorithms.
+In particular, if for some favorite algorithms a certain \well-behaved" f results in better
+performance than does the random f , then that well-behaved f gives worse than random
+behavior on the set all remaining algorithms. In this sense, just as there are no universally
+ecacious search algorithms, there are no universally benign f which can be assured of
+resulting in better than random performance regardless of one's algorithm.
+In fact, things may very well be worse than this. In supervised learning, there is a
+related result Wol96a]. Translated into the current context that result suggests that if one
+restricts our sums to only be over those algorithms that are a good match to P (f ), then it is
+often the case that\stupid" choosing procedures | like the irrational procedure of choosing
+the algorithm with the less desirable ~c | outperform \intelligent" ones. What the set of
+algorithms summed over must be for a rational choosing procedure to be superior to an
+irrational is not currently known.
+
+8 Conclusions
+A framework has been presented in which to compare general-purpose optimization algorithms. A number of NFL theorems were derived that demonstrate the danger of comparing
+algorithms by their performance on a small sample of problems. These same results also indicate the importance of incorporating problem-specic knowledge into the behavior of the
+algorithm. A geometric interpretation was given showing what it means for an algorithm to
+be well-suited to solving a certain class of problems. The geometric perspective also suggests
+a number of measures to compare the similarity of various optimization algorithms.
+More direct calculational applications of the NFL theorem were demonstrated by investigating certain information theoretic aspects of search, as well as by developing a number
+of benchmark measures of algorithm performance. These benchmark measures should prove
+useful in practice.
+We provided an analysis of the ways that algorithms can dier a priori despite the
+NFL theorems. We have also provided an introduction to a variant of the framework that
+focuses on the behavior of a range of algorithms on specic problems (rather than specic
+algorithms over a range of problems). This variant leads directly to reconsideration of many
+issues addressed by computational complexity, as detailed in MW96].
+Much future work clearly remains | the reader is directed to WM95] for a list of some
+of it. Most important is the development of practical applications of these ideas. Can the geometric viewpoint be used to construct new optimization techniques in practice? We believe
+the answer to be yes. At a minimum, as Markov random eld models of landscapes become
+more wide-spread, the approach embodied in this paper should nd wider applicability.
+
+Acknowledgments
+
+We would like to thank Raja Das, David Fogel, Tal Grossman, Paul Helman, Bennett Levitan, Una-May O'Rielly and the reviewers for helpful comments and suggestions. WGM
+thanks the Santa Fe Institute for funding and DHW thanks the Santa Fe Institute and TXN
+21
+
+Inc. for support.
+
+References
+CT91]
+
+T. M. Cover and J. A. Thomas. Elements of information theory. John Wiley &
+Sons, New York, 1991.
+FOW66] L. J. Fogel, A. J. Owens, and M. J. Walsh. Articial Intelligence through Simulated
+Evolution. Wiley, New York, 1966.
+Glo89] F. Glover. ORSA J. Comput., 1:190, 1989.
+Glo90] F. Glover. ORSA J. Comput., 2:4, 1990.
+Gri76] D. Grieath. Introduction to random elds. Springer-Verlag, New York, 1976.
+Hol93] J. H. Holland. Adaptation in Natural and Articial Systems. MIT Press, Cambridge, MA, 1993.
+KGV83] S. Kirkpatrick, D. C. Gelatt, and M. P. Vecchi. Optimization by simulated annealing. Science, 220:671, 1983.
+KS80] R. Kinderman and J. L. Snell. Markov random elds and their applications. American Mathematical Society, Providence, 1980.
+LW66] E. L. Lawler and D. E. Wood. Operations Research, 14:699{719, 1966.
+MW96] W. G. Macready and D. H. Wolpert. What makes an optimization problem?
+Complexity, 5:40{46, 1996.
+WM95] D. H. Wolpert and W. G. Macready.
+No free lunch theorems for search.
+Technical Report SFI-TR-05-010 ftp :
+==ftp:santafe:edu=pub=dhwf tp=nfl:search:TR:ps:Z , Santa Fe Institute, 1995.
+Wol96a] D. H. Wolpert. The lack of a prior distinctions between learning algorithms and the
+existence of a priori distinctions between learning algorithms. Neural Computation,
+1996.
+Wol96b] D. H. Wolpert. On bias plus variance. Neural Computation, in press, 1996.
+
+A NFL proof for static cost functions
+
+We show that Pf P (~c j f m a) has no dependence on a. Conceptually, the proof is quite
+simple but necessary book-keeping complicates things, lengthening the proof considerably.
+The intuition behind the proof is quite simple though: by summing over all f we ensure that
+22
+
+the past performance of an algorithm has no bearing on its future performance. Accordingly,
+under such a sum, all algorithms perform equally.
+The proof is by induction. The induction is based on m = 1 and the inductive step is
+based on breaking f into two independent parts, one for x 2 dxm and one for x 62 dxm . These
+are evaluated separately, giving the desired result.
+For m = 1 we write the sample as d1 = fdx1 f (dx1 )g where dx1 is set by a. The only
+possible value for dy1 is f (dx1 ), so we have :
+X
+X
+P (dy1 j f m = 1 a) = (dy1 f (dx1 ))
+f
+
+f
+
+where is the Kronecker delta function.
+Summing over all possible cost functions, (dy1 f (dx1 )) is 1 only for those functions which
+have cost dy1 at point dx1 . Therefore that sum equals jYjjXj;1, independent of dx1 :
+X
+P (dy1 j f m = 1 a) = jYjjXj;1
+f
+
+which is independent of a. This bases the
+induction.
+P
+y
+y
+The inductive
+step
+requires
+that
+if
+P
+f (dm jf m a) is independent of a for all dm , then
+P
+so also is f P (dym+1jf m + 1 a). Establishing this step completes the proof.
+We begin by writing
+P (dym+1 jf m + 1 a) = P (fdym+1 (1) : : : dym+1 (m)g dym+1(m + 1)jf m + 1 a)
+= P (dym dym+1 (m + 1)jf m + 1 a)
+= P (dym+1 (m + 1)jdm f m + 1 a) P (dym jf m + 1 a)
+and thus
+X
+X
+P (dym+1 jf m + 1 a) = P (dym+1(m + 1)jdym f m + 1 a) P (dym jf m + 1 a):
+f
+
+f
+
+The new y value, dym+1(m + 1), will depend on the new x value, f and nothing else. So we
+expand over these possible x values, obtaining
+X
+X
+P (dym+1 jf m +1 a) = P (dym+1 (m + 1)jf x) P (xjdym f m +1 a)P (dymjf m + 1 a)
+f
+
+=
+
+fx
+X
+fx
+
+(dym+1 (m + 1) f (x)) P (xjdym f m +1 a)P (dymjf m + 1 a):
+
+Next note that since x = a(dxm dym), it does not depend directly on f . Consequently we
+expand in dxm to remove the f dependence in P (xjdym f m +1 a):
+X
+X
+P (dym+1 jf m +1 a) =
+(dym+1(m + 1) f (x)) P (xjdm a) P (dxmjdym f m + 1 a)
+f x dxm
+
+f
+
+=
+
+
+P (dymjf m + 1 a)
+X
+
+f dxm
+
+(dym+1(m + 1) f (a(dm)))  P (dm jf m a)
+23
+
+where use was made of the fact that P (xjdm a) = (x a(dm)) and the fact that P (dm jf m +
+1 a) = P (dm jf m a).
+The sum over cost functions f is done rst. The cost function is dened both over those
+points restricted to dxm and those points outside of dxm . P (dm jf m a) will depend on the f
+values dened over points inside dxm while (dym+1 (m + 1) f (a(dm ))) depends only on the f
+values dened over points outside dxm . (Recall that a(dxm) 62 dxm .) So we have
+X
+X X
+X y
+P (dym+1 jf m +1 a) =
+P (dm jf m a)
+(dm+1 (m +1) f (a(dm))): (8)
+dxm f (x2dxm )
+
+f (x62dxm)
+The sum Pf (x62dxm) contributes a constant, jYjjXj;m;1 , equal to the number of functions
+dened over points not in dxm passing through (dxm+1 (m + 1) f (a(dm ))). So
+X
+X
+P (dym+1 jf m +1 a) = jYjjXj;m;1
+P (dm jf m a)
+f
+f (x2dxm ) dxm
+1 X P (d jf m a)
+= jYj
+m
+f dxm
+1 X P (dy jf m a)
+= jYj
+m
+f
+f
+
+By hypothesis the right hand side of this equation is independent of a, so the left hand side
+must also be. This completes the proof.
+
+B NFL proof for time-dependent cost functions
+In analogy with the proof of the static NFL theorem, thePproof for the time-dependent case
+proceeds by establishing the a-independence of the sum T P (cj f T m a), where here c is
+either dym or Dmy .
+To begin, replace each T in this sum with a set of cost functions, fi, one for each iteration
+of the algorithm. To do this, we start with the following:
+X
+XX X
+P (cjf T m a) =
+P (cjf~ dxm T m a)P (f2  fm dxm j f1 T m a)
+T
+
+=
+
+T dxm f2 fm
+X X
+dxm f2 fm
+
+X
+P (~c j f~ dxm )P (dxm j f~ m a) P (f2  fm j f1 T m a)
+
+T
+
+where the sequence of cost functions, fi, has been indicated by the vector f~ = (f1    fm).
+In the next step, the sum over all possible T is decomposed into a series of sums. Each sum
+in the series is over the values T can take for one particular iteration of the algorithm. More
+formally, using fi+1 = Ti(fi), we write
+X
+X X
+P (cjf T m a) =
+P (~c j f~ dxm )P (dxm j f~ m a)
+T
+
+dxm f2 fm
+X
+
+X
+
+T1
+
+Tm 1
+
+
+
+(f2 T1(f1)) 
+
+;
+
+24
+
+(fm Tm;1(Tm;2( T1(f1)))):
+
+Note that PT P (cjf T m a) is independent of the values of Ti>m;1, so those values can be
+absorbed into an overall a-independent proportionality constant.
+Consider the innermost sum over Tm;1, for xed values of the outer sum indices T1 : : :Tm;2.
+For xed values of the outer indices Tm;1(Tm;2( T1(f1))) is just a particular xed cost function. Accordingly, the innermost sum over Tm;1 is simply the number of bijections of F that
+map that xed cost function to fm . This is the constant, (jFj; 1)!. Consequently, evaluating
+the Tm;1 sum yields
+X
+X X
+P (cj f T m a1) /
+P (cjf~ dxm)P (dxm j f~ m a)
+T
+
+dxm f2 fm
+X
+
+X
+
+T1
+
+Tm 2
+
+
+
+(f2 T1(f1)) 
+
+(fm;1 Tm;2(Tm;3( T1(f1)))):
+
+;
+
+The sum over Tm;2 can be accomplished in the same manner Tm;1 is summed over. In fact,
+all the sums over all Ti can be done, leaving
+X
+X X
+P (cjf T m a1) /
+P (Dmy jf~ dxm )P (dxm j f~ m a)
+T
+
+=
+
+dxm f2 fm
+X X
+dxm f2 fm
+
+P (cjf~ dxm)P (dxm j f1  fm;1 m a):
+
+(9)
+
+In this last step the statistical independence of c and fm has been used.
+Further progress depends on whether c represents dym or Dmy . We begin with analysis of
+the Dmy case. For this case P (cjf~ dxm) = P (Dmy jfm dxm ), since Dmy only reects cost values
+from the last cost function, fm. Using this result gives
+X
+X X
+X
+P (Dmy j f T m a1) /
+P (dxm jf1  fm;1 m a) P (Dmy jfm dxm)
+dxm f2 fm 1
+
+T
+
+fm
+
+;
+
+The nal sum over fm is a constant equal to the number of ways of generating the sample
+Dmy from cost values drawn from fm . The important point is that it is independent of
+the particular dxm . Because of this the sum over dxm can be evaluated eliminating the a
+dependence.
+X
+X X
+P (Dmy jf T m a) /
+P (dxm j f1  fm;1 m a) / 1
+T
+
+f2 fm 1 dxm
+;
+
+This completes the proof of Theorem 2 for the case of Dmy .
+The proof of Theorem 2 is completed by turning to the dym case. This is considerably
+more dicult since P (~c j f~ dxm ) can not be simplied so that the sums over fi can not be
+decoupled. Nevertheless, the NFL result still holds. This is proven by expanding Equation
+(9) over possible dym values.
+X X X
+X
+P (dym jdym)P (dym j f~ dxm)P (dxm j f1  fm;1 m a)
+P (dym jf T m a) /
+T
+
+dxm f2 fm dym
+m
+X X
+Y
+X
+P (dxm j f1    fm;1 m a) (dym(i) fi(dxm (i)))
+= P (dymjdym )
+i=1
+dxm f2 fm
+dym
+(10)
+
+25
+
+The
+innermost sum over fm only has an eect on the (dym(i) fi(dxm(i))) term so it contributes
+P
+y
+x
+jXj;1 . This leaves
+fm (dm (m) fm(dm (m))). This is a constant, equal to jYj
+X
+
+T
+
+P (dym j f T m a) /
+
+X
+
+dym
+
+P (dym jdym)
+
+X
+
+dxm f2 fm 1
+
+T
+
+P (dymjf T m a) /
+
+P (dxm j f1    fm;1 m a)
+
+;
+
+The sum over dxm(m) is now simple,
+X
+
+X
+
+X
+
+dym
+
+P (dym jdym)
+
+
+
+mY
+;1
+i=1
+
+X
+
+
+
+X
+
+X
+
+dxm (1) dxm (m;1) f2fm 1
+
+mY
+;1
+i=1
+
+(dym(i) fi(dxm(i))):
+
+P (dxm;1 j f1  fm;2 m a)
+
+;
+
+(dym(i) fi(dxm (i))):
+
+The above equation is of the same form as Equation (10), only with a remaining population
+of size m ; 1 rather than m. Consequently, in an analogous manner to the scheme used to
+evaluate the sums over fm and dxm (m) that existed in Equation (10), the sums over fm;1 and
+dxm (m ; 1) can be evaluated. Doing so simply generates more a-independent proportionality
+constants. Continuing in this manner, all sums over the fi can be evaluated to nd
+X
+
+T
+
+P (~c j f T m a1) /
+
+X
+
+dym
+
+P (~c j dym )
+
+X
+
+dxm (1)
+
+P (dxm (1) j m a) (dym(1) f1(dxm (1))):
+
+There is algorithm-dependence in this result but it is the trivial dependence discussed previously. It arises from how the algorithm selects the rst x point in its population, dxm (1).
+Restricting interest to those points in the sample that are generated subsequent to the rst,
+this result shows that there are no distinctions between algorithms. Alternatively, summing
+over the initial cost function f1, all points in the sample could be considered while still
+retaining an NFL result.
+
+C Proof of f result
+As noted in the discussion leading up to Theorem 3 the fraction of functions giving a specied
+histogram ~c = m~ is independent of the algorithm. Consequently, a simple algorithm is
+used to prove the theorem. The algorithm visits points in X in some canonical order,
+say x1 x2 : : : xm. Recall that the histogram ~c is specied by giving the frequencies of
+occurrence, across the x1 x2 : : : xm, for each of the jYj possible cost values. The number
+of f 's giving the desired histogram under this algorithm is just the multinomial giving the
+number of ways of distributing the cost values in ~c. At the remaining jXj ; m points in X
+the cost can assume any of the jYj f values giving the rst result of Theorem 3.
+The expression of f (~ ) in terms of the entropy of ~ follows from an application of
+Stirling's approximation to order O(1=m), which is valid when all of the ci are large. In this
+26
+
+case the multinomial is written:
+
+
+m
+
+ln c c  c
+
+!
+
+1 2
+
+jYj
+
+= m ln m ;
+
+jYj
+X
+i=1
+
+
+
+
+jYj
+X
+ci ln ci + 21 ln m ; ln ci
+
+i=1
+jYj
+X
+
+
+
+1
+= m S (~ ) + 2 1 ; jYj ln m ; ln i
+i=1
+
+from which the theorem follows by exponentiating this result.
+
+D Proof of alg result
+In this section the proportion of all algorithms that give a particular ~c for a particular f is
+calculated. The calculation proceeds in several steps:
+Since X is nite there are nite number of dierent samples. Therefore any (deterministic) a is a huge { but nite { list indexed by all possible d's. Each entry in the list is the x
+the a in question outputs for that d-index.
+Consider any particular unordered set of m (X Y ) pairs where no two of the pairs share
+the same x value. Such a set is called an unordered path . Without loss of generality, from
+now on we implicitly restrict the discussion to unordered paths of length m. A particular
+ is in or from a particular f if there is a unordered set of m (x f (x)) pairs identical to .
+The numerator on the right-hand side of Equation (3) is the number of unordered paths in
+the given f that give the desired ~c.
+The number of unordered paths in f that give the desired ~c - the numerator on the
+right-hand side of Equation (3) - is proportional to the number of a's that give the desired
+~c for f and the proof of this claim constitutes a proof of Equation (3).) Furthermore, the
+proportionality constant is independent of f and ~c.
+Proof: The proof is established by constructing a mapping  : a 7!  taking in an a that
+gives the desired ~c for f , and producing a  that is in f and gives the desired ~c. Showing
+that for any  the number of algorithms a such that (a) =  is a constant, independent of
+ f , and ~c. and that  is single-valued will complete the proof.
+Recalling that that every x value in an unordered path is distinct any unordered path 
+gives a set of m! dierent ordered paths. Each such ordered path ord in turn provides a set
+of m successive d's (if the empty d is included) and a following x. Indicate by d(ord) this
+set of the rst m d's provided by ord.
+>From any ordered path ord a \partial algorithm" can be constructed. This consists
+of the list of an a, but with only the m d(ord ) entries in the list lled in, the remaining
+entries are blank. Since there are m! distinct partial a's for each  (one for each ordered path
+corresponding to ), there are m! such partially lled-in lists for each . A partial algorithm
+may or may not be consistent with a particular full algorithm. This allows the denition
+of the inverse of : for any  that is in f and gives ~c, ;1()  (the set of all a that are
+consistent with at least one partial algorithm generated from  and that give ~c when run on
+f ).
+27
+
+To complete the rst part of the proof it must be shown that for all  that are in f and
+give ~c, ;1() contains the same number of elements, regardless of , f , or c. To that end,
+rst generate all ordered paths induced by  and then associate each such ordered path with
+a distinct m-element partial algorithm. Now how many full algorithms lists are consistent
+with at least one of these partial algorithm partial lists? How this question is answered is
+the core of this appendix. To answer this question, reorder the entries in each of the partial
+algorithm lists by permuting the indices d of all the lists. Obviously such a reordering won't
+change the answer to our question.
+Reordering is accomplished by interchanging pairs of d indices. First, interchange any
+d index of the form ((dxm(1) dym (1)) : : : (dxm (i  m) dym(i  m))) whose entry is lled in
+in any of our partial algorithm lists with d0(d)  ((dxm(1) z) : : : (dxm (i) z)), where z is
+some arbitrary constant Y value and xj refers to the j 'th element of X . Next, create some
+arbitrary but xed ordering of all x 2 X : (x1 : : : xjXj). Then interchange any d0 index of
+the form ((dxm(1) z : : : (dxm (i  m) z) whose entry is lled in in any of our (new) partial
+algorithm lists with d00(d0)  ((x1 z) : : : (xm z)). Recall that all the dxm(i) must be distinct.
+By construction, the resultant partial algorithm lists are independent of , ~c and f , as is the
+number of such lists (it's m!). Therefore the number of algorithms consistent with at least
+one partial algorithm list in ;1() is independent of , c and f . This completes the rst
+part of the proof.
+For the second part, rst choose any 2 unordered paths that dier from one another, A
+and B . There is no ordered path Aord constructed from A that equals an ordered path Bord
+constructed from B . So choose any such Aord and any such Bord. If they disagree for the
+null d, then we know that there is no (deterministic) a that agrees with both of them. If
+they agree for the null d, then since they are sampled from the same f , they have the same
+single-element d. If they disagree for that d, then there is no a that agrees with both of
+them. If they agree for that d, then they have the same double-element d. Continue in this
+manner all the up to the (m ; 1)-element d. Since the two ordered paths dier, they must
+have disagreed at some point by now, and therefore there is no a that agrees with both of
+them. Since this is true for any Aord from A and any Bord from B , we see that there is no a
+in ;1(A) that is also in ;1(B ). This completes the proof.
+To show the relation to the Kullback-Liebler distance the product of binomials is expanded with the aid of Stirlings approximation when both Ni and ci are large:
+jYj
+Y
+
+
+
+!
+
+jYj 1
+X
+N
+i
+ln
+= ; 2 ln 2 + Ni ln Ni ; ci ln ci ; (Ni ; ci) ln(Ni ; ci) +
+i=1 ci
+i=1
+1 ln N ; ln(N ; c ) ; ln c :
+i
+i
+i
+i
+2
+
+We it has been assumed that ci=Ni  1, which is reasonable when m  jXj. Expanding
+ln(1 ; z) = ;z ; z2=2 ;  , to second order gives
+jYj
+Y
+
+
+
+!
+
+jYj
+Ni X
+Ni  ; 1 ln c + c ; 1 ln 2 ; ci c ; 1 +  
+ln
+c
+ln
+=
+i
+ci 2 i i 2
+2Ni i
+i=1 ci
+i=1
+
+28
+
+Using m=jXj  1 then in terms of ~ and ~ one nds
+jYj
+Y
+
+
+
+!
+
+Ni ;mD (~ ~ ) + m ; m ln m  ; jYj ln 2
+ln
+=
+KL
+jXj 2
+i=1 ci
+jYj
+X
+m i (1 ;  m +  )
+; 21 ln(im) + 2jXj
+i
+i
+i=1
+where DKL (~ ~ )  Pi i ln(i=i) is the Kullback-Liebler distance between the distributions
+~ and ~ . Exponentiating this expression yields the second result in Theorem 4.
+
+E Benchmark measures of performance
+The result for each benchmark
+measure is established in turn.
+P
+The rst measure is f P (min(dym )jf m a). Consider
+X
+
+f
+
+P (min(dym )jf m a)
+
+(11)
+
+for which the summand equals 0 or 1 for all f and deterministic a. It is 1 only if
+i) f (dxm (1)) = dym(1)
+ii) f (adm(1)]) = dym (2)
+iii) f (adm(1) dm (2)]) = dym (3)
+and so on. These restrictions will x the value of f (x) at m points while f remains free at
+all other points. Therefore
+X
+
+f
+
+P (dym j f m a) = jYjjXj;m:
+
+Using this result in Equation (11) we nd
+X
+X
+P (min(dy ) > j f m) = 1
+P (min(dy ) > j dy ) = 1
+f
+
+m
+
+jYjm dym
+= jYj1 m (jYj ; )m:
+
+m
+
+m
+
+X
+
+jYjm dym3min(dym )> 1
+
+which is the result quoted in Theorem P
+5.
+m
+m
+In the limit as jYj gets large write f E (min(~c)jf m) = PjYj
+=1 ! ( ; 1) ; ! ( )] and
+PjYj;1
+substitute in for !( ) = 1 ; =jYj. Replacing with  + 1 turns the sum into =0  +
++1 )m ]. Next, write jYj = b=& for some b and multiply and divide the
+1] (1 ; !Yj )m ; (1 ; jYj
+summand by &. Since jYj ! 1 then & ! 0. To take the limit of & ! 0, apply L'hopital's
+29
+
+rule to the ratio in the summand. Next use the fact that & is going to 0 to cancel terms
+in the summand. Carrying
+through the algebra, and dividing by b=&, we get a Riemann
+Rb
+m
+sum of the form b2 0 dx x(1 ; x=b)m;1. Evaluating the integral gives the second result in
+Theorem 5.
+The second benchmark concerns the behavior of the random algorithm. Marginalizing
+over the Y values of dierent histograms ~c, the performance of a~ is
+X
+P (min(~c) j f m ~a) = P (min(~c) j ~c) P (~c j f m ~a)
+~c
+
+Now P (~c j f m ~a) is the probability of obtaining histogram ~c in m random draws from the
+histogram N~ of the function f . This
+can be viewed as the denition of a~. This probability
+QjYj Ni  jXj
+has been calculated previously as i=1 ci = m . So
+
+P (min(~c)
+
+jYj
+m
+m
+X
+X
+X
+j f m ~a) = jXj1  
+( ci m)P (min(~c)
+m c1 =0 c =0 i=1
+jYj
+jYj N !
+m
+m
+X
+X
+Y
+1 X
+i
+
+( ci m)
+jXj
+c
+i= i
+m c =0 c =0 i=
+P
+
+
+()jXj
+i= Ni
+m
+m
+ jXj
+jXj
+m
+m
+jY j
+
+=
+
+jYj
+Y
+
+
+
+j~c) Nc i
+i=1 i
+
+!
+
+jY j
+
+jY j
+
+=
+
+which is Equation (4) of Theorem 6.
+
+F Proof related to minimax distinctions between algorithms
+The proof is by example.
+Consider three points in X , x1 x2, and x3, and three points in Y , y1 y2, and y3.
+1) Let the rst point a1 visits be x1, and the rst point a2 visits be x2.
+2) If at its rst point a1 sees a y1 or a y2, it jumps to x2. Otherwise it jumps to x3.
+3) If at its rst point a2 sees a y1, it jumps to x1. If it sees a y2, it jumps to x3.
+Consider the cost function that has as the Y values for the three X values fy1 y2 y3g,
+respectively.
+For m = 2, a1 will produce a population (y1 y2) for this function, and a2 will produce
+(y2 y3).
+The proof is completed if we show that there is no cost function so that a1 produces a
+population containing y2 and y3 and such that a2 produces a population containing y1 and
+y2.
+There are four possible pairs of populations to consider:
+30
+
+i) (y2 y3) (y1 y2)]
+ii) (y2 y3) (y2 y1)]
+iii) (y3 y2) (y1 y2)]
+iv) (y3 y2) (y2 y1)].
+Since if its rst point is a y2 a1 jumps to x2 which is where a2 starts, when a1's rst point is
+a y2 its second point must equal a2's rst point. This rules out possibilities i) and ii).
+For possibilities iii) and iv), by a1's population we know that f must be of the form
+fy3 s y2g, for some variable s. For case iii), s would need to equal y1, due to the rst point
+in a2's population. However for that case, the second point a2 sees would be the value at x1,
+which is y3, contrary to hypothesis.
+For case iv), we know that the s would have to equal y2, due to the rst point in a2's
+population. However that would mean that a2 jumps to x3 for its second point, and would
+therefore see a y2, contrary to hypothesis.
+Accordingly, none of the four cases is possible. This is a case both where there is no
+symmetry under exchange of dy 's between a1 and a2, and no symmetry under exchange of
+histograms. QED.
+
+G Fixed cost functions and choosing procedures
+
+Since any deterministic search algorithm is a mapping from d  D to x  X , any search
+algorithm is a vector in the space X D . The components of such a vector are indexed by the
+possible populations, and the value for each component is the x that the algorithm produces
+given the associated population.
+Consider now a particular population d of size m. Given d, we can say whether any
+other population of size greater than m has the (ordered) elements of d as its rst m (ordered) elements. The set of those populations that do start with d this way denes a set of
+components of any algorithm vector a. Those components will be indicated by ad.
+The remaining components of a are of two types. The rst is given by those populations
+that are equivalent to the rst M < m elements in d for some M . The values of those
+components for the vector algorithm a will be indicated by a d. The second type consists of
+those components corresponding to all remaining populations. Intuitively, these are populations that are not compatible with d. Some examples of such populations are populations
+that contain as one of their rst m elements an element not found in d, and populations that
+re-order the elements found in d. The values of a for components of this second type will be
+indicated by a?d.
+Let proc be either A or B . We are interested in
+X
+
+aa
+
+0
+
+P (c>m j f d1 d2 k a a0 proc) =
+
+X
+
+X
+
+X
+
+a da d a da d a da d
+?
+
+0
+? 0
+
+31
+
+
+
+0
+ 0
+
+
+
+0
+ 0
+
+P (c>m jf d d0 k a a0 proc):
+
+The summand is independent of the values of a?d and a0?d for either of our two d's. In
+addition, the number of such values is a constant. (It is given by the product, over all
+populations not consistent with d, of the number of possible x each such population could
+be mapped to.) Therefore, up to an overall constant independent of d, d0, f , and proc, the
+sum equals
+X
+
+X
+
+a da d a da d
+
+
+0
+ 0
+
+0
+ 0
+
+
+
+P (c>m j f d d0 ad a0d a d a0 d proc):
+0
+
+0
+
+By denition, we are implicitly restricting the sum to those a and a0 so that our summand
+is dened. This means that we actually only allow one value for each component in a d
+(namely, the value that gives the next x element in d), and similarly for a0 d . Therefore the
+sum reduces to
+0
+
+X
+
+a da d
+
+
+0
+
+P (c>m j f d d0 ad a0d proc):
+0
+
+ 0
+
+Note that no component of ad lies in dx. The same is true of a0d . So the sum over ad is
+over the same components of a as the sum over a0d is of a0. Now for xed d and d0, proc's
+choice of a or a0 is xed. Accordingly, without loss of generality, the sum can be rewritten
+as
+0
+
+0
+
+X
+
+a d
+
+P (c>m j f d d0 ad)
+
+
+
+with the implicit assumption that c>m is set by ad . This sum is independent of proc.
+
+H Proof of Theorem 9
+Let proc refer to a choosing procedure. We are interested in
+X
+
+aa
+
+0
+
+P (c>m j f m k a a0 proc) =
+
+X
+
+aa dd
+0
+
+0
+
+P (c>m j f d d0 k a a0 proc)
+
+ P (d d0 j f k m a a0 proc):
+
+The sum over d and d0 can be moved outside the sum over a and a0. Consider any term in that
+sum (i.e., any particular pair of values of d and d0). For that term, P (d d0 j f k m a a0 proc)
+is just 1 for those a and a0 that result in d and d0 respectively when run on f , and 0
+otherwise. (Recall the assumption that a and a0 are deterministic.) This means that the
+P (d d0 j f k m a a0 proc) factor simply restricts our sum over a and a0 to the a and a0
+considered in our theorem. Accordingly, our theorem tell us that the summand of the sum
+over d and d0 is the same for choosing procedures A and B . Therefore the full sum is the
+same for both procedures.
+32
+
+

@@ -1,6 +1,6 @@
 {
-  "version": 12,
-  "timestamp": "2026-03-04T22:41:59.165773+00:00",
+  "version": 14,
+  "timestamp": "2026-03-07T06:22:46.926295+00:00",
   "model": {
     "name": "Anomaly Model",
     "version": "26.02.12.1",
@@ -22,6 +22,18 @@
         "timestamp": "2026-02-26T15:35:43.346574",
         "author": "jeroen",
         "note": "Updated physics model to match xFrame meta-model: converted composite primary keys to composite fields, updated foreignKey to foreignKeys, removed primaryKey from field definitions, using unique composite subcomponent names"
+      },
+      "000000000012": {
+        "id": 12,
+        "timestamp": "2026-03-07T00:22:24.194201",
+        "author": "jeroen",
+        "note": "Consolidation including No Free Lunch analysis"
+      },
+      "000000000013": {
+        "id": 13,
+        "timestamp": "2026-03-07T00:22:46.925894",
+        "author": "jeroen",
+        "note": "Consolidation after fixing No Free Lunch claim status and theory category"
       }
     },
     "person": {
@@ -93,6 +105,15 @@
         "birth_year": 1956,
         "c": 1,
         "v": 1
+      },
+      "david-wolpert": {
+        "person_id": "david-wolpert",
+        "name": "David H. Wolpert",
+        "sources": [
+          "author of paper wolpert-macready-1997-no-free-lunch"
+        ],
+        "c": 12,
+        "v": 12
       },
       "emmy-noether": {
         "person_id": "emmy-noether",
@@ -511,6 +532,15 @@
         "death_year": 1865,
         "c": 1,
         "v": 1
+      },
+      "william-macready": {
+        "person_id": "william-macready",
+        "name": "William G. Macready",
+        "sources": [
+          "author of paper wolpert-macready-1997-no-free-lunch"
+        ],
+        "c": 12,
+        "v": 12
       },
       "wolfgang-pauli": {
         "person_id": "wolfgang-pauli",
@@ -1644,6 +1674,61 @@
           10
         ],
         "v": 10
+      },
+      "no-free-lunch": {
+        "theory_id": "no-free-lunch",
+        "name": "No Free Lunch Theorems for Optimization",
+        "year": 1997,
+        "summary": "For any algorithm, any elevated performance over one class of problems is exactly paid for in performance over another class. Average performance of any pair of algorithms across all possible problems is identical. Algorithm performance is determined by how aligned it is with the probability distribution over optimization problems.",
+        "category": "Classical Mechanics",
+        "assumptions": [
+          {
+            "assumption_id": "nfl-assumption-1",
+            "statement": "Combinatorial optimization: search space X and cost space Y are finite.",
+            "rationale": "Enables formal treatment; matches digital computation.",
+            "c": 13,
+            "v": 13
+          },
+          {
+            "assumption_id": "nfl-assumption-2",
+            "statement": "Oracle-based model: performance is measured only by the sample dym (ordered cost values from distinct function evaluations).",
+            "rationale": "Avoids artefacts from algorithms that revisit points; any performance measure is a function of dym.",
+            "c": 13,
+            "v": 13
+          },
+          {
+            "assumption_id": "nfl-assumption-3",
+            "statement": "Algorithms are mappings from previous samples to a new (unvisited) point; formulation is deterministic (results extend to stochastic).",
+            "rationale": "Black-box algorithms (e.g. evolutionary, simulated annealing) fit this; branch-and-bound excluded.",
+            "c": 13,
+            "v": 13
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "nfl-claim-1",
+            "statement": "For any pair of algorithms a1, a2, the sum over all cost functions f of P(dym|f,m,a1) equals the sum over all f of P(dym|f,m,a2); i.e. average performance over all problems is identical (Theorem 1).",
+            "status": "verified",
+            "c": 13,
+            "v": 13
+          },
+          {
+            "claim_id": "nfl-claim-2",
+            "statement": "Any algorithm performs worse than random just as readily as it performs better than random, when averaged over all optimization problems.",
+            "status": "verified",
+            "c": 13,
+            "v": 13
+          },
+          {
+            "claim_id": "nfl-claim-3",
+            "statement": "An algorithm's average performance is determined by how aligned it is with the probability distribution P(f) over optimization problems (geometric interpretation, Section 4).",
+            "status": "verified",
+            "c": 13,
+            "v": 13
+          }
+        ],
+        "c": 13,
+        "v": 13
       },
       "noethers-theorem": {
         "theory_id": "noethers-theorem",
@@ -3087,6 +3172,14 @@
           10
         ],
         "v": 10
+      },
+      "wolpert-macready-1997-no-free-lunch": {
+        "paper_id": "wolpert-macready-1997-no-free-lunch",
+        "title": "No Free Lunch Theorems for Optimization",
+        "year": 1997,
+        "link": "https://ti.arc.nasa.gov/m/profile/dhw/papers/78.pdf",
+        "c": 12,
+        "v": 12
       }
     },
     "tag": {
@@ -3226,9 +3319,11 @@
         "explanation_theory_id": "general-relativity",
         "c": 1,
         "m": [
-          10
+          10,
+          12,
+          13
         ],
-        "v": 10
+        "v": 13
       },
       "michelson-morley-null-result": {
         "anomaly_id": "michelson-morley-null-result",
@@ -3251,9 +3346,11 @@
         "explanation_theory_id": "special-relativity",
         "c": 1,
         "m": [
-          10
+          10,
+          12,
+          13
         ],
-        "v": 10
+        "v": 13
       },
       "pioneer-anomaly": {
         "anomaly_id": "pioneer-anomaly",
@@ -3336,9 +3433,11 @@
         "explanation_theory_id": "quantum-field-theory",
         "c": 1,
         "m": [
-          10
+          10,
+          12,
+          13
         ],
-        "v": 10
+        "v": 13
       }
     },
     "prize": {

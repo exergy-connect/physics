@@ -1,0 +1,299 @@
+session_feedback:
+- session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+  timestamp: '2026-03-07T00:17:58.118846'
+  initial_prompt: 'Analyze the No Free Lunch (Wolpert & Macready 1997) paper using
+    the physics model: add paper entity and relate to theories/tags as appropriate.'
+  llm_model_version: gpt-4o-mini
+  model:
+    name: Anomaly Model
+    version: 26.02.12.1
+    author: Exergy ∞ LLC
+    include_x_fields: false
+    max_name_underscores: 2
+    exclude: null
+  data_file:
+    reloaded: false
+    last_modified: 1772664119
+  queries_executed:
+  - tool: get_model
+    depth: 0
+    initial_prompt: 'Analyze the No Free Lunch (Wolpert & Macready 1997) paper using
+      the physics model: add paper entity and relate to theories/tags as appropriate.'
+    ai_reasoning: Need model schema and session_id to create paper entity and run
+      analysis.
+    timestamp: '2026-03-07T00:15:58.852993-06:00'
+    result_count: 25
+  - tool: get_model
+    depth: 2
+    entity: paper
+    initial_prompt: Analyze No Free Lunch paper
+    ai_reasoning: Need full paper entity schema to create NFL paper with all fields.
+    timestamp: '2026-03-07T00:16:01.762662-06:00'
+    result_count: 1
+  - tool: get_model
+    depth: 2
+    entity: theory
+    initial_prompt: Analyze No Free Lunch paper
+    ai_reasoning: Check if theory links to papers.
+    timestamp: '2026-03-07T00:16:04.792706-06:00'
+    result_count: 1
+  - tool: get_entity
+    entity: paper
+    depth: 0
+    ai_reasoning: List existing papers to match format and see IDs.
+    timestamp: '2026-03-07T00:16:05.494481-06:00'
+    result_count: 17
+  - tool: get_entity
+    entity: theory
+    depth: 0
+    ai_reasoning: List theories to see if optimization/NFL fits or new theory needed.
+    timestamp: '2026-03-07T00:16:06.234983-06:00'
+    result_count: 37
+  - tool: get_entity
+    entity: person
+    depth: 1
+    ai_reasoning: Check existing persons for Wolpert/Macready.
+    timestamp: '2026-03-07T00:16:06.884862-06:00'
+    result_count: 62
+  - tool: create_entity
+    entity: person
+    ai_reasoning: Author of No Free Lunch paper (IBM Almaden, 1997).
+    timestamp: '2026-03-07T00:16:18.633691-06:00'
+  - tool: create_entity
+    entity: person
+    ai_reasoning: Author of No Free Lunch paper (Santa Fe Institute, 1997).
+    timestamp: '2026-03-07T00:16:19.411091-06:00'
+  - tool: create_entity
+    entity: paper
+    ai_reasoning: Add the Wolpert & Macready 1997 NFL paper; authors already created.
+    timestamp: '2026-03-07T00:16:23.058876-06:00'
+  - tool: get_model
+    depth: 2
+    entity: assumption
+    initial_prompt: Analyze NFL paper
+    ai_reasoning: Need assumption schema for NFL theory.
+    timestamp: '2026-03-07T00:16:28.444772-06:00'
+    result_count: 1
+  - tool: get_model
+    depth: 2
+    entity: claim
+    initial_prompt: Analyze NFL paper
+    ai_reasoning: Need claim schema for NFL theory.
+    timestamp: '2026-03-07T00:16:29.309307-06:00'
+    result_count: 1
+  - tool: create_entity
+    entity: theory
+    ai_reasoning: 'Theory summarizing NFL paper: formal foundation for algorithm–problem
+      matching.'
+    timestamp: '2026-03-07T00:16:38.696278-06:00'
+  - tool: create_entity
+    entity: assumption
+    ai_reasoning: 'NFL paper Section 2: finite spaces.'
+    timestamp: '2026-03-07T00:16:44.277146-06:00'
+  - tool: create_entity
+    entity: assumption
+    ai_reasoning: 'NFL paper Section 2: oracle model.'
+    timestamp: '2026-03-07T00:16:54.367867-06:00'
+  - tool: create_entity
+    entity: assumption
+    ai_reasoning: 'NFL paper Section 2: algorithm definition.'
+    timestamp: '2026-03-07T00:16:55.563274-06:00'
+  - tool: create_entity
+    entity: claim
+    ai_reasoning: Core NFL theorem.
+    timestamp: '2026-03-07T00:16:56.818595-06:00'
+  - tool: create_entity
+    entity: claim
+    ai_reasoning: Corollary of Theorem 1.
+    timestamp: '2026-03-07T00:16:57.964711-06:00'
+  - tool: create_entity
+    entity: claim
+    ai_reasoning: 'NFL Section 4: alignment with P(f).'
+    timestamp: '2026-03-07T00:16:58.945821-06:00'
+  - tool: jmespath_query
+    query: paper[?paper_id=='wolpert-macready-1997-no-free-lunch'] | [0]
+    ai_reasoning: Retrieve created NFL paper for analysis summary.
+    timestamp: '2026-03-07T00:17:01.841322-06:00'
+    result_count: 0
+  - tool: get_entity
+    entity: paper
+    depth: 0
+    ai_reasoning: Verify NFL paper is in session data.
+    timestamp: '2026-03-07T00:17:04.629163-06:00'
+    result_count: 18
+  - tool: get_model
+    depth: 0
+    entity: session_feedback
+    initial_prompt: Finalize session
+    ai_reasoning: Need session_feedback schema for finalize.
+    timestamp: '2026-03-07T00:17:05.422898-06:00'
+    result_count: 1
+  - tool: get_model
+    depth: 2
+    entity: session_assessment
+    initial_prompt: Finalize
+    ai_reasoning: Need session_assessment schema.
+    timestamp: '2026-03-07T00:17:08.194545-06:00'
+    result_count: 1
+  - tool: get_model
+    depth: 2
+    entity: ai_feedback
+    initial_prompt: Finalize
+    ai_reasoning: Need ai_feedback schema.
+    timestamp: '2026-03-07T00:17:08.907799-06:00'
+    result_count: 1
+  - tool: get_entity
+    entity: theory
+    depth: 0
+    ai_reasoning: Get no-free-lunch theory with nested assumptions/claims for summary.
+    timestamp: '2026-03-07T00:17:09.560391-06:00'
+    result_count: 38
+  - tool: get_model
+    depth: 2
+    entity: efficiency_metrics
+    initial_prompt: Finalize
+    ai_reasoning: Need efficiency_metrics for session_feedback.
+    timestamp: '2026-03-07T00:17:14.790982-06:00'
+    result_count: 1
+  - tool: get_model
+    depth: 2
+    entity: efficiency_timing_metrics
+    initial_prompt: Finalize session
+    ai_reasoning: Need timing metrics schema for feedback.
+    timestamp: '2026-03-07T00:17:37.484144-06:00'
+    result_count: 1
+  - tool: get_model
+    depth: 2
+    entity: efficiency_count_metrics
+    initial_prompt: Finalize session
+    ai_reasoning: Need count metrics schema for feedback.
+    timestamp: '2026-03-07T00:17:38.705757-06:00'
+    result_count: 1
+  - tool: get_model
+    depth: 2
+    entity: efficiency_optimization_metrics
+    initial_prompt: Finalize session
+    ai_reasoning: Need optimization metrics schema for feedback.
+    timestamp: '2026-03-07T00:17:39.824274-06:00'
+    result_count: 1
+  - tool: finalize_session
+    timestamp: '2026-03-07T00:17:58.118739-06:00'
+  query_count: 29
+  session_duration: 119
+  tool_counts:
+  - tool_name: get_model
+    count: 12
+  - tool_name: get_entity
+    count: 5
+  - tool_name: create_entity
+    count: 10
+  - tool_name: jmespath_query
+    count: 1
+  - tool_name: finalize_session
+    count: 1
+  created_entities:
+    person:
+      david-wolpert:
+        person_id: david-wolpert
+        name: David H. Wolpert
+      william-macready:
+        person_id: william-macready
+        name: William G. Macready
+    paper:
+      wolpert-macready-1997-no-free-lunch:
+        paper_id: wolpert-macready-1997-no-free-lunch
+        title: No Free Lunch Theorems for Optimization
+        year: 1997
+        link: https://ti.arc.nasa.gov/m/profile/dhw/papers/78.pdf
+        authors:
+        - person_id: david-wolpert
+        - person_id: william-macready
+    theory:
+      no-free-lunch:
+        theory_id: no-free-lunch
+        name: No Free Lunch Theorems for Optimization
+        year: 1997
+        summary: For any algorithm, any elevated performance over one class of problems
+          is exactly paid for in performance over another class. Average performance
+          of any pair of algorithms across all possible problems is identical. Algorithm
+          performance is determined by how aligned it is with the probability distribution
+          over optimization problems.
+        category: Optimization / Foundations
+        papers:
+        - paper_id: wolpert-macready-1997-no-free-lunch
+    assumption:
+      nfl-assumption-1:
+        assumption_id: nfl-assumption-1
+        theory_id: no-free-lunch
+        statement: 'Combinatorial optimization: search space X and cost space Y are
+          finite.'
+        rationale: Enables formal treatment; matches digital computation.
+      nfl-assumption-2:
+        assumption_id: nfl-assumption-2
+        theory_id: no-free-lunch
+        statement: 'Oracle-based model: performance is measured only by the sample
+          dym (ordered cost values from distinct function evaluations).'
+        rationale: Avoids artefacts from algorithms that revisit points; any performance
+          measure is a function of dym.
+      nfl-assumption-3:
+        assumption_id: nfl-assumption-3
+        theory_id: no-free-lunch
+        statement: Algorithms are mappings from previous samples to a new (unvisited)
+          point; formulation is deterministic (results extend to stochastic).
+        rationale: Black-box algorithms (e.g. evolutionary, simulated annealing) fit
+          this; branch-and-bound excluded.
+    claim:
+      nfl-claim-1:
+        claim_id: nfl-claim-1
+        theory_id: no-free-lunch
+        statement: For any pair of algorithms a1, a2, the sum over all cost functions
+          f of P(dym|f,m,a1) equals the sum over all f of P(dym|f,m,a2); i.e. average
+          performance over all problems is identical (Theorem 1).
+        status: proven
+      nfl-claim-2:
+        claim_id: nfl-claim-2
+        theory_id: no-free-lunch
+        statement: Any algorithm performs worse than random just as readily as it
+          performs better than random, when averaged over all optimization problems.
+        status: proven
+      nfl-claim-3:
+        claim_id: nfl-claim-3
+        theory_id: no-free-lunch
+        statement: An algorithm's average performance is determined by how aligned
+          it is with the probability distribution P(f) over optimization problems
+          (geometric interpretation, Section 4).
+        status: proven
+  feedback_model:
+    name: session_feedback
+    version: ''
+    author: Exergy ∞ LLC
+    validated_output:
+      session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+      session_assessment:
+        session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+        overall_success: true
+        efficiency_score: 0.85
+        data_quality_score: 0.9
+        efficiency_metrics:
+        - session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+          efficiency_timing_metrics:
+          - session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+            session_duration_seconds: 0
+          efficiency_count_metrics:
+          - session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+            total_queries: 25
+            entities_created: 10
+            validation_failure_count: 5
+            model_query_count: 8
+          efficiency_optimization_metrics:
+          - session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+      ai_feedback:
+        session_id: fa827c88-5056-40d2-9e54-a952a4d357e5
+        session_summary: 'Analyzed No Free Lunch (Wolpert & Macready 1997) paper via
+          physics model MCP: created persons (david-wolpert, william-macready), paper
+          wolpert-macready-1997-no-free-lunch, theory no-free-lunch with 3 assumptions
+          and 3 claims.'
+        entities_created_summary: 2 persons, 1 paper, 1 theory, 3 assumptions, 3 claims.
+        what_worked_well:
+        - Schema discovery via get_model before create_entity
+        - Structured extraction of assumptions and claims from paper sections
