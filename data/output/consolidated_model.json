@@ -78,14 +78,28 @@
           "type": "array",
           "description": "List of assumptions that this anomaly appears to violate or challenge (nested children)",
           "items": {
-            "$ref": "#/$defs/violated_assumption"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/violated_assumption"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "violated_claims": {
           "type": "array",
           "description": "Array of claim IDs that this anomaly appears to violate or challenge",
           "items": {
-            "$ref": "#/$defs/claim"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/claim"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "discovery_year": {
@@ -104,14 +118,28 @@
           "type": "array",
           "description": "Array of paper IDs related to this anomaly (discovery papers, explanation papers, etc.)",
           "items": {
-            "$ref": "#/$defs/paper"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/paper"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "people": {
           "type": "array",
           "description": "Array of person IDs associated with this anomaly (discoverers, explainers, etc.)",
           "items": {
-            "$ref": "#/$defs/person"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/person"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
@@ -254,21 +282,42 @@
           "type": "array",
           "description": "Timing-related efficiency metrics including session duration and calculated\nrates. Each efficiency_metrics record should have exactly one\nefficiency_timing_metrics record.\n",
           "items": {
-            "$ref": "#/$defs/efficiency_timing_metrics"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/efficiency_timing_metrics"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "efficiency_count_metrics": {
           "type": "array",
           "description": "Count-based efficiency metrics including total queries, entities created,\nvalidation failures, and model queries. Each efficiency_metrics record should\nhave exactly one efficiency_count_metrics record.\n",
           "items": {
-            "$ref": "#/$defs/efficiency_count_metrics"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/efficiency_count_metrics"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "efficiency_optimization_metrics": {
           "type": "array",
           "description": "Optimization-related efficiency metrics including redundant queries, entity\nexistence checks, and batch operations. Each efficiency_metrics record should\nhave exactly one efficiency_optimization_metrics record.\n",
           "items": {
-            "$ref": "#/$defs/efficiency_optimization_metrics"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/efficiency_optimization_metrics"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
@@ -369,7 +418,14 @@
           "type": "array",
           "description": "Array of person IDs who authored this paper",
           "items": {
-            "$ref": "#/$defs/person"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/person"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
@@ -496,14 +552,28 @@
           "type": "array",
           "description": "Array of person_ids who made this prediction or were involved in its verification",
           "items": {
-            "$ref": "#/$defs/person"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/person"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "papers": {
           "type": "array",
           "description": "Array of paper_ids related to this prediction (prediction papers, verification papers, etc.)",
           "items": {
-            "$ref": "#/$defs/paper"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/paper"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
@@ -570,7 +640,14 @@
           "type": "array",
           "description": "Array of person_ids who received this award",
           "items": {
-            "$ref": "#/$defs/person"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/person"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "theory_id": {
@@ -684,7 +761,14 @@
           "type": "array",
           "description": "List of validation failures encountered during the session. Each failure should be\ndocumented with entity type, error message, and resolution. Empty if no validation\nfailures occurred.\n",
           "items": {
-            "$ref": "#/$defs/validation_failure"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/validation_failure"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "workflow_issues": {
@@ -705,14 +789,28 @@
           "type": "array",
           "description": "Actionable recommendations for improving future sessions. Should include specific,\nimplementable suggestions based on issues identified in this session.\n",
           "items": {
-            "$ref": "#/$defs/recommendation"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/recommendation"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "efficiency_metrics": {
           "type": "array",
           "description": "Detailed efficiency metrics for the session, including query counts, timing,\nand performance indicators.\n",
           "items": {
-            "$ref": "#/$defs/efficiency_metrics"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/efficiency_metrics"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
@@ -735,28 +833,47 @@
           "type": "array",
           "description": "AI's comprehensive assessment of the session, including efficiency metrics, validation\ntracking, and quality evaluation. Must be provided for every session to enable\ncontinuous improvement.\n",
           "items": {
-            "$ref": "#/$defs/session_assessment"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/session_assessment"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "user_feedback": {
           "type": "array",
           "description": "Optional user-provided feedback about the session, including ratings and comments.\n",
           "items": {
-            "$ref": "#/$defs/user_feedback"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/user_feedback"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "ai_feedback": {
           "type": "array",
           "description": "AI-generated feedback about the session, including processing summary, tools used,\nchallenges encountered, and insights for improvement.\n",
           "items": {
-            "$ref": "#/$defs/ai_feedback"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/ai_feedback"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
       "required": [
-        "session_id",
-        "session_assessment",
-        "ai_feedback"
+        "session_id"
       ]
     },
     "tag": {
@@ -819,56 +936,112 @@
           "type": "array",
           "description": "List of assumptions underlying this theory (nested children)",
           "items": {
-            "$ref": "#/$defs/assumption"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/assumption"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "postulates": {
           "type": "array",
           "description": "List of fundamental postulates of this theory (nested children)",
           "items": {
-            "$ref": "#/$defs/postulate"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/postulate"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "claims": {
           "type": "array",
           "description": "List of claims or consequences made by this theory (nested children)",
           "items": {
-            "$ref": "#/$defs/claim"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/claim"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "predictions": {
           "type": "array",
           "description": "List of testable predictions made by this theory (nested children)",
           "items": {
-            "$ref": "#/$defs/prediction"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/prediction"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "anomalies": {
           "type": "array",
           "description": "Array of anomaly IDs that challenge or are explained by this theory",
           "items": {
-            "$ref": "#/$defs/anomaly"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/anomaly"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "papers": {
           "type": "array",
           "description": "Array of paper IDs referencing key papers related to this theory",
           "items": {
-            "$ref": "#/$defs/paper"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/paper"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "people": {
           "type": "array",
           "description": "Array of person IDs referencing people associated with this theory",
           "items": {
-            "$ref": "#/$defs/person"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/person"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "tags": {
           "type": "array",
           "description": "Array of tag IDs for categorizing and searching theories",
           "items": {
-            "$ref": "#/$defs/tag"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/tag"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "nobel_year": {
@@ -879,7 +1052,14 @@
           "type": "array",
           "description": "List of child theories (nested sub-theories)",
           "items": {
-            "$ref": "#/$defs/theory"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/theory"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
@@ -950,14 +1130,28 @@
           "type": "array",
           "description": "Details about the validation failure including entity type, primary key, error\ntype, and resolution notes. Each validation_failure should have exactly one\nvalidation_failure_details record.\n",
           "items": {
-            "$ref": "#/$defs/validation_failure_details"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/validation_failure_details"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         },
         "validation_failure_resolution": {
           "type": "array",
           "description": "Resolution information for the validation failure including resolution attempts\nand whether it was resolved. Each validation_failure should have exactly one\nvalidation_failure_resolution record.\n",
           "items": {
-            "$ref": "#/$defs/validation_failure_resolution"
+            "oneOf": [
+              {
+                "$ref": "#/$defs/validation_failure_resolution"
+              },
+              {
+                "type": "string"
+              }
+            ]
           }
         }
       },
@@ -1276,6 +1470,18 @@
       "timestamp": "2026-03-04T16:41:58.354241",
       "author": "jeroen",
       "note": "Fix feedback model for consolidation"
+    },
+    {
+      "id": 3,
+      "timestamp": "2026-03-07T10:43:30.489032",
+      "author": "jeroen",
+      "note": "Entity array items: allow object or primary key"
+    },
+    {
+      "id": 4,
+      "timestamp": "2026-03-07T10:47:53.038499",
+      "author": "jeroen",
+      "note": "Fix feedback: optional session_assessment and ai_feedback"
     }
   ]
 }
