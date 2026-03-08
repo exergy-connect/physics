@@ -1,68 +1,43 @@
-2026-03-07 10:47:51 [INFO] Logging to: /home/jeroen/Projects/physics/data/output/consolidation_log.txt
-2026-03-07 10:47:51 [INFO] Auto-enabled --js flag: Found existing .js files in output directory
-2026-03-07 10:47:51 [INFO] Step 1: Consolidating models from: /home/jeroen/Projects/physics/data/model
-2026-03-07 10:47:51 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
-2026-03-07 10:47:51 [INFO] Validating consolidated models with YANG validator
-2026-03-07 10:47:52 [INFO] ✓ YANG validation passed for consolidated models
-2026-03-07 10:47:53 [WARNING] Entity ai_feedback[ai_feedback] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity anomaly[anomaly] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity assumption[assumption] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity claim[claim] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity efficiency_count_metrics[efficiency_count_metrics] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity efficiency_metrics[efficiency_metrics] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity efficiency_optimization_metrics[efficiency_optimization_metrics] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity efficiency_timing_metrics[efficiency_timing_metrics] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity paper[paper] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity person[person] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity postulate[postulate] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity prediction[prediction] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity prize[prize] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity prize_award[prize_award] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity recommendation[recommendation] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity session_assessment[session_assessment] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity session_feedback[session_feedback] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity tag[tag] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity theory[theory] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity user_feedback[user_feedback] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity validation_failure[validation_failure] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity validation_failure_details[validation_failure_details] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity validation_failure_resolution[validation_failure_resolution] exists but has no creation or version field
-2026-03-07 10:47:53 [WARNING] Entity violated_assumption[violated_assumption] exists but has no creation or version field
-2026-03-07 10:47:53 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_model.js
-2026-03-07 10:47:53 [INFO] ✓ Consolidated model written to: /home/jeroen/Projects/physics/data/output/consolidated_model.json
-2026-03-07 10:47:53 [INFO] Model consolidation completed successfully (exit code: 0)
-2026-03-07 10:47:53 [INFO] Step 1 completed in 2.28 seconds
-2026-03-07 10:47:53 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
-2026-03-07 10:47:53 [INFO] Step 2: Consolidating data from: /home/jeroen/Projects/physics/data
-2026-03-07 10:47:53 [INFO] Validating consolidated models with YANG validator
-2026-03-07 10:47:54 [INFO] ✓ YANG validation passed for consolidated models
-2026-03-07 10:47:55 [INFO] Loading data files from: /home/jeroen/Projects/physics/data
-2026-03-07 10:47:55 [INFO] Processing 14 data file(s) from /home/jeroen/Projects/physics/data
-2026-03-07 10:47:55 [INFO] Loaded data from 14 files (bulk validation)
-2026-03-07 10:47:55 [INFO] Data loading completed in 0.20 seconds
-2026-03-07 10:47:55 [INFO] ============================================================
-2026-03-07 10:47:55 [INFO] Validation Summary Report
-2026-03-07 10:47:55 [INFO] ============================================================
-2026-03-07 10:47:55 [INFO] Total entities validated: 336
-2026-03-07 10:47:55 [INFO] Entities validated by type:
-2026-03-07 10:47:55 [INFO]   - anomaly: 10
-2026-03-07 10:47:55 [INFO]   - assumption: 63
-2026-03-07 10:47:55 [INFO]   - claim: 77
-2026-03-07 10:47:55 [INFO]   - paper: 18
-2026-03-07 10:47:55 [INFO]   - person: 64
-2026-03-07 10:47:55 [INFO]   - postulate: 24
-2026-03-07 10:47:55 [INFO]   - prediction: 9
-2026-03-07 10:47:55 [INFO]   - prize: 5
-2026-03-07 10:47:55 [INFO]   - prize_award: 15
-2026-03-07 10:47:55 [INFO]   - session_feedback: 1
-2026-03-07 10:47:55 [INFO]   - tag: 4
-2026-03-07 10:47:55 [INFO]   - theory: 38
-2026-03-07 10:47:55 [INFO]   - violated_assumption: 8
-2026-03-07 10:47:55 [INFO] ✓ No validation errors - all entities validated successfully
-2026-03-07 10:47:55 [INFO] ============================================================
-2026-03-07 10:47:55 [INFO] Calculating computed fields
-2026-03-07 10:47:55 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.json (155 entities across 25 entity types)
-2026-03-07 10:47:55 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.js
-2026-03-07 10:47:55 [INFO] ✓ Successfully consolidated data into /home/jeroen/Projects/physics/data/output/consolidated_data.json
-2026-03-07 10:47:55 [INFO] Data consolidation completed successfully (exit code: 0)
-2026-03-07 10:47:55 [INFO] Consolidation completed successfully (exit code: 0)
+2026-03-07 21:29:56 [INFO] Logging to: data/output/consolidation_log.txt
+2026-03-07 21:29:56 [INFO] Auto-enabled --js flag: Found existing .js files in output directory
+2026-03-07 21:29:56 [INFO] Step 1: Consolidating models from: data/model
+2026-03-07 21:29:56 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
+2026-03-07 21:29:56 [INFO] Validating consolidated models with YANG validator
+2026-03-07 21:29:56 [INFO] ✓ YANG validation passed for consolidated models
+2026-03-07 21:29:56 [INFO] Wrote consolidated data to data/output/consolidated_model.js
+2026-03-07 21:29:56 [INFO] ✓ Consolidated model written to: data/output/consolidated_model.json
+2026-03-07 21:29:56 [INFO] Model consolidation completed successfully (exit code: 0)
+2026-03-07 21:29:56 [INFO] Step 1 completed in 0.69 seconds
+2026-03-07 21:29:57 [INFO] Loaded YANG meta-model schema from: /home/jeroen/Projects/xFrame/src/xframe/yang/meta-model.yang
+2026-03-07 21:29:57 [INFO] Step 2: Consolidating data from: data
+2026-03-07 21:29:57 [INFO] Validating consolidated models with YANG validator
+2026-03-07 21:29:57 [INFO] ✓ YANG validation passed for consolidated models
+2026-03-07 21:29:57 [INFO] Loading data files from: data
+2026-03-07 21:29:57 [INFO] Processing 13 data file(s) from data
+2026-03-07 21:29:57 [INFO] Loaded data from 13 files (bulk validation)
+2026-03-07 21:29:57 [INFO] Data loading completed in 0.07 seconds
+2026-03-07 21:29:57 [INFO] ============================================================
+2026-03-07 21:29:57 [INFO] Validation Summary Report
+2026-03-07 21:29:57 [INFO] ============================================================
+2026-03-07 21:29:57 [INFO] Total entities validated: 336
+2026-03-07 21:29:57 [INFO] Entities validated by type:
+2026-03-07 21:29:57 [INFO]   - anomaly: 10
+2026-03-07 21:29:57 [INFO]   - assumption: 63
+2026-03-07 21:29:57 [INFO]   - claim: 77
+2026-03-07 21:29:57 [INFO]   - paper: 18
+2026-03-07 21:29:57 [INFO]   - person: 65
+2026-03-07 21:29:57 [INFO]   - postulate: 24
+2026-03-07 21:29:57 [INFO]   - prediction: 9
+2026-03-07 21:29:57 [INFO]   - prize: 5
+2026-03-07 21:29:57 [INFO]   - prize_award: 15
+2026-03-07 21:29:57 [INFO]   - tag: 4
+2026-03-07 21:29:57 [INFO]   - theory: 38
+2026-03-07 21:29:57 [INFO]   - violated_assumption: 8
+2026-03-07 21:29:57 [INFO] ✓ No validation errors - all entities validated successfully
+2026-03-07 21:29:57 [INFO] ============================================================
+2026-03-07 21:29:57 [INFO] Calculating computed fields
+2026-03-07 21:29:57 [INFO] Wrote consolidated data to data/output/consolidated_data.json (155 entities across 24 entity types)
+2026-03-07 21:29:57 [INFO] Wrote consolidated data to data/output/consolidated_data.js
+2026-03-07 21:29:57 [INFO] ✓ Successfully consolidated data into data/output/consolidated_data.json
+2026-03-07 21:29:57 [INFO] Data consolidation completed successfully (exit code: 0)
+2026-03-07 21:29:57 [INFO] Consolidation completed successfully (exit code: 0)

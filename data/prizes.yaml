@@ -196,6 +196,11 @@ person:
     birth_year: 1933
     death_year: 2021
 
+  - person_id: "claude-shannon"
+    name: "Claude Shannon"
+    birth_year: 1916
+    death_year: 2001
+
   - person_id: "rainer-weiss"
     name: "Rainer Weiss"
     birth_year: 1932

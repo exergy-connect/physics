@@ -1,0 +1,218 @@
+{
+  "session_feedback": [
+    {
+      "session_id": "6c4006a3-e085-4f8b-97fa-6a3fb929d528",
+      "timestamp": "2026-03-07T21:20:35.150662",
+      "initial_prompt": "Analyse the Bell paper and create the model entities",
+      "llm_model_version": "default",
+      "model": {
+        "name": "Anomaly Model",
+        "version": "26.02.12.1",
+        "author": "Exergy ∞ LLC",
+        "include_x_fields": false,
+        "max_name_underscores": 2,
+        "exclude": null
+      },
+      "data_file": {
+        "reloaded": false,
+        "last_modified": 1772902075
+      },
+      "queries_executed": [
+        {
+          "tool": "get_model",
+          "depth": 1,
+          "initial_prompt": "Analyse the Bell paper and create the model entities",
+          "ai_reasoning": "Starting session to analyse Bell 1964 paper and create paper, person, theory, assumptions, claims, and predictions in the physics model.",
+          "timestamp": "2026-03-07T21:19:31.345606-06:00",
+          "result_count": 25
+        },
+        {
+          "tool": "create_entity",
+          "entity": "person",
+          "ai_reasoning": "Bell is the sole author of the 1964 paper; person entity required for paper.authors.",
+          "timestamp": "2026-03-07T21:19:38.380098-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "paper",
+          "ai_reasoning": "Main paper being analysed; Physics Vol.1 No.3 pp.195-200, 1964.",
+          "timestamp": "2026-03-07T21:19:40.144848-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "theory",
+          "ai_reasoning": "Core contribution of the Bell paper: a theorem (1964) in quantum physics linking EPR, locality, and hidden variables.",
+          "timestamp": "2026-03-07T21:19:45.670115-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Paper states this as the vital assumption; it is the locality condition that Bell shows is incompatible with QM.",
+          "timestamp": "2026-03-07T21:19:53.373216-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "assumption",
+          "ai_reasoning": "Core assumption of the local hidden-variable framework that Bell proves incompatible with QM.",
+          "timestamp": "2026-03-07T21:19:57.584844-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "postulate",
+          "ai_reasoning": "Bell formulates the mathematical setup: equation (2) for local hidden variables and (3) for QM; the paper proves they cannot match.",
+          "timestamp": "2026-03-07T21:19:59.985088-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Main result of the paper (Section IV); later verified by Aspect et al. and other Bell tests.",
+          "timestamp": "2026-03-07T21:20:03.120119-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "claim",
+          "ai_reasoning": "Conclusion (Section VI) of the paper: deterministic completion of QM implies non-locality and instantaneous action.",
+          "timestamp": "2026-03-07T21:20:05.896217-06:00"
+        },
+        {
+          "tool": "create_entity",
+          "entity": "prediction",
+          "ai_reasoning": "Bell suggests experiments of the type proposed by Bohm and Aharonov, with settings changed during flight of particles, are crucial; later experiments verified the prediction.",
+          "timestamp": "2026-03-07T21:20:09.943887-06:00"
+        },
+        {
+          "tool": "get_model",
+          "depth": 2,
+          "entity": "session_feedback",
+          "initial_prompt": "Analyse Bell paper",
+          "ai_reasoning": "Get session_feedback schema for finalize_session",
+          "timestamp": "2026-03-07T21:20:26.567808-06:00",
+          "result_count": 1
+        },
+        {
+          "tool": "finalize_session",
+          "timestamp": "2026-03-07T21:20:35.150541-06:00"
+        }
+      ],
+      "query_count": 12,
+      "session_duration": 63,
+      "tool_counts": [
+        {
+          "tool_name": "get_model",
+          "count": 2
+        },
+        {
+          "tool_name": "create_entity",
+          "count": 9
+        },
+        {
+          "tool_name": "finalize_session",
+          "count": 1
+        }
+      ],
+      "created_entities": {
+        "person": {
+          "john-bell": {
+            "person_id": "john-bell",
+            "name": "J. S. Bell",
+            "birth_year": 1928,
+            "death_year": 1990,
+            "sources": [
+              "Author of Bell 1964 paper On the Einstein Podolsky Rosen Paradox"
+            ]
+          }
+        },
+        "paper": {
+          "bell-1964-epr-paradox": {
+            "paper_id": "bell-1964-epr-paradox",
+            "title": "On the Einstein Podolsky Rosen Paradox",
+            "year": 1964,
+            "authors": [
+              "john-bell"
+            ]
+          }
+        },
+        "theory": {
+          "bells-theorem": {
+            "theory_id": "bells-theorem",
+            "name": "Bell's theorem",
+            "year": 1964,
+            "summary": "Shows that no local hidden-variable theory can reproduce all statistical predictions of quantum mechanics. Formulates the EPR idea mathematically and proves that the requirement of locality (measurement on one system unaffected by operations on a distant system) is incompatible with QM. Any theory reproducing QM exactly must have non-local structure, with instantaneous influence between distant measurements.",
+            "category": "Quantum Physics",
+            "papers": [
+              "bell-1964-epr-paradox"
+            ],
+            "people": [
+              "john-bell"
+            ]
+          }
+        },
+        "assumption": {
+          "bell-locality": {
+            "assumption_id": "bell-locality",
+            "theory_id": "bells-theorem",
+            "statement": "The result B for particle 2 does not depend on the setting a of the magnet for particle 1, nor A on b. (Locality: the result of a measurement on one system is unaffected by operations on a distant system with which it has interacted in the past.)",
+            "rationale": "Bell formulates the EPR locality hypothesis [2] mathematically: if the two measurements are made at places remote from one another, the orientation of one magnet does not influence the result obtained with the other. This is the 'vital assumption' that leads to the expectation value P(a,b) = ∫ p(λ) A(a,λ) B(b,λ) dλ."
+          },
+          "bell-hidden-variables": {
+            "assumption_id": "bell-hidden-variables",
+            "theory_id": "bells-theorem",
+            "statement": "A more complete specification of the state is effected by parameters λ (hidden variables). The result A of measuring σ₁·a is determined by a and λ; the result B of measuring σ₂·b is determined by b and λ.",
+            "rationale": "EPR argued that predetermination of measurement outcomes implies a more complete specification than the wave function. Bell takes λ as a generic parameter (single or set, discrete or continuous) and shows that under locality, no such specification can reproduce QM."
+          }
+        },
+        "postulate": {
+          "bell-expectation-form": {
+            "postulate_id": "bell-expectation-form",
+            "theory_id": "bells-theorem",
+            "statement": "For local hidden variables, the expectation value of the product of σ₁·a and σ₂·b is P(a,b) = ∫ p(λ) A(a,λ) B(b,λ) dλ, where p(λ) is normalized. For the singlet state, quantum mechanics gives P(a,b) = -a·b.",
+            "formulation_year": 1964
+          }
+        },
+        "claim": {
+          "bell-no-local-reproduction": {
+            "claim_id": "bell-no-local-reproduction",
+            "theory_id": "bells-theorem",
+            "statement": "The quantum mechanical expectation value P(a,b) = -a·b cannot be represented, either accurately or arbitrarily closely, in the form P(a,b) = ∫ p(λ) A(a,λ) B(b,λ) dλ with A(a,λ), B(b,λ) depending only on local settings and λ.",
+            "status": "verified",
+            "verification_year": 1982
+          },
+          "bell-nonlocality-required": {
+            "claim_id": "bell-nonlocality-required",
+            "theory_id": "bells-theorem",
+            "statement": "In any theory in which parameters are added to quantum mechanics to determine the results of individual measurements without changing the statistical predictions, there must be a mechanism whereby the setting of one measuring device can influence the reading of another instrument, however remote; the signal must propagate instantaneously, so such a theory could not be Lorentz invariant.",
+            "status": "verified"
+          }
+        },
+        "prediction": {
+          "bell-inequality-violation": {
+            "prediction_id": "bell-inequality-violation",
+            "theory_id": "bells-theorem",
+            "statement": "Experiments measuring correlated spin components on pairs of particles in the singlet state will violate inequalities satisfied by any local hidden-variable theory (e.g. the correlation will follow -a·b and not be representable in the form (2)).",
+            "prediction_year": 1964,
+            "status": "verified",
+            "verification_year": 1982,
+            "verification_method": "Aspect et al. and other Bell-type experiments with spatially separated measurements and delayed choice.",
+            "people": [
+              "john-bell"
+            ],
+            "papers": [
+              "bell-1964-epr-paradox"
+            ]
+          }
+        }
+      },
+      "feedback_model": {
+        "name": "session_feedback",
+        "version": "",
+        "author": "Exergy ∞ LLC",
+        "validated_output": {
+          "session_id": "6c4006a3-e085-4f8b-97fa-6a3fb929d528",
+          "ai_feedback": [
+            "Analysed Bell 1964 paper \"On the Einstein Podolsky Rosen Paradox\". Created: person john-bell; paper bell-1964-epr-paradox; theory bells-theorem; assumptions bell-locality, bell-hidden-variables; postulate bell-expectation-form; claims bell-no-local-reproduction, bell-nonlocality-required; prediction bell-inequality-violation. All entities validated and stored."
+          ]
+        }
+      }
+    }
+  ]
+}

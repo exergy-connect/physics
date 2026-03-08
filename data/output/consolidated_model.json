@@ -53,7 +53,10 @@
       "required": [
         "session_id",
         "session_summary"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "anomaly": {
       "type": "object",
@@ -147,7 +150,10 @@
         "anomaly_id",
         "name",
         "theory_id"
-      ]
+      ],
+      "x-primaryKey": "anomaly_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "assumption": {
       "type": "object",
@@ -179,7 +185,10 @@
         "assumption_id",
         "theory_id",
         "statement"
-      ]
+      ],
+      "x-primaryKey": "assumption_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "claim": {
       "type": "object",
@@ -221,7 +230,10 @@
         "claim_id",
         "theory_id",
         "statement"
-      ]
+      ],
+      "x-primaryKey": "claim_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "efficiency_count_metrics": {
       "type": "object",
@@ -263,7 +275,10 @@
         "entities_created",
         "validation_failure_count",
         "model_query_count"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "efficiency_metrics": {
       "type": "object",
@@ -326,7 +341,10 @@
         "efficiency_timing_metrics",
         "efficiency_count_metrics",
         "efficiency_optimization_metrics"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "efficiency_optimization_metrics": {
       "type": "object",
@@ -359,7 +377,10 @@
       },
       "required": [
         "session_id"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "efficiency_timing_metrics": {
       "type": "object",
@@ -393,7 +414,10 @@
       "required": [
         "session_id",
         "session_duration_seconds"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "paper": {
       "type": "object",
@@ -432,7 +456,10 @@
       "required": [
         "paper_id",
         "title"
-      ]
+      ],
+      "x-primaryKey": "paper_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "person": {
       "type": "object",
@@ -471,7 +498,10 @@
       "required": [
         "person_id",
         "name"
-      ]
+      ],
+      "x-primaryKey": "person_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "postulate": {
       "type": "object",
@@ -503,7 +533,10 @@
         "postulate_id",
         "theory_id",
         "statement"
-      ]
+      ],
+      "x-primaryKey": "postulate_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "prediction": {
       "type": "object",
@@ -582,7 +615,10 @@
         "theory_id",
         "statement",
         "prediction_year"
-      ]
+      ],
+      "x-primaryKey": "prediction_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "prize": {
       "type": "object",
@@ -615,7 +651,10 @@
       "required": [
         "prize_id",
         "name"
-      ]
+      ],
+      "x-primaryKey": "prize_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "prize_award": {
       "type": "object",
@@ -659,7 +698,10 @@
         "award_id",
         "prize_id",
         "year"
-      ]
+      ],
+      "x-primaryKey": "award_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "recommendation": {
       "type": "object",
@@ -726,7 +768,10 @@
         "priority",
         "title",
         "description"
-      ]
+      ],
+      "x-primaryKey": "recommendation_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "session_assessment": {
       "type": "object",
@@ -820,7 +865,10 @@
         "efficiency_score",
         "data_quality_score",
         "efficiency_metrics"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "session_feedback": {
       "type": "object",
@@ -873,8 +921,13 @@
         }
       },
       "required": [
-        "session_id"
-      ]
+        "session_id",
+        "session_assessment",
+        "ai_feedback"
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "tag": {
       "type": "object",
@@ -895,7 +948,10 @@
       "required": [
         "tag_id",
         "name"
-      ]
+      ],
+      "x-primaryKey": "tag_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "theory": {
       "type": "object",
@@ -1067,7 +1123,10 @@
         "theory_id",
         "name",
         "year"
-      ]
+      ],
+      "x-primaryKey": "theory_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "user_feedback": {
       "type": "object",
@@ -1095,7 +1154,10 @@
       },
       "required": [
         "session_id"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "validation_failure": {
       "type": "object",
@@ -1161,7 +1223,10 @@
         "error_message",
         "validation_failure_details",
         "validation_failure_resolution"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "validation_failure_details": {
       "type": "object",
@@ -1203,7 +1268,10 @@
         "failure_sequence",
         "entity_type",
         "error_type"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "validation_failure_resolution": {
       "type": "object",
@@ -1238,7 +1306,10 @@
         "failure_sequence",
         "resolution_attempts",
         "resolved"
-      ]
+      ],
+      "x-primaryKey": "session_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "violated_assumption": {
       "type": "object",
@@ -1270,7 +1341,10 @@
         "violated_assumption_id",
         "anomaly_id",
         "assumption_id"
-      ]
+      ],
+      "x-primaryKey": "violated_assumption_id",
+      "x-created": 5,
+      "x-version": 5
     },
     "change": {
       "type": "object",
@@ -1482,6 +1556,12 @@
       "timestamp": "2026-03-07T10:47:53.038499",
       "author": "jeroen",
       "note": "Fix feedback: optional session_assessment and ai_feedback"
+    },
+    {
+      "id": 5,
+      "timestamp": "2026-03-07T21:22:09.188404",
+      "author": "jeroen",
+      "note": "Consolidation"
     }
   ]
 }
