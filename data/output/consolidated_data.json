@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "timestamp": "2026-04-03T18:00:52Z",
+  "version": 2,
+  "timestamp": "2026-04-03T18:07:43Z",
   "model": {
     "name": "Anomaly Model",
     "version": "26.04.03.1",
@@ -18,6 +18,13 @@
         "author": "jeroen",
         "note": "Entity data JSON: flattened theory.children for xFrame schema.",
         "git_commit_hash": "54ed40a9b93f6a240d6e00138160159d77d6ad92"
+      },
+      "000000000002": {
+        "id": 2,
+        "timestamp": "2026-04-03T13:07:43-05:00",
+        "author": "jeroen",
+        "note": "(no change) Smoke test after YAML removal (JSON-only data).",
+        "git_commit_hash": "9197f1403d6e71c9b96ff4a1519763871428ce8f"
       }
     },
     "anomaly": {

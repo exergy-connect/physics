@@ -1,35 +1,34 @@
-2026-04-03 13:00:52 [INFO] Logging to: /home/jeroen/Projects/physics/data/output/consolidation_log.txt
-2026-04-03 13:00:52 [INFO] Clean run: ignoring existing consolidated JSON and not inferring --js/--jsz from prior output files
-2026-04-03 13:00:52 [INFO] Step 1: Consolidating models from: /home/jeroen/Projects/physics/data/model
-2026-04-03 13:00:52 [INFO] ✓ Consolidated model written to: /home/jeroen/Projects/physics/data/output/consolidated.schema.json
-2026-04-03 13:00:52 [INFO] Model consolidation completed successfully (exit code: 0)
-2026-04-03 13:00:52 [INFO] Step 1 completed in 0.01 seconds
-2026-04-03 13:00:52 [INFO] Step 2: Consolidating data from: /tmp/physics-xframe-data-json
-2026-04-03 13:00:52 [INFO] Loading data files from: /tmp/physics-xframe-data-json
-2026-04-03 13:00:52 [INFO] Data loading completed in 0.01 seconds
-2026-04-03 13:00:52 [INFO] ============================================================
-2026-04-03 13:00:52 [INFO] Data load summary
-2026-04-03 13:00:52 [INFO] ============================================================
-2026-04-03 13:00:52 [INFO] Total entity records loaded (by PK): 336
-2026-04-03 13:00:52 [INFO] Records by entity type:
-2026-04-03 13:00:52 [INFO]   - anomaly: 10
-2026-04-03 13:00:52 [INFO]   - assumption: 63
-2026-04-03 13:00:52 [INFO]   - claim: 77
-2026-04-03 13:00:52 [INFO]   - paper: 18
-2026-04-03 13:00:52 [INFO]   - person: 65
-2026-04-03 13:00:52 [INFO]   - postulate: 24
-2026-04-03 13:00:52 [INFO]   - prediction: 9
-2026-04-03 13:00:52 [INFO]   - prize: 5
-2026-04-03 13:00:52 [INFO]   - prize_award: 15
-2026-04-03 13:00:52 [INFO]   - tag: 4
-2026-04-03 13:00:52 [INFO]   - theory: 38
-2026-04-03 13:00:52 [INFO]   - violated_assumption: 8
-2026-04-03 13:00:52 [INFO] ✓ No validation errors. Data matches consolidated JSON Schema ($defs); loaded entity types are defined in the merged model.
-2026-04-03 13:00:52 [INFO] ============================================================
-2026-04-03 13:00:52 [INFO] Calculating computed fields
-2026-04-03 13:00:52 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.json (336 entities across 13 entity types)
-2026-04-03 13:00:52 [INFO] ✓ Successfully consolidated data into /home/jeroen/Projects/physics/data/output/consolidated_data.json
-2026-04-03 13:00:52 [INFO] Data consolidation completed successfully (exit code: 0)
-2026-04-03 13:00:52 [INFO] Step 2 completed in 0.28 seconds
-2026-04-03 13:00:52 [INFO] Wrote JS: /home/jeroen/Projects/physics/data/output/consolidated.schema.js, /home/jeroen/Projects/physics/data/output/consolidated_data.js
-2026-04-03 13:00:52 [INFO] Consolidation completed successfully (exit code: 0)
+2026-04-03 13:07:43 [INFO] Logging to: /home/jeroen/Projects/physics/data/output/consolidation_log.txt
+2026-04-03 13:07:43 [INFO] Step 1: Consolidating models from: /home/jeroen/Projects/physics/data/model
+2026-04-03 13:07:43 [INFO] ✓ Consolidated model written to: /home/jeroen/Projects/physics/data/output/consolidated.schema.json
+2026-04-03 13:07:43 [INFO] Model consolidation completed successfully (exit code: 0)
+2026-04-03 13:07:43 [INFO] Step 1 completed in 0.01 seconds
+2026-04-03 13:07:43 [INFO] Step 2: Consolidating data from: /tmp/physics-xframe-data-json
+2026-04-03 13:07:43 [INFO] Loading data files from: /tmp/physics-xframe-data-json
+2026-04-03 13:07:43 [INFO] Data loading completed in 0.01 seconds
+2026-04-03 13:07:43 [INFO] ============================================================
+2026-04-03 13:07:43 [INFO] Data load summary
+2026-04-03 13:07:43 [INFO] ============================================================
+2026-04-03 13:07:43 [INFO] Total entity records loaded (by PK): 336
+2026-04-03 13:07:43 [INFO] Records by entity type:
+2026-04-03 13:07:43 [INFO]   - anomaly: 10
+2026-04-03 13:07:43 [INFO]   - assumption: 63
+2026-04-03 13:07:43 [INFO]   - claim: 77
+2026-04-03 13:07:43 [INFO]   - paper: 18
+2026-04-03 13:07:43 [INFO]   - person: 65
+2026-04-03 13:07:43 [INFO]   - postulate: 24
+2026-04-03 13:07:43 [INFO]   - prediction: 9
+2026-04-03 13:07:43 [INFO]   - prize: 5
+2026-04-03 13:07:43 [INFO]   - prize_award: 15
+2026-04-03 13:07:43 [INFO]   - tag: 4
+2026-04-03 13:07:43 [INFO]   - theory: 38
+2026-04-03 13:07:43 [INFO]   - violated_assumption: 8
+2026-04-03 13:07:43 [INFO] ✓ No validation errors. Data matches consolidated JSON Schema ($defs); loaded entity types are defined in the merged model.
+2026-04-03 13:07:43 [INFO] ============================================================
+2026-04-03 13:07:43 [INFO] Calculating computed fields
+2026-04-03 13:07:43 [INFO] Wrote consolidated data to /home/jeroen/Projects/physics/data/output/consolidated_data.json (336 entities across 13 entity types)
+2026-04-03 13:07:43 [INFO] ✓ Successfully consolidated data into /home/jeroen/Projects/physics/data/output/consolidated_data.json
+2026-04-03 13:07:43 [INFO] Data consolidation completed successfully (exit code: 0)
+2026-04-03 13:07:43 [INFO] Step 2 completed in 0.22 seconds
+2026-04-03 13:07:43 [INFO] Wrote JS: /home/jeroen/Projects/physics/data/output/consolidated.schema.js, /home/jeroen/Projects/physics/data/output/consolidated_data.js
+2026-04-03 13:07:43 [INFO] Consolidation completed successfully (exit code: 0)
