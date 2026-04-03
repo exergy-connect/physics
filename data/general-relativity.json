@@ -1,0 +1,524 @@
+{
+  "theory": [
+    {
+      "theory_id": "differential-geometry",
+      "name": "Differential Geometry",
+      "year": 1827,
+      "summary": "Mathematical field that studies geometric structures using techniques from calculus and linear algebra. Studies curves, surfaces, and higher-dimensional manifolds, their curvature, and intrinsic properties. Founded by Gauss's work on surfaces and developed by Riemann into the study of n-dimensional manifolds. Provides the mathematical foundation for general relativity and modern physics.",
+      "category": "Relativity",
+      "people": [
+        "carl-friedrich-gauss",
+        "bernhard-riemann"
+      ],
+      "tags": [
+        "spacetime"
+      ],
+      "children": [
+        "riemannian-geometry"
+      ]
+    },
+    {
+      "theory_id": "general-relativity",
+      "name": "General Relativity",
+      "year": 1915,
+      "summary": "Theory of gravitation that describes gravity as the curvature of spacetime caused by matter and energy. Replaces Newton's law of universal gravitation and provides a geometric description of gravity.",
+      "category": "Relativity",
+      "nobel_year": 1921,
+      "people": [
+        "albert-einstein"
+      ],
+      "papers": [
+        "einstein-1915-field-equations",
+        "einstein-1915-foundation"
+      ],
+      "tags": [
+        "force",
+        "spacetime",
+        "gravity"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "gr-assumption-1",
+          "statement": "Spacetime is a four-dimensional manifold that can be curved by the presence of matter and energy",
+          "rationale": "This geometric view of spacetime allows gravity to be described as curvature rather than a force"
+        },
+        {
+          "assumption_id": "gr-assumption-2",
+          "statement": "The laws of physics are the same in all inertial reference frames (principle of relativity)",
+          "rationale": "Extends special relativity to include accelerated frames and gravitational fields"
+        },
+        {
+          "assumption_id": "gr-assumption-3",
+          "statement": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
+          "rationale": "Carried over from special relativity as a fundamental constant of nature"
+        }
+      ],
+      "postulates": [
+        {
+          "postulate_id": "gr-postulate-1",
+          "statement": "The equivalence principle: The effects of gravity are locally indistinguishable from the effects of acceleration",
+          "formulation_year": 1907
+        },
+        {
+          "postulate_id": "gr-postulate-2",
+          "statement": "Spacetime curvature is determined by the distribution of matter and energy through the Einstein field equations: G_μν = 8πG/c⁴ T_μν",
+          "formulation_year": 1915
+        },
+        {
+          "postulate_id": "gr-postulate-3",
+          "statement": "Free-falling objects follow geodesics (the shortest paths) in curved spacetime",
+          "formulation_year": 1915
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "gr-claim-1",
+          "statement": "Light rays are bent by gravitational fields",
+          "status": "verified",
+          "verification_year": 1919
+        },
+        {
+          "claim_id": "gr-claim-2",
+          "statement": "Time passes more slowly in stronger gravitational fields (gravitational time dilation)",
+          "status": "verified",
+          "verification_year": 1971
+        },
+        {
+          "claim_id": "gr-claim-3",
+          "statement": "Gravitational waves exist and propagate at the speed of light",
+          "status": "verified",
+          "verification_year": 2016
+        },
+        {
+          "claim_id": "gr-claim-4",
+          "statement": "Black holes can form when matter collapses beyond its Schwarzschild radius",
+          "status": "verified",
+          "verification_year": 2019
+        },
+        {
+          "claim_id": "gr-claim-5",
+          "statement": "The universe can be described by cosmological models with a scale factor that evolves over time",
+          "status": "verified",
+          "verification_year": 1929
+        }
+      ],
+      "children": [
+        "einstein-field-equations",
+        "riemann-curvature-tensor",
+        "ricci-curvature",
+        "contracted-bianchi-identities",
+        "flrw-metric",
+        "black-holes",
+        "einstein-weyl-geometry"
+      ]
+    },
+    {
+      "theory_id": "riemannian-geometry",
+      "name": "Riemannian Geometry",
+      "year": 1854,
+      "summary": "Branch of differential geometry that studies smooth manifolds with a Riemannian metric, allowing measurement of distances and angles. Introduced by Riemann in 1854, it provides the mathematical framework for describing curved spaces and is fundamental to general relativity.",
+      "category": "Relativity",
+      "parent_theory_id": "differential-geometry",
+      "people": [
+        "bernhard-riemann"
+      ],
+      "papers": [
+        "riemann-1854-geometry"
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "einstein-field-equations",
+      "name": "Einstein Field Equations",
+      "year": 1915,
+      "summary": "Set of equations describing how matter and energy curve spacetime",
+      "category": "Relativity",
+      "parent_theory_id": "general-relativity",
+      "people": [
+        "albert-einstein"
+      ],
+      "papers": [
+        "einstein-1915-field-equations"
+      ],
+      "tags": [
+        "force"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "efe-assumption-1",
+          "statement": "The Einstein tensor G_μν is proportional to the stress-energy tensor T_μν",
+          "rationale": "This relates the geometry of spacetime (left side) to the matter-energy content (right side)"
+        }
+      ],
+      "postulates": [
+        {
+          "postulate_id": "efe-postulate-1",
+          "statement": "The contracted Bianchi identities ensure energy-momentum conservation: ∇_μ G^μν = 0",
+          "formulation_year": 1915
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "efe-claim-1",
+          "statement": "The field equations reduce to Newton's law of gravitation in the weak-field, low-velocity limit",
+          "status": "verified",
+          "verification_year": 1915
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "riemann-curvature-tensor",
+      "name": "Riemann Curvature Tensor",
+      "year": 1854,
+      "summary": "Fundamental tensor in differential geometry that completely characterizes the intrinsic curvature of a manifold",
+      "category": "Relativity",
+      "parent_theory_id": "differential-geometry",
+      "people": [
+        "bernhard-riemann"
+      ],
+      "papers": [
+        "riemann-1854-geometry"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "riemann-assumption-1",
+          "statement": "Space can be described as a differentiable manifold with a metric tensor",
+          "rationale": "This allows the application of differential geometry to describe curved spaces"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "riemann-claim-1",
+          "statement": "The Riemann tensor measures the failure of parallel transport to be path-independent",
+          "status": "theoretical"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "ricci-curvature",
+      "name": "Ricci Curvature",
+      "year": 1904,
+      "summary": "Mathematical tensor that measures the degree to which the geometry of a space differs from that of flat Euclidean space",
+      "category": "Relativity",
+      "parent_theory_id": "general-relativity",
+      "people": [
+        "gregorio-ricci-curbastro",
+        "albert-einstein"
+      ],
+      "papers": [
+        "ricci-1904-absolute-calculus"
+      ],
+      "claims": [
+        {
+          "claim_id": "ricci-claim-1",
+          "statement": "The Ricci tensor is a contraction of the Riemann curvature tensor",
+          "status": "theoretical"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "contracted-bianchi-identities",
+      "name": "Contracted Bianchi Identities",
+      "year": 1915,
+      "summary": "Fundamental differential identities in general relativity that ensure the Einstein tensor is divergence-free",
+      "category": "Relativity",
+      "parent_theory_id": "general-relativity",
+      "people": [
+        "luigi-bianchi",
+        "albert-einstein"
+      ],
+      "papers": [
+        "bianchi-identity"
+      ],
+      "postulates": [
+        {
+          "postulate_id": "bianchi-postulate-1",
+          "statement": "The contracted Bianchi identities yield ∇_μ G^μν = 0, ensuring energy-momentum conservation",
+          "formulation_year": 1915
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "bianchi-claim-1",
+          "statement": "The Einstein field equations automatically satisfy energy-momentum conservation without requiring it as a separate postulate",
+          "status": "theoretical"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "flrw-metric",
+      "name": "FLRW Metric",
+      "year": 1935,
+      "summary": "Friedmann-Lemaître-Robertson-Walker metric describing a homogeneous, isotropic, expanding or contracting universe",
+      "category": "Relativity",
+      "parent_theory_id": "general-relativity",
+      "people": [
+        "alexander-friedmann",
+        "georges-lemaitre",
+        "howard-robertson",
+        "arthur-walker"
+      ],
+      "papers": [
+        "flrw-metric"
+      ],
+      "tags": [
+        "time"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "flrw-assumption-1",
+          "statement": "The universe is homogeneous (uniform in space) and isotropic (looks the same in all directions)",
+          "rationale": "This cosmological principle simplifies the description of the large-scale universe"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "flrw-claim-1",
+          "statement": "The universe can be described by a scale factor a(t) that evolves over time",
+          "status": "verified",
+          "verification_year": 1929
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "black-holes",
+      "name": "Black Holes",
+      "year": 1916,
+      "summary": "Regions of spacetime where gravity is so strong that nothing can escape",
+      "category": "Relativity",
+      "parent_theory_id": "general-relativity",
+      "nobel_year": 2020,
+      "people": [
+        "karl-schwarzschild",
+        "albert-einstein"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "bh-assumption-1",
+          "statement": "Matter can collapse to a point where the escape velocity exceeds the speed of light",
+          "rationale": "This follows from the Schwarzschild solution of the Einstein field equations"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "bh-claim-1",
+          "statement": "Black holes have an event horizon beyond which nothing can escape",
+          "status": "verified",
+          "verification_year": 2019
+        },
+        {
+          "claim_id": "bh-claim-2",
+          "statement": "Black holes emit Hawking radiation and can evaporate over time",
+          "status": "theoretical"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "einstein-weyl-geometry",
+      "name": "Einstein–Weyl Geometry",
+      "year": 1918,
+      "summary": "Generalization of Einstein's general relativity that incorporates conformal (scale) geometry. Proposed by Hermann Weyl as an attempt to unify gravity and electromagnetism through a conformal connection that allows for scale transformations while preserving the causal structure of spacetime.",
+      "category": "Relativity",
+      "parent_theory_id": "general-relativity",
+      "people": [
+        "hermann-weyl",
+        "albert-einstein"
+      ],
+      "tags": [
+        "spacetime",
+        "gravity"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "ew-assumption-1",
+          "statement": "Spacetime geometry can be described using a conformal connection that allows for scale transformations",
+          "rationale": "Weyl's conformal geometry extends Riemannian geometry to include scale transformations while preserving angles and causal structure"
+        },
+        {
+          "assumption_id": "ew-assumption-2",
+          "statement": "The electromagnetic field can be unified with gravity through the conformal connection",
+          "rationale": "Weyl proposed that the electromagnetic potential could be identified with the conformal connection, providing a geometric foundation for electromagnetism"
+        }
+      ],
+      "postulates": [
+        {
+          "postulate_id": "ew-postulate-1",
+          "statement": "The metric tensor and conformal connection together determine the geometry of spacetime",
+          "formulation_year": 1918
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "ew-claim-1",
+          "statement": "Einstein–Weyl geometry reduces to standard general relativity when the conformal connection vanishes",
+          "status": "theoretical"
+        },
+        {
+          "claim_id": "ew-claim-2",
+          "statement": "The theory provides a geometric interpretation of electromagnetism through the conformal connection",
+          "status": "theoretical"
+        }
+      ],
+      "children": []
+    }
+  ],
+  "person": [
+    {
+      "person_id": "albert-einstein",
+      "name": "Albert Einstein",
+      "birth_year": 1879,
+      "death_year": 1955,
+      "nobel_years": [
+        1921
+      ]
+    },
+    {
+      "person_id": "bernhard-riemann",
+      "name": "Bernhard Riemann",
+      "birth_year": 1826,
+      "death_year": 1866
+    },
+    {
+      "person_id": "gregorio-ricci-curbastro",
+      "name": "Gregorio Ricci-Curbastro",
+      "birth_year": 1853,
+      "death_year": 1925
+    },
+    {
+      "person_id": "luigi-bianchi",
+      "name": "Luigi Bianchi",
+      "birth_year": 1856,
+      "death_year": 1928
+    },
+    {
+      "person_id": "karl-schwarzschild",
+      "name": "Karl Schwarzschild",
+      "birth_year": 1873,
+      "death_year": 1916
+    },
+    {
+      "person_id": "alexander-friedmann",
+      "name": "Alexander Friedmann",
+      "birth_year": 1888,
+      "death_year": 1925
+    },
+    {
+      "person_id": "georges-lemaitre",
+      "name": "Georges Lemaître",
+      "birth_year": 1894,
+      "death_year": 1966
+    },
+    {
+      "person_id": "howard-robertson",
+      "name": "Howard P. Robertson",
+      "birth_year": 1903,
+      "death_year": 1961
+    },
+    {
+      "person_id": "arthur-walker",
+      "name": "Arthur Geoffrey Walker",
+      "birth_year": 1909,
+      "death_year": 2001
+    },
+    {
+      "person_id": "hermann-weyl",
+      "name": "Hermann Weyl",
+      "birth_year": 1885,
+      "death_year": 1955
+    },
+    {
+      "person_id": "carl-friedrich-gauss",
+      "name": "Carl Friedrich Gauss",
+      "birth_year": 1777,
+      "death_year": 1855
+    }
+  ],
+  "paper": [
+    {
+      "paper_id": "einstein-1915-field-equations",
+      "title": "The Field Equations of Gravitation",
+      "year": 1915,
+      "link": "https://en.wikipedia.org/wiki/Einstein_field_equations",
+      "authors": [
+        "albert-einstein"
+      ]
+    },
+    {
+      "paper_id": "einstein-1915-foundation",
+      "title": "On the General Theory of Relativity",
+      "year": 1915,
+      "link": "https://en.wikipedia.org/wiki/General_relativity",
+      "authors": [
+        "albert-einstein"
+      ]
+    },
+    {
+      "paper_id": "riemann-1854-geometry",
+      "title": "On the Hypotheses Which Lie at the Bases of Geometry",
+      "year": 1854,
+      "link": "https://en.wikipedia.org/wiki/Riemann_curvature_tensor",
+      "authors": [
+        "bernhard-riemann"
+      ]
+    },
+    {
+      "paper_id": "ricci-1904-absolute-calculus",
+      "title": "Méthodes de calcul différentiel absolu et leurs applications",
+      "year": 1904,
+      "link": "https://en.wikipedia.org/wiki/Ricci_curvature",
+      "authors": [
+        "gregorio-ricci-curbastro"
+      ]
+    },
+    {
+      "paper_id": "bianchi-identity",
+      "title": "Bianchi identity",
+      "year": 1915,
+      "link": "https://en.wikipedia.org/wiki/Bianchi_identity",
+      "authors": [
+        "luigi-bianchi",
+        "albert-einstein"
+      ]
+    },
+    {
+      "paper_id": "flrw-metric",
+      "title": "FLRW metric",
+      "year": 1935,
+      "link": "https://en.wikipedia.org/wiki/Friedmann%E2%80%93Lema%C3%AEtre%E2%80%93Robertson%E2%80%93Walker_metric",
+      "authors": [
+        "alexander-friedmann",
+        "georges-lemaitre",
+        "howard-robertson",
+        "arthur-walker"
+      ]
+    }
+  ],
+  "tag": [
+    {
+      "tag_id": "force",
+      "name": "force",
+      "explanation": "Theories and concepts related to forces, including gravitational, electromagnetic, and nuclear forces"
+    },
+    {
+      "tag_id": "spacetime",
+      "name": "spacetime",
+      "explanation": "Concepts related to the four-dimensional fabric of space and time"
+    },
+    {
+      "tag_id": "gravity",
+      "name": "gravity",
+      "explanation": "Theories and phenomena related to gravitational interactions"
+    },
+    {
+      "tag_id": "time",
+      "name": "time",
+      "explanation": "Concepts related to time, time evolution, and temporal dynamics"
+    }
+  ]
+}

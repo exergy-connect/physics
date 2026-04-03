@@ -1,0 +1,299 @@
+{
+  "theory": [
+    {
+      "theory_id": "special-relativity",
+      "name": "Special Relativity",
+      "year": 1905,
+      "summary": "Theory of physics that describes the relationship between space and time in inertial reference frames. Based on the constancy of the speed of light and the principle of relativity.",
+      "category": "Relativity",
+      "nobel_year": 1921,
+      "people": [
+        "albert-einstein"
+      ],
+      "papers": [
+        "einstein-1905-relativity"
+      ],
+      "tags": [
+        "spacetime",
+        "time"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "sr-assumption-1",
+          "statement": "Spacetime is flat with zero Riemann curvature and uses Minkowski geometry (hyperbolic/Lorentzian geometry) with metric signature (-, +, +, +)",
+          "rationale": "Special relativity assumes flat spacetime with hyperbolic geometry, where the spacetime interval ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning spacetime has no intrinsic curvature. The hyperbolic nature is a property of the entire 4D spacetime manifold (not just the time dimension), arising from the mixed signature that distinguishes time from space. This is fundamentally different from Euclidean geometry used in classical mechanics."
+        },
+        {
+          "assumption_id": "sr-assumption-2",
+          "statement": "The laws of physics are the same in all inertial reference frames (principle of relativity)",
+          "rationale": "No preferred inertial frame exists; physics is the same for all observers moving at constant velocity relative to each other"
+        },
+        {
+          "assumption_id": "sr-assumption-3",
+          "statement": "The speed of light in vacuum is constant and independent of the motion of the source or observer",
+          "rationale": "This fundamental postulate leads to time dilation, length contraction, and the relativity of simultaneity"
+        },
+        {
+          "assumption_id": "sr-assumption-4",
+          "statement": "Time is relative - there is no absolute, global time. Simultaneity is relative to the observer's reference frame",
+          "rationale": "In contrast to classical mechanics, special relativity shows that time flows differently for observers in relative motion"
+        }
+      ],
+      "postulates": [
+        {
+          "postulate_id": "sr-postulate-1",
+          "statement": "The principle of relativity: The laws of physics are identical in all inertial frames of reference",
+          "formulation_year": 1905
+        },
+        {
+          "postulate_id": "sr-postulate-2",
+          "statement": "The constancy of the speed of light: The speed of light in vacuum is the same for all observers, regardless of the motion of the light source or observer",
+          "formulation_year": 1905
+        }
+      ],
+      "predictions": [
+        {
+          "prediction_id": "sr-prediction-1",
+          "statement": "Time dilation: Moving clocks run slower than stationary clocks",
+          "prediction_year": 1905,
+          "status": "verified",
+          "verification_year": 1971,
+          "verification_method": "Hafele-Keating experiment with atomic clocks on airplanes",
+          "people": [
+            "albert-einstein",
+            "joseph-hafele",
+            "richard-keating"
+          ],
+          "papers": [
+            "einstein-1905-relativity"
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "sr-claim-2",
+          "statement": "Length contraction: Objects in motion appear shorter in the direction of motion",
+          "status": "verified",
+          "verification_year": 1905
+        },
+        {
+          "claim_id": "sr-claim-3",
+          "statement": "Relativity of simultaneity: Events that are simultaneous in one frame are not simultaneous in another frame moving relative to the first",
+          "status": "verified",
+          "verification_year": 1905
+        },
+        {
+          "claim_id": "sr-claim-4",
+          "statement": "Mass-energy equivalence: E = mc²",
+          "status": "verified",
+          "verification_year": 1905
+        }
+      ],
+      "children": [
+        "minkowski-spacetime",
+        "lorentz-transformations",
+        "relativistic-mechanics",
+        "twin-paradox"
+      ]
+    },
+    {
+      "theory_id": "minkowski-spacetime",
+      "name": "Minkowski Spacetime",
+      "year": 1908,
+      "summary": "Four-dimensional mathematical model combining three-dimensional space with time into a single continuum using hyperbolic geometry",
+      "category": "Relativity",
+      "parent_theory_id": "special-relativity",
+      "people": [
+        "hermann-minkowski"
+      ],
+      "tags": [
+        "spacetime",
+        "time"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "ms-assumption-1",
+          "statement": "Spacetime is a four-dimensional flat manifold with zero Riemann curvature and Minkowski (hyperbolic/Lorentzian) geometry",
+          "rationale": "The Minkowski metric uses hyperbolic geometry with signature (-, +, +, +), fundamentally different from Euclidean geometry. The spacetime interval is ds² = -c²dt² + dx² + dy² + dz². The Riemann curvature tensor is identically zero (R^μ_νρσ = 0), meaning the manifold has no intrinsic curvature - it is globally flat. The hyperbolic structure is a property of the entire spacetime, not just the time dimension, arising from the mixed signature that enables light cones and causality."
+        },
+        {
+          "assumption_id": "ms-assumption-2",
+          "statement": "Time and space are unified into a single four-dimensional continuum",
+          "rationale": "Time is treated as a dimension on equal footing with spatial dimensions, but with opposite sign in the metric"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "ms-claim-1",
+          "statement": "The Minkowski metric provides the geometric foundation for special relativity",
+          "status": "verified",
+          "verification_year": 1908
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "lorentz-transformations",
+      "name": "Lorentz Transformations",
+      "year": 1904,
+      "summary": "Mathematical transformations that relate space and time coordinates between different inertial reference frames",
+      "category": "Relativity",
+      "parent_theory_id": "special-relativity",
+      "people": [
+        "hendrik-lorentz"
+      ],
+      "tags": [
+        "time"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "lt-assumption-1",
+          "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
+          "rationale": "Lorentz transformations preserve the Minkowski metric and are the isometries of hyperbolic spacetime"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "lt-claim-1",
+          "statement": "Lorentz transformations preserve the spacetime interval and the speed of light",
+          "status": "verified",
+          "verification_year": 1904
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "relativistic-kinematics",
+      "name": "Relativistic Kinematics",
+      "year": 1905,
+      "summary": "Study of motion in the absence of forces, accounting for relativistic effects",
+      "category": "Relativity",
+      "parent_theory_id": "relativistic-mechanics",
+      "people": [
+        "albert-einstein"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "rk-assumption-1",
+          "statement": "Spacetime follows Minkowski (hyperbolic) geometry",
+          "rationale": "Relativistic kinematics is based on the hyperbolic geometry of Minkowski spacetime"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "relativistic-dynamics",
+      "name": "Relativistic Dynamics",
+      "year": 1905,
+      "summary": "Study of motion under the influence of forces, incorporating relativistic corrections",
+      "category": "Relativity",
+      "parent_theory_id": "relativistic-mechanics",
+      "people": [
+        "albert-einstein"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "rd-assumption-1",
+          "statement": "Spacetime uses Minkowski (hyperbolic) geometry",
+          "rationale": "Relativistic dynamics requires the hyperbolic metric structure of Minkowski spacetime"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "relativistic-mechanics",
+      "name": "Relativistic Mechanics",
+      "year": 1905,
+      "summary": "Mechanics reformulated to account for relativistic effects at high velocities",
+      "category": "Relativity",
+      "parent_theory_id": "special-relativity",
+      "people": [
+        "albert-einstein"
+      ],
+      "children": [
+        "relativistic-kinematics",
+        "relativistic-dynamics"
+      ]
+    },
+    {
+      "theory_id": "twin-paradox",
+      "name": "Twin Paradox",
+      "year": 1911,
+      "summary": "Thought experiment demonstrating time dilation where a traveling twin ages slower than a stationary twin",
+      "category": "Relativity",
+      "parent_theory_id": "special-relativity",
+      "people": [
+        "albert-einstein",
+        "paul-langevin"
+      ],
+      "tags": [
+        "time"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "tp-assumption-1",
+          "statement": "Time is relative and spacetime uses Minkowski (hyperbolic) geometry",
+          "rationale": "The twin paradox demonstrates the non-Euclidean nature of time in Minkowski spacetime"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "tp-claim-1",
+          "statement": "A traveling twin will age less than a stationary twin due to time dilation",
+          "status": "verified",
+          "verification_year": 1971
+        }
+      ],
+      "children": []
+    }
+  ],
+  "person": [
+    {
+      "person_id": "albert-einstein",
+      "name": "Albert Einstein",
+      "birth_year": 1879,
+      "death_year": 1955
+    },
+    {
+      "person_id": "hermann-minkowski",
+      "name": "Hermann Minkowski",
+      "birth_year": 1864,
+      "death_year": 1909
+    },
+    {
+      "person_id": "hendrik-lorentz",
+      "name": "Hendrik Lorentz",
+      "birth_year": 1853,
+      "death_year": 1928
+    },
+    {
+      "person_id": "paul-langevin",
+      "name": "Paul Langevin",
+      "birth_year": 1872,
+      "death_year": 1946
+    },
+    {
+      "person_id": "joseph-hafele",
+      "name": "Joseph Hafele",
+      "birth_year": 1933,
+      "death_year": 2014
+    },
+    {
+      "person_id": "richard-keating",
+      "name": "Richard Keating",
+      "birth_year": 1937,
+      "death_year": 2012
+    }
+  ],
+  "paper": [
+    {
+      "paper_id": "einstein-1905-relativity",
+      "title": "On the Electrodynamics of Moving Bodies",
+      "year": 1905,
+      "link": "https://en.wikipedia.org/wiki/Annus_Mirabilis_papers",
+      "authors": [
+        "albert-einstein"
+      ]
+    }
+  ]
+}

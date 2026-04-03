@@ -1,0 +1,416 @@
+{
+  "theory": [
+    {
+      "theory_id": "classical-mechanics",
+      "name": "Classical Mechanics",
+      "year": 1687,
+      "summary": "Branch of physics that describes the motion of macroscopic objects under the influence of forces. Based on Newton's laws of motion and the assumption of absolute space and time.",
+      "category": "Classical Mechanics",
+      "people": [
+        "isaac-newton"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "cm-assumption-1",
+          "statement": "Time is absolute and global - it flows uniformly and identically for all observers, regardless of their motion or position",
+          "rationale": "This fundamental assumption distinguishes classical mechanics from relativity, where time is relative. In classical mechanics, there is a universal 'now' that all observers share."
+        },
+        {
+          "assumption_id": "cm-assumption-2",
+          "statement": "Space is absolute - it exists as a fixed, unchanging background independent of matter and energy",
+          "rationale": "Space is treated as a three-dimensional Euclidean space that provides the stage for physical events, but is not affected by them"
+        },
+        {
+          "assumption_id": "cm-assumption-3",
+          "statement": "Objects have definite positions and velocities that can be measured simultaneously with arbitrary precision",
+          "rationale": "Unlike quantum mechanics, classical mechanics assumes no fundamental uncertainty in position and momentum measurements"
+        }
+      ],
+      "postulates": [
+        {
+          "postulate_id": "cm-postulate-1",
+          "statement": "Newton's First Law: An object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an external force",
+          "formulation_year": 1687
+        },
+        {
+          "postulate_id": "cm-postulate-2",
+          "statement": "Newton's Second Law: The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass (F = ma)",
+          "formulation_year": 1687
+        },
+        {
+          "postulate_id": "cm-postulate-3",
+          "statement": "Newton's Third Law: For every action, there is an equal and opposite reaction",
+          "formulation_year": 1687
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "cm-claim-1",
+          "statement": "The laws of motion accurately describe the behavior of macroscopic objects at everyday speeds",
+          "status": "verified",
+          "verification_year": 1687
+        },
+        {
+          "claim_id": "cm-claim-2",
+          "statement": "Classical mechanics breaks down at very high speeds (approaching the speed of light) and for very small objects (atomic scale)",
+          "status": "verified",
+          "verification_year": 1905
+        }
+      ],
+      "children": [
+        "newtonian-mechanics",
+        "analytical-mechanics"
+      ]
+    },
+    {
+      "theory_id": "newtons-laws-of-motion",
+      "name": "Newton's Laws of Motion",
+      "year": 1687,
+      "summary": "Three fundamental laws describing the relationship between motion and forces",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "newtonian-mechanics",
+      "people": [
+        "isaac-newton"
+      ],
+      "papers": [
+        "newton-principia"
+      ],
+      "tags": [
+        "force"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "nlm-assumption-1",
+          "statement": "Time is absolute and global - all observers measure the same time",
+          "rationale": "Essential for defining velocity and acceleration consistently across all reference frames"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "universal-gravitation",
+      "name": "Universal Gravitation",
+      "year": 1687,
+      "summary": "Every particle attracts every other particle with a force proportional to their masses",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "newtonian-mechanics",
+      "people": [
+        "isaac-newton"
+      ],
+      "tags": [
+        "force"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "ug-assumption-1",
+          "statement": "Gravitational force acts instantaneously across any distance",
+          "rationale": "Assumes action at a distance without propagation delay, in contrast to general relativity where gravity propagates at the speed of light"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "ug-claim-1",
+          "statement": "Gravitational force follows an inverse-square law: F = G(m₁m₂)/r²",
+          "status": "verified",
+          "verification_year": 1687
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "conservation-of-momentum",
+      "name": "Conservation of Momentum",
+      "year": 1644,
+      "summary": "Total momentum of a closed system remains constant in the absence of external forces",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "newtonian-mechanics",
+      "people": [
+        "rene-descartes"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "com-assumption-1",
+          "statement": "Time is absolute and uniform",
+          "rationale": "Required for momentum conservation to hold consistently across all reference frames"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "com-claim-1",
+          "statement": "Momentum is conserved in all closed systems",
+          "status": "verified",
+          "verification_year": 1644
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "conservation-of-energy",
+      "name": "Conservation of Energy",
+      "year": 1847,
+      "summary": "Energy cannot be created or destroyed, only transformed from one form to another",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "newtonian-mechanics",
+      "people": [
+        "julius-mayer",
+        "james-joule"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "coe-assumption-1",
+          "statement": "Time is absolute and flows uniformly",
+          "rationale": "Energy conservation requires a consistent time coordinate across all observers"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "coe-claim-1",
+          "statement": "Total energy in an isolated system remains constant over time",
+          "status": "verified",
+          "verification_year": 1847
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "noethers-theorem",
+      "name": "Noether's Theorem",
+      "year": 1918,
+      "summary": "Fundamental theorem connecting symmetries to conservation laws. States that every differentiable symmetry of the action of a physical system corresponds to a conservation law.",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "newtonian-mechanics",
+      "people": [
+        "emmy-noether"
+      ],
+      "papers": [
+        "noether-invariante"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "nt-assumption-1",
+          "statement": "Physical systems can be described by an action principle",
+          "rationale": "The theorem applies to systems with well-defined Lagrangians and actions"
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "nt-claim-1",
+          "statement": "Time translation symmetry implies conservation of energy",
+          "status": "verified",
+          "verification_year": 1918
+        },
+        {
+          "claim_id": "nt-claim-2",
+          "statement": "Spatial translation symmetry implies conservation of momentum",
+          "status": "verified",
+          "verification_year": 1918
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "newtonian-mechanics",
+      "name": "Newtonian Mechanics",
+      "year": 1687,
+      "summary": "Mechanics based on Newton's three laws of motion and universal gravitation",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "classical-mechanics",
+      "people": [
+        "isaac-newton"
+      ],
+      "papers": [
+        "newton-principia"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "nm-assumption-1",
+          "statement": "Time is absolute and flows uniformly for all observers",
+          "rationale": "Fundamental to Newtonian mechanics - there is a universal time coordinate"
+        },
+        {
+          "assumption_id": "nm-assumption-2",
+          "statement": "Space is Euclidean and absolute",
+          "rationale": "Three-dimensional space follows Euclidean geometry and is independent of matter"
+        }
+      ],
+      "postulates": [
+        {
+          "postulate_id": "nm-postulate-1",
+          "statement": "Newton's Laws of Motion govern the motion of all objects",
+          "formulation_year": 1687
+        },
+        {
+          "postulate_id": "nm-postulate-2",
+          "statement": "Universal Gravitation: Every particle attracts every other particle with a force proportional to their masses and inversely proportional to the square of the distance between them",
+          "formulation_year": 1687
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "nm-claim-1",
+          "statement": "Newton's laws accurately predict planetary motion and everyday mechanical phenomena",
+          "status": "verified",
+          "verification_year": 1687
+        }
+      ],
+      "children": [
+        "newtons-laws-of-motion",
+        "universal-gravitation",
+        "conservation-of-momentum",
+        "conservation-of-energy",
+        "noethers-theorem"
+      ]
+    },
+    {
+      "theory_id": "lagrangian-formulation",
+      "name": "Lagrangian Formulation",
+      "year": 1788,
+      "summary": "Mechanics reformulated using kinetic and potential energy in a single function",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "analytical-mechanics",
+      "people": [
+        "joseph-lagrange"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "lf-assumption-1",
+          "statement": "Time is absolute and flows uniformly",
+          "rationale": "The Lagrangian L(q, q̇, t) explicitly depends on time as an absolute parameter"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "hamiltonian-formulation",
+      "name": "Hamiltonian Formulation",
+      "year": 1834,
+      "summary": "Mechanics expressed in terms of position and momentum coordinates",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "analytical-mechanics",
+      "people": [
+        "william-hamilton"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "hf-assumption-1",
+          "statement": "Time is absolute and global",
+          "rationale": "Hamilton's equations describe evolution with respect to absolute time"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "action-principle",
+      "name": "Action Principle",
+      "year": 1744,
+      "summary": "Physical systems follow paths that minimize or maximize the action integral",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "analytical-mechanics",
+      "people": [
+        "pierre-maupertuis"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "ap-assumption-1",
+          "statement": "Time is absolute and provides the integration variable for the action",
+          "rationale": "The action S = ∫L dt integrates over absolute time"
+        }
+      ],
+      "children": []
+    },
+    {
+      "theory_id": "analytical-mechanics",
+      "name": "Analytical Mechanics",
+      "year": 1788,
+      "summary": "Reformulation of mechanics using variational principles and energy-based approaches",
+      "category": "Classical Mechanics",
+      "parent_theory_id": "classical-mechanics",
+      "people": [
+        "joseph-lagrange",
+        "william-hamilton"
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "am-assumption-1",
+          "statement": "Time is absolute and global",
+          "rationale": "Analytical mechanics still operates within the framework of absolute time"
+        }
+      ],
+      "children": [
+        "lagrangian-formulation",
+        "hamiltonian-formulation",
+        "action-principle"
+      ]
+    }
+  ],
+  "person": [
+    {
+      "person_id": "isaac-newton",
+      "name": "Isaac Newton",
+      "birth_year": 1643,
+      "death_year": 1727
+    },
+    {
+      "person_id": "rene-descartes",
+      "name": "René Descartes",
+      "birth_year": 1596,
+      "death_year": 1650
+    },
+    {
+      "person_id": "julius-mayer",
+      "name": "Julius Robert von Mayer",
+      "birth_year": 1814,
+      "death_year": 1878
+    },
+    {
+      "person_id": "james-joule",
+      "name": "James Prescott Joule",
+      "birth_year": 1818,
+      "death_year": 1889
+    },
+    {
+      "person_id": "emmy-noether",
+      "name": "Emmy Noether",
+      "birth_year": 1882,
+      "death_year": 1935
+    },
+    {
+      "person_id": "joseph-lagrange",
+      "name": "Joseph-Louis Lagrange",
+      "birth_year": 1736,
+      "death_year": 1813
+    },
+    {
+      "person_id": "william-hamilton",
+      "name": "William Rowan Hamilton",
+      "birth_year": 1805,
+      "death_year": 1865
+    },
+    {
+      "person_id": "pierre-maupertuis",
+      "name": "Pierre Louis Maupertuis",
+      "birth_year": 1698,
+      "death_year": 1759
+    }
+  ],
+  "paper": [
+    {
+      "paper_id": "newton-principia",
+      "title": "Philosophiæ Naturalis Principia Mathematica",
+      "year": 1687,
+      "link": "https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica",
+      "authors": [
+        "isaac-newton"
+      ]
+    },
+    {
+      "paper_id": "noether-invariante",
+      "title": "Invariante Variationsprobleme",
+      "year": 1918,
+      "link": "https://en.wikipedia.org/wiki/Noether%27s_theorem",
+      "authors": [
+        "emmy-noether"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "claim": [
+    {
+      "claim_id": "qed-claim-3",
+      "theory_id": "quantum-electrodynamics",
+      "statement": "Matrix elements for complex processes in electrodynamics can be written down directly using a space-time approach, providing considerable simplification over conventional methods",
+      "status": "verified",
+      "verification_year": 1949
+    },
+    {
+      "claim_id": "qed-claim-4",
+      "theory_id": "quantum-electrodynamics",
+      "statement": "The space-time view makes relativistic invariance self-evident, in contrast to the Hamiltonian method which obscures it",
+      "status": "verified",
+      "verification_year": 1949
+    },
+    {
+      "claim_id": "qed-claim-5",
+      "theory_id": "quantum-electrodynamics",
+      "statement": "Each term in the expansion in powers of e²/ℏc can be written down and understood directly from a physical point of view",
+      "status": "verified",
+      "verification_year": 1949
+    },
+    {
+      "claim_id": "ren-claim-2",
+      "theory_id": "renormalization",
+      "statement": "By modifying the interaction of electrons at short distances, all matrix elements become finite except those relating to vacuum polarization",
+      "status": "verified",
+      "verification_year": 1949
+    },
+    {
+      "claim_id": "ren-claim-3",
+      "theory_id": "renormalization",
+      "statement": "The only effects sensitive to the modification are changes in mass and charge of electrons, which cannot be directly observed",
+      "status": "verified",
+      "verification_year": 1949
+    },
+    {
+      "claim_id": "ren-claim-4",
+      "theory_id": "renormalization",
+      "statement": "Phenomena directly observable are insensitive to the details of the modification used (except at extreme energies), allowing a limit to be taken as the range of modification goes to zero",
+      "status": "verified",
+      "verification_year": 1949
+    },
+    {
+      "claim_id": "fd-claim-2",
+      "theory_id": "feynman-diagrams",
+      "statement": "The simplification results from combining processes that were previously unnecessarily separated, such as processes involving virtual pairs with those involving only positive energy electrons",
+      "status": "verified",
+      "verification_year": 1949
+    },
+    {
+      "claim_id": "fd-claim-3",
+      "theory_id": "feynman-diagrams",
+      "statement": "The space-time approach permits matrix elements to be written down directly for any specific problem without requiring the complicated machinery of Hamiltonian electrodynamics",
+      "status": "verified",
+      "verification_year": 1949
+    }
+  ],
+  "postulate": [
+    {
+      "postulate_id": "qed-postulate-2",
+      "theory_id": "quantum-electrodynamics",
+      "statement": "Electrodynamics can be described as a direct interaction at a distance (albeit delayed in time) between charges, rather than through field oscillators",
+      "formulation_year": 1949
+    },
+    {
+      "postulate_id": "qed-postulate-3",
+      "theory_id": "quantum-electrodynamics",
+      "statement": "The interaction viewpoint is best for virtual quanta, while the field viewpoint is best for real quanta",
+      "formulation_year": 1949
+    }
+  ],
+  "assumption": [
+    {
+      "assumption_id": "qed-assumption-3",
+      "theory_id": "quantum-electrodynamics",
+      "statement": "The interaction between charges can be modified at short distances to make divergent integrals finite",
+      "rationale": "This modification allows systematic removal of infinities through renormalization"
+    },
+    {
+      "assumption_id": "qed-assumption-4",
+      "theory_id": "quantum-electrodynamics",
+      "statement": "Observable phenomena are insensitive to the details of the short-distance modification (except at extreme energies)",
+      "rationale": "This allows taking the limit as the cut-off goes to zero for observable processes"
+    }
+  ],
+  "person": [
+    {
+      "person_id": "hans-bethe",
+      "name": "Hans Bethe",
+      "birth_year": 1906,
+      "death_year": 2005,
+      "sources": [
+        "referenced by paper feynman-1949-space-time",
+        "mentioned for suggesting methods for vacuum polarization",
+        "acknowledged in paper for discussions and manuscript critiques"
+      ]
+    },
+    {
+      "person_id": "wolfgang-pauli",
+      "name": "Wolfgang Pauli",
+      "birth_year": 1900,
+      "death_year": 1958,
+      "sources": [
+        "referenced by paper feynman-1949-space-time",
+        "mentioned for suggesting methods for vacuum polarization and gauge invariance",
+        "mentioned with Bethe for calculation methods"
+      ]
+    },
+    {
+      "person_id": "victor-weisskopf",
+      "name": "Victor Weisskopf",
+      "birth_year": 1908,
+      "death_year": 2002,
+      "sources": [
+        "referenced by paper feynman-1949-space-time",
+        "mentioned with Pauli for second quantization treatment"
+      ]
+    }
+  ]
+}

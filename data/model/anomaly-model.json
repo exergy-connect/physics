@@ -1,0 +1,175 @@
+{
+  "name": "Anomaly Model",
+  "version": "26.04.03.1",
+  "author": "Exergy ∞ LLC",
+  "entities": [
+    {
+      "name": "anomaly",
+      "brief": "An anomaly or phenomenon that challenges a theory",
+      "description": "Represents an anomaly, phenomenon, or observation that appears to violate or challenge\nthe assumptions or claims of a physics theory. Anomalies are observations that don't\nfit the expected behavior predicted by a theory and may indicate limitations,\nerrors, or the need for theory extension or replacement. Each anomaly is linked to\nthe specific assumptions and claims it appears to violate, helping identify which\naspects of the theory are challenged by the observation.\n",
+      "primary_key": "anomaly_id",
+      "fields": [
+        {
+          "name": "anomaly_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the anomaly (e.g., 'mercury-perihelion-precession', 'ultraviolet-catastrophe')"
+        },
+        {
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Display name of the anomaly or phenomenon (e.g., 'Mercury's Perihelion Precession', 'Ultraviolet Catastrophe')"
+        },
+        {
+          "name": "description",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Detailed description of the anomaly, what was observed, and why it challenges the theory"
+        },
+        {
+          "name": "theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the theory that this anomaly challenges or violates"
+        },
+        {
+          "name": "violated_assumptions",
+          "type": {
+            "array": {
+              "entity": "violated_assumption"
+            }
+          },
+          "required": false,
+          "description": "List of assumptions that this anomaly appears to violate or challenge (nested children)"
+        },
+        {
+          "name": "violated_claims",
+          "type": {
+            "array": {
+              "entity": "claim"
+            }
+          },
+          "required": false,
+          "description": "Array of claim IDs that this anomaly appears to violate or challenge"
+        },
+        {
+          "name": "discovery_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year when this anomaly was first observed or discovered (four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "explanation_theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory"
+              }
+            ]
+          },
+          "required": false,
+          "description": "Reference to the theory that explains or resolves this anomaly (if applicable)"
+        },
+        {
+          "name": "explanation",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Description of how the anomaly was explained or resolved, including the explanation year and mechanism. Format: 'Year: [year]. [description]' or just '[description]' if year is in explanation_theory_id's theory year."
+        },
+        {
+          "name": "papers",
+          "type": {
+            "array": {
+              "entity": "paper"
+            }
+          },
+          "required": false,
+          "description": "Array of paper IDs related to this anomaly (discovery papers, explanation papers, etc.)"
+        },
+        {
+          "name": "people",
+          "type": {
+            "array": {
+              "entity": "person"
+            }
+          },
+          "required": false,
+          "description": "Array of person IDs associated with this anomaly (discoverers, explainers, etc.)"
+        }
+      ]
+    },
+    {
+      "name": "violated_assumption",
+      "brief": "An assumption that is violated by an anomaly",
+      "description": "Represents a specific assumption from a theory that is violated or challenged by an anomaly.\nThis entity links anomalies to the specific assumptions they contradict, allowing detailed\ntracking of which theoretical premises are challenged by observed phenomena.\n",
+      "primary_key": "violated_assumption_id",
+      "fields": [
+        {
+          "name": "violated_assumption_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for this violated assumption record"
+        },
+        {
+          "name": "anomaly_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "anomaly",
+                "parent_array": "violated_assumptions"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the parent anomaly"
+        },
+        {
+          "name": "assumption_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "assumption"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the assumption from the theory that is being violated"
+        },
+        {
+          "name": "violation_description",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Description of how this specific assumption is violated by the anomaly"
+        }
+      ]
+    }
+  ],
+  "description": "Anomaly and violated-assumption entities: observations that challenge theories, linked to assumptions and claims."
+}

@@ -1,0 +1,126 @@
+{
+  "name": "Prize Model",
+  "version": "26.04.03.1",
+  "author": "Exergy ∞ LLC",
+  "entities": [
+    {
+      "name": "prize",
+      "brief": "A scientific prize or award",
+      "description": "Represents a scientific prize or award (e.g., Nobel Prize in Physics, Kyoto Prize).\nPrizes are awarded to people and/or theories for significant contributions to science.\n",
+      "primary_key": "prize_id",
+      "fields": [
+        {
+          "name": "prize_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the prize (e.g., 'nobel-physics', 'kyoto-basic-sciences')"
+        },
+        {
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Display name of the prize (e.g., 'Nobel Prize in Physics', 'Kyoto Prize in Basic Sciences')"
+        },
+        {
+          "name": "category",
+          "type": {
+            "primitive": "string",
+            "enum": [
+              "Nobel Prize in Physics",
+              "Nobel Prize in Chemistry",
+              "Nobel Prize in Physiology or Medicine",
+              "Nobel Prize in Economic Sciences",
+              "Kyoto Prize in Basic Sciences",
+              "Other"
+            ]
+          },
+          "required": false,
+          "description": "Category or type of prize"
+        },
+        {
+          "name": "description",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Description of what the prize recognizes"
+        }
+      ]
+    },
+    {
+      "name": "prize_award",
+      "brief": "An award of a prize to a person or theory",
+      "description": "Represents the awarding of a prize in a specific year to one or more people and/or theories.\nLinks prizes to recipients (people and/or theories) with the year and description of the award.\n",
+      "primary_key": "award_id",
+      "fields": [
+        {
+          "name": "award_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the award (e.g., 'nobel-physics-1965')"
+        },
+        {
+          "name": "prize_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "prize"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the prize being awarded"
+        },
+        {
+          "name": "year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": true,
+          "description": "Year when the prize was awarded (four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "description",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Description of why the prize was awarded (e.g., citation text)"
+        },
+        {
+          "name": "people",
+          "type": {
+            "array": {
+              "entity": "person"
+            }
+          },
+          "required": false,
+          "description": "Array of person_ids who received this award"
+        },
+        {
+          "name": "theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory"
+              }
+            ]
+          },
+          "required": false,
+          "description": "Reference to theory for which the prize was awarded (if applicable)"
+        }
+      ]
+    }
+  ],
+  "description": "Prize and prize-award entities for scientific awards linked to people and theories."
+}

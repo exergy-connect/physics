@@ -1,0 +1,585 @@
+{
+  "name": "Physics Theory Model",
+  "version": "26.04.03.1",
+  "author": "Exergy ∞ LLC",
+  "entities": [
+    {
+      "name": "theory",
+      "brief": "A physics theory or concept",
+      "description": "Represents a physics theory, concept, or model. Theories can be hierarchical\n(parent-child relationships) and contain assumptions, postulates, claims, papers,\nand associated people. Theories are organized by category (e.g., Classical Mechanics,\nQuantum Physics, Relativity) and have a year of development.\n",
+      "primary_key": "theory_id",
+      "fields": [
+        {
+          "name": "theory_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the theory (e.g., 'general-relativity', 'newtons-laws')"
+        },
+        {
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Display name of the theory (e.g., 'General Relativity', 'Newton's Laws of Motion')"
+        },
+        {
+          "name": "year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": true,
+          "description": "Year when the theory was developed or published (four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "summary",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Brief summary or description of the theory"
+        },
+        {
+          "name": "category",
+          "type": {
+            "primitive": "string",
+            "enum": [
+              "Classical Mechanics",
+              "Quantum Physics",
+              "Relativity",
+              "Thermodynamics",
+              "Electromagnetism",
+              "Particle Physics"
+            ]
+          },
+          "required": false,
+          "description": "Category or field of physics"
+        },
+        {
+          "name": "parent_theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory"
+              }
+            ]
+          },
+          "required": false,
+          "description": "Reference to parent theory for hierarchical organization"
+        },
+        {
+          "name": "assumptions",
+          "type": {
+            "array": {
+              "entity": "assumption"
+            }
+          },
+          "required": false,
+          "description": "List of assumptions underlying this theory (nested children)"
+        },
+        {
+          "name": "postulates",
+          "type": {
+            "array": {
+              "entity": "postulate"
+            }
+          },
+          "required": false,
+          "description": "List of fundamental postulates of this theory (nested children)"
+        },
+        {
+          "name": "claims",
+          "type": {
+            "array": {
+              "entity": "claim"
+            }
+          },
+          "required": false,
+          "description": "List of claims or consequences made by this theory (nested children)"
+        },
+        {
+          "name": "predictions",
+          "type": {
+            "array": {
+              "entity": "prediction"
+            }
+          },
+          "required": false,
+          "description": "List of testable predictions made by this theory (nested children)"
+        },
+        {
+          "name": "anomalies",
+          "type": {
+            "array": {
+              "entity": "anomaly"
+            }
+          },
+          "required": false,
+          "description": "Array of anomaly IDs that challenge or are explained by this theory"
+        },
+        {
+          "name": "papers",
+          "type": {
+            "array": {
+              "entity": "paper"
+            }
+          },
+          "required": false,
+          "description": "Array of paper IDs referencing key papers related to this theory"
+        },
+        {
+          "name": "people",
+          "type": {
+            "array": {
+              "entity": "person"
+            }
+          },
+          "required": false,
+          "description": "Array of person IDs referencing people associated with this theory"
+        },
+        {
+          "name": "tags",
+          "type": {
+            "array": {
+              "entity": "tag"
+            }
+          },
+          "required": false,
+          "description": "Array of tag IDs for categorizing and searching theories"
+        },
+        {
+          "name": "nobel_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year when a Nobel Prize was awarded for this theory (if applicable; four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "children",
+          "type": {
+            "array": {
+              "entity": "theory"
+            }
+          },
+          "required": false,
+          "description": "List of child theories (nested sub-theories)"
+        }
+      ]
+    },
+    {
+      "name": "assumption",
+      "brief": "An assumption underlying a theory",
+      "description": "Represents an assumption or premise that underlies a physics theory. Assumptions\nare background conditions, implicit premises, or contextual constraints that are\ntaken as given. They may be simplifying conditions (e.g., \"no friction\", \"isolated\nsystem\") or structural premises (e.g., \"spacetime is a 4D manifold\"). Unlike postulates,\nassumptions are often implicit or contextual rather than explicitly stated as\nfoundational principles. They provide the framework within which the theory operates.\n",
+      "primary_key": "assumption_id",
+      "fields": [
+        {
+          "name": "assumption_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the assumption"
+        },
+        {
+          "name": "theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory",
+                "parent_array": "assumptions"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the parent theory"
+        },
+        {
+          "name": "statement",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "The assumption statement or description (e.g., 'spacetime is a 4D manifold', 'no external forces act on the system')"
+        },
+        {
+          "name": "rationale",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Explanation of why this assumption is made, its justification, or the context in which it applies"
+        }
+      ]
+    },
+    {
+      "name": "postulate",
+      "brief": "A fundamental postulate of a theory",
+      "description": "Represents a fundamental postulate or axiom of a physics theory. Postulates are\nexplicitly stated foundational principles that are taken as true without proof and\nfrom which other results are derived. They are the core building blocks of the theory,\noften called \"laws\" or \"principles\" (e.g., \"Equivalence Principle\", \"Einstein Field\nEquations\"). Unlike assumptions, postulates are explicitly stated as the fundamental\naxioms of the theory and are typically the primary principles from which claims and\npredictions follow.\n",
+      "primary_key": "postulate_id",
+      "fields": [
+        {
+          "name": "postulate_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the postulate"
+        },
+        {
+          "name": "theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory",
+                "parent_array": "postulates"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the parent theory"
+        },
+        {
+          "name": "statement",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "The explicitly stated postulate or principle (e.g., 'Equivalence Principle', 'Einstein Field Equations: G_μν = 8πG/c⁴ T_μν')"
+        },
+        {
+          "name": "formulation_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year when this postulate was formulated (may differ from theory year, as some postulates may predate the full theory; four-digit calendar year; omit if unknown)"
+        }
+      ]
+    },
+    {
+      "name": "claim",
+      "brief": "A claim or consequence of a theory",
+      "description": "Represents a claim or consequence derived from a physics theory. Claims are\ntheoretical statements or consequences that follow from the theory's assumptions\nand postulates. Unlike predictions, claims may be more general theoretical\nconsequences that are not necessarily testable in isolation.\n",
+      "primary_key": "claim_id",
+      "fields": [
+        {
+          "name": "claim_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the claim"
+        },
+        {
+          "name": "theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory",
+                "parent_array": "claims"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the parent theory"
+        },
+        {
+          "name": "statement",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "The claim or consequence statement"
+        },
+        {
+          "name": "status",
+          "type": {
+            "primitive": "string",
+            "enum": [
+              "theoretical",
+              "verified",
+              "falsified",
+              "pending_verification"
+            ]
+          },
+          "required": false,
+          "description": "Status of the claim: theoretical (not yet tested), verified (confirmed by experiment), falsified (contradicted by evidence), pending_verification (under investigation)"
+        },
+        {
+          "name": "verification_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year when the claim was verified or falsified (if applicable; four-digit calendar year; omit if unknown)"
+        }
+      ]
+    },
+    {
+      "name": "prediction",
+      "brief": "A testable prediction made by a theory",
+      "description": "Represents a specific, testable prediction made by a physics theory. Predictions\nare concrete, falsifiable statements that can be experimentally verified or\nfalsified. They are distinct from claims in that they are explicitly testable\nand have both a prediction year (when the prediction was made) and potentially\na verification year (when it was tested). Predictions are the bridge between\ntheory and experiment.\n",
+      "primary_key": "prediction_id",
+      "fields": [
+        {
+          "name": "prediction_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the prediction"
+        },
+        {
+          "name": "theory_id",
+          "type": {
+            "primitive": "string",
+            "foreignKeys": [
+              {
+                "entity": "theory",
+                "parent_array": "predictions"
+              }
+            ]
+          },
+          "required": true,
+          "description": "Reference to the parent theory"
+        },
+        {
+          "name": "statement",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "The testable prediction statement (e.g., 'Moving clocks run slower than stationary clocks', 'Light rays are bent by gravitational fields')"
+        },
+        {
+          "name": "prediction_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": true,
+          "description": "Year when this prediction was made or published (four-digit calendar year)"
+        },
+        {
+          "name": "status",
+          "type": {
+            "primitive": "string",
+            "enum": [
+              "pending",
+              "verified",
+              "falsified",
+              "partially_verified"
+            ]
+          },
+          "required": false,
+          "description": "Status of the prediction: pending (not yet tested), verified (confirmed by experiment), falsified (contradicted by evidence), partially_verified (some aspects confirmed)"
+        },
+        {
+          "name": "verification_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year when the prediction was experimentally verified or falsified (if applicable; four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "verification_method",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Description of how the prediction was verified or tested (e.g., 'Hafele-Keating experiment with atomic clocks', 'Gravitational lensing observation')"
+        },
+        {
+          "name": "people",
+          "type": {
+            "array": {
+              "entity": "person"
+            }
+          },
+          "required": false,
+          "description": "Array of person_ids who made this prediction or were involved in its verification"
+        },
+        {
+          "name": "papers",
+          "type": {
+            "array": {
+              "entity": "paper"
+            }
+          },
+          "required": false,
+          "description": "Array of paper_ids related to this prediction (prediction papers, verification papers, etc.)"
+        }
+      ]
+    },
+    {
+      "name": "paper",
+      "brief": "A scientific paper or publication",
+      "description": "Represents a scientific paper, publication, or key reference related to physics theories.\nPapers can be associated with multiple theories and people.\n",
+      "primary_key": "paper_id",
+      "fields": [
+        {
+          "name": "paper_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the paper (e.g., 'einstein-1915-field-equations')"
+        },
+        {
+          "name": "title",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Title of the paper"
+        },
+        {
+          "name": "year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year of publication (four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "link",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "URL or link to the paper (e.g., Wikipedia article, DOI, etc.)"
+        },
+        {
+          "name": "authors",
+          "type": {
+            "array": {
+              "entity": "person"
+            }
+          },
+          "required": false,
+          "description": "Array of person IDs who authored this paper"
+        }
+      ]
+    },
+    {
+      "name": "person",
+      "brief": "A person (scientist, physicist, etc.)",
+      "description": "Represents a person associated with physics theories, papers, or discoveries.\nPeople can be associated with multiple theories and papers.\n",
+      "primary_key": "person_id",
+      "fields": [
+        {
+          "name": "person_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the person (e.g., 'albert-einstein', 'isaac-newton')"
+        },
+        {
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Full name of the person"
+        },
+        {
+          "name": "birth_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year of birth (four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "death_year",
+          "type": {
+            "primitive": "integer",
+            "min": 1000,
+            "max": 2099
+          },
+          "required": false,
+          "description": "Year of death (if deceased; four-digit calendar year; omit if unknown)"
+        },
+        {
+          "name": "nobel_years",
+          "type": {
+            "array": {
+              "primitive": "integer",
+              "min": 1000,
+              "max": 2099
+            }
+          },
+          "required": false,
+          "description": "Years when this person received Nobel Prizes (four-digit calendar years)"
+        },
+        {
+          "name": "sources",
+          "type": {
+            "array": {
+              "primitive": "string"
+            }
+          },
+          "required": false,
+          "description": "Array of source descriptions tracking why this person was added to the database (e.g., 'referenced by paper feynman-1949-space-time', 'author of paper einstein-1905-relativity')"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "brief": "A tag for categorizing theories",
+      "description": "Represents a tag or keyword for categorizing and searching physics theories.\nTags help organize theories by themes, concepts, or properties (e.g., 'force', 'time', 'energy').\n",
+      "primary_key": "tag_id",
+      "fields": [
+        {
+          "name": "tag_id",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Unique identifier for the tag (e.g., 'force', 'time', 'exergy')"
+        },
+        {
+          "name": "name",
+          "type": {
+            "primitive": "string"
+          },
+          "required": true,
+          "description": "Display name of the tag"
+        },
+        {
+          "name": "explanation",
+          "type": {
+            "primitive": "string"
+          },
+          "required": false,
+          "description": "Explanation of what this tag represents and how it relates to theories"
+        }
+      ]
+    }
+  ],
+  "description": "Physics Theory Model (see entity descriptions)."
+}

@@ -1,0 +1,130 @@
+{
+  "anomaly": [
+    {
+      "anomaly_id": "mercury-perihelion-precession",
+      "name": "Mercury's Perihelion Precession",
+      "description": "The observed precession of Mercury's perihelion (the point of closest approach to the Sun)\nwas approximately 43 arcseconds per century more than could be explained by Newtonian\nmechanics, even accounting for perturbations from other planets. This anomaly challenged\nNewton's theory of gravitation and was one of the key pieces of evidence that led to\nthe development of general relativity.\n",
+      "theory_id": "newtonian-mechanics",
+      "status": "explained",
+      "discovery_year": 1859,
+      "explanation_theory_id": "general-relativity",
+      "violated_assumptions": [
+        {
+          "violated_assumption_id": "mercury-violated-assumption-1",
+          "assumption_id": "ug-assumption-1",
+          "violation_description": "Newtonian mechanics assumes gravitational force acts instantaneously and follows an exact inverse square law, but Mercury's orbit shows additional precession that cannot be explained by this assumption alone"
+        }
+      ],
+      "violated_claims": [
+        "nm-claim-1"
+      ],
+      "people": [
+        "albert-einstein"
+      ],
+      "papers": [
+        "einstein-1915-field-equations"
+      ]
+    },
+    {
+      "anomaly_id": "ultraviolet-catastrophe",
+      "name": "Ultraviolet Catastrophe",
+      "description": "Classical statistical mechanics predicted that a blackbody should emit infinite energy\nat high frequencies (ultraviolet and beyond), which contradicted experimental observations.\nThis anomaly showed that classical physics could not explain blackbody radiation and\nled to the development of quantum mechanics.\n",
+      "theory_id": "classical-mechanics",
+      "status": "explained",
+      "discovery_year": 1900,
+      "explanation_theory_id": "quantum-field-theory",
+      "violated_assumptions": [
+        {
+          "violated_assumption_id": "uv-catastrophe-violated-assumption-1",
+          "assumption_id": "cm-assumption-3",
+          "violation_description": "Classical mechanics assumes energy can be distributed continuously among all possible frequencies, but this leads to infinite energy at high frequencies (ultraviolet catastrophe), contradicting observations"
+        }
+      ],
+      "violated_claims": [],
+      "people": [
+        "max-planck"
+      ],
+      "papers": []
+    },
+    {
+      "anomaly_id": "michelson-morley-null-result",
+      "name": "Michelson-Morley Null Result",
+      "description": "The Michelson-Morley experiment attempted to detect the motion of Earth through the\nhypothetical luminiferous ether by measuring the speed of light in different directions.\nThe experiment found no difference in the speed of light regardless of direction,\ncontradicting the ether theory and leading to the development of special relativity.\n",
+      "theory_id": "classical-mechanics",
+      "status": "explained",
+      "discovery_year": 1887,
+      "explanation_theory_id": "special-relativity",
+      "violated_assumptions": [
+        {
+          "violated_assumption_id": "michelson-violated-assumption-1",
+          "assumption_id": "cm-assumption-1",
+          "violation_description": "Classical mechanics assumes time is absolute, but the Michelson-Morley experiment's null result showed that the speed of light is constant in all directions, contradicting the assumption of absolute time and space"
+        }
+      ],
+      "violated_claims": [
+        "cm-claim-1"
+      ],
+      "people": [
+        "albert-einstein"
+      ],
+      "papers": []
+    },
+    {
+      "anomaly_id": "pioneer-anomaly",
+      "name": "Pioneer anomaly",
+      "description": "The Pioneer 10 and Pioneer 11 spacecraft exhibited an unexplained constant acceleration\ntowards the Sun of approximately 8.74 × 10⁻¹⁰ m/s². This anomalous acceleration was\nobserved over decades of tracking data and could not be explained by known forces,\nincluding solar radiation pressure, general relativity effects, or spacecraft systematics.\nThe anomaly challenged our understanding of gravity in the outer solar system.\n",
+      "theory_id": "general-relativity",
+      "discovery_year": 1998,
+      "explanation": "Year: 2012. The anomaly was largely resolved through detailed analysis showing that\nanisotropic thermal radiation from the spacecraft's radioisotope thermoelectric generators\nand electrical systems provided the missing acceleration. However, some residual\nunexplained acceleration may still exist, suggesting possible new physics or incomplete\nunderstanding of thermal effects.\n",
+      "violated_assumptions": [
+        {
+          "violated_assumption_id": "pioneer-violated-assumption-1",
+          "assumption_id": "gr-assumption-1",
+          "violation_description": "General relativity assumes that all accelerations can be explained by spacetime curvature and known forces, but the Pioneer anomaly suggested an unexplained acceleration that might indicate new physics or incomplete understanding of gravity at large distances"
+        }
+      ],
+      "violated_claims": [],
+      "people": [],
+      "papers": []
+    },
+    {
+      "anomaly_id": "hubble-tension",
+      "name": "Hubble Tension",
+      "description": "A significant discrepancy between measurements of the Hubble constant (H₀) from early\nuniverse observations (cosmic microwave background, CMB) and late universe observations\n(Type Ia supernovae, Cepheid variables). Early universe measurements suggest H₀ ≈ 67 km/s/Mpc,\nwhile late universe measurements suggest H₀ ≈ 73 km/s/Mpc. This ~5-10% tension challenges\nthe standard ΛCDM cosmological model and suggests possible new physics or systematic errors.\n",
+      "theory_id": "flrw-metric",
+      "discovery_year": 2016,
+      "violated_assumptions": [
+        {
+          "violated_assumption_id": "hubble-tension-violated-assumption-1",
+          "assumption_id": "flrw-assumption-1",
+          "violation_description": "The FLRW metric assumes a homogeneous and isotropic universe, but the Hubble tension suggests possible spatial variations, evolution of dark energy, or new physics that breaks the cosmological principle"
+        }
+      ],
+      "violated_claims": [
+        "flrw-claim-1"
+      ],
+      "people": [],
+      "papers": []
+    },
+    {
+      "anomaly_id": "cosmic-blueshift",
+      "name": "Cosmic Blueshift Anomaly",
+      "description": "While most distant galaxies show redshift due to cosmic expansion (Hubble's law),\nsome observations have reported unexpected blueshifts or anomalous redshift patterns\nthat cannot be explained by simple Hubble flow. These include local blueshifts in\ncertain galaxy clusters, anomalous redshift quantization, and discrepancies between\npredicted and observed redshifts. This challenges the assumption of uniform cosmic\nexpansion and the FLRW cosmological model.\n",
+      "theory_id": "flrw-metric",
+      "discovery_year": 1976,
+      "explanation": "Most blueshift observations are explained by local peculiar velocities (galaxies moving\nwithin clusters) rather than cosmic expansion. However, some anomalous redshift patterns\nremain unexplained and may indicate large-scale structure effects, modified gravity,\nor systematic measurement errors. The redshift quantization claims remain controversial\nand unverified by mainstream cosmology.\n",
+      "violated_assumptions": [
+        {
+          "violated_assumption_id": "blueshift-violated-assumption-1",
+          "assumption_id": "flrw-assumption-1",
+          "violation_description": "The FLRW metric assumes uniform cosmic expansion, but blueshift observations and anomalous redshift patterns suggest possible local deviations, large-scale structure effects, or violations of the cosmological principle"
+        }
+      ],
+      "violated_claims": [
+        "flrw-claim-1"
+      ],
+      "people": [],
+      "papers": []
+    }
+  ]
+}
