@@ -135,7 +135,7 @@
         },
         "session_assessment": {
           "type": "array",
-          "description": "AI's comprehensive assessment of the session, including efficiency metrics, validation\ntracking, and quality evaluation. Must be provided for every session to enable\ncontinuous improvement.\n",
+          "description": "AI's comprehensive assessment of the session, including efficiency metrics, validation\ntracking, and quality evaluation. Omitted on interrupted/timeout captures; present on completed sessions.\n",
           "items": {
             "$ref": "#/$defs/session_assessment"
           }
@@ -149,7 +149,7 @@
         },
         "ai_feedback": {
           "type": "array",
-          "description": "AI-generated feedback about the session, including processing summary, tools used,\nchallenges encountered, and insights for improvement.\n",
+          "description": "AI-generated feedback about the session, including processing summary, tools used,\nchallenges encountered, and insights for improvement. Omitted on interrupted/timeout captures.\n",
           "items": {
             "$ref": "#/$defs/ai_feedback"
           }
@@ -157,9 +157,7 @@
       },
       "description": "Top-level feedback entity for tracking AI-assisted physics paper analysis sessions.\n\n**CRITICAL INSTRUCTION FOR LARGE LLMs**: The feedback you provide is for HUMAN ARCHITECTS who\nare designing and improving the system for physics paper analysis. Your feedback should help\narchitects understand:\n\n1. **What patterns cause failures**: Document specific patterns where mistakes occur when\n   extracting physics facts from papers. Help architects understand what causes these failures,\n   especially regarding correctness, completeness, minimal representation, and consistency.\n\n2. **What model guidance is unclear**: Identify places where entity descriptions, field\n   descriptions, or model instructions are ambiguous or require too much interpretation when\n   analyzing physics papers. Explicit, prescriptive guidance is needed on what constitutes a\n   minimal, correct, and complete representation of physics facts.\n\n3. **What structural changes would help**: Suggest concrete improvements to the data model\n   structure, entity definitions, or field descriptions that would make it easier to extract\n   and represent physics facts correctly and completely. Think about what information is missing\n   or hard to find when analyzing papers.\n\n4. **What workflow patterns work/fail**: Document which workflow patterns work successfully\n   vs. which require too much reasoning when processing physics papers. Help architects design\n   workflows that ensure correctness, completeness, minimal representation, and consistency.\n\n5. **What validation errors reveal**: When validation fails, explain what the error message\n   tells you and whether it's clear enough to understand and fix, especially in the context\n   of physics fact extraction.\n\n**KEY SUCCESS CRITERIA FOR PHYSICS PAPER ANALYSIS**:\n- **Correctness**: Physics facts, equations, dates, relationships, and scientific statements\n  must be accurate and verifiable. No incorrect physics content should be extracted.\n- **Completeness**: All key facts from papers must be captured - theories, assumptions, postulates,\n  claims, predictions, people, papers, and their relationships. Nothing essential should be missed.\n- **Minimal Representation**: Avoid redundancy. Each fact should be represented once in the most\n  appropriate entity. Statements should be concise and essential, avoiding unnecessary verbosity.\n- **Consistency**: Data must be consistent across entities - years match, relationships are\n  bidirectional where needed, entity IDs are used consistently, and no contradictory information.\n\nYour goal is to provide actionable insights that help human architects improve the system\nthrough better model design, clearer guidance, and more effective workflows that ensure\nhigh-quality physics fact extraction.\n",
       "required": [
-        "session_id",
-        "session_assessment",
-        "ai_feedback"
+        "session_id"
       ],
       "x-primaryKey": "session_id"
     },

@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "timestamp": "2026-04-03T18:07:43Z",
+  "version": 3,
+  "timestamp": "2026-04-03T19:59:51Z",
   "model": {
     "name": "Anomaly Model",
     "version": "26.04.03.1",
@@ -25,6 +25,13 @@
         "author": "jeroen",
         "note": "(no change) Smoke test after YAML removal (JSON-only data).",
         "git_commit_hash": "9197f1403d6e71c9b96ff4a1519763871428ce8f"
+      },
+      "000000000003": {
+        "id": 3,
+        "timestamp": "2026-04-03T14:59:51-05:00",
+        "author": "jeroen",
+        "note": "Consolidate physics data; session_feedback assessment/ai_feedback optional for timeout rows",
+        "git_commit_hash": "03a167de193eb048f4aea049cea538d008551701"
       }
     },
     "anomaly": {
@@ -245,6 +252,3508 @@
         ],
         "c": 1,
         "v": 1
+      }
+    },
+    "session_feedback": {
+      "d9e4c4b4-57cf-4945-8509-9928f8ad4d6d": {
+        "session_id": "d9e4c4b4-57cf-4945-8509-9928f8ad4d6d",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-12T19:04:00.128481",
+        "initial_prompt": "Analyze and interpret the paper PhysRev.76.769.txt using the physics model",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1770941330
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze and interpret the paper PhysRev.76.769.txt using the physics model",
+            "ai_reasoning": "Need to understand the data model structure before analyzing the paper",
+            "timestamp": "2026-02-12T18:58:13.938839-06:00",
+            "result_count": 12
+          },
+          {
+            "tool": "query_examples",
+            "updated_prompt": "Analyze and interpret the paper PhysRev.76.769.txt using the physics model",
+            "ai_reasoning": "Need to see example queries to understand how to structure the analysis",
+            "timestamp": "2026-02-12T18:58:19.154592-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "paper",
+            "depth": 1,
+            "updated_prompt": "Check existing papers before creating new entities",
+            "ai_reasoning": "Need to check if this paper or related entities already exist",
+            "timestamp": "2026-02-12T18:58:21.682718-06:00",
+            "result_count": 13
+          },
+          {
+            "tool": "get_entity",
+            "entity": "person",
+            "depth": 1,
+            "updated_prompt": "Check existing people before creating new entities",
+            "ai_reasoning": "Need to check if Feynman and other people already exist",
+            "timestamp": "2026-02-12T18:58:22.236293-06:00",
+            "result_count": 49
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 1,
+            "updated_prompt": "Check existing theories before creating new entities",
+            "ai_reasoning": "Need to check if Quantum Electrodynamics theory already exists",
+            "timestamp": "2026-02-12T18:58:22.908697-06:00",
+            "result_count": 31
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "(paper.*)[?paper_id=='feynman-1949-space-time'] | [0]",
+            "updated_prompt": "Get the existing paper data to see what's already captured",
+            "ai_reasoning": "Need to see what data already exists for this paper before adding analysis",
+            "timestamp": "2026-02-12T18:58:26.743404-06:00",
+            "result_count": 7
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.*[?theory_id=='quantum-electrodynamics'] | [0]",
+            "updated_prompt": "Get QED theory details",
+            "ai_reasoning": "Need to see what's already in QED theory",
+            "timestamp": "2026-02-12T18:58:27.373534-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.*[?theory_id=='feynman-diagrams'] | [0]",
+            "updated_prompt": "Get Feynman diagrams theory details",
+            "ai_reasoning": "Need to see what's already in Feynman diagrams theory",
+            "timestamp": "2026-02-12T18:58:27.941561-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.*[?theory_id=='renormalization'] | [0]",
+            "updated_prompt": "Get renormalization theory details",
+            "ai_reasoning": "Need to see what's already in renormalization theory",
+            "timestamp": "2026-02-12T18:58:28.488022-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "(theory.*)[?theory_id=='quantum-electrodynamics'] | [0]",
+            "updated_prompt": "Get QED theory details",
+            "ai_reasoning": "Need to see what's already in QED theory",
+            "timestamp": "2026-02-12T18:58:29.648310-06:00",
+            "result_count": 16
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 2,
+            "updated_prompt": "Get theory details with more depth",
+            "ai_reasoning": "Need to see detailed theory information including claims and predictions",
+            "timestamp": "2026-02-12T18:58:30.070056-06:00",
+            "result_count": 31
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "This claim captures the main contribution of the paper - the space-time approach simplifies writing matrix elements",
+            "timestamp": "2026-02-12T18:58:34.160981-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "The paper emphasizes that the space-time approach makes relativistic invariance obvious",
+            "timestamp": "2026-02-12T18:58:34.970623-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "The paper states that each term in the expansion has a direct physical interpretation",
+            "timestamp": "2026-02-12T18:58:35.795462-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "The paper describes how modifying short-distance interactions makes matrix elements finite",
+            "timestamp": "2026-02-12T18:58:36.693401-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "The paper explains that only mass and charge renormalization are affected by the cut-off",
+            "timestamp": "2026-02-12T18:58:37.691901-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "The paper states that observable phenomena are insensitive to cut-off details",
+            "timestamp": "2026-02-12T18:58:38.559649-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "The paper explains how combining related processes simplifies the calculations",
+            "timestamp": "2026-02-12T18:58:39.430257-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "The paper emphasizes the directness of the space-time approach",
+            "timestamp": "2026-02-12T18:58:40.235655-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "The paper presents this as a fundamental viewpoint - interaction vs field approach",
+            "timestamp": "2026-02-12T18:58:41.043487-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "The paper distinguishes when to use interaction vs field viewpoint",
+            "timestamp": "2026-02-12T18:58:42.058639-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "The paper assumes that short-distance modifications can be made to handle divergences",
+            "timestamp": "2026-02-12T18:58:42.987523-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "The paper assumes that physical observables don't depend on cut-off details",
+            "timestamp": "2026-02-12T18:58:43.876821-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "(person.*)[?person_id=='hans-bethe'] | [0]",
+            "updated_prompt": "Check if Hans Bethe exists",
+            "ai_reasoning": "The paper mentions Bethe - need to check if he's in the database",
+            "timestamp": "2026-02-12T18:58:47.843697-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "(person.*)[?person_id=='wolfgang-pauli'] | [0]",
+            "updated_prompt": "Check if Wolfgang Pauli exists",
+            "ai_reasoning": "The paper mentions Pauli - need to check if he's in the database",
+            "timestamp": "2026-02-12T18:58:48.353421-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-12T18:58:50.351179-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-12T19:04:00.128400-06:00"
+          }
+        ],
+        "query_count": 27,
+        "session_duration": 346,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "query_examples",
+            "count": 1
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 4
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 7
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 12
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "claim": {
+            "qed-claim-3.quantum-electrodynamics.matrix elements for complex processes in electrodynamics can be written down directly using a space-time approach, providing considerable simplification over conventional methods.verified.000000001949": {
+              "claim_id": "qed-claim-3",
+              "theory_id": "quantum-electrodynamics",
+              "statement": "matrix elements for complex processes in electrodynamics can be written down directly using a space-time approach, providing considerable simplification over conventional methods",
+              "status": "verified",
+              "verification_year": 1949
+            },
+            "qed-claim-4.quantum-electrodynamics.the space-time view makes relativistic invariance self-evident, in contrast to the hamiltonian method which obscures it.verified.000000001949": {
+              "claim_id": "qed-claim-4",
+              "theory_id": "quantum-electrodynamics",
+              "statement": "the space-time view makes relativistic invariance self-evident, in contrast to the hamiltonian method which obscures it",
+              "status": "verified",
+              "verification_year": 1949
+            },
+            "qed-claim-5.quantum-electrodynamics.each term in the expansion in powers of e²/ℏc can be written down and understood directly from a physical point of view.verified.000000001949": {
+              "claim_id": "qed-claim-5",
+              "theory_id": "quantum-electrodynamics",
+              "statement": "each term in the expansion in powers of e²/ℏc can be written down and understood directly from a physical point of view",
+              "status": "verified",
+              "verification_year": 1949
+            },
+            "ren-claim-2.renormalization.by modifying the interaction of electrons at short distances, all matrix elements become finite except those relating to vacuum polarization.verified.000000001949": {
+              "claim_id": "ren-claim-2",
+              "theory_id": "renormalization",
+              "statement": "by modifying the interaction of electrons at short distances, all matrix elements become finite except those relating to vacuum polarization",
+              "status": "verified",
+              "verification_year": 1949
+            },
+            "ren-claim-3.renormalization.the only effects sensitive to the modification are changes in mass and charge of electrons, which cannot be directly observed.verified.000000001949": {
+              "claim_id": "ren-claim-3",
+              "theory_id": "renormalization",
+              "statement": "the only effects sensitive to the modification are changes in mass and charge of electrons, which cannot be directly observed",
+              "status": "verified",
+              "verification_year": 1949
+            },
+            "ren-claim-4.renormalization.phenomena directly observable are insensitive to the details of the modification used (except at extreme energies), allowing a limit to be taken as the range of modification goes to zero.verified.000000001949": {
+              "claim_id": "ren-claim-4",
+              "theory_id": "renormalization",
+              "statement": "phenomena directly observable are insensitive to the details of the modification used (except at extreme energies), allowing a limit to be taken as the range of modification goes to zero",
+              "status": "verified",
+              "verification_year": 1949
+            },
+            "fd-claim-2.feynman-diagrams.the simplification results from combining processes that were previously unnecessarily separated, such as processes involving virtual pairs with those involving only positive energy electrons.verified.000000001949": {
+              "claim_id": "fd-claim-2",
+              "theory_id": "feynman-diagrams",
+              "statement": "the simplification results from combining processes that were previously unnecessarily separated, such as processes involving virtual pairs with those involving only positive energy electrons",
+              "status": "verified",
+              "verification_year": 1949
+            },
+            "fd-claim-3.feynman-diagrams.the space-time approach permits matrix elements to be written down directly for any specific problem without requiring the complicated machinery of hamiltonian electrodynamics.verified.000000001949": {
+              "claim_id": "fd-claim-3",
+              "theory_id": "feynman-diagrams",
+              "statement": "the space-time approach permits matrix elements to be written down directly for any specific problem without requiring the complicated machinery of hamiltonian electrodynamics",
+              "status": "verified",
+              "verification_year": 1949
+            }
+          },
+          "postulate": {
+            "qed-postulate-2.quantum-electrodynamics.electrodynamics can be described as a direct interaction at a distance (albeit delayed in time) between charges, rather than through field oscillators.000000001949": {
+              "postulate_id": "qed-postulate-2",
+              "theory_id": "quantum-electrodynamics",
+              "statement": "electrodynamics can be described as a direct interaction at a distance (albeit delayed in time) between charges, rather than through field oscillators",
+              "formulation_year": 1949
+            },
+            "qed-postulate-3.quantum-electrodynamics.the interaction viewpoint is best for virtual quanta, while the field viewpoint is best for real quanta.000000001949": {
+              "postulate_id": "qed-postulate-3",
+              "theory_id": "quantum-electrodynamics",
+              "statement": "the interaction viewpoint is best for virtual quanta, while the field viewpoint is best for real quanta",
+              "formulation_year": 1949
+            }
+          },
+          "assumption": {
+            "qed-assumption-3.quantum-electrodynamics.the interaction between charges can be modified at short distances to make divergent integrals finite.this modification allows systematic removal of infinities through renormalization": {
+              "assumption_id": "qed-assumption-3",
+              "theory_id": "quantum-electrodynamics",
+              "statement": "the interaction between charges can be modified at short distances to make divergent integrals finite",
+              "rationale": "this modification allows systematic removal of infinities through renormalization"
+            },
+            "qed-assumption-4.quantum-electrodynamics.observable phenomena are insensitive to the details of the short-distance modification (except at extreme energies).this allows taking the limit as the cut-off goes to zero for observable processes": {
+              "assumption_id": "qed-assumption-4",
+              "theory_id": "quantum-electrodynamics",
+              "statement": "observable phenomena are insensitive to the details of the short-distance modification (except at extreme energies)",
+              "rationale": "this allows taking the limit as the cut-off goes to zero for observable processes"
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "8b805b4f-cbe7-4922-9f83-fa7ba39fd844": {
+        "session_id": "8b805b4f-cbe7-4922-9f83-fa7ba39fd844",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-12T19:09:00.228890",
+        "initial_prompt": "Create person entities for people mentioned in Feynman's 1949 paper who are missing from the database",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1770941330
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Create person entities for people mentioned in Feynman's 1949 paper who are missing from the database",
+            "ai_reasoning": "Need to get the model structure to create person entities",
+            "timestamp": "2026-02-12T19:02:06.458491-06:00",
+            "result_count": 12
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Hans Bethe is mentioned in the paper for suggesting methods for vacuum polarization and is credited in the acknowledgments",
+            "timestamp": "2026-02-12T19:02:19.252775-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Wolfgang Pauli is mentioned in the paper for suggesting methods for vacuum polarization and gauge invariance",
+            "timestamp": "2026-02-12T19:02:19.896689-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Victor Weisskopf is mentioned in the paper in connection with Pauli for second quantization treatment",
+            "timestamp": "2026-02-12T19:02:20.574864-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-12T19:02:22.008799-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "(person.*)[?nobel_years != null] | [0]",
+            "updated_prompt": "Check format of nobel_years field",
+            "ai_reasoning": "Need to see how nobel_years is stored in existing person entities",
+            "timestamp": "2026-02-12T19:02:24.312809-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "person",
+            "depth": 0,
+            "updated_prompt": "Get person entity structure to see nobel_years format",
+            "ai_reasoning": "Need to see the full structure of person entities including nobel_years",
+            "timestamp": "2026-02-12T19:02:24.947365-06:00",
+            "result_count": 50
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Hans Bethe is mentioned in the paper for suggesting methods for vacuum polarization and is credited in the acknowledgments. Nobel Prize 1967 but nobel_years field format unclear",
+            "timestamp": "2026-02-12T19:02:28.768081-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Wolfgang Pauli is mentioned in the paper for suggesting methods for vacuum polarization and gauge invariance. Nobel Prize 1945 but nobel_years field format unclear",
+            "timestamp": "2026-02-12T19:02:29.033121-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-12T19:09:00.228844-06:00"
+          }
+        ],
+        "query_count": 10,
+        "session_duration": 413,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 5
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 1
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 1
+          }
+        ],
+        "created_entities": {
+          "person": {
+            "victor-weisskopf.victor weisskopf.000000001908.000000002002.": {
+              "person_id": "victor-weisskopf",
+              "name": "victor weisskopf",
+              "birth_year": 1908,
+              "death_year": 2002
+            },
+            "hans-bethe.hans bethe.000000001906.000000002005.": {
+              "person_id": "hans-bethe",
+              "name": "hans bethe",
+              "birth_year": 1906,
+              "death_year": 2005
+            },
+            "wolfgang-pauli.wolfgang pauli.000000001900.000000001958.": {
+              "person_id": "wolfgang-pauli",
+              "name": "wolfgang pauli",
+              "birth_year": 1900,
+              "death_year": 1958
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "a8eba5da-5965-4167-80bc-cc903018a424": {
+        "session_id": "a8eba5da-5965-4167-80bc-cc903018a424",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T07:39:09.817643",
+        "initial_prompt": "Add Relational Quantum Mechanics",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1770948643
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Add Relational Quantum Mechanics",
+            "ai_reasoning": "Need to understand the data model structure to properly add Relational Quantum Mechanics as a theory or concept",
+            "timestamp": "2026-02-13T07:32:38.769079-06:00",
+            "result_count": 12
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?contains(name, 'quantum') || contains(name, 'Quantum')]",
+            "ai_reasoning": "Finding existing quantum mechanics theories to understand structure and find parent theory",
+            "timestamp": "2026-02-13T07:32:42.381499-06:00",
+            "result_count": 3
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "person.* | [?contains(name, 'Rovelli') || contains(name, 'rovelli')]",
+            "ai_reasoning": "Checking if Carlo Rovelli (proposer of Relational Quantum Mechanics) already exists",
+            "timestamp": "2026-02-13T07:32:43.383006-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'quantum-mechanics']",
+            "ai_reasoning": "Checking if there's a basic quantum mechanics theory that could be the parent for Relational Quantum Mechanics",
+            "timestamp": "2026-02-13T07:32:46.446135-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.* | [?contains(title, 'Relational') || contains(title, 'relational')]",
+            "ai_reasoning": "Checking if Rovelli's Relational Quantum Mechanics paper already exists",
+            "timestamp": "2026-02-13T07:32:49.667234-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 1,
+            "ai_reasoning": "Getting list of all theories to understand the structure better",
+            "timestamp": "2026-02-13T07:32:50.311305-06:00",
+            "result_count": 31
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating Carlo Rovelli as the proposer of Relational Quantum Mechanics",
+            "timestamp": "2026-02-13T07:32:55.348590-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Creating Rovelli's foundational 1996 paper on Relational Quantum Mechanics",
+            "timestamp": "2026-02-13T07:32:56.612545-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Creating the Relational Quantum Mechanics theory with basic information",
+            "timestamp": "2026-02-13T07:32:58.378049-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.* | [?paper_id == 'feynman-1948-path-integral']",
+            "ai_reasoning": "Checking the format of an existing paper to understand how authors are stored",
+            "timestamp": "2026-02-13T07:33:00.791853-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Creating Rovelli's foundational 1996 paper on Relational Quantum Mechanics without authors field first",
+            "timestamp": "2026-02-13T07:33:08.867930-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Creating the Relational Quantum Mechanics theory without people and papers fields first",
+            "timestamp": "2026-02-13T07:33:10.390761-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Adding core assumption of Relational Quantum Mechanics",
+            "timestamp": "2026-02-13T07:33:14.353706-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Adding assumption about observer equivalence in Relational Quantum Mechanics",
+            "timestamp": "2026-02-13T07:33:15.491712-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Adding core postulate of Relational Quantum Mechanics",
+            "timestamp": "2026-02-13T07:33:16.430271-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Adding claim about resolving the measurement problem",
+            "timestamp": "2026-02-13T07:33:17.391808-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'relational-quantum-mechanics']",
+            "ai_reasoning": "Verifying the Relational Quantum Mechanics theory was created correctly",
+            "timestamp": "2026-02-13T07:33:19.790542-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "person.* | [?person_id == 'carlo-rovelli']",
+            "ai_reasoning": "Verifying Carlo Rovelli was created correctly",
+            "timestamp": "2026-02-13T07:33:20.397376-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T07:33:22.471940-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T07:39:09.817608-06:00"
+          }
+        ],
+        "query_count": 20,
+        "session_duration": 391,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 7
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 1
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 9
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "person": {
+            "carlo-rovelli.carlo rovelli.000000001956..": {
+              "person_id": "carlo-rovelli",
+              "name": "carlo rovelli",
+              "birth_year": 1956
+            }
+          },
+          "paper": {
+            "rovelli-1996-relational.relational quantum mechanics.000000001996.https://arxiv.org/abs/quant-ph/9609002.": {
+              "paper_id": "rovelli-1996-relational",
+              "title": "relational quantum mechanics",
+              "year": 1996,
+              "link": "https://arxiv.org/abs/quant-ph/9609002"
+            }
+          },
+          "theory": {
+            "relational-quantum-mechanics.relational quantum mechanics.000000001996.interpretation of quantum mechanics that states quantum states are relative to observers, not absolute. proposes that there is no absolute state of a system, only states relative to other systems. resolves the measurement problem by eliminating the need for wave function collapse..quantum physics.quantum-field-theory..........": {
+              "theory_id": "relational-quantum-mechanics",
+              "name": "relational quantum mechanics",
+              "year": 1996,
+              "summary": "interpretation of quantum mechanics that states quantum states are relative to observers, not absolute. proposes that there is no absolute state of a system, only states relative to other systems. resolves the measurement problem by eliminating the need for wave function collapse.",
+              "category": "quantum physics",
+              "parent_theory_id": "quantum-field-theory"
+            }
+          },
+          "assumption": {
+            "rqm-assumption-1.relational-quantum-mechanics.quantum states are relative to observers, not absolute.there is no absolute state of a system; states only exist relative to other systems (observers)": {
+              "assumption_id": "rqm-assumption-1",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "quantum states are relative to observers, not absolute",
+              "rationale": "there is no absolute state of a system; states only exist relative to other systems (observers)"
+            },
+            "rqm-assumption-2.relational-quantum-mechanics.all systems are equivalent as observers.any physical system can serve as an observer; there is no fundamental distinction between observer and observed": {
+              "assumption_id": "rqm-assumption-2",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "all systems are equivalent as observers",
+              "rationale": "any physical system can serve as an observer; there is no fundamental distinction between observer and observed"
+            }
+          },
+          "postulate": {
+            "rqm-postulate-1.relational-quantum-mechanics.the state of a system is only defined relative to another system (observer).000000001996": {
+              "postulate_id": "rqm-postulate-1",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "the state of a system is only defined relative to another system (observer)",
+              "formulation_year": 1996
+            }
+          },
+          "claim": {
+            "rqm-claim-1.relational-quantum-mechanics.relational quantum mechanics resolves the measurement problem without requiring wave function collapse.theoretical.": {
+              "claim_id": "rqm-claim-1",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "relational quantum mechanics resolves the measurement problem without requiring wave function collapse",
+              "status": "theoretical"
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "6c17fb15-75ef-474d-beb5-c24b0055ff0b": {
+        "session_id": "6c17fb15-75ef-474d-beb5-c24b0055ff0b",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T16:10:50.762987",
+        "initial_prompt": "Analyze a physics paper and update the models with information from it",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771019824
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need to understand the data model structure to properly extract and store information from the physics paper. Starting with depth=0 to get an overview of entities and relationships.",
+            "timestamp": "2026-02-13T16:03:48.256848-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "theory",
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need detailed information about key entities (theory, paper, person, postulate, assumption, claim) to properly extract and structure information from the physics paper.",
+            "timestamp": "2026-02-13T16:03:50.892737-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "paper",
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need detailed information about paper, person, postulate, assumption, and claim entities to properly extract information from the physics paper.",
+            "timestamp": "2026-02-13T16:03:51.421917-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "person",
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need detailed information about person, postulate, assumption, and claim entities to properly extract information from the physics paper.",
+            "timestamp": "2026-02-13T16:03:56.002538-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "postulate",
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need detailed information about postulate, assumption, and claim entities to properly extract information from the physics paper.",
+            "timestamp": "2026-02-13T16:03:56.384020-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "assumption",
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need detailed information about assumption and claim entities to properly extract information from the physics paper.",
+            "timestamp": "2026-02-13T16:03:59.347807-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_entity",
+            "entity": "paper",
+            "depth": 1,
+            "updated_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "Checking if the Rovelli 1996 paper already exists in the database before creating it.",
+            "timestamp": "2026-02-13T16:04:00.584720-06:00",
+            "result_count": 14
+          },
+          {
+            "tool": "get_entity",
+            "entity": "person",
+            "depth": 1,
+            "updated_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "Checking if Carlo Rovelli already exists in the database before creating the person entity.",
+            "timestamp": "2026-02-13T16:04:01.090287-06:00",
+            "result_count": 53
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 1,
+            "updated_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "Checking if Relational Quantum Mechanics theory already exists in the database before creating it.",
+            "timestamp": "2026-02-13T16:04:01.576460-06:00",
+            "result_count": 32
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Creating Postulate 1 (Limited information) from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:05.604079-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Creating Postulate 2 (Unlimited information) from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:06.426718-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Creating Postulate 3 (Superposition principle) from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:07.378289-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Creating Hypothesis 1 (All systems are equivalent) as an assumption from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:08.563341-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Creating Hypothesis 2 (Completeness) as an assumption from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:09.205070-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating a claim about observer-dependence of quantum states from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:10.104505-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating a claim about quantum mechanics as a theory of information from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:11.040890-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating a claim about the absence of absolute states from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:12.268833-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating a claim about Planck's constant and information from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:13.088238-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating a claim about formalism reconstruction from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:15.645362-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating a claim about relational values of physical quantities from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:16.109576-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating a claim about the measurement problem from Rovelli's 1996 paper on Relational Quantum Mechanics.",
+            "timestamp": "2026-02-13T16:04:16.833735-06:00"
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "session_feedback",
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need to get the session_feedback schema to properly finalize the session with feedback about the paper analysis.",
+            "timestamp": "2026-02-13T16:04:19.019868-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 3,
+            "entity": "session_assessment",
+            "initial_prompt": "Analyze a physics paper and update the models with information from it",
+            "ai_reasoning": "I need detailed schemas for session_assessment, efficiency_metrics, and ai_feedback to create proper session feedback.",
+            "timestamp": "2026-02-13T16:04:20.248662-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T16:04:42.974856-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory[theory_id == 'relational-quantum-mechanics']",
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Querying the relational-quantum-mechanics theory to see its current state after the analysis.",
+            "timestamp": "2026-02-13T16:07:49.753330-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "postulate[theory_id == 'relational-quantum-mechanics']",
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Querying all postulates for relational-quantum-mechanics to see what was added.",
+            "timestamp": "2026-02-13T16:07:50.377682-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "assumption[theory_id == 'relational-quantum-mechanics']",
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Querying all assumptions for relational-quantum-mechanics to see what was added.",
+            "timestamp": "2026-02-13T16:07:51.294256-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "claim[theory_id == 'relational-quantum-mechanics']",
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Querying all claims for relational-quantum-mechanics to see what was added.",
+            "timestamp": "2026-02-13T16:07:51.815859-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 2,
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Checking the current state of the relational-quantum-mechanics theory to see what was already there vs what was added.",
+            "timestamp": "2026-02-13T16:07:54.348552-06:00",
+            "result_count": 32
+          },
+          {
+            "tool": "get_entity",
+            "entity": "postulate",
+            "depth": 0,
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Checking all postulates to see which ones existed before and which were added.",
+            "timestamp": "2026-02-13T16:07:55.125522-06:00",
+            "result_count": 3
+          },
+          {
+            "tool": "get_entity",
+            "entity": "assumption",
+            "depth": 0,
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Checking all assumptions to see which ones existed before and which were added.",
+            "timestamp": "2026-02-13T16:07:55.728657-06:00",
+            "result_count": 2
+          },
+          {
+            "tool": "get_entity",
+            "entity": "claim",
+            "depth": 0,
+            "updated_prompt": "What were the main differences between what was already modeled, and the details after analysis",
+            "ai_reasoning": "Checking all claims to see which ones existed before and which were added.",
+            "timestamp": "2026-02-13T16:07:56.418897-06:00",
+            "result_count": 7
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T16:10:50.762845-06:00"
+          }
+        ],
+        "query_count": 33,
+        "session_duration": 422,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 8
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 7
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 12
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 4
+          }
+        ],
+        "created_entities": {
+          "postulate": {
+            "rqm-postulate-1-limited-information.relational-quantum-mechanics.there is a maximum amount of relevant information that can be extracted from a system..000000001996": {
+              "postulate_id": "rqm-postulate-1-limited-information",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "there is a maximum amount of relevant information that can be extracted from a system.",
+              "formulation_year": 1996
+            },
+            "rqm-postulate-2-unlimited-information.relational-quantum-mechanics.it is always possible to acquire new information about a system..000000001996": {
+              "postulate_id": "rqm-postulate-2-unlimited-information",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "it is always possible to acquire new information about a system.",
+              "formulation_year": 1996
+            },
+            "rqm-postulate-3-superposition.relational-quantum-mechanics.if c and b define two complete families of questions, then the unitary matrix u_cb in p(q^(i)_c, q^(j)_b) = |u^(ij)_cb|² can be chosen in such a way that for every c, b and d, we have u_cd = u_cb u_bd and the effect of composite questions is given by eq.(17)..000000001996": {
+              "postulate_id": "rqm-postulate-3-superposition",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "if c and b define two complete families of questions, then the unitary matrix u_cb in p(q^(i)_c, q^(j)_b) = |u^(ij)_cb|² can be chosen in such a way that for every c, b and d, we have u_cd = u_cb u_bd and the effect of composite questions is given by eq.(17).",
+              "formulation_year": 1996
+            }
+          },
+          "assumption": {
+            "rqm-hypothesis-1-all-systems-equivalent.relational-quantum-mechanics.all systems are equivalent: nothing distinguishes a priori macroscopic systems from quantum systems. if the observer o can give a quantum description of the system s, then it is also legitimate for an observer p to give a quantum description of the system formed by the observer o..this hypothesis rejects any fundamental distinction between system/observer, quantum/classical system, or physical system/consciousness. it allows any physical system to serve as an observer.": {
+              "assumption_id": "rqm-hypothesis-1-all-systems-equivalent",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "all systems are equivalent: nothing distinguishes a priori macroscopic systems from quantum systems. if the observer o can give a quantum description of the system s, then it is also legitimate for an observer p to give a quantum description of the system formed by the observer o.",
+              "rationale": "this hypothesis rejects any fundamental distinction between system/observer, quantum/classical system, or physical system/consciousness. it allows any physical system to serve as an observer."
+            },
+            "rqm-hypothesis-2-completeness.relational-quantum-mechanics.quantum mechanics provides a complete and self-consistent scheme of description of the physical world, appropriate to our present level of experimental observations..this hypothesis asserts that quantum mechanics is complete and does not require hidden variables or additional underlying theories.": {
+              "assumption_id": "rqm-hypothesis-2-completeness",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "quantum mechanics provides a complete and self-consistent scheme of description of the physical world, appropriate to our present level of experimental observations.",
+              "rationale": "this hypothesis asserts that quantum mechanics is complete and does not require hidden variables or additional underlying theories."
+            }
+          },
+          "claim": {
+            "rqm-claim-2-observer-dependence.relational-quantum-mechanics.in quantum mechanics, different observers may give different accounts of the same sequence of events. quantum mechanical descriptions are relative to a particular observer..theoretical.": {
+              "claim_id": "rqm-claim-2-observer-dependence",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "in quantum mechanics, different observers may give different accounts of the same sequence of events. quantum mechanical descriptions are relative to a particular observer.",
+              "status": "theoretical"
+            },
+            "rqm-claim-3-information-theory.relational-quantum-mechanics.quantum mechanics is a theory about the physical description of physical systems relative to other systems, and this is a complete description of the world. physics is the theory of the relative information that systems have about each other..theoretical.": {
+              "claim_id": "rqm-claim-3-information-theory",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "quantum mechanics is a theory about the physical description of physical systems relative to other systems, and this is a complete description of the world. physics is the theory of the relative information that systems have about each other.",
+              "status": "theoretical"
+            },
+            "rqm-claim-4-no-absolute-state.relational-quantum-mechanics.the notion of observer-independent state of a system, or observer-independent values of physical quantities, is inadequate to describe the physical world beyond the ħ → 0 limit. there is no absolute state of a system, only states relative to other systems..theoretical.": {
+              "claim_id": "rqm-claim-4-no-absolute-state",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "the notion of observer-independent state of a system, or observer-independent values of physical quantities, is inadequate to describe the physical world beyond the ħ → 0 limit. there is no absolute state of a system, only states relative to other systems.",
+              "status": "theoretical"
+            },
+            "rqm-claim-5-planck-constant.relational-quantum-mechanics.postulate 1 (limited information) already adds planck's constant to classical physics. planck's constant can be viewed as the transformation coefficient between physical units (position × momentum) and information-theoretical units (bits)..theoretical.": {
+              "claim_id": "rqm-claim-5-planck-constant",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "postulate 1 (limited information) already adds planck's constant to classical physics. planck's constant can be viewed as the transformation coefficient between physical units (position × momentum) and information-theoretical units (bits).",
+              "status": "theoretical"
+            },
+            "rqm-claim-6-formalism-reconstruction.relational-quantum-mechanics.the full formalism of quantum mechanics can be (almost) reconstructed from postulates 1 and 2. the physical content of the general formalism of quantum mechanics is (almost) nothing but a sequence of consequences of two physical facts expressed in postulates 1 and 2..theoretical.": {
+              "claim_id": "rqm-claim-6-formalism-reconstruction",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "the full formalism of quantum mechanics can be (almost) reconstructed from postulates 1 and 2. the physical content of the general formalism of quantum mechanics is (almost) nothing but a sequence of consequences of two physical facts expressed in postulates 1 and 2.",
+              "status": "theoretical"
+            },
+            "rqm-claim-7-relational-values.relational-quantum-mechanics.in quantum mechanics, 'state' as well as 'value of a variable' or 'outcome of a measurement' are relational notions in the same sense in which velocity is relational in classical mechanics. all physical variables are relational..theoretical.": {
+              "claim_id": "rqm-claim-7-relational-values",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "in quantum mechanics, 'state' as well as 'value of a variable' or 'outcome of a measurement' are relational notions in the same sense in which velocity is relational in classical mechanics. all physical variables are relational.",
+              "status": "theoretical"
+            },
+            "rqm-claim-8-measurement-problem.relational-quantum-mechanics.the measurement problem (the unease with quantum mechanics) derives from the use of an incorrect notion: the notion of observer-independent state of a system, or observer-independent values of physical quantities. by abandoning such a notion, quantum mechanics makes much more sense..theoretical.": {
+              "claim_id": "rqm-claim-8-measurement-problem",
+              "theory_id": "relational-quantum-mechanics",
+              "statement": "the measurement problem (the unease with quantum mechanics) derives from the use of an incorrect notion: the notion of observer-independent state of a system, or observer-independent values of physical quantities. by abandoning such a notion, quantum mechanics makes much more sense.",
+              "status": "theoretical"
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "baf9bc35-1fd4-4167-9158-41fa33bf2552": {
+        "session_id": "baf9bc35-1fd4-4167-9158-41fa33bf2552",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T16:50:51.425154",
+        "initial_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771020625
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+            "ai_reasoning": "Need to understand the data model structure for anomalies, theories, and assumptions to identify violations",
+            "timestamp": "2026-02-13T16:44:19.299078-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "get_entity",
+            "entity": "anomaly",
+            "depth": 3,
+            "updated_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+            "ai_reasoning": "Getting all anomalies with full details including violated assumptions and claims",
+            "timestamp": "2026-02-13T16:44:22.378479-06:00",
+            "result_count": 6
+          },
+          {
+            "tool": "get_entity",
+            "entity": "violated_assumption",
+            "depth": 3,
+            "updated_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+            "ai_reasoning": "Getting all violated assumption records to understand which assumptions are violated by each anomaly",
+            "timestamp": "2026-02-13T16:44:23.284539-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 1,
+            "updated_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+            "ai_reasoning": "Getting theories to understand which theories are being violated by anomalies",
+            "timestamp": "2026-02-13T16:44:23.660949-06:00",
+            "result_count": 32
+          },
+          {
+            "tool": "get_entity",
+            "entity": "assumption",
+            "depth": 2,
+            "updated_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+            "ai_reasoning": "Getting assumptions to understand what assumptions are being violated",
+            "timestamp": "2026-02-13T16:44:24.417362-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "anomaly.*.{\n  anomaly_id: anomaly_id,\n  name: name,\n  theory_id: theory_id,\n  violated_assumptions: violated_assumptions.*.{\n    assumption_id: assumption_id,\n    violation_description: violation_description\n  },\n  violated_claims: violated_claims\n}",
+            "updated_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+            "ai_reasoning": "Getting all anomalies with their violated assumptions and claims to understand what is being violated",
+            "timestamp": "2026-02-13T16:44:28.096162-06:00",
+            "result_count": 6
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.*.{\n  theory_id: theory_id,\n  name: name,\n  assumptions: assumptions.*.{\n    assumption_id: assumption_id,\n    statement: statement\n  },\n  claims: claims.*.{\n    claim_id: claim_id,\n    statement: statement\n  }\n}",
+            "updated_prompt": "For each documented anomaly, explain which theories or assumptions are being violated",
+            "ai_reasoning": "Getting all theories with their assumptions and claims to match against violated items",
+            "timestamp": "2026-02-13T16:44:28.825058-06:00",
+            "result_count": 32
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T16:44:35.901855-06:00"
+          },
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "What GR claims does the pioneer anomaly violate?",
+            "ai_reasoning": "Need to check the Pioneer anomaly data and GR claims to identify violations",
+            "timestamp": "2026-02-13T16:48:44.111526-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "anomaly['pioneer-anomaly']",
+            "updated_prompt": "What GR claims does the pioneer anomaly violate?",
+            "ai_reasoning": "Getting the Pioneer anomaly details to see which GR claims it violates",
+            "timestamp": "2026-02-13T16:48:44.549733-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory['general-relativity'].claims.*.{\n  claim_id: claim_id,\n  statement: statement,\n  status: status\n}",
+            "updated_prompt": "What GR claims does the pioneer anomaly violate?",
+            "ai_reasoning": "Getting all General Relativity claims to see which ones the Pioneer anomaly might violate",
+            "timestamp": "2026-02-13T16:48:45.095296-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "anomaly.* | [?anomaly_id == 'pioneer-anomaly']",
+            "updated_prompt": "What GR claims does the pioneer anomaly violate?",
+            "ai_reasoning": "Getting the Pioneer anomaly to see which GR claims it violates",
+            "timestamp": "2026-02-13T16:48:46.308719-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'general-relativity'] | [0].claims.*.{\n  claim_id: claim_id,\n  statement: statement,\n  status: status\n}",
+            "updated_prompt": "What GR claims does the pioneer anomaly violate?",
+            "ai_reasoning": "Getting all General Relativity claims to identify which ones the Pioneer anomaly might violate",
+            "timestamp": "2026-02-13T16:48:46.894801-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'general-relativity']",
+            "updated_prompt": "What GR claims does the pioneer anomaly violate?",
+            "ai_reasoning": "Getting the General Relativity theory with all its claims",
+            "timestamp": "2026-02-13T16:48:48.145048-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'general-relativity'] | [0].papers",
+            "updated_prompt": "What papers describe GR",
+            "ai_reasoning": "Getting the paper IDs associated with General Relativity theory",
+            "timestamp": "2026-02-13T16:49:40.903549-06:00",
+            "result_count": 2
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.* | [?paper_id == 'einstein-1915-field-equations' || paper_id == 'einstein-1915-foundation']",
+            "updated_prompt": "What papers describe GR",
+            "ai_reasoning": "Getting the full details of papers that describe General Relativity",
+            "timestamp": "2026-02-13T16:49:41.328536-06:00",
+            "result_count": 2
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?parent_theory_id == 'general-relativity'].papers[]",
+            "updated_prompt": "What papers describe GR",
+            "ai_reasoning": "Finding papers associated with child theories of General Relativity",
+            "timestamp": "2026-02-13T16:49:42.736650-06:00",
+            "result_count": 5
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.*",
+            "updated_prompt": "What papers describe GR",
+            "ai_reasoning": "Getting all papers to see if there are other GR-related papers",
+            "timestamp": "2026-02-13T16:49:43.110547-06:00",
+            "result_count": 14
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T16:50:51.425034-06:00"
+          }
+        ],
+        "query_count": 19,
+        "session_duration": 392,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 2
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 4
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 11
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "c058075f-7156-454e-bc50-c5337629c709": {
+        "session_id": "c058075f-7156-454e-bc50-c5337629c709",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T17:00:51.484478",
+        "initial_prompt": "Analyze Riemann's 1854 geometry paper and extract structured information about theories, assumptions, claims, and predictions",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771020625
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze Riemann's 1854 geometry paper and extract structured information about theories, assumptions, claims, and predictions",
+            "ai_reasoning": "I need to understand the data model structure to properly analyze and extract information from Riemann's 1854 geometry paper into the physics knowledge base",
+            "timestamp": "2026-02-13T16:55:01.495421-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "person.* | [?name == 'Bernhard Riemann' || name == 'riemann']",
+            "ai_reasoning": "Checking if Bernhard Riemann already exists in the database",
+            "timestamp": "2026-02-13T16:55:08.306824-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.* | [?year == `1854` || contains(title, 'Hypotheses') || contains(title, 'Geometry')]",
+            "ai_reasoning": "Checking if Riemann's 1854 paper already exists in the database",
+            "timestamp": "2026-02-13T16:55:08.880456-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?contains(name, 'Riemann') || contains(name, 'riemann') || theory_id == 'riemannian-geometry']",
+            "ai_reasoning": "Checking if Riemannian Geometry theory already exists in the database",
+            "timestamp": "2026-02-13T16:55:09.450527-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Creating the main theory entity for Riemannian Geometry based on Riemann's 1854 paper, which is foundational to differential geometry and later general relativity",
+            "timestamp": "2026-02-13T16:55:13.822791-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting the fundamental assumption about manifolds from the paper",
+            "timestamp": "2026-02-13T16:55:14.779188-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting the assumption about line length independence from position",
+            "timestamp": "2026-02-13T16:55:15.994884-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting the assumption about the form of the line element",
+            "timestamp": "2026-02-13T16:55:17.268005-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting Riemann's philosophical assumption about the empirical nature of geometry",
+            "timestamp": "2026-02-13T16:55:18.421619-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Extracting the fundamental postulate about manifold construction from Section I, §2",
+            "timestamp": "2026-02-13T16:55:19.443117-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Extracting the postulate about reducing position determination to quantity determinations from Section I, §3",
+            "timestamp": "2026-02-13T16:55:20.368423-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Extracting the fundamental postulate about the form of the line element from Section II, §1",
+            "timestamp": "2026-02-13T16:55:21.358198-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Extracting the postulate about curvature determining measure-relations from Section II, §2",
+            "timestamp": "2026-02-13T16:55:22.166402-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the key claim that space is a particular case of a triply extended magnitude",
+            "timestamp": "2026-02-13T16:55:22.973286-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the philosophical claim about the empirical nature of geometry",
+            "timestamp": "2026-02-13T16:55:23.635405-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about flat manifolds from Section II, §1",
+            "timestamp": "2026-02-13T16:55:24.642484-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about curvature as a measure of deviation from flatness from Section II, §2",
+            "timestamp": "2026-02-13T16:55:25.534894-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about constant curvature manifolds from Section II, §4",
+            "timestamp": "2026-02-13T16:55:26.388893-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about unboundedness vs infinite extent from Section III, §2",
+            "timestamp": "2026-02-13T16:55:27.134012-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about triangle angle sum from Section III, §1",
+            "timestamp": "2026-02-13T16:55:27.803554-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Extracting the prediction about astronomical measurements of curvature from Section III, §3",
+            "timestamp": "2026-02-13T16:55:29.083698-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Extracting the prediction about geometry in the infinitely small from Section III, §3",
+            "timestamp": "2026-02-13T16:55:30.339223-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Extracting the prediction about the ground of metric relations from Section III, §3",
+            "timestamp": "2026-02-13T16:55:31.356608-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [0] | {theory_id, name, papers, people}",
+            "ai_reasoning": "Checking the format of papers and people arrays in existing theories",
+            "timestamp": "2026-02-13T16:55:36.253789-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [0]",
+            "ai_reasoning": "Checking the structure of an existing theory to understand the format for papers and people arrays",
+            "timestamp": "2026-02-13T16:55:37.708082-06:00",
+            "result_count": 11
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Creating the main theory entity for Riemannian Geometry with papers and people as arrays of string IDs",
+            "timestamp": "2026-02-13T16:55:40.564662-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'riemann-curvature-tensor']",
+            "ai_reasoning": "Checking the structure of the existing Riemann theory to understand the correct format",
+            "timestamp": "2026-02-13T16:55:42.018071-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Creating the theory with just required fields first to avoid the list hashing error",
+            "timestamp": "2026-02-13T16:55:46.147474-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'riemannian-geometry']",
+            "ai_reasoning": "Verifying the created theory and checking if nested entities are linked",
+            "timestamp": "2026-02-13T16:55:48.333588-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "assumption.* | [?theory_id == 'riemannian-geometry']",
+            "ai_reasoning": "Counting assumptions created for Riemannian Geometry",
+            "timestamp": "2026-02-13T16:55:48.622625-06:00",
+            "result_count": 4
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "postulate.* | [?theory_id == 'riemannian-geometry']",
+            "ai_reasoning": "Counting postulates created for Riemannian Geometry",
+            "timestamp": "2026-02-13T16:55:48.970643-06:00",
+            "result_count": 4
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "claim.* | [?theory_id == 'riemannian-geometry']",
+            "ai_reasoning": "Counting claims created for Riemannian Geometry",
+            "timestamp": "2026-02-13T16:55:49.278248-06:00",
+            "result_count": 7
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "prediction.* | [?theory_id == 'riemannian-geometry']",
+            "ai_reasoning": "Counting predictions created for Riemannian Geometry",
+            "timestamp": "2026-02-13T16:55:49.655521-06:00",
+            "result_count": 3
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "initial_prompt": "Finalizing session for Riemann 1854 paper analysis",
+            "ai_reasoning": "Getting the session_feedback schema to properly structure the finalization",
+            "timestamp": "2026-02-13T16:57:39.895286-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T16:58:04.587066-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T17:00:51.484318-06:00"
+          }
+        ],
+        "query_count": 36,
+        "session_duration": 349,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 2
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 11
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 21
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "assumption": {
+            "riemann-assumption-manifold.riemannian-geometry.space can be described as a multiply extended magnitude (manifold) of n dimensions.riemann constructs the notion of a multiply extended magnitude from general notions of magnitude, establishing that space is a particular case of a triply extended magnitude": {
+              "assumption_id": "riemann-assumption-manifold",
+              "theory_id": "riemannian-geometry",
+              "statement": "space can be described as a multiply extended magnitude (manifold) of n dimensions",
+              "rationale": "riemann constructs the notion of a multiply extended magnitude from general notions of magnitude, establishing that space is a particular case of a triply extended magnitude"
+            },
+            "riemann-assumption-line-length.riemannian-geometry.the length of lines is independent of their position, and consequently every line is measurable by means of every other.this is the hypothesis that first presents itself for measure-determinations, allowing the establishment of a mathematical expression for the length of a line": {
+              "assumption_id": "riemann-assumption-line-length",
+              "theory_id": "riemannian-geometry",
+              "statement": "the length of lines is independent of their position, and consequently every line is measurable by means of every other",
+              "rationale": "this is the hypothesis that first presents itself for measure-determinations, allowing the establishment of a mathematical expression for the length of a line"
+            },
+            "riemann-assumption-quadric.riemannian-geometry.the line-element is expressible as the square root of a quadric differential expression (flatness in the smallest parts).riemann restricts himself to manifoldnesses where the line element is expressed as the square root of a quadric differential, which includes the simplest cases and allows geometric representation": {
+              "assumption_id": "riemann-assumption-quadric",
+              "theory_id": "riemannian-geometry",
+              "statement": "the line-element is expressible as the square root of a quadric differential expression (flatness in the smallest parts)",
+              "rationale": "riemann restricts himself to manifoldnesses where the line element is expressed as the square root of a quadric differential, which includes the simplest cases and allows geometric representation"
+            },
+            "riemann-assumption-experience.riemannian-geometry.the properties which distinguish space from other conceivable triply extended magnitudes are only to be deduced from experience.riemann argues that geometry cannot be derived from general notions of magnitude alone, and that the measure-relations of space must be determined from empirical facts, which are hypotheses of empirical certainty": {
+              "assumption_id": "riemann-assumption-experience",
+              "theory_id": "riemannian-geometry",
+              "statement": "the properties which distinguish space from other conceivable triply extended magnitudes are only to be deduced from experience",
+              "rationale": "riemann argues that geometry cannot be derived from general notions of magnitude alone, and that the measure-relations of space must be determined from empirical facts, which are hypotheses of empirical certainty"
+            }
+          },
+          "postulate": {
+            "riemann-postulate-manifold-construction.riemannian-geometry.a multiply extended magnitude is constructed by composing a variability of m+1 dimensions out of a variability of n dimensions and a variability of one dimension.000000001854": {
+              "postulate_id": "riemann-postulate-manifold-construction",
+              "theory_id": "riemannian-geometry",
+              "statement": "a multiply extended magnitude is constructed by composing a variability of m+1 dimensions out of a variability of n dimensions and a variability of one dimension",
+              "formulation_year": 1854
+            },
+            "riemann-postulate-position-reduction.riemannian-geometry.the determination of position in an n-ply extended manifoldness is reduced to n determinations of quantity.000000001854": {
+              "postulate_id": "riemann-postulate-position-reduction",
+              "theory_id": "riemannian-geometry",
+              "statement": "the determination of position in an n-ply extended manifoldness is reduced to n determinations of quantity",
+              "formulation_year": 1854
+            },
+            "riemann-postulate-line-element.riemannian-geometry.the linear element ds is the square root of an always positive integral homogeneous function of the second order of the quantities dx, in which the coefficients are continuous functions of the quantities x.000000001854": {
+              "postulate_id": "riemann-postulate-line-element",
+              "theory_id": "riemannian-geometry",
+              "statement": "the linear element ds is the square root of an always positive integral homogeneous function of the second order of the quantities dx, in which the coefficients are continuous functions of the quantities x",
+              "formulation_year": 1854
+            },
+            "riemann-postulate-curvature.riemannian-geometry.the measure-relations of a manifoldness are determined by the curvature at each point in ½n(n-1) surface-directions.000000001854": {
+              "postulate_id": "riemann-postulate-curvature",
+              "theory_id": "riemannian-geometry",
+              "statement": "the measure-relations of a manifoldness are determined by the curvature at each point in ½n(n-1) surface-directions",
+              "formulation_year": 1854
+            }
+          },
+          "claim": {
+            "riemann-claim-space-particular.riemannian-geometry.space is only a particular case of a triply extended magnitude, and a multiply extended magnitude is capable of different measure-relations.verified.": {
+              "claim_id": "riemann-claim-space-particular",
+              "theory_id": "riemannian-geometry",
+              "statement": "space is only a particular case of a triply extended magnitude, and a multiply extended magnitude is capable of different measure-relations",
+              "status": "verified"
+            },
+            "riemann-claim-geometry-not-deduced.riemannian-geometry.the propositions of geometry cannot be derived from general notions of magnitude, but must be deduced from experience.verified.": {
+              "claim_id": "riemann-claim-geometry-not-deduced",
+              "theory_id": "riemannian-geometry",
+              "statement": "the propositions of geometry cannot be derived from general notions of magnitude, but must be deduced from experience",
+              "status": "verified"
+            },
+            "riemann-claim-flat-manifold.riemannian-geometry.manifoldnesses in which the square of the line-element may be expressed as the sum of the squares of complete differentials are called flat (euclidean space is a special case).verified.": {
+              "claim_id": "riemann-claim-flat-manifold",
+              "theory_id": "riemannian-geometry",
+              "statement": "manifoldnesses in which the square of the line-element may be expressed as the sum of the squares of complete differentials are called flat (euclidean space is a special case)",
+              "status": "verified"
+            },
+            "riemann-claim-curvature-measure.riemannian-geometry.the curvature at a point in a given surface-direction measures the deviation of the manifoldness from flatness at that point.verified.": {
+              "claim_id": "riemann-claim-curvature-measure",
+              "theory_id": "riemannian-geometry",
+              "statement": "the curvature at a point in a given surface-direction measures the deviation of the manifoldness from flatness at that point",
+              "status": "verified"
+            },
+            "riemann-claim-constant-curvature.riemannian-geometry.manifoldnesses with constant curvature allow figures to be moved without stretching, and the measure-relations depend only on the value of the curvature.verified.": {
+              "claim_id": "riemann-claim-constant-curvature",
+              "theory_id": "riemannian-geometry",
+              "statement": "manifoldnesses with constant curvature allow figures to be moved without stretching, and the measure-relations depend only on the value of the curvature",
+              "status": "verified"
+            },
+            "riemann-claim-space-unbounded.riemannian-geometry.space is an unbounded three-fold manifoldness, but its infinite extent does not follow from this; if space has constant positive curvature, it must necessarily be finite.verified.": {
+              "claim_id": "riemann-claim-space-unbounded",
+              "theory_id": "riemannian-geometry",
+              "statement": "space is an unbounded three-fold manifoldness, but its infinite extent does not follow from this; if space has constant positive curvature, it must necessarily be finite",
+              "status": "verified"
+            },
+            "riemann-claim-triangle-sum.riemannian-geometry.if the curvature at each point is zero in three surface-directions, the sum of the angles of a triangle is always equal to two right angles (euclidean geometry).verified.": {
+              "claim_id": "riemann-claim-triangle-sum",
+              "theory_id": "riemannian-geometry",
+              "statement": "if the curvature at each point is zero in three surface-directions, the sum of the angles of a triangle is always equal to two right angles (euclidean geometry)",
+              "status": "verified"
+            }
+          },
+          "prediction": {
+            "riemann-prediction-astronomical-curvature.riemannian-geometry.if bodies exist independently of position, the curvature is everywhere constant, and astronomical measurements should determine that it cannot be different from zero, or its reciprocal must be an area in comparison with which the range of our telescopes may be neglected.000000001854.verified.000000001919.eddington expedition confirmed that space is approximately flat on large scales, though general relativity later showed local curvature near massive objects..": {
+              "prediction_id": "riemann-prediction-astronomical-curvature",
+              "theory_id": "riemannian-geometry",
+              "statement": "if bodies exist independently of position, the curvature is everywhere constant, and astronomical measurements should determine that it cannot be different from zero, or its reciprocal must be an area in comparison with which the range of our telescopes may be neglected",
+              "prediction_year": 1854,
+              "status": "verified",
+              "verification_year": 1919,
+              "verification_method": "eddington expedition confirmed that space is approximately flat on large scales, though general relativity later showed local curvature near massive objects"
+            },
+            "riemann-prediction-infinitesimal-geometry.riemannian-geometry.the metric relations of space in the infinitely small may not conform to the hypotheses of geometry, and we ought to suppose this if we can thereby obtain a simpler explanation of phenomena.000000001854.verified.000000001915.einstein showed that spacetime curvature explains gravitational phenomena, validating riemann's insight that geometry in the small may differ from euclidean geometry..": {
+              "prediction_id": "riemann-prediction-infinitesimal-geometry",
+              "theory_id": "riemannian-geometry",
+              "statement": "the metric relations of space in the infinitely small may not conform to the hypotheses of geometry, and we ought to suppose this if we can thereby obtain a simpler explanation of phenomena",
+              "prediction_year": 1854,
+              "status": "verified",
+              "verification_year": 1915,
+              "verification_method": "einstein showed that spacetime curvature explains gravitational phenomena, validating riemann's insight that geometry in the small may differ from euclidean geometry"
+            },
+            "riemann-prediction-discrete-manifold.riemannian-geometry.either the reality which underlies space must form a discrete manifoldness, or we must seek the ground of its metric relations outside it, in binding forces which act upon it.000000001854.partially_verified.000000001915.einstein's general relativity showed that metric relations come from the stress-energy tensor (binding forces), partially validating the second option..": {
+              "prediction_id": "riemann-prediction-discrete-manifold",
+              "theory_id": "riemannian-geometry",
+              "statement": "either the reality which underlies space must form a discrete manifoldness, or we must seek the ground of its metric relations outside it, in binding forces which act upon it",
+              "prediction_year": 1854,
+              "status": "partially_verified",
+              "verification_year": 1915,
+              "verification_method": "einstein's general relativity showed that metric relations come from the stress-energy tensor (binding forces), partially validating the second option"
+            }
+          },
+          "theory": {
+            "riemannian-geometry.riemannian geometry.000000001854.............": {
+              "theory_id": "riemannian-geometry",
+              "name": "riemannian geometry",
+              "year": 1854
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "1cf633c7-4174-43e6-a191-54edc7763a00": {
+        "session_id": "1cf633c7-4174-43e6-a191-54edc7763a00",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T20:41:33.746863",
+        "initial_prompt": "Analyze Anderson 1998 Pioneer anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771024026
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze Anderson 1998 Pioneer anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+            "ai_reasoning": "I need to understand the data model structure to properly analyze the Anderson 1998 Pioneer paper and link it to the documented anomaly",
+            "timestamp": "2026-02-13T20:35:37.312063-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.* | [?year == `1998` && contains(title, 'Pioneer') || contains(title, 'Anomalous')]",
+            "ai_reasoning": "Checking if the Anderson 1998 paper already exists",
+            "timestamp": "2026-02-13T20:35:41.573616-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "person.* | [?contains(name, 'Anderson') || contains(name, 'Laing') || contains(name, 'Nieto') || contains(name, 'Turyshev')]",
+            "ai_reasoning": "Checking if the paper authors already exist in the database",
+            "timestamp": "2026-02-13T20:35:42.084734-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Creating the paper entity for Anderson et al. 1998 Pioneer anomaly paper",
+            "timestamp": "2026-02-13T20:35:45.100231-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for lead author John D. Anderson",
+            "timestamp": "2026-02-13T20:35:45.568890-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for co-author Philip A. Laing",
+            "timestamp": "2026-02-13T20:35:46.022851-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for co-author Michael Martin Nieto",
+            "timestamp": "2026-02-13T20:35:46.527825-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for co-author Slava G. Turyshev",
+            "timestamp": "2026-02-13T20:35:47.110543-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'general-relativity']",
+            "ai_reasoning": "Getting the general relativity theory to link assumptions and claims",
+            "timestamp": "2026-02-13T20:35:47.494966-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Creating the paper entity with minimal required fields first",
+            "timestamp": "2026-02-13T20:35:50.034362-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for lead author",
+            "timestamp": "2026-02-13T20:35:50.443030-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for co-author",
+            "timestamp": "2026-02-13T20:35:50.862086-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for co-author",
+            "timestamp": "2026-02-13T20:35:51.370654-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for co-author",
+            "timestamp": "2026-02-13T20:35:51.800040-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting assumption about Pioneer spacecraft precision from the paper",
+            "timestamp": "2026-02-13T20:35:55.348511-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting assumption about modeling all known forces",
+            "timestamp": "2026-02-13T20:35:56.287192-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting assumption about thermal radiation isotropy",
+            "timestamp": "2026-02-13T20:35:57.083868-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the main claim about the anomalous acceleration from the paper",
+            "timestamp": "2026-02-13T20:35:58.112594-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting claim about constant acceleration magnitude",
+            "timestamp": "2026-02-13T20:35:58.891642-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting claim about ruled-out causes",
+            "timestamp": "2026-02-13T20:35:59.959581-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting claim about non-universality based on Viking data",
+            "timestamp": "2026-02-13T20:36:01.149210-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting claim about Ulysses confirmation",
+            "timestamp": "2026-02-13T20:36:01.992165-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Extracting prediction about future tests",
+            "timestamp": "2026-02-13T20:36:02.923907-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Extracting prediction about possible new physics",
+            "timestamp": "2026-02-13T20:36:03.831905-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T20:37:02.326113-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T20:41:33.746589-06:00"
+          }
+        ],
+        "query_count": 26,
+        "session_duration": 356,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 3
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 20
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "paper": {
+            "anderson-1998-pioneer.indication, from pioneer 10/11, galileo, and ulysses data, of an apparent anomalous, weak, long-range acceleration.000000001998.https://arxiv.org/abs/gr-qc/9808081.": {
+              "paper_id": "anderson-1998-pioneer",
+              "title": "indication, from pioneer 10/11, galileo, and ulysses data, of an apparent anomalous, weak, long-range acceleration",
+              "year": 1998,
+              "link": "https://arxiv.org/abs/gr-qc/9808081"
+            }
+          },
+          "person": {
+            "john-anderson.john d. anderson....": {
+              "person_id": "john-anderson",
+              "name": "john d. anderson"
+            },
+            "philip-laing.philip a. laing....": {
+              "person_id": "philip-laing",
+              "name": "philip a. laing"
+            },
+            "michael-nieto.michael martin nieto....": {
+              "person_id": "michael-nieto",
+              "name": "michael martin nieto"
+            },
+            "slava-turyshev.slava g. turyshev....": {
+              "person_id": "slava-turyshev",
+              "name": "slava g. turyshev"
+            }
+          },
+          "assumption": {
+            "pioneer-assumption-precise-tracking.general-relativity.pioneer spacecraft are excellent for dynamical astronomy studies because their spin-stabilization and great distances permit precise acceleration estimations to the level of 10^-10 cm/s² (averaged over 5 days).the paper states that pioneer spacecraft require minimum earth-attitude reorientation maneuvers, allowing precise measurement of small accelerations": {
+              "assumption_id": "pioneer-assumption-precise-tracking",
+              "theory_id": "general-relativity",
+              "statement": "pioneer spacecraft are excellent for dynamical astronomy studies because their spin-stabilization and great distances permit precise acceleration estimations to the level of 10^-10 cm/s² (averaged over 5 days)",
+              "rationale": "the paper states that pioneer spacecraft require minimum earth-attitude reorientation maneuvers, allowing precise measurement of small accelerations"
+            },
+            "pioneer-assumption-all-forces-accounted.general-relativity.all known forces acting on pioneer spacecraft can be accurately modeled, including planetary perturbations, radiation pressure, interplanetary media, general relativity, and bias/drift in range and doppler.the paper states that analyses were modeled to include all these effects, suggesting they can be accounted for": {
+              "assumption_id": "pioneer-assumption-all-forces-accounted",
+              "theory_id": "general-relativity",
+              "statement": "all known forces acting on pioneer spacecraft can be accurately modeled, including planetary perturbations, radiation pressure, interplanetary media, general relativity, and bias/drift in range and doppler",
+              "rationale": "the paper states that analyses were modeled to include all these effects, suggesting they can be accounted for"
+            },
+            "pioneer-assumption-thermal-isotropic.general-relativity.thermal radiation from rtgs and spacecraft systems is approximately isotropic.the paper states that if thermal radiation were not isotropic and caused the acceleration, it would have decreased with time, but no such decrease was observed after 1980": {
+              "assumption_id": "pioneer-assumption-thermal-isotropic",
+              "theory_id": "general-relativity",
+              "statement": "thermal radiation from rtgs and spacecraft systems is approximately isotropic",
+              "rationale": "the paper states that if thermal radiation were not isotropic and caused the acceleration, it would have decreased with time, but no such decrease was observed after 1980"
+            }
+          },
+          "claim": {
+            "pioneer-claim-anomalous-acceleration.general-relativity.there is an unmodelled acceleration towards the sun of (8.09 ± 0.20) × 10^-8 cm/s² for pioneer 10 and (8.56 ± 0.15) × 10^-8 cm/s² for pioneer 11, confirmed by two independent analysis codes (jpl-odp and chasmp).verified.000000001998": {
+              "claim_id": "pioneer-claim-anomalous-acceleration",
+              "theory_id": "general-relativity",
+              "statement": "there is an unmodelled acceleration towards the sun of (8.09 ± 0.20) × 10^-8 cm/s² for pioneer 10 and (8.56 ± 0.15) × 10^-8 cm/s² for pioneer 11, confirmed by two independent analysis codes (jpl-odp and chasmp)",
+              "status": "verified",
+              "verification_year": 1998
+            },
+            "pioneer-claim-constant-acceleration.general-relativity.the magnitude of the anomalous acceleration does not vary with distance, within a sensitivity of 2 × 10^-8 cm/s² over a range of 40 to 60 au.verified.000000001998": {
+              "claim_id": "pioneer-claim-constant-acceleration",
+              "theory_id": "general-relativity",
+              "statement": "the magnitude of the anomalous acceleration does not vary with distance, within a sensitivity of 2 × 10^-8 cm/s² over a range of 40 to 60 au",
+              "status": "verified",
+              "verification_year": 1998
+            },
+            "pioneer-claim-ruled-out-causes.general-relativity.potential causes ruled out include: gravity from kuiper belt, gravity from galaxy, spacecraft gas leaks, errors in planetary ephemeris, errors in earth orientation/precession/nutation, solar radiation pressure, and precessional attitude-control maneuvers.verified.000000001998": {
+              "claim_id": "pioneer-claim-ruled-out-causes",
+              "theory_id": "general-relativity",
+              "statement": "potential causes ruled out include: gravity from kuiper belt, gravity from galaxy, spacecraft gas leaks, errors in planetary ephemeris, errors in earth orientation/precession/nutation, solar radiation pressure, and precessional attitude-control maneuvers",
+              "status": "verified",
+              "verification_year": 1998
+            },
+            "pioneer-claim-not-universal.general-relativity.if the anomalous acceleration is gravitational in origin, it is not universal - it must affect bodies in the 1000 kg range more than planetary-sized bodies by a factor of 100 or more, which would violate the principle of equivalence.verified.000000001998": {
+              "claim_id": "pioneer-claim-not-universal",
+              "theory_id": "general-relativity",
+              "statement": "if the anomalous acceleration is gravitational in origin, it is not universal - it must affect bodies in the 1000 kg range more than planetary-sized bodies by a factor of 100 or more, which would violate the principle of equivalence",
+              "status": "verified",
+              "verification_year": 1998
+            },
+            "pioneer-claim-ulysses-confirmation.general-relativity.ulysses spacecraft was subjected to an unmodelled acceleration towards the sun of (12 ± 3) × 10^-8 cm/s², consistent with the pioneer effect.verified.000000001998": {
+              "claim_id": "pioneer-claim-ulysses-confirmation",
+              "theory_id": "general-relativity",
+              "statement": "ulysses spacecraft was subjected to an unmodelled acceleration towards the sun of (12 ± 3) × 10^-8 cm/s², consistent with the pioneer effect",
+              "status": "verified",
+              "verification_year": 1998
+            }
+          },
+          "prediction": {
+            "pioneer-prediction-future-tests.general-relativity.future tests using pioneer 10 reacquisition, further ulysses data, pluto express mission, and solar probe mission could provide high-quality data to investigate the anomaly.000000001998.partially_verified..further analysis was conducted, and the anomaly was largely resolved in 2012 through detailed thermal radiation analysis..": {
+              "prediction_id": "pioneer-prediction-future-tests",
+              "theory_id": "general-relativity",
+              "statement": "future tests using pioneer 10 reacquisition, further ulysses data, pluto express mission, and solar probe mission could provide high-quality data to investigate the anomaly",
+              "prediction_year": 1998,
+              "status": "partially_verified",
+              "verification_method": "further analysis was conducted, and the anomaly was largely resolved in 2012 through detailed thermal radiation analysis"
+            },
+            "pioneer-prediction-new-physics.general-relativity.the origin of the anomalous signal might be new physics, though the probability is that some standard physics or unknown systematic will be found to explain it.000000001998.falsified.000000002012.the anomaly was largely explained by anisotropic thermal radiation from spacecraft systems, not new physics..": {
+              "prediction_id": "pioneer-prediction-new-physics",
+              "theory_id": "general-relativity",
+              "statement": "the origin of the anomalous signal might be new physics, though the probability is that some standard physics or unknown systematic will be found to explain it",
+              "prediction_year": 1998,
+              "status": "falsified",
+              "verification_year": 2012,
+              "verification_method": "the anomaly was largely explained by anisotropic thermal radiation from spacecraft systems, not new physics"
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session closed due to server shutdown",
+            "challenges_encountered": "Server was shut down before session could be finalized"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "e72ac12b-5320-4037-baf6-3bd979d1edc5": {
+        "session_id": "e72ac12b-5320-4037-baf6-3bd979d1edc5",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T20:56:36.415839",
+        "initial_prompt": "Analyze Ellman 1998 flyby anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771024026
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze Ellman 1998 flyby anomaly paper and extract structured information about the anomaly, theories, assumptions, claims, and predictions",
+            "ai_reasoning": "Getting the data model structure to properly analyze the Ellman 1998 flyby anomaly paper",
+            "timestamp": "2026-02-13T20:49:35.054118-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "person.* | [?contains(name, 'Ellman') || contains(name, 'ellman')]",
+            "ai_reasoning": "Checking if Roger Ellman already exists in the database",
+            "timestamp": "2026-02-13T20:49:42.532784-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.* | [?year == `1998` && contains(title, 'Flyby') || contains(title, 'flyby')]",
+            "ai_reasoning": "Checking if the Ellman 1998 paper already exists",
+            "timestamp": "2026-02-13T20:49:43.022640-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Creating the paper entity for Ellman's 1998 flyby anomaly analysis paper",
+            "timestamp": "2026-02-13T20:49:43.797476-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for Roger Ellman, author of the flyby anomaly paper",
+            "timestamp": "2026-02-13T20:49:44.336346-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "anomaly",
+            "ai_reasoning": "Creating the Earth flyby anomaly entity based on the paper's description",
+            "timestamp": "2026-02-13T20:49:53.187259-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting the assumption about centrally directed acceleration from the paper",
+            "timestamp": "2026-02-13T20:49:54.353660-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting the assumption that flyby and Pioneer anomalies share the same cause",
+            "timestamp": "2026-02-13T20:49:55.606359-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Extracting the assumption about universal length decay as the cause",
+            "timestamp": "2026-02-13T20:49:57.082965-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about observed speed changes in flybys",
+            "timestamp": "2026-02-13T20:49:58.150496-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about latitude dependence of the flyby anomaly",
+            "timestamp": "2026-02-13T20:49:59.192948-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim about net acceleration/deceleration depending on flight path",
+            "timestamp": "2026-02-13T20:50:00.276314-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim connecting flyby anomaly to cosmic-scale effects",
+            "timestamp": "2026-02-13T20:50:01.170746-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Extracting the claim that universal length decay wouldn't conflict with planetary ephemeris",
+            "timestamp": "2026-02-13T20:50:02.143650-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Extracting the prediction about proposed experiments to test universal decay",
+            "timestamp": "2026-02-13T20:50:03.145141-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "anomaly.* | [?anomaly_id == 'earth-flyby-anomaly']",
+            "ai_reasoning": "Verifying the created Earth flyby anomaly",
+            "timestamp": "2026-02-13T20:50:18.494554-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "claim.* | [?theory_id == 'general-relativity' && contains(claim_id, 'flyby')]",
+            "ai_reasoning": "Counting claims created for the flyby anomaly analysis",
+            "timestamp": "2026-02-13T20:50:19.216268-06:00",
+            "result_count": 5
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T20:54:34.850738-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T20:56:36.415740-06:00"
+          }
+        ],
+        "query_count": 19,
+        "session_duration": 421,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 4
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 12
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "paper": {
+            "ellman-1998-flybys.analysis of the anomalous orbital-energy changes observed in spacecraft flybys of earth.000000001998.http://www.the-origin.org.": {
+              "paper_id": "ellman-1998-flybys",
+              "title": "analysis of the anomalous orbital-energy changes observed in spacecraft flybys of earth",
+              "year": 1998,
+              "link": "http://www.the-origin.org"
+            }
+          },
+          "person": {
+            "roger-ellman.roger ellman....": {
+              "person_id": "roger-ellman",
+              "name": "roger ellman"
+            }
+          },
+          "anomaly": {
+            "earth-flyby-anomaly.earth flyby anomaly.unaccounted for changes in spacecraft speed, both increases and decreases, observed during earth flybys of six different spacecraft from december 8, 1990 to august 2, 2005. the anomaly appears as a small, centrally directed, distance-independent acceleration toward earth, similar to the pioneer anomaly. all potential sources of systematic error have been modeled and cannot account for the observed anomalies..general-relativity...000000002008...ellman-1998-flybys.roger-ellman": {
+              "anomaly_id": "earth-flyby-anomaly",
+              "name": "earth flyby anomaly",
+              "theory_id": "general-relativity",
+              "description": "unaccounted for changes in spacecraft speed, both increases and decreases, observed during earth flybys of six different spacecraft from december 8, 1990 to august 2, 2005. the anomaly appears as a small, centrally directed, distance-independent acceleration toward earth, similar to the pioneer anomaly. all potential sources of systematic error have been modeled and cannot account for the observed anomalies.",
+              "discovery_year": 2008,
+              "papers": [
+                "ellman-1998-flybys"
+              ],
+              "people": [
+                "roger-ellman"
+              ]
+            }
+          },
+          "assumption": {
+            "flyby-assumption-central-acceleration.general-relativity.the earth flyby anomaly is caused by a small acceleration (in addition to natural gravitation), centrally directed and independent of distance, directed toward the core center of earth.ellman proposes that the flyby anomaly shares the same characteristics as the pioneer anomaly - a centrally directed, distance-independent acceleration": {
+              "assumption_id": "flyby-assumption-central-acceleration",
+              "theory_id": "general-relativity",
+              "statement": "the earth flyby anomaly is caused by a small acceleration (in addition to natural gravitation), centrally directed and independent of distance, directed toward the core center of earth",
+              "rationale": "ellman proposes that the flyby anomaly shares the same characteristics as the pioneer anomaly - a centrally directed, distance-independent acceleration"
+            },
+            "flyby-assumption-shared-cause.general-relativity.the flyby anomaly and pioneer anomaly share the same cause - a centrally directed, distance-independent acceleration.ellman argues that both anomalies exhibit the same characteristics and thus likely have the same underlying cause": {
+              "assumption_id": "flyby-assumption-shared-cause",
+              "theory_id": "general-relativity",
+              "statement": "the flyby anomaly and pioneer anomaly share the same cause - a centrally directed, distance-independent acceleration",
+              "rationale": "ellman argues that both anomalies exhibit the same characteristics and thus likely have the same underlying cause"
+            },
+            "flyby-assumption-universal-decay.general-relativity.a universal decay of the length dimension of all material reality causes the anomalous accelerations observed in flybys, pioneer spacecraft, and galactic rotation curves.ellman proposes that a universal length decay would produce centrally directed, distance-independent accelerations without conflicting with planetary ephemeris": {
+              "assumption_id": "flyby-assumption-universal-decay",
+              "theory_id": "general-relativity",
+              "statement": "a universal decay of the length dimension of all material reality causes the anomalous accelerations observed in flybys, pioneer spacecraft, and galactic rotation curves",
+              "rationale": "ellman proposes that a universal length decay would produce centrally directed, distance-independent accelerations without conflicting with planetary ephemeris"
+            }
+          },
+          "claim": {
+            "flyby-claim-speed-changes.general-relativity.six different spacecraft involved in earth flybys from december 8, 1990 to august 2, 2005 showed unaccounted for changes in spacecraft speed, both increases and decreases.verified.000000002008": {
+              "claim_id": "flyby-claim-speed-changes",
+              "theory_id": "general-relativity",
+              "statement": "six different spacecraft involved in earth flybys from december 8, 1990 to august 2, 2005 showed unaccounted for changes in spacecraft speed, both increases and decreases",
+              "status": "verified",
+              "verification_year": 2008
+            },
+            "flyby-claim-latitude-effect.general-relativity.the magnitude of the anomalous acceleration component parallel to the spacecraft flight path depends on latitude, with the effective acceleration being a(λ) = a·cos[λ], where λ is the latitude.theoretical.": {
+              "claim_id": "flyby-claim-latitude-effect",
+              "theory_id": "general-relativity",
+              "statement": "the magnitude of the anomalous acceleration component parallel to the spacecraft flight path depends on latitude, with the effective acceleration being a(λ) = a·cos[λ], where λ is the latitude",
+              "status": "theoretical"
+            },
+            "flyby-claim-net-effect.general-relativity.depending on the specific flight path, a spacecraft may experience overall net anomalous acceleration or deceleration, or zero net modification if the path is perfectly symmetrical relative to the equator.theoretical.": {
+              "claim_id": "flyby-claim-net-effect",
+              "theory_id": "general-relativity",
+              "statement": "depending on the specific flight path, a spacecraft may experience overall net anomalous acceleration or deceleration, or zero net modification if the path is perfectly symmetrical relative to the equator",
+              "status": "theoretical"
+            },
+            "flyby-claim-cosmic-connection.general-relativity.the same anomalous centrally directed, distance-independent acceleration occurs relative to earth (flyby anomaly), relative to the sun (pioneer anomaly), in galactic rotation curves, and in rotating groups of galaxies.theoretical.": {
+              "claim_id": "flyby-claim-cosmic-connection",
+              "theory_id": "general-relativity",
+              "statement": "the same anomalous centrally directed, distance-independent acceleration occurs relative to earth (flyby anomaly), relative to the sun (pioneer anomaly), in galactic rotation curves, and in rotating groups of galaxies",
+              "status": "theoretical"
+            },
+            "flyby-claim-no-ephemeris-conflict.general-relativity.a universal decay of the length dimension would not conflict with the planetary ephemeris and would not be detectable except in unusual circumstances like the pioneer and flyby anomalies.theoretical.": {
+              "claim_id": "flyby-claim-no-ephemeris-conflict",
+              "theory_id": "general-relativity",
+              "statement": "a universal decay of the length dimension would not conflict with the planetary ephemeris and would not be detectable except in unusual circumstances like the pioneer and flyby anomalies",
+              "status": "theoretical"
+            }
+          },
+          "prediction": {
+            "flyby-prediction-experiments.general-relativity.experiments to test the universal decay and measure its parameters are proposed to verify the theory.000000001998.pending....": {
+              "prediction_id": "flyby-prediction-experiments",
+              "theory_id": "general-relativity",
+              "statement": "experiments to test the universal decay and measure its parameters are proposed to verify the theory",
+              "prediction_year": 1998,
+              "status": "pending"
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "1ce71f15-3fc4-4d4e-a302-9feb0d9b6732": {
+        "session_id": "1ce71f15-3fc4-4d4e-a302-9feb0d9b6732",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-16T16:51:29.608292",
+        "initial_prompt": "Analyze the Shamir 2024 redshift paper about empirical consistent redshift bias and Zwicky's TL theory",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771024026
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze the Shamir 2024 redshift paper about empirical consistent redshift bias and Zwicky's TL theory",
+            "ai_reasoning": "I need to understand the data model structure to properly analyze the Shamir 2024 redshift paper and create appropriate entities for theories, assumptions, claims, predictions, and other related concepts.",
+            "timestamp": "2026-02-16T16:41:43.127476-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?contains(name, 'redshift') || contains(name, 'cosmology') || contains(name, 'tired') || contains(name, 'big bang') || contains(name, 'hubble')]",
+            "updated_prompt": "Searching for cosmology and redshift related theories",
+            "ai_reasoning": "I need to find existing theories related to cosmology, redshift, tired light, and Hubble constant to properly link the Shamir paper analysis",
+            "timestamp": "2026-02-16T16:41:46.958130-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Creating the paper entity for Shamir 2024 redshift paper",
+            "timestamp": "2026-02-16T16:41:49.808403-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for Lior Shamir, the author of the paper",
+            "timestamp": "2026-02-16T16:41:50.739618-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Creating person entity for Fritz Zwicky who proposed the tired-light theory referenced in the paper",
+            "timestamp": "2026-02-16T16:41:51.826942-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Creating theory entity for Zwicky's tired-light theory which is central to the paper",
+            "timestamp": "2026-02-16T16:41:53.570956-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Creating theory entity for the standard cosmological model which the paper challenges",
+            "timestamp": "2026-02-16T16:41:55.196466-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Creating assumption about rotational velocity being negligible in redshift measurements",
+            "timestamp": "2026-02-16T16:41:56.358675-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Creating assumption that redshift is purely velocity-based",
+            "timestamp": "2026-02-16T16:41:57.336108-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating claim about the observed redshift bias based on rotational direction",
+            "timestamp": "2026-02-16T16:41:58.278367-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating claim about consistency of the redshift bias across multiple independent datasets",
+            "timestamp": "2026-02-16T16:41:59.198359-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating claim about the redshift-dependent nature of the bias",
+            "timestamp": "2026-02-16T16:42:00.417739-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating claim about how redshift bias explains the H0 tension",
+            "timestamp": "2026-02-16T16:42:01.578557-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Creating claim about flux differences between galaxies rotating in opposite directions",
+            "timestamp": "2026-02-16T16:42:02.653048-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Creating prediction about redshift bias at higher redshifts",
+            "timestamp": "2026-02-16T16:42:03.979563-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Creating prediction about JWST galaxy spin asymmetry",
+            "timestamp": "2026-02-16T16:42:05.044114-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "anomaly",
+            "ai_reasoning": "Creating anomaly entity for the H0 tension",
+            "timestamp": "2026-02-16T16:42:06.030651-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "anomaly",
+            "ai_reasoning": "Creating anomaly entity for mature galaxies at high redshift",
+            "timestamp": "2026-02-16T16:42:06.919702-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "anomaly",
+            "ai_reasoning": "Creating anomaly entity for the redshift bias itself",
+            "timestamp": "2026-02-16T16:42:07.787193-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "violated_assumption",
+            "ai_reasoning": "Linking the redshift bias anomaly to the violated assumption about rotational velocity being negligible",
+            "timestamp": "2026-02-16T16:42:09.761359-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "violated_assumption",
+            "ai_reasoning": "Linking the redshift bias anomaly to the violated assumption about redshift being purely velocity-based",
+            "timestamp": "2026-02-16T16:42:10.653884-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "session_feedback",
+            "depth": 0,
+            "updated_prompt": "Getting session_feedback schema to finalize",
+            "ai_reasoning": "I need to understand the session_feedback structure to properly finalize the analysis session",
+            "timestamp": "2026-02-16T16:42:13.307518-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "session_assessment",
+            "depth": 0,
+            "updated_prompt": "Getting session_assessment schema",
+            "ai_reasoning": "I need to understand the session_assessment structure",
+            "timestamp": "2026-02-16T16:42:13.718295-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "ai_feedback",
+            "depth": 0,
+            "updated_prompt": "Getting ai_feedback schema",
+            "ai_reasoning": "I need to understand the ai_feedback structure",
+            "timestamp": "2026-02-16T16:42:14.183633-06:00"
+          },
+          {
+            "tool": "get_entity",
+            "entity": "efficiency_metrics",
+            "depth": 0,
+            "updated_prompt": "Getting efficiency_metrics schema",
+            "ai_reasoning": "I need to understand the efficiency_metrics structure",
+            "timestamp": "2026-02-16T16:42:14.725750-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-16T16:42:20.857170-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-16T16:51:29.608241-06:00"
+          }
+        ],
+        "query_count": 27,
+        "session_duration": 586,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 1
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 19
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 4
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "paper": {
+            "shamir-2024-redshift.an empirical consistent redshift bias: a possible direct reproducible observation of zwicky's tl theory.000000002024.https://arxiv.org/abs/2407.20487.lior-shamir": {
+              "paper_id": "shamir-2024-redshift",
+              "title": "an empirical consistent redshift bias: a possible direct reproducible observation of zwicky's tl theory",
+              "year": 2024,
+              "link": "https://arxiv.org/abs/2407.20487",
+              "authors": [
+                "lior-shamir"
+              ]
+            }
+          },
+          "person": {
+            "lior-shamir.lior shamir....author of paper shamir-2024-redshift": {
+              "person_id": "lior-shamir",
+              "name": "lior shamir",
+              "sources": [
+                "author of paper shamir-2024-redshift"
+              ]
+            },
+            "fritz-zwicky.fritz zwicky....proposed tired-light theory in 1929, referenced in paper shamir-2024-redshift": {
+              "person_id": "fritz-zwicky",
+              "name": "fritz zwicky",
+              "sources": [
+                "proposed tired-light theory in 1929, referenced in paper shamir-2024-redshift"
+              ]
+            }
+          },
+          "theory": {
+            "tired-light-theory.tired light theory.000000001929.theory proposed by fritz zwicky that photons lose energy as they travel through space, causing redshift without requiring expansion. in extreme form, argues the big bang is an artifact and the universe is in steady state. the theory has lacked direct empirical evidence until potentially this observation..relativity.......shamir-2024-redshift.fritz-zwicky...": {
+              "theory_id": "tired-light-theory",
+              "name": "tired light theory",
+              "year": 1929,
+              "summary": "theory proposed by fritz zwicky that photons lose energy as they travel through space, causing redshift without requiring expansion. in extreme form, argues the big bang is an artifact and the universe is in steady state. the theory has lacked direct empirical evidence until potentially this observation.",
+              "category": "relativity",
+              "people": [
+                "fritz-zwicky"
+              ],
+              "papers": [
+                "shamir-2024-redshift"
+              ]
+            },
+            "standard-cosmological-model.standard cosmological model (lambda-cdm).000000001998.the standard model of cosmology based on dark energy (lambda) and cold dark matter (cdm). assumes redshift is primarily due to cosmic expansion and hubble flow. faces tensions including h0 tension and unexpected mature galaxies at high redshifts observed by jwst..relativity.......shamir-2024-redshift....": {
+              "theory_id": "standard-cosmological-model",
+              "name": "standard cosmological model (lambda-cdm)",
+              "year": 1998,
+              "summary": "the standard model of cosmology based on dark energy (lambda) and cold dark matter (cdm). assumes redshift is primarily due to cosmic expansion and hubble flow. faces tensions including h0 tension and unexpected mature galaxies at high redshifts observed by jwst.",
+              "category": "relativity",
+              "papers": [
+                "shamir-2024-redshift"
+              ]
+            }
+          },
+          "assumption": {
+            "redshift-assumption-rotational-velocity-negligible.standard-cosmological-model.the rotational velocity of the milky way galaxy relative to observed galaxies has a negligible effect on redshift measurements.standard redshift models assume rotational velocity is far smaller than linear velocity and can be ignored when measuring cosmological redshift": {
+              "assumption_id": "redshift-assumption-rotational-velocity-negligible",
+              "theory_id": "standard-cosmological-model",
+              "statement": "the rotational velocity of the milky way galaxy relative to observed galaxies has a negligible effect on redshift measurements",
+              "rationale": "standard redshift models assume rotational velocity is far smaller than linear velocity and can be ignored when measuring cosmological redshift"
+            },
+            "redshift-assumption-purely-velocity-based.standard-cosmological-model.redshift corresponds primarily to the linear velocity of objects relative to earth due to cosmic expansion.standard cosmological model interprets redshift as doppler effect from hubble flow and cosmic expansion": {
+              "assumption_id": "redshift-assumption-purely-velocity-based",
+              "theory_id": "standard-cosmological-model",
+              "statement": "redshift corresponds primarily to the linear velocity of objects relative to earth due to cosmic expansion",
+              "rationale": "standard cosmological model interprets redshift as doppler effect from hubble flow and cosmic expansion"
+            }
+          },
+          "claim": {
+            "shamir-claim-redshift-bias-rotational.tired-light-theory.galaxies that rotate in the same direction relative to the milky way have higher mean redshift than galaxies rotating in the opposite direction, with the difference increasing at higher redshifts.verified.000000002024": {
+              "claim_id": "shamir-claim-redshift-bias-rotational",
+              "theory_id": "tired-light-theory",
+              "statement": "galaxies that rotate in the same direction relative to the milky way have higher mean redshift than galaxies rotating in the opposite direction, with the difference increasing at higher redshifts",
+              "status": "verified",
+              "verification_year": 2024
+            },
+            "shamir-claim-consistent-across-datasets.tired-light-theory.the redshift bias is consistent across multiple datasets: sdss, desi legacy survey, hsc dr3, and third-party catalogs, using different telescopes, annotation methods, and covering both northern and southern galactic poles.verified.000000002024": {
+              "claim_id": "shamir-claim-consistent-across-datasets",
+              "theory_id": "tired-light-theory",
+              "statement": "the redshift bias is consistent across multiple datasets: sdss, desi legacy survey, hsc dr3, and third-party catalogs, using different telescopes, annotation methods, and covering both northern and southern galactic poles",
+              "status": "verified",
+              "verification_year": 2024
+            },
+            "shamir-claim-delta-z-increases-redshift.tired-light-theory.the redshift difference (δz) between galaxies rotating in opposite directions increases with redshift, from ~0.0007-0.0016 at z<0.1 to ~0.0059-0.0070 at z=0.2-0.3.verified.000000002024": {
+              "claim_id": "shamir-claim-delta-z-increases-redshift",
+              "theory_id": "tired-light-theory",
+              "statement": "the redshift difference (δz) between galaxies rotating in opposite directions increases with redshift, from ~0.0007-0.0016 at z<0.1 to ~0.0059-0.0070 at z=0.2-0.3",
+              "status": "verified",
+              "verification_year": 2024
+            },
+            "shamir-claim-h0-tension-explanation.tired-light-theory.redshift bias can explain the h0 tension: selecting sh0es supernovae by rotation direction changes h0 from ~73.7 to ~69.05 km/s/mpc (same direction) or ~74.2 km/s/mpc (opposite direction), bringing same-direction value within error of cmb measurements.verified.000000002023": {
+              "claim_id": "shamir-claim-h0-tension-explanation",
+              "theory_id": "tired-light-theory",
+              "statement": "redshift bias can explain the h0 tension: selecting sh0es supernovae by rotation direction changes h0 from ~73.7 to ~69.05 km/s/mpc (same direction) or ~74.2 km/s/mpc (opposite direction), bringing same-direction value within error of cmb measurements",
+              "status": "verified",
+              "verification_year": 2023
+            },
+            "shamir-claim-flux-differences.tired-light-theory.galaxies rotating in opposite directions show ~10% flux differences in different filters, with larger absolute differences at shorter wavelengths.verified.000000002024": {
+              "claim_id": "shamir-claim-flux-differences",
+              "theory_id": "tired-light-theory",
+              "statement": "galaxies rotating in opposite directions show ~10% flux differences in different filters, with larger absolute differences at shorter wavelengths",
+              "status": "verified",
+              "verification_year": 2024
+            }
+          },
+          "prediction": {
+            "shamir-prediction-higher-redshift-bias.tired-light-theory.the redshift bias will be more significant at higher redshifts (z>0.3) observed by jwst, potentially explaining mature galaxies in the early universe.000000002024.pending....": {
+              "prediction_id": "shamir-prediction-higher-redshift-bias",
+              "theory_id": "tired-light-theory",
+              "statement": "the redshift bias will be more significant at higher redshifts (z>0.3) observed by jwst, potentially explaining mature galaxies in the early universe",
+              "prediction_year": 2024,
+              "status": "pending"
+            },
+            "shamir-prediction-jwst-asymmetry-explanation.tired-light-theory.the observed 140% excess of galaxies rotating opposite to milky way in jwst deep fields is due to brightness differences from doppler shift combined with tired-light effects that become more significant at greater distances.000000002024.pending....": {
+              "prediction_id": "shamir-prediction-jwst-asymmetry-explanation",
+              "theory_id": "tired-light-theory",
+              "statement": "the observed 140% excess of galaxies rotating opposite to milky way in jwst deep fields is due to brightness differences from doppler shift combined with tired-light effects that become more significant at greater distances",
+              "prediction_year": 2024,
+              "status": "pending"
+            }
+          },
+          "anomaly": {
+            "h0-tension.h0 tension.discrepancy between two different methods of measuring the hubble constant: local distance ladder measurements (~73-74 km/s/mpc) versus cmb measurements (~67 km/s/mpc), suggesting different expansion rates and ages of the universe.standard-cosmological-model...000000002017...shamir-2024-redshift.": {
+              "anomaly_id": "h0-tension",
+              "name": "h0 tension",
+              "description": "discrepancy between two different methods of measuring the hubble constant: local distance ladder measurements (~73-74 km/s/mpc) versus cmb measurements (~67 km/s/mpc), suggesting different expansion rates and ages of the universe",
+              "theory_id": "standard-cosmological-model",
+              "discovery_year": 2017,
+              "papers": [
+                "shamir-2024-redshift"
+              ]
+            },
+            "mature-galaxies-high-redshift.mature galaxies at high redshift.jwst observations of mature, massive galaxies at redshifts z>11-15 that appear older than traditional galaxy formation models predict, challenging the standard cosmological timeline.standard-cosmological-model...000000002023...shamir-2024-redshift.": {
+              "anomaly_id": "mature-galaxies-high-redshift",
+              "name": "mature galaxies at high redshift",
+              "description": "jwst observations of mature, massive galaxies at redshifts z>11-15 that appear older than traditional galaxy formation models predict, challenging the standard cosmological timeline",
+              "theory_id": "standard-cosmological-model",
+              "discovery_year": 2023,
+              "papers": [
+                "shamir-2024-redshift"
+              ]
+            },
+            "redshift-rotational-bias.redshift bias from rotational velocity.systematic redshift difference between galaxies rotating in the same versus opposite direction relative to the milky way, with bias increasing at higher redshifts. this suggests redshift is not purely velocity-based and may be affected by rotational velocity or tired-light effects..standard-cosmological-model...000000002024.tired-light-theory..shamir-2024-redshift.": {
+              "anomaly_id": "redshift-rotational-bias",
+              "name": "redshift bias from rotational velocity",
+              "description": "systematic redshift difference between galaxies rotating in the same versus opposite direction relative to the milky way, with bias increasing at higher redshifts. this suggests redshift is not purely velocity-based and may be affected by rotational velocity or tired-light effects.",
+              "theory_id": "standard-cosmological-model",
+              "discovery_year": 2024,
+              "explanation_theory_id": "tired-light-theory",
+              "papers": [
+                "shamir-2024-redshift"
+              ]
+            }
+          },
+          "violated_assumption": {
+            "redshift-bias-violates-rotational-negligible.redshift-rotational-bias.redshift-assumption-rotational-velocity-negligible.the observed redshift bias shows that rotational velocity of the milky way relative to observed galaxies does have a measurable effect on redshift, contradicting the assumption that it is negligible": {
+              "violated_assumption_id": "redshift-bias-violates-rotational-negligible",
+              "anomaly_id": "redshift-rotational-bias",
+              "assumption_id": "redshift-assumption-rotational-velocity-negligible",
+              "violation_description": "the observed redshift bias shows that rotational velocity of the milky way relative to observed galaxies does have a measurable effect on redshift, contradicting the assumption that it is negligible"
+            },
+            "redshift-bias-violates-purely-velocity.redshift-rotational-bias.redshift-assumption-purely-velocity-based.the redshift bias that increases with distance (redshift) suggests redshift is not purely velocity-based, as the rotational velocity of the milky way is constant and cannot explain distance-dependent effects": {
+              "violated_assumption_id": "redshift-bias-violates-purely-velocity",
+              "anomaly_id": "redshift-rotational-bias",
+              "assumption_id": "redshift-assumption-purely-velocity-based",
+              "violation_description": "the redshift bias that increases with distance (redshift) suggests redshift is not purely velocity-based, as the rotational velocity of the milky way is constant and cannot explain distance-dependent effects"
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "fa827c88-5056-40d2-9e54-a952a4d357e5": {
+        "session_id": "fa827c88-5056-40d2-9e54-a952a4d357e5",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-03-07T00:22:24.800971",
+        "initial_prompt": "Analyze the No Free Lunch (Wolpert & Macready 1997) paper using the physics model: add paper entity and relate to theories/tags as appropriate.",
+        "llm_model_version": "gpt-4o-mini",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1772664119
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze the No Free Lunch (Wolpert & Macready 1997) paper using the physics model: add paper entity and relate to theories/tags as appropriate.",
+            "ai_reasoning": "Need model schema and session_id to create paper entity and run analysis.",
+            "timestamp": "2026-03-07T00:15:58.852993-06:00",
+            "result_count": 25
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "paper",
+            "initial_prompt": "Analyze No Free Lunch paper",
+            "ai_reasoning": "Need full paper entity schema to create NFL paper with all fields.",
+            "timestamp": "2026-03-07T00:16:01.762662-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "theory",
+            "initial_prompt": "Analyze No Free Lunch paper",
+            "ai_reasoning": "Check if theory links to papers.",
+            "timestamp": "2026-03-07T00:16:04.792706-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_entity",
+            "entity": "paper",
+            "depth": 0,
+            "ai_reasoning": "List existing papers to match format and see IDs.",
+            "timestamp": "2026-03-07T00:16:05.494481-06:00",
+            "result_count": 17
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 0,
+            "ai_reasoning": "List theories to see if optimization/NFL fits or new theory needed.",
+            "timestamp": "2026-03-07T00:16:06.234983-06:00",
+            "result_count": 37
+          },
+          {
+            "tool": "get_entity",
+            "entity": "person",
+            "depth": 1,
+            "ai_reasoning": "Check existing persons for Wolpert/Macready.",
+            "timestamp": "2026-03-07T00:16:06.884862-06:00",
+            "result_count": 62
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Author of No Free Lunch paper (IBM Almaden, 1997).",
+            "timestamp": "2026-03-07T00:16:18.633691-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Author of No Free Lunch paper (Santa Fe Institute, 1997).",
+            "timestamp": "2026-03-07T00:16:19.411091-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Add the Wolpert & Macready 1997 NFL paper; authors already created.",
+            "timestamp": "2026-03-07T00:16:23.058876-06:00"
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "assumption",
+            "initial_prompt": "Analyze NFL paper",
+            "ai_reasoning": "Need assumption schema for NFL theory.",
+            "timestamp": "2026-03-07T00:16:28.444772-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "claim",
+            "initial_prompt": "Analyze NFL paper",
+            "ai_reasoning": "Need claim schema for NFL theory.",
+            "timestamp": "2026-03-07T00:16:29.309307-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Theory summarizing NFL paper: formal foundation for algorithm–problem matching.",
+            "timestamp": "2026-03-07T00:16:38.696278-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "NFL paper Section 2: finite spaces.",
+            "timestamp": "2026-03-07T00:16:44.277146-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "NFL paper Section 2: oracle model.",
+            "timestamp": "2026-03-07T00:16:54.367867-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "NFL paper Section 2: algorithm definition.",
+            "timestamp": "2026-03-07T00:16:55.563274-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Core NFL theorem.",
+            "timestamp": "2026-03-07T00:16:56.818595-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Corollary of Theorem 1.",
+            "timestamp": "2026-03-07T00:16:57.964711-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "NFL Section 4: alignment with P(f).",
+            "timestamp": "2026-03-07T00:16:58.945821-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper[?paper_id=='wolpert-macready-1997-no-free-lunch'] | [0]",
+            "ai_reasoning": "Retrieve created NFL paper for analysis summary.",
+            "timestamp": "2026-03-07T00:17:01.841322-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "get_entity",
+            "entity": "paper",
+            "depth": 0,
+            "ai_reasoning": "Verify NFL paper is in session data.",
+            "timestamp": "2026-03-07T00:17:04.629163-06:00",
+            "result_count": 18
+          },
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "entity": "session_feedback",
+            "initial_prompt": "Finalize session",
+            "ai_reasoning": "Need session_feedback schema for finalize.",
+            "timestamp": "2026-03-07T00:17:05.422898-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "session_assessment",
+            "initial_prompt": "Finalize",
+            "ai_reasoning": "Need session_assessment schema.",
+            "timestamp": "2026-03-07T00:17:08.194545-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "ai_feedback",
+            "initial_prompt": "Finalize",
+            "ai_reasoning": "Need ai_feedback schema.",
+            "timestamp": "2026-03-07T00:17:08.907799-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_entity",
+            "entity": "theory",
+            "depth": 0,
+            "ai_reasoning": "Get no-free-lunch theory with nested assumptions/claims for summary.",
+            "timestamp": "2026-03-07T00:17:09.560391-06:00",
+            "result_count": 38
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "efficiency_metrics",
+            "initial_prompt": "Finalize",
+            "ai_reasoning": "Need efficiency_metrics for session_feedback.",
+            "timestamp": "2026-03-07T00:17:14.790982-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "efficiency_timing_metrics",
+            "initial_prompt": "Finalize session",
+            "ai_reasoning": "Need timing metrics schema for feedback.",
+            "timestamp": "2026-03-07T00:17:37.484144-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "efficiency_count_metrics",
+            "initial_prompt": "Finalize session",
+            "ai_reasoning": "Need count metrics schema for feedback.",
+            "timestamp": "2026-03-07T00:17:38.705757-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "efficiency_optimization_metrics",
+            "initial_prompt": "Finalize session",
+            "ai_reasoning": "Need optimization metrics schema for feedback.",
+            "timestamp": "2026-03-07T00:17:39.824274-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-03-07T00:17:58.118739-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-03-07T00:22:24.800923-06:00"
+          }
+        ],
+        "query_count": 30,
+        "session_duration": 385,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 12
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 5
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 10
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 1
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "person": {
+            "david-wolpert": {
+              "person_id": "david-wolpert",
+              "name": "David H. Wolpert"
+            },
+            "william-macready": {
+              "person_id": "william-macready",
+              "name": "William G. Macready"
+            }
+          },
+          "paper": {
+            "wolpert-macready-1997-no-free-lunch": {
+              "paper_id": "wolpert-macready-1997-no-free-lunch",
+              "title": "No Free Lunch Theorems for Optimization",
+              "year": 1997,
+              "link": "https://ti.arc.nasa.gov/m/profile/dhw/papers/78.pdf",
+              "authors": [
+                {
+                  "person_id": "david-wolpert"
+                },
+                {
+                  "person_id": "william-macready"
+                }
+              ]
+            }
+          },
+          "theory": {
+            "no-free-lunch": {
+              "theory_id": "no-free-lunch",
+              "name": "No Free Lunch Theorems for Optimization",
+              "year": 1997,
+              "summary": "For any algorithm, any elevated performance over one class of problems is exactly paid for in performance over another class. Average performance of any pair of algorithms across all possible problems is identical. Algorithm performance is determined by how aligned it is with the probability distribution over optimization problems.",
+              "category": "Optimization / Foundations",
+              "papers": [
+                {
+                  "paper_id": "wolpert-macready-1997-no-free-lunch"
+                }
+              ]
+            }
+          },
+          "assumption": {
+            "nfl-assumption-1": {
+              "assumption_id": "nfl-assumption-1",
+              "theory_id": "no-free-lunch",
+              "statement": "Combinatorial optimization: search space X and cost space Y are finite.",
+              "rationale": "Enables formal treatment; matches digital computation."
+            },
+            "nfl-assumption-2": {
+              "assumption_id": "nfl-assumption-2",
+              "theory_id": "no-free-lunch",
+              "statement": "Oracle-based model: performance is measured only by the sample dym (ordered cost values from distinct function evaluations).",
+              "rationale": "Avoids artefacts from algorithms that revisit points; any performance measure is a function of dym."
+            },
+            "nfl-assumption-3": {
+              "assumption_id": "nfl-assumption-3",
+              "theory_id": "no-free-lunch",
+              "statement": "Algorithms are mappings from previous samples to a new (unvisited) point; formulation is deterministic (results extend to stochastic).",
+              "rationale": "Black-box algorithms (e.g. evolutionary, simulated annealing) fit this; branch-and-bound excluded."
+            }
+          },
+          "claim": {
+            "nfl-claim-1": {
+              "claim_id": "nfl-claim-1",
+              "theory_id": "no-free-lunch",
+              "statement": "For any pair of algorithms a1, a2, the sum over all cost functions f of P(dym|f,m,a1) equals the sum over all f of P(dym|f,m,a2); i.e. average performance over all problems is identical (Theorem 1).",
+              "status": "proven"
+            },
+            "nfl-claim-2": {
+              "claim_id": "nfl-claim-2",
+              "theory_id": "no-free-lunch",
+              "statement": "Any algorithm performs worse than random just as readily as it performs better than random, when averaged over all optimization problems.",
+              "status": "proven"
+            },
+            "nfl-claim-3": {
+              "claim_id": "nfl-claim-3",
+              "theory_id": "no-free-lunch",
+              "statement": "An algorithm's average performance is determined by how aligned it is with the probability distribution P(f) over optimization problems (geometric interpretation, Section 4).",
+              "status": "proven"
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "6c4006a3-e085-4f8b-97fa-6a3fb929d528": {
+        "session_id": "6c4006a3-e085-4f8b-97fa-6a3fb929d528",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-03-07T21:21:37.292099",
+        "initial_prompt": "Analyse the Bell paper and create the model entities",
+        "llm_model_version": "default",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1772902075
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 1,
+            "initial_prompt": "Analyse the Bell paper and create the model entities",
+            "ai_reasoning": "Starting session to analyse Bell 1964 paper and create paper, person, theory, assumptions, claims, and predictions in the physics model.",
+            "timestamp": "2026-03-07T21:19:31.345606-06:00",
+            "result_count": 25
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Bell is the sole author of the 1964 paper; person entity required for paper.authors.",
+            "timestamp": "2026-03-07T21:19:38.380098-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Main paper being analysed; Physics Vol.1 No.3 pp.195-200, 1964.",
+            "timestamp": "2026-03-07T21:19:40.144848-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Core contribution of the Bell paper: a theorem (1964) in quantum physics linking EPR, locality, and hidden variables.",
+            "timestamp": "2026-03-07T21:19:45.670115-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Paper states this as the vital assumption; it is the locality condition that Bell shows is incompatible with QM.",
+            "timestamp": "2026-03-07T21:19:53.373216-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Core assumption of the local hidden-variable framework that Bell proves incompatible with QM.",
+            "timestamp": "2026-03-07T21:19:57.584844-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Bell formulates the mathematical setup: equation (2) for local hidden variables and (3) for QM; the paper proves they cannot match.",
+            "timestamp": "2026-03-07T21:19:59.985088-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Main result of the paper (Section IV); later verified by Aspect et al. and other Bell tests.",
+            "timestamp": "2026-03-07T21:20:03.120119-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Conclusion (Section VI) of the paper: deterministic completion of QM implies non-locality and instantaneous action.",
+            "timestamp": "2026-03-07T21:20:05.896217-06:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Bell suggests experiments of the type proposed by Bohm and Aharonov, with settings changed during flight of particles, are crucial; later experiments verified the prediction.",
+            "timestamp": "2026-03-07T21:20:09.943887-06:00"
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "session_feedback",
+            "initial_prompt": "Analyse Bell paper",
+            "ai_reasoning": "Get session_feedback schema for finalize_session",
+            "timestamp": "2026-03-07T21:20:26.567808-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-03-07T21:20:35.150541-06:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-03-07T21:21:37.291937-06:00"
+          }
+        ],
+        "query_count": 13,
+        "session_duration": 125,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 2
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 9
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "person": {
+            "john-bell": {
+              "person_id": "john-bell",
+              "name": "J. S. Bell",
+              "birth_year": 1928,
+              "death_year": 1990,
+              "sources": [
+                "Author of Bell 1964 paper On the Einstein Podolsky Rosen Paradox"
+              ]
+            }
+          },
+          "paper": {
+            "bell-1964-epr-paradox": {
+              "paper_id": "bell-1964-epr-paradox",
+              "title": "On the Einstein Podolsky Rosen Paradox",
+              "year": 1964,
+              "authors": [
+                "john-bell"
+              ]
+            }
+          },
+          "theory": {
+            "bells-theorem": {
+              "theory_id": "bells-theorem",
+              "name": "Bell's theorem",
+              "year": 1964,
+              "summary": "Shows that no local hidden-variable theory can reproduce all statistical predictions of quantum mechanics. Formulates the EPR idea mathematically and proves that the requirement of locality (measurement on one system unaffected by operations on a distant system) is incompatible with QM. Any theory reproducing QM exactly must have non-local structure, with instantaneous influence between distant measurements.",
+              "category": "Quantum Physics",
+              "papers": [
+                "bell-1964-epr-paradox"
+              ],
+              "people": [
+                "john-bell"
+              ]
+            }
+          },
+          "assumption": {
+            "bell-locality": {
+              "assumption_id": "bell-locality",
+              "theory_id": "bells-theorem",
+              "statement": "The result B for particle 2 does not depend on the setting a of the magnet for particle 1, nor A on b. (Locality: the result of a measurement on one system is unaffected by operations on a distant system with which it has interacted in the past.)",
+              "rationale": "Bell formulates the EPR locality hypothesis [2] mathematically: if the two measurements are made at places remote from one another, the orientation of one magnet does not influence the result obtained with the other. This is the 'vital assumption' that leads to the expectation value P(a,b) = ∫ p(λ) A(a,λ) B(b,λ) dλ."
+            },
+            "bell-hidden-variables": {
+              "assumption_id": "bell-hidden-variables",
+              "theory_id": "bells-theorem",
+              "statement": "A more complete specification of the state is effected by parameters λ (hidden variables). The result A of measuring σ₁·a is determined by a and λ; the result B of measuring σ₂·b is determined by b and λ.",
+              "rationale": "EPR argued that predetermination of measurement outcomes implies a more complete specification than the wave function. Bell takes λ as a generic parameter (single or set, discrete or continuous) and shows that under locality, no such specification can reproduce QM."
+            }
+          },
+          "postulate": {
+            "bell-expectation-form": {
+              "postulate_id": "bell-expectation-form",
+              "theory_id": "bells-theorem",
+              "statement": "For local hidden variables, the expectation value of the product of σ₁·a and σ₂·b is P(a,b) = ∫ p(λ) A(a,λ) B(b,λ) dλ, where p(λ) is normalized. For the singlet state, quantum mechanics gives P(a,b) = -a·b.",
+              "formulation_year": 1964
+            }
+          },
+          "claim": {
+            "bell-no-local-reproduction": {
+              "claim_id": "bell-no-local-reproduction",
+              "theory_id": "bells-theorem",
+              "statement": "The quantum mechanical expectation value P(a,b) = -a·b cannot be represented, either accurately or arbitrarily closely, in the form P(a,b) = ∫ p(λ) A(a,λ) B(b,λ) dλ with A(a,λ), B(b,λ) depending only on local settings and λ.",
+              "status": "verified",
+              "verification_year": 1982
+            },
+            "bell-nonlocality-required": {
+              "claim_id": "bell-nonlocality-required",
+              "theory_id": "bells-theorem",
+              "statement": "In any theory in which parameters are added to quantum mechanics to determine the results of individual measurements without changing the statistical predictions, there must be a mechanism whereby the setting of one measuring device can influence the reading of another instrument, however remote; the signal must propagate instantaneously, so such a theory could not be Lorentz invariant.",
+              "status": "verified"
+            }
+          },
+          "prediction": {
+            "bell-inequality-violation": {
+              "prediction_id": "bell-inequality-violation",
+              "theory_id": "bells-theorem",
+              "statement": "Experiments measuring correlated spin components on pairs of particles in the singlet state will violate inequalities satisfied by any local hidden-variable theory (e.g. the correlation will follow -a·b and not be representable in the form (2)).",
+              "prediction_year": 1964,
+              "status": "verified",
+              "verification_year": 1982,
+              "verification_method": "Aspect et al. and other Bell-type experiments with spatially separated measurements and delayed choice.",
+              "people": [
+                "john-bell"
+              ],
+              "papers": [
+                "bell-1964-epr-paradox"
+              ]
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session closed due to server shutdown",
+            "challenges_encountered": "Server was shut down before session could be finalized"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "a8b47b66-1548-4add-a222-1eb447a0b361": {
+        "session_id": "a8b47b66-1548-4add-a222-1eb447a0b361",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-12T19:14:00.279004",
+        "initial_prompt": "Get model structure to understand entity formats",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1770941330
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "claim",
+            "initial_prompt": "Get model structure to understand entity formats",
+            "ai_reasoning": "Need to understand the structure of entities to create proper YAML",
+            "timestamp": "2026-02-12T19:06:19.143476-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-12T19:14:00.278901-06:00"
+          }
+        ],
+        "query_count": 2,
+        "session_duration": 461,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 1
+          }
+        ],
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "9ff41aad-1109-45bc-8f5f-3b3cb75829b4": {
+        "session_id": "9ff41aad-1109-45bc-8f5f-3b3cb75829b4",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T16:25:51.064757",
+        "initial_prompt": "Evaluate index.md against known physics theories and science, and report on similarities and differences",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771020625
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Evaluate index.md against known physics theories and science, and report on similarities and differences",
+            "ai_reasoning": "I need to understand the physics model structure to compare the content of index.md against known theories.",
+            "timestamp": "2026-02-13T16:17:51.811244-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T16:25:51.064681-06:00"
+          }
+        ],
+        "query_count": 2,
+        "session_duration": 479,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 1
+          }
+        ],
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "0bb6b2f3-6c94-4b4b-a4c6-508dc3757ea2": {
+        "session_id": "0bb6b2f3-6c94-4b4b-a4c6-508dc3757ea2",
+        "c": 3,
+        "v": 3,
+        "timestamp": "2026-02-13T20:51:36.383702",
+        "initial_prompt": "Test create_entity with nested entity objects in array fields",
+        "llm_model_version": "gpt-4o",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.02.12.1",
+          "author": "Exergy ∞ LLC",
+          "include_x_fields": false,
+          "max_name_underscores": 2,
+          "exclude": null,
+          "meta_model_version_date": "2025-01-27"
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1771024026
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 1,
+            "initial_prompt": "Test create_entity with nested entity objects in array fields",
+            "ai_reasoning": "Getting the model structure to understand how nested entities are defined",
+            "timestamp": "2026-02-13T20:42:40.347397-06:00",
+            "result_count": 24
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [0]",
+            "ai_reasoning": "Getting an example theory to see how nested assumptions are structured",
+            "timestamp": "2026-02-13T20:42:43.850482-06:00",
+            "result_count": 11
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Testing create_entity with nested assumption objects in the assumptions array field",
+            "timestamp": "2026-02-13T20:42:44.842276-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'test-nested-entities']",
+            "ai_reasoning": "Verifying the created test theory to see if nested entities were stored correctly",
+            "timestamp": "2026-02-13T20:42:47.888683-06:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.* | [?theory_id == 'test-nested-entities'] | [0] | {theory_id, name, assumptions, papers, people}",
+            "ai_reasoning": "Checking the full structure of the test entity to confirm nested entities are properly stored",
+            "timestamp": "2026-02-13T20:42:50.937126-06:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "anomaly.* | [?contains(name, 'flyby') || contains(name, 'Flyby') || contains(description, 'flyby') || contains(description, 'Flyby')]",
+            "ai_reasoning": "Checking if the Earth flyby anomaly already exists in the database",
+            "timestamp": "2026-02-13T20:49:35.672895-06:00",
+            "result_count": 0
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-02-13T20:51:36.383649-06:00"
+          }
+        ],
+        "query_count": 7,
+        "session_duration": 536,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 4
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 1
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 1
+          }
+        ],
+        "created_entities": {
+          "theory": {
+            "test-nested-entities.test theory with nested entities.000000002024....{'assumption_id': 'test-assumption-1', 'theory_id': 'test-nested-entities', 'statement': 'This is a test assumption', 'rationale': 'Testing nested entity creation'}.....anderson-1998-pioneer.john-anderson...": {
+              "theory_id": "test-nested-entities",
+              "name": "test theory with nested entities",
+              "year": 2024,
+              "assumptions": [
+                {
+                  "assumption_id": "test-assumption-1",
+                  "theory_id": "test-nested-entities",
+                  "statement": "This is a test assumption",
+                  "rationale": "Testing nested entity creation"
+                }
+              ],
+              "papers": [
+                "anderson-1998-pioneer"
+              ],
+              "people": [
+                "john-anderson"
+              ]
+            }
+          }
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
       }
     },
     "theory": {

@@ -25,8 +25,8 @@
               "entity": "session_assessment"
             }
           },
-          "required": true,
-          "description": "AI's comprehensive assessment of the session, including efficiency metrics, validation\ntracking, and quality evaluation. Must be provided for every session to enable\ncontinuous improvement.\n"
+          "required": false,
+          "description": "AI's comprehensive assessment of the session, including efficiency metrics, validation\ntracking, and quality evaluation. Omitted on interrupted/timeout captures; present on completed sessions.\n"
         },
         {
           "name": "user_feedback",
@@ -45,8 +45,8 @@
               "entity": "ai_feedback"
             }
           },
-          "required": true,
-          "description": "AI-generated feedback about the session, including processing summary, tools used,\nchallenges encountered, and insights for improvement.\n"
+          "required": false,
+          "description": "AI-generated feedback about the session, including processing summary, tools used,\nchallenges encountered, and insights for improvement. Omitted on interrupted/timeout captures.\n"
         }
       ]
     },

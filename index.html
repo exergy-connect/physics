@@ -1034,35 +1034,23 @@
     </div>
 
     <script>
-        // Global version variable
-        const APP_VERSION = '2026-02-13.1';
+        const APP_VERSION = '2026-04-03.1';
         
         // Global variable to hold the loaded hierarchy data
         let sampleHierarchy = null;
         let currentView = 'concepts'; // 'concepts', 'people', 'tags', 'papers', 'anomalies'
         let consolidatedDataGlobal = null; // Store consolidated data for view switching
-        
-        // Load consolidated data asynchronously
-        async function loadConsolidatedData() {
-            try {
-                if (typeof getConsolidatedData === 'undefined') {
-                    throw new Error('getConsolidatedData function not found. Make sure data/output/consolidated_data.js is loaded.');
-                }
-                const data = await getConsolidatedData();
-                return data;
-            } catch (error) {
-                console.error('Error loading consolidated data:', error);
-                // Fallback to sync version if available
-                if (typeof getConsolidatedDataSync !== 'undefined') {
-                    try {
-                        return getConsolidatedDataSync();
-                    } catch (syncError) {
-                        console.error('Error loading consolidated data (sync fallback):', syncError);
-                        throw syncError;
-                    }
-                }
-                throw error;
+        /** Parsed payload after loadConsolidatedDataScript() runs getConsolidatedData() */
+        let consolidatedDataModule = null;
+        let consolidatedDataLoadPromise = null;
+
+        function loadConsolidatedData() {
+            if (consolidatedDataModule != null) {
+                return Promise.resolve(consolidatedDataModule);
             }
+            return Promise.reject(
+                new Error('Consolidated data not loaded. Call loadConsolidatedDataScript() first.')
+            );
         }
 
         // Convert consolidated data format to hierarchical format expected by UI
@@ -1903,7 +1891,7 @@
             updateTree();
         }
 
-        // Initialize data from script-loaded consolidated_data.js
+        // Initialize data from consolidated_data.js (injected by loadConsolidatedDataScript)
         async function initializeData() {
             let consolidatedData;
             try {
@@ -3292,15 +3280,32 @@
             updateAnomalyTree(searchTerm);
         });
 
-        // Dynamically load consolidated data script with version
-        function loadConsolidatedDataScript() {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = `data/output/consolidated_data.js?v=${APP_VERSION}`;
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-            });
+        // Inject consolidated_data.js with ?v=APP_VERSION, then run global getConsolidatedData() (gzip+base64 payload)
+        async function loadConsolidatedDataScript() {
+            if (consolidatedDataModule != null) {
+                return;
+            }
+            if (!consolidatedDataLoadPromise) {
+                consolidatedDataLoadPromise = (async () => {
+                    if (typeof getConsolidatedData !== 'function') {
+                        await new Promise((resolve, reject) => {
+                            const s = document.createElement('script');
+                            s.src = `data/output/consolidated_data.js?v=${encodeURIComponent(APP_VERSION)}`;
+                            s.onload = () => resolve();
+                            s.onerror = () =>
+                                reject(new Error(`Failed to load consolidated data script: ${s.src}`));
+                            document.head.appendChild(s);
+                        });
+                    }
+                    if (typeof getConsolidatedData !== 'function') {
+                        throw new Error(
+                            'getConsolidatedData missing after loading consolidated_data.js'
+                        );
+                    }
+                    consolidatedDataModule = await getConsolidatedData();
+                })();
+            }
+            await consolidatedDataLoadPromise;
         }
 
         // Update footer with version
@@ -3375,7 +3380,7 @@
             updateFooterVersion();
         }
 
-        // Initialize data on startup (data.js is loaded dynamically)
+        // Initialize data on startup (consolidated_data.js injected with APP_VERSION cache-bust)
         // Use async IIFE to handle async initialization
         (async () => {
             // Load the consolidated data script first
