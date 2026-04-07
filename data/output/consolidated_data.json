@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "timestamp": "2026-04-03T19:59:51Z",
+  "version": 4,
+  "timestamp": "2026-04-07T16:06:22Z",
   "model": {
     "name": "Anomaly Model",
     "version": "26.04.03.1",
@@ -32,6 +32,13 @@
         "author": "jeroen",
         "note": "Consolidate physics data; session_feedback assessment/ai_feedback optional for timeout rows",
         "git_commit_hash": "03a167de193eb048f4aea049cea538d008551701"
+      },
+      "000000000004": {
+        "id": 4,
+        "timestamp": "2026-04-07T11:06:22-05:00",
+        "author": "jeroen",
+        "note": "Regenerate consolidated schema and data from all data/*.json and nested paper shards including ueet-2026/entities.json",
+        "git_commit_hash": "316596f86d356bb659fcf88fe29423fcd330f738"
       }
     },
     "anomaly": {
@@ -3516,6 +3523,445 @@
           "validation_error": "Validation skipped for timeout session"
         }
       },
+      "76b624b3-2971-4daf-9d28-cd810b9d8220": {
+        "session_id": "76b624b3-2971-4daf-9d28-cd810b9d8220",
+        "c": 4,
+        "v": 4,
+        "timestamp": "2026-04-07T10:57:14.693717",
+        "initial_prompt": "Analyze UEET monograph text and model Unified Energy Exchange Theory entities",
+        "llm_model_version": "claude-sonnet-4-20250514",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.04.03.1",
+          "author": "Exergy ∞ LLC",
+          "description": "Anomaly and violated-assumption entities: observations that challenge theories, linked to assumptions and claims.",
+          "include_x_fields": true,
+          "max_name_underscores": 2,
+          "exclude": null
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1775246391
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 0,
+            "initial_prompt": "Analyze UEET monograph text and model Unified Energy Exchange Theory entities",
+            "ai_reasoning": "User requested MCP analysis and modeling of UEET-monograph.txt; need schema before creating entities.",
+            "timestamp": "2026-04-07T10:47:59.184040-05:00",
+            "result_count": 25
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "theory",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Need full field list for theory entity creation.",
+            "timestamp": "2026-04-07T10:48:03.808220-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "paper",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Need paper entity schema for monograph reference.",
+            "timestamp": "2026-04-07T10:48:05.547068-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "person",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Need person entity for author.",
+            "timestamp": "2026-04-07T10:48:08.085827-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "postulate",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Need postulate fields linked to theory.",
+            "timestamp": "2026-04-07T10:48:08.527805-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "claim",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Need claim entity schema.",
+            "timestamp": "2026-04-07T10:48:09.865086-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "assumption",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Need assumption entity schema.",
+            "timestamp": "2026-04-07T10:48:09.916966-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "prediction",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Need prediction entity for monograph predictions section.",
+            "timestamp": "2026-04-07T10:48:11.255203-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "get_entity",
+            "entity": "session_feedback",
+            "depth": 0,
+            "ai_reasoning": "Need session_feedback schema for finalize_session.",
+            "timestamp": "2026-04-07T10:48:31.914435-05:00",
+            "result_count": 14
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "session_feedback",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Get session_feedback field schema only for finalize_session.",
+            "timestamp": "2026-04-07T10:48:38.087228-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "theory.*[?theory_id=='ueet'] | [0]",
+            "ai_reasoning": "Check if UEET theory already exists before creating duplicates.",
+            "timestamp": "2026-04-07T10:48:41.852686-05:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "paper.*[?paper_id=='ueet_monograph_2026'] | [0]",
+            "ai_reasoning": "Check if monograph paper already exists.",
+            "timestamp": "2026-04-07T10:48:41.933389-05:00"
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "(theory.*)[?theory_id=='ueet'] | [0]",
+            "ai_reasoning": "Correct JMESPath syntax for theory lookup.",
+            "timestamp": "2026-04-07T10:48:47.902933-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "person",
+            "ai_reasoning": "Author of UEET monograph extracted from text.",
+            "timestamp": "2026-04-07T10:48:58.099183-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "paper",
+            "ai_reasoning": "Primary source document modeled from extracted PDF/text.",
+            "timestamp": "2026-04-07T10:48:58.105910-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "theory",
+            "ai_reasoning": "Core theory node linking monograph and author.",
+            "timestamp": "2026-04-07T10:48:59.574323-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Postulate 1 from monograph Fundamental Postulates section.",
+            "timestamp": "2026-04-07T10:49:06.724891-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Postulate 2 asymmetry and residence time.",
+            "timestamp": "2026-04-07T10:49:08.278398-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "postulate",
+            "ai_reasoning": "Postulate 3 oscillatory overlap mechanism.",
+            "timestamp": "2026-04-07T10:49:09.804805-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Foundational geometric assumption from introduction.",
+            "timestamp": "2026-04-07T10:49:11.513599-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Second pillar assumption from Occam section.",
+            "timestamp": "2026-04-07T10:49:11.522091-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "assumption",
+            "ai_reasoning": "Epistemic bridge between discrete ontology and continuum math.",
+            "timestamp": "2026-04-07T10:49:13.040284-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Central advertised equation on title page.",
+            "timestamp": "2026-04-07T10:49:18.703980-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Equation (1) in monograph.",
+            "timestamp": "2026-04-07T10:49:20.576014-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "From introduction and unification chapters.",
+            "timestamp": "2026-04-07T10:49:20.650844-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "claim",
+            "ai_reasoning": "Bulleted list in introduction Table 1 context.",
+            "timestamp": "2026-04-07T10:49:22.471437-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Explicit prediction section equations 490-491.",
+            "timestamp": "2026-04-07T10:49:23.918526-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Table 4 and LHCb search suggestion in monograph.",
+            "timestamp": "2026-04-07T10:49:26.540887-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Gravitational predictions paragraph.",
+            "timestamp": "2026-04-07T10:49:27.728015-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Emergent electromagnetism bullet in PREDICTIONS.",
+            "timestamp": "2026-04-07T10:49:28.086246-05:00"
+          },
+          {
+            "tool": "create_entity",
+            "entity": "prediction",
+            "ai_reasoning": "Equation 489 and following prediction text.",
+            "timestamp": "2026-04-07T10:49:29.750021-05:00"
+          },
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "ai_feedback",
+            "initial_prompt": "UEET modeling",
+            "ai_reasoning": "Optional nested feedback fields for finalize_session.",
+            "timestamp": "2026-04-07T10:49:38.344669-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "jmespath_query",
+            "query": "(theory.*)[?theory_id=='unified-energy-exchange-theory'] | [0]",
+            "ai_reasoning": "Verify theory aggregate includes nested children after creation.",
+            "timestamp": "2026-04-07T10:49:38.359631-05:00",
+            "result_count": 7
+          },
+          {
+            "tool": "check_unexpected_changes",
+            "tolerance": 1,
+            "ai_reasoning": "Tool description asks to call before finalize for entities with rate_of_change.",
+            "timestamp": "2026-04-07T10:49:49.408961-05:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-04-07T10:50:03.708222-05:00"
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-04-07T10:57:14.693607-05:00"
+          }
+        ],
+        "query_count": 36,
+        "session_duration": 555,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 10
+          },
+          {
+            "tool_name": "get_entity",
+            "count": 1
+          },
+          {
+            "tool_name": "jmespath_query",
+            "count": 4
+          },
+          {
+            "tool_name": "create_entity",
+            "count": 18
+          },
+          {
+            "tool_name": "check_unexpected_changes",
+            "count": 1
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 2
+          }
+        ],
+        "created_entities": {
+          "person": {
+            "samir-dzolota": {
+              "person_id": "samir-dzolota",
+              "name": "Samir Džolota",
+              "sources": [
+                "ORCID 0009-0009-9805-0447",
+                "UEET monograph 2026"
+              ]
+            }
+          },
+          "paper": {
+            "ueet-monograph-2026": {
+              "paper_id": "ueet-monograph-2026",
+              "title": "Unified Energy Exchange Theory (UEET): Synthesis of Reality through Energy Exchange",
+              "year": 2026,
+              "authors": [
+                "samir-dzolota"
+              ],
+              "link": "physics/data/papers/ueet-2026/UEET-monograph.pdf"
+            }
+          },
+          "theory": {
+            "unified-energy-exchange-theory": {
+              "theory_id": "unified-energy-exchange-theory",
+              "name": "Unified Energy Exchange Theory (UEET)",
+              "year": 2026,
+              "category": "unified field theory / speculative phenomenology",
+              "summary": "Proposes a discrete tetrahedral lattice of energy nodes with phase field phi; matter and antimatter as phase-opposite overlap of a single field; asymmetry factor alpha introduces residence time in nodes, yielding rest mass E=(1-alpha)mc^2 and a master equation coupling d'Alembert and nonlinear potential to topological drive. Aims to derive EM, gravity, nuclear forces, cosmology, and constants as emergent from geometry and alpha without ad-hoc dark sectors.",
+              "papers": [
+                "ueet-monograph-2026"
+              ],
+              "people": [
+                "samir-dzolota"
+              ],
+              "predictions": [
+                {
+                  "prediction_id": "ueet-pred-fifth-force",
+                  "statement": "Additional long-range Yukawa-type fifth force from lattice collective mode, range lambda_5 roughly microns to meters, coupling to mass via lattice distortion.",
+                  "prediction_year": 2026,
+                  "status": "open"
+                },
+                {
+                  "prediction_id": "ueet-pred-ccc-baryon",
+                  "statement": "Triple-charm baryon ccc++ mass 4785 +/- 15 MeV, angular tension sum ~1.2 deg vs tetrahedral 109.47 deg, anomalously narrow decay width per NSL.",
+                  "prediction_year": 2026,
+                  "status": "open",
+                  "papers": [
+                    "ueet-monograph-2026"
+                  ]
+                },
+                {
+                  "prediction_id": "ueet-pred-planck-gr",
+                  "statement": "At Planck-scale densities, discrete lattice corrections to GR become observable (e.g. near black hole horizons).",
+                  "prediction_year": 2026,
+                  "status": "open"
+                },
+                {
+                  "prediction_id": "ueet-pred-alpha-running",
+                  "statement": "Fine-structure constant may show small deviations from ~1/137 under extreme lattice deformation or high energy density.",
+                  "prediction_year": 2026,
+                  "status": "open"
+                },
+                {
+                  "prediction_id": "ueet-pred-lambda-t",
+                  "statement": "Cosmological constant Lambda may exhibit weak time dependence tied to H and Planck scale via dynamic lattice fluctuations (rho_Lambda ~ 10^-122 rho_Planck context).",
+                  "prediction_year": 2026,
+                  "status": "open"
+                }
+              ],
+              "claims": [
+                {
+                  "claim_id": "ueet-claim-mass-energy",
+                  "statement": "Observable rest mass-energy scales as E = (1 - alpha) m c^2 with alpha the asymmetry factor (monograph title relation).",
+                  "status": "hypothesis"
+                },
+                {
+                  "claim_id": "ueet-claim-master-equation",
+                  "statement": "Phase field phi obeys master PDE: box phi + 4 lambda phi(phi^2 - v^2) = (K^dagger/(2 E_P)) nabla(D phi)(D phi) coupling nonlinear vacuum structure to gauge-covariant topological drive.",
+                  "status": "hypothesis"
+                },
+                {
+                  "claim_id": "ueet-claim-emergent-forces",
+                  "statement": "Gravity, electromagnetism, and nuclear forces are resonant modes of the same nodal network—not independent fundamental interactions.",
+                  "status": "hypothesis"
+                },
+                {
+                  "claim_id": "ueet-claim-problems-addressed",
+                  "statement": "Framework is claimed to address vacuum energy magnitude, baryon asymmetry framing, Hubble tension variability, mass hierarchy without Higgs-centric narrative, and GR singularities via nodal saturation C_max.",
+                  "status": "hypothesis"
+                }
+              ],
+              "postulates": [
+                {
+                  "postulate_id": "ueet-postulate-1",
+                  "statement": "Matter and antimatter are phase-opposite manifestations of one energy field; interaction is oscillatory phase overlap, not only terminal annihilation—high-frequency resonance at nodal junctions; energy transitions between localized inclusion and network flow.",
+                  "formulation_year": 2026
+                },
+                {
+                  "postulate_id": "ueet-postulate-2",
+                  "statement": "Visible persistent mass requires fundamental asymmetry factor alpha; imperfect phase overlap gives finite residence time of quanta in tetrahedral energy nodes, interpreted as rest mass; alpha measures resistance to perfect vacuum recycling.",
+                  "formulation_year": 2026
+                },
+                {
+                  "postulate_id": "ueet-postulate-3",
+                  "statement": "Massless quanta exchange with phase fields via nodal capture, inclusion/flickering between Psi_M and Psi_Mbar at nodal frequency, producing emergent mass as effective resistance to motion.",
+                  "formulation_year": 2026
+                }
+              ],
+              "assumptions": [
+                {
+                  "assumption_id": "ueet-assumption-tetrahedral",
+                  "statement": "Spacetime or vacuum substrate is well approximated by a fixed topological tetrahedral grid of energy nodes.",
+                  "rationale": "Stated as one of two Occam pillars with alpha; defines discrete geometry and Planck-scale saturation C_max."
+                },
+                {
+                  "assumption_id": "ueet-assumption-alpha",
+                  "statement": "A single asymmetry parameter alpha (and its spatial/temporal gradients) governs dynamics; other constants are emergent from alpha and network geometry.",
+                  "rationale": "Author claims reduction of free parameters vs Standard Model fine-tuning."
+                },
+                {
+                  "assumption_id": "ueet-assumption-continuum",
+                  "statement": "Continuum field equations (e.g. master equation for phi, Maxwell, GR limit) are valid effective descriptions of an underlying discrete nodal dynamics.",
+                  "rationale": "Monograph uses PDEs and takes smooth limits while positing Planck-scale discreteness."
+                }
+              ]
+            }
+          },
+          "postulate": {},
+          "assumption": {},
+          "claim": {},
+          "prediction": {}
+        },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
       "a8b47b66-1548-4add-a222-1eb447a0b361": {
         "session_id": "a8b47b66-1548-4add-a222-1eb447a0b361",
         "c": 3,
@@ -3743,6 +4189,65 @@
             }
           }
         },
+        "feedback_model": {
+          "name": "session_feedback",
+          "version": "",
+          "author": "Exergy ∞ LLC",
+          "raw_feedback": {
+            "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+            "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+          },
+          "validation_status": "failed",
+          "validation_error": "Validation skipped for timeout session"
+        }
+      },
+      "70e5e61e-6577-46c1-b054-119ed9c80f37": {
+        "session_id": "70e5e61e-6577-46c1-b054-119ed9c80f37",
+        "c": 4,
+        "v": 4,
+        "timestamp": "2026-04-07T11:02:14.796325",
+        "initial_prompt": "tag entity fields for ueet model",
+        "llm_model_version": "claude-sonnet-4-20250514",
+        "model": {
+          "name": "Anomaly Model",
+          "version": "26.04.03.1",
+          "author": "Exergy ∞ LLC",
+          "description": "Anomaly and violated-assumption entities: observations that challenge theories, linked to assumptions and claims.",
+          "include_x_fields": true,
+          "max_name_underscores": 2,
+          "exclude": null
+        },
+        "data_file": {
+          "reloaded": false,
+          "last_modified": 1775246391
+        },
+        "queries_executed": [
+          {
+            "tool": "get_model",
+            "depth": 2,
+            "entity": "tag",
+            "initial_prompt": "tag entity fields for ueet model",
+            "ai_reasoning": "Confirm tag entity schema if we mirror it in JSON.",
+            "timestamp": "2026-04-07T10:53:55.132987-05:00",
+            "result_count": 1
+          },
+          {
+            "tool": "finalize_session",
+            "timestamp": "2026-04-07T11:02:14.796287-05:00"
+          }
+        ],
+        "query_count": 2,
+        "session_duration": 499,
+        "tool_counts": [
+          {
+            "tool_name": "get_model",
+            "count": 1
+          },
+          {
+            "tool_name": "finalize_session",
+            "count": 1
+          }
+        ],
         "feedback_model": {
           "name": "session_feedback",
           "version": "",
@@ -5205,6 +5710,150 @@
         "c": 1,
         "v": 1
       },
+      "unified-energy-exchange-theory": {
+        "theory_id": "unified-energy-exchange-theory",
+        "name": "Unified Energy Exchange Theory (UEET)",
+        "year": 2026,
+        "summary": "Proposes a discrete tetrahedral lattice of energy nodes with phase field phi; matter and antimatter as phase-opposite overlap of a single field; asymmetry factor alpha introduces residence time in nodes, yielding rest mass E=(1-alpha)mc^2 and a master equation coupling d'Alembert and nonlinear potential to topological drive. Aims to derive EM, gravity, nuclear forces, cosmology, and constants as emergent from geometry and alpha without ad-hoc dark sectors. (Author category: unified field theory / speculative phenomenology.)",
+        "category": "Particle Physics",
+        "assumptions": [
+          {
+            "assumption_id": "ueet-assumption-tetrahedral",
+            "statement": "Spacetime or vacuum substrate is well approximated by a fixed topological tetrahedral grid of energy nodes.",
+            "rationale": "Stated as one of two Occam pillars with alpha; defines discrete geometry and Planck-scale saturation C_max.",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "assumption_id": "ueet-assumption-alpha",
+            "statement": "A single asymmetry parameter alpha (and its spatial/temporal gradients) governs dynamics; other constants are emergent from alpha and network geometry.",
+            "rationale": "Author claims reduction of free parameters vs Standard Model fine-tuning.",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "assumption_id": "ueet-assumption-continuum",
+            "statement": "Continuum field equations (e.g. master equation for phi, Maxwell, GR limit) are valid effective descriptions of an underlying discrete nodal dynamics.",
+            "rationale": "Monograph uses PDEs and takes smooth limits while positing Planck-scale discreteness.",
+            "c": 4,
+            "v": 4
+          }
+        ],
+        "postulates": [
+          {
+            "postulate_id": "ueet-postulate-1",
+            "statement": "Matter and antimatter are phase-opposite manifestations of one energy field; interaction is oscillatory phase overlap, not only terminal annihilation—high-frequency resonance at nodal junctions; energy transitions between localized inclusion and network flow.",
+            "formulation_year": 2026,
+            "c": 4,
+            "v": 4
+          },
+          {
+            "postulate_id": "ueet-postulate-2",
+            "statement": "Visible persistent mass requires fundamental asymmetry factor alpha; imperfect phase overlap gives finite residence time of quanta in tetrahedral energy nodes, interpreted as rest mass; alpha measures resistance to perfect vacuum recycling.",
+            "formulation_year": 2026,
+            "c": 4,
+            "v": 4
+          },
+          {
+            "postulate_id": "ueet-postulate-3",
+            "statement": "Massless quanta exchange with phase fields via nodal capture, inclusion/flickering between Psi_M and Psi_Mbar at nodal frequency, producing emergent mass as effective resistance to motion.",
+            "formulation_year": 2026,
+            "c": 4,
+            "v": 4
+          }
+        ],
+        "claims": [
+          {
+            "claim_id": "ueet-claim-mass-energy",
+            "statement": "Observable rest mass-energy scales as E = (1 - alpha) m c^2 with alpha the asymmetry factor (monograph title relation).",
+            "status": "theoretical",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "claim_id": "ueet-claim-master-equation",
+            "statement": "Phase field phi obeys master PDE: box phi + 4 lambda phi(phi^2 - v^2) = (K^dagger/(2 E_P)) nabla(D phi)(D phi) coupling nonlinear vacuum structure to gauge-covariant topological drive.",
+            "status": "theoretical",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "claim_id": "ueet-claim-emergent-forces",
+            "statement": "Gravity, electromagnetism, and nuclear forces are resonant modes of the same nodal network—not independent fundamental interactions.",
+            "status": "theoretical",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "claim_id": "ueet-claim-problems-addressed",
+            "statement": "Framework is claimed to address vacuum energy magnitude, baryon asymmetry framing, Hubble tension variability, mass hierarchy without Higgs-centric narrative, and GR singularities via nodal saturation C_max.",
+            "status": "theoretical",
+            "c": 4,
+            "v": 4
+          }
+        ],
+        "predictions": [
+          {
+            "prediction_id": "ueet-pred-fifth-force",
+            "statement": "Additional long-range Yukawa-type fifth force from lattice collective mode, range lambda_5 roughly microns to meters, coupling to mass via lattice distortion.",
+            "prediction_year": 2026,
+            "status": "pending",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "prediction_id": "ueet-pred-ccc-baryon",
+            "statement": "Triple-charm baryon ccc++ mass 4785 +/- 15 MeV, angular tension sum ~1.2 deg vs tetrahedral 109.47 deg, anomalously narrow decay width per NSL.",
+            "prediction_year": 2026,
+            "status": "pending",
+            "papers": [
+              "ueet-monograph-2026"
+            ],
+            "c": 4,
+            "v": 4
+          },
+          {
+            "prediction_id": "ueet-pred-planck-gr",
+            "statement": "At Planck-scale densities, discrete lattice corrections to GR become observable (e.g. near black hole horizons).",
+            "prediction_year": 2026,
+            "status": "pending",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "prediction_id": "ueet-pred-alpha-running",
+            "statement": "Fine-structure constant may show small deviations from ~1/137 under extreme lattice deformation or high energy density.",
+            "prediction_year": 2026,
+            "status": "pending",
+            "c": 4,
+            "v": 4
+          },
+          {
+            "prediction_id": "ueet-pred-lambda-t",
+            "statement": "Cosmological constant Lambda may exhibit weak time dependence tied to H and Planck scale via dynamic lattice fluctuations (rho_Lambda ~ 10^-122 rho_Planck context).",
+            "prediction_year": 2026,
+            "status": "pending",
+            "c": 4,
+            "v": 4
+          }
+        ],
+        "papers": [
+          "ueet-monograph-2026"
+        ],
+        "people": [
+          "samir-dzolota"
+        ],
+        "tags": [
+          "ueet",
+          "discrete-lattice",
+          "phase-field",
+          "unification",
+          "speculative",
+          "matter-antimatter"
+        ],
+        "c": 4,
+        "v": 4
+      },
       "quantum-field-theory": {
         "theory_id": "quantum-field-theory",
         "name": "Quantum Field Theory",
@@ -6038,6 +6687,17 @@
         "c": 1,
         "v": 1
       },
+      "ueet-monograph-2026": {
+        "paper_id": "ueet-monograph-2026",
+        "title": "Unified Energy Exchange Theory (UEET): Synthesis of Reality through Energy Exchange",
+        "year": 2026,
+        "link": "physics/data/papers/ueet-2026/UEET-monograph.pdf",
+        "authors": [
+          "samir-dzolota"
+        ],
+        "c": 4,
+        "v": 4
+      },
       "feynman-1948-path-integral": {
         "paper_id": "feynman-1948-path-integral",
         "title": "A Relativistic Cut-Off for Classical Electrodynamics",
@@ -6373,6 +7033,16 @@
         "c": 1,
         "v": 1
       },
+      "samir-dzolota": {
+        "person_id": "samir-dzolota",
+        "name": "Samir Džolota",
+        "sources": [
+          "ORCID 0009-0009-9805-0447",
+          "UEET monograph 2026"
+        ],
+        "c": 4,
+        "v": 4
+      },
       "wilhelm-conrad-rontgen": {
         "person_id": "wilhelm-conrad-rontgen",
         "name": "Wilhelm Conrad Röntgen",
@@ -6647,10 +7317,13 @@
       },
       "gravity": {
         "tag_id": "gravity",
-        "name": "gravity",
-        "explanation": "Theories and phenomena related to gravitational interactions",
+        "name": "Gravity",
+        "explanation": "Emergent gravity, GR limit, black holes / singularities.",
         "c": 1,
-        "v": 1
+        "m": [
+          4
+        ],
+        "v": 4
       },
       "time": {
         "tag_id": "time",
@@ -6658,6 +7331,90 @@
         "explanation": "Concepts related to time, time evolution, and temporal dynamics",
         "c": 1,
         "v": 1
+      },
+      "ueet": {
+        "tag_id": "ueet",
+        "name": "UEET",
+        "explanation": "Unified Energy Exchange Theory as presented in this monograph.",
+        "c": 4,
+        "v": 4
+      },
+      "monograph": {
+        "tag_id": "monograph",
+        "name": "Monograph",
+        "explanation": "Book-length standalone treatment rather than a journal article.",
+        "c": 4,
+        "v": 4
+      },
+      "discrete-lattice": {
+        "tag_id": "discrete-lattice",
+        "name": "Discrete lattice",
+        "explanation": "Tetrahedral / nodal network substrate and Planck-scale discreteness.",
+        "c": 4,
+        "v": 4
+      },
+      "phase-field": {
+        "tag_id": "phase-field",
+        "name": "Phase field",
+        "explanation": "Scalar or phase field phi and master-equation dynamics.",
+        "c": 4,
+        "v": 4
+      },
+      "unification": {
+        "tag_id": "unification",
+        "name": "Force unification",
+        "explanation": "Forces as emergent modes of one network rather than independent interactions.",
+        "c": 4,
+        "v": 4
+      },
+      "speculative": {
+        "tag_id": "speculative",
+        "name": "Speculative",
+        "explanation": "Hypotheses not established by consensus physics; for triage and review.",
+        "c": 4,
+        "v": 4
+      },
+      "cosmology": {
+        "tag_id": "cosmology",
+        "name": "Cosmology",
+        "explanation": "Expansion, Hubble tension, cosmological constant / vacuum energy.",
+        "c": 4,
+        "v": 4
+      },
+      "particle-phenomenology": {
+        "tag_id": "particle-phenomenology",
+        "name": "Particle phenomenology",
+        "explanation": "Masses, generations, hadrons, collider-accessible predictions.",
+        "c": 4,
+        "v": 4
+      },
+      "electromagnetism": {
+        "tag_id": "electromagnetism",
+        "name": "Electromagnetism",
+        "explanation": "EM as phase gradients / Maxwell emergence; alpha.",
+        "c": 4,
+        "v": 4
+      },
+      "fifth-force": {
+        "tag_id": "fifth-force",
+        "name": "Fifth force",
+        "explanation": "Additional Yukawa-type long-range interaction from lattice modes.",
+        "c": 4,
+        "v": 4
+      },
+      "vacuum-energy": {
+        "tag_id": "vacuum-energy",
+        "name": "Vacuum energy",
+        "explanation": "Lambda, vacuum catastrophe framing, residual network tension.",
+        "c": 4,
+        "v": 4
+      },
+      "matter-antimatter": {
+        "tag_id": "matter-antimatter",
+        "name": "Matter and antimatter",
+        "explanation": "Phase duality, baryon asymmetry narrative in author framing.",
+        "c": 4,
+        "v": 4
       }
     },
     "prize": {

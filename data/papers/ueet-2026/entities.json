@@ -1,0 +1,196 @@
+{
+  "tag": [
+    {
+      "tag_id": "ueet",
+      "name": "UEET",
+      "explanation": "Unified Energy Exchange Theory as presented in this monograph."
+    },
+    {
+      "tag_id": "monograph",
+      "name": "Monograph",
+      "explanation": "Book-length standalone treatment rather than a journal article."
+    },
+    {
+      "tag_id": "discrete-lattice",
+      "name": "Discrete lattice",
+      "explanation": "Tetrahedral / nodal network substrate and Planck-scale discreteness."
+    },
+    {
+      "tag_id": "phase-field",
+      "name": "Phase field",
+      "explanation": "Scalar or phase field phi and master-equation dynamics."
+    },
+    {
+      "tag_id": "unification",
+      "name": "Force unification",
+      "explanation": "Forces as emergent modes of one network rather than independent interactions."
+    },
+    {
+      "tag_id": "speculative",
+      "name": "Speculative",
+      "explanation": "Hypotheses not established by consensus physics; for triage and review."
+    },
+    {
+      "tag_id": "cosmology",
+      "name": "Cosmology",
+      "explanation": "Expansion, Hubble tension, cosmological constant / vacuum energy."
+    },
+    {
+      "tag_id": "particle-phenomenology",
+      "name": "Particle phenomenology",
+      "explanation": "Masses, generations, hadrons, collider-accessible predictions."
+    },
+    {
+      "tag_id": "gravity",
+      "name": "Gravity",
+      "explanation": "Emergent gravity, GR limit, black holes / singularities."
+    },
+    {
+      "tag_id": "electromagnetism",
+      "name": "Electromagnetism",
+      "explanation": "EM as phase gradients / Maxwell emergence; alpha."
+    },
+    {
+      "tag_id": "fifth-force",
+      "name": "Fifth force",
+      "explanation": "Additional Yukawa-type long-range interaction from lattice modes."
+    },
+    {
+      "tag_id": "vacuum-energy",
+      "name": "Vacuum energy",
+      "explanation": "Lambda, vacuum catastrophe framing, residual network tension."
+    },
+    {
+      "tag_id": "matter-antimatter",
+      "name": "Matter and antimatter",
+      "explanation": "Phase duality, baryon asymmetry narrative in author framing."
+    }
+  ],
+  "person": [
+    {
+      "person_id": "samir-dzolota",
+      "name": "Samir Džolota",
+      "sources": [
+        "ORCID 0009-0009-9805-0447",
+        "UEET monograph 2026"
+      ]
+    }
+  ],
+  "paper": [
+    {
+      "paper_id": "ueet-monograph-2026",
+      "title": "Unified Energy Exchange Theory (UEET): Synthesis of Reality through Energy Exchange",
+      "year": 2026,
+      "authors": ["samir-dzolota"],
+      "link": "physics/data/papers/ueet-2026/UEET-monograph.pdf"
+    }
+  ],
+  "theory": [
+    {
+      "theory_id": "unified-energy-exchange-theory",
+      "name": "Unified Energy Exchange Theory (UEET)",
+      "year": 2026,
+      "category": "Particle Physics",
+      "summary": "Proposes a discrete tetrahedral lattice of energy nodes with phase field phi; matter and antimatter as phase-opposite overlap of a single field; asymmetry factor alpha introduces residence time in nodes, yielding rest mass E=(1-alpha)mc^2 and a master equation coupling d'Alembert and nonlinear potential to topological drive. Aims to derive EM, gravity, nuclear forces, cosmology, and constants as emergent from geometry and alpha without ad-hoc dark sectors. (Author category: unified field theory / speculative phenomenology.)",
+      "papers": ["ueet-monograph-2026"],
+      "people": ["samir-dzolota"],
+      "tags": [
+        "ueet",
+        "discrete-lattice",
+        "phase-field",
+        "unification",
+        "speculative",
+        "matter-antimatter"
+      ],
+      "postulates": [
+        {
+          "postulate_id": "ueet-postulate-1",
+          "statement": "Matter and antimatter are phase-opposite manifestations of one energy field; interaction is oscillatory phase overlap, not only terminal annihilation—high-frequency resonance at nodal junctions; energy transitions between localized inclusion and network flow.",
+          "formulation_year": 2026
+        },
+        {
+          "postulate_id": "ueet-postulate-2",
+          "statement": "Visible persistent mass requires fundamental asymmetry factor alpha; imperfect phase overlap gives finite residence time of quanta in tetrahedral energy nodes, interpreted as rest mass; alpha measures resistance to perfect vacuum recycling.",
+          "formulation_year": 2026
+        },
+        {
+          "postulate_id": "ueet-postulate-3",
+          "statement": "Massless quanta exchange with phase fields via nodal capture, inclusion/flickering between Psi_M and Psi_Mbar at nodal frequency, producing emergent mass as effective resistance to motion.",
+          "formulation_year": 2026
+        }
+      ],
+      "assumptions": [
+        {
+          "assumption_id": "ueet-assumption-tetrahedral",
+          "statement": "Spacetime or vacuum substrate is well approximated by a fixed topological tetrahedral grid of energy nodes.",
+          "rationale": "Stated as one of two Occam pillars with alpha; defines discrete geometry and Planck-scale saturation C_max."
+        },
+        {
+          "assumption_id": "ueet-assumption-alpha",
+          "statement": "A single asymmetry parameter alpha (and its spatial/temporal gradients) governs dynamics; other constants are emergent from alpha and network geometry.",
+          "rationale": "Author claims reduction of free parameters vs Standard Model fine-tuning."
+        },
+        {
+          "assumption_id": "ueet-assumption-continuum",
+          "statement": "Continuum field equations (e.g. master equation for phi, Maxwell, GR limit) are valid effective descriptions of an underlying discrete nodal dynamics.",
+          "rationale": "Monograph uses PDEs and takes smooth limits while positing Planck-scale discreteness."
+        }
+      ],
+      "claims": [
+        {
+          "claim_id": "ueet-claim-mass-energy",
+          "statement": "Observable rest mass-energy scales as E = (1 - alpha) m c^2 with alpha the asymmetry factor (monograph title relation).",
+          "status": "theoretical"
+        },
+        {
+          "claim_id": "ueet-claim-master-equation",
+          "statement": "Phase field phi obeys master PDE: box phi + 4 lambda phi(phi^2 - v^2) = (K^dagger/(2 E_P)) nabla(D phi)(D phi) coupling nonlinear vacuum structure to gauge-covariant topological drive.",
+          "status": "theoretical"
+        },
+        {
+          "claim_id": "ueet-claim-emergent-forces",
+          "statement": "Gravity, electromagnetism, and nuclear forces are resonant modes of the same nodal network—not independent fundamental interactions.",
+          "status": "theoretical"
+        },
+        {
+          "claim_id": "ueet-claim-problems-addressed",
+          "statement": "Framework is claimed to address vacuum energy magnitude, baryon asymmetry framing, Hubble tension variability, mass hierarchy without Higgs-centric narrative, and GR singularities via nodal saturation C_max.",
+          "status": "theoretical"
+        }
+      ],
+      "predictions": [
+        {
+          "prediction_id": "ueet-pred-fifth-force",
+          "statement": "Additional long-range Yukawa-type fifth force from lattice collective mode, range lambda_5 roughly microns to meters, coupling to mass via lattice distortion.",
+          "prediction_year": 2026,
+          "status": "pending"
+        },
+        {
+          "prediction_id": "ueet-pred-ccc-baryon",
+          "statement": "Triple-charm baryon ccc++ mass 4785 +/- 15 MeV, angular tension sum ~1.2 deg vs tetrahedral 109.47 deg, anomalously narrow decay width per NSL.",
+          "prediction_year": 2026,
+          "status": "pending",
+          "papers": ["ueet-monograph-2026"]
+        },
+        {
+          "prediction_id": "ueet-pred-planck-gr",
+          "statement": "At Planck-scale densities, discrete lattice corrections to GR become observable (e.g. near black hole horizons).",
+          "prediction_year": 2026,
+          "status": "pending"
+        },
+        {
+          "prediction_id": "ueet-pred-alpha-running",
+          "statement": "Fine-structure constant may show small deviations from ~1/137 under extreme lattice deformation or high energy density.",
+          "prediction_year": 2026,
+          "status": "pending"
+        },
+        {
+          "prediction_id": "ueet-pred-lambda-t",
+          "statement": "Cosmological constant Lambda may exhibit weak time dependence tied to H and Planck scale via dynamic lattice fluctuations (rho_Lambda ~ 10^-122 rho_Planck context).",
+          "prediction_year": 2026,
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

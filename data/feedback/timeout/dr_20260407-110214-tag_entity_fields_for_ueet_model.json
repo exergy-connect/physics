@@ -1,0 +1,61 @@
+{
+  "session_feedback": [
+    {
+      "session_id": "70e5e61e-6577-46c1-b054-119ed9c80f37",
+      "timestamp": "2026-04-07T11:02:14.796325",
+      "initial_prompt": "tag entity fields for ueet model",
+      "llm_model_version": "claude-sonnet-4-20250514",
+      "model": {
+        "name": "Anomaly Model",
+        "version": "26.04.03.1",
+        "author": "Exergy ∞ LLC",
+        "description": "Anomaly and violated-assumption entities: observations that challenge theories, linked to assumptions and claims.",
+        "include_x_fields": true,
+        "max_name_underscores": 2,
+        "exclude": null
+      },
+      "data_file": {
+        "reloaded": false,
+        "last_modified": 1775246391
+      },
+      "queries_executed": [
+        {
+          "tool": "get_model",
+          "depth": 2,
+          "entity": "tag",
+          "initial_prompt": "tag entity fields for ueet model",
+          "ai_reasoning": "Confirm tag entity schema if we mirror it in JSON.",
+          "timestamp": "2026-04-07T10:53:55.132987-05:00",
+          "result_count": 1
+        },
+        {
+          "tool": "finalize_session",
+          "timestamp": "2026-04-07T11:02:14.796287-05:00"
+        }
+      ],
+      "query_count": 2,
+      "session_duration": 499,
+      "tool_counts": [
+        {
+          "tool_name": "get_model",
+          "count": 1
+        },
+        {
+          "tool_name": "finalize_session",
+          "count": 1
+        }
+      ],
+      "feedback_model": {
+        "name": "session_feedback",
+        "version": "",
+        "author": "Exergy ∞ LLC",
+        "raw_feedback": {
+          "session_summary": "Session timed out after 5 minute(s) without explicit finalize_session call",
+          "challenges_encountered": "Session exceeded timeout of 5 minute(s)"
+        },
+        "validation_status": "failed",
+        "validation_error": "Validation skipped for timeout session"
+      }
+    }
+  ]
+}
