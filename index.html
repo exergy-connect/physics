@@ -342,6 +342,23 @@
             color: rgba(184, 184, 255, 0.5);
         }
 
+        .url-params-hint {
+            margin: 0.35rem 0 0;
+            font-size: 0.72rem;
+            line-height: 1.35;
+            color: rgba(255, 255, 255, 0.42);
+            max-width: 42rem;
+        }
+        .url-params-hint code {
+            font-size: 0.68rem;
+            color: rgba(200, 220, 255, 0.85);
+        }
+        @media (max-width: 600px) {
+            .url-params-hint {
+                display: none;
+            }
+        }
+
         .search-box:focus {
             border-color: rgba(184, 184, 255, 0.8);
             box-shadow: 
@@ -981,6 +998,11 @@
                 placeholder="Enter search criteria..."
                 autocomplete="off"
             />
+            <p class="url-params-hint" title="URL parameters: view (tab) and q (search)">
+                Link with <code>?view=…</code> and optional <code>&amp;q=…</code> —
+                <code>concepts</code>, <code>people</code>, <code>tags</code>, <code>papers</code>, <code>anomalies</code>
+                (example: <code>?view=tags&amp;q=energy</code>)
+            </p>
         </div>
 
         <div class="split-container">
@@ -1034,7 +1056,28 @@
     </div>
 
     <script>
-        const APP_VERSION = '2026-04-03.1';
+        const APP_VERSION = '2026-04-07.2';
+
+        /** Tab ids aligned with <div class="tab" data-view="…"> */
+        const VALID_VIEWS = new Set(['concepts', 'people', 'tags', 'papers', 'anomalies']);
+
+        /** Keep address bar in sync: ?view=&lt;tab&gt; and optional &q=&lt;search&gt; */
+        function syncUrlToState() {
+            try {
+                const url = new URL(window.location.href);
+                url.searchParams.set('view', currentView);
+                const box = document.getElementById('searchBox');
+                const q = box ? String(box.value || '') : '';
+                if (q.trim()) {
+                    url.searchParams.set('q', q);
+                } else {
+                    url.searchParams.delete('q');
+                }
+                history.replaceState(null, '', url);
+            } catch (e) {
+                console.warn('syncUrlToState', e);
+            }
+        }
         
         // Global variable to hold the loaded hierarchy data
         let sampleHierarchy = null;
@@ -1830,8 +1873,11 @@
             }
         }
 
-        // Switch to a different view
-        function switchView(view) {
+        /**
+         * @param {string} view
+         * @param {{ initialQuery?: string }} [options] If initialQuery is set (including ''), use it for the search box; if omitted, clear search (normal tab change).
+         */
+        function switchView(view, options = {}) {
             if (!consolidatedDataGlobal) {
                 console.error('No consolidated data available');
                 return;
@@ -1873,10 +1919,16 @@
             trie = new Trie();
             buildTrie(sampleHierarchy, trie);
             
-            // Clear search and refresh tree
             const searchBox = document.getElementById('searchBox');
-            searchBox.value = '';
-            previousSearchTerm = '';
+            let effectiveSearch = '';
+            if (options.initialQuery !== undefined) {
+                searchBox.value = options.initialQuery;
+                previousSearchTerm = '';
+                effectiveSearch = options.initialQuery;
+            } else {
+                searchBox.value = '';
+                previousSearchTerm = '';
+            }
             
             // Update search placeholder based on view
             const placeholders = {
@@ -1888,7 +1940,34 @@
             };
             searchBox.placeholder = placeholders[view] || 'Enter search criteria...';
             
-            updateTree();
+            updateTree(effectiveSearch);
+            if (window.anomalyHierarchy) {
+                updateAnomalyTree(effectiveSearch);
+            }
+            syncUrlToState();
+        }
+
+        /** Apply ?view= and &q= on first load (after data is ready). */
+        function applyLaunchUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const viewParam = params.get('view');
+            const hasQ = params.has('q');
+            const qParam = hasQ ? (params.get('q') ?? '') : undefined;
+
+            if (viewParam && VALID_VIEWS.has(viewParam)) {
+                switchView(viewParam, { initialQuery: qParam });
+                return;
+            }
+            if (hasQ) {
+                const searchBox = document.getElementById('searchBox');
+                searchBox.value = qParam;
+                previousSearchTerm = '';
+                updateTree(qParam);
+                if (window.anomalyHierarchy) {
+                    updateAnomalyTree(qParam);
+                }
+                syncUrlToState();
+            }
         }
 
         // Initialize data from consolidated_data.js (injected by loadConsolidatedDataScript)
@@ -1958,6 +2037,8 @@
                     switchView(view);
                 });
             });
+
+            applyLaunchUrlParams();
         }
 
         // Build anomaly hierarchy grouped by theory
@@ -3278,6 +3359,7 @@
             const searchTerm = e.target.value;
             updateTree(searchTerm);
             updateAnomalyTree(searchTerm);
+            syncUrlToState();
         });
 
         // Inject consolidated_data.js with ?v=APP_VERSION, then run global getConsolidatedData() (gzip+base64 payload)
